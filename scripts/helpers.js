@@ -7,7 +7,7 @@
  */
 const {
   Table, TableRow, TableCell, Paragraph, TextRun,
-  WidthType, ShadingType, BorderStyle, AlignmentType,
+  WidthType, ShadingType, BorderStyle, AlignmentType, HeadingLevel,
 } = require('docx');
 
 const COLORS = {
@@ -74,7 +74,69 @@ function cell(text, opts = {}) {
   return new TableCell({
     width: { size: opts.width || 1000, type: WidthType.DXA },
     shading: opts.fill ? { type: ShadingType.CLEAR, fill: opts.fill } : undefined,
+    margins: { top: 100, bottom: 100, left: 120, right: 120 },
     children: [new Paragraph({ alignment: opts.align, children })],
+  });
+}
+
+/** Franjas alternas (zebra striping) para que una tabla larga se lea sin perder la fila. */
+function zebraFill(rowIndex, opts = {}) {
+  if (opts.fill) return opts.fill; // respeta un fill explicito (p.ej. semaforo/urgencia)
+  return rowIndex % 2 === 1 ? COLORS.bgLight : undefined;
+}
+
+/** Titulo del reporte como banner de color, en vez de texto plano sobre fondo blanco. */
+function titleBanner({ kicker, title, subtitle, widthDXA = 8800 }) {
+  const paras = [
+    new Paragraph({
+      children: [new TextRun({ text: kicker, bold: true, color: COLORS.amber, size: 20 })],
+      spacing: { after: 60 },
+    }),
+    new Paragraph({
+      children: [new TextRun({ text: title, bold: true, color: COLORS.white, size: 44 })],
+      spacing: { after: 60 },
+    }),
+  ];
+  if (subtitle) {
+    paras.push(new Paragraph({
+      children: [new TextRun({ text: subtitle, color: 'D7DCE5', size: 20, italics: true })],
+    }));
+  }
+  return new Table({
+    width: { size: widthDXA, type: WidthType.DXA },
+    rows: [new TableRow({
+      children: [new TableCell({
+        width: { size: widthDXA, type: WidthType.DXA },
+        shading: { type: ShadingType.CLEAR, fill: COLORS.navy },
+        margins: { top: 260, bottom: 260, left: 320, right: 320 },
+        children: paras,
+      })],
+    })],
+  });
+}
+
+/** Encabezado de seccion: color navy + linea inferior, en vez del Heading1 negro por defecto. */
+function sectionHeading(text) {
+  return new Paragraph({
+    heading: HeadingLevel.HEADING_1,
+    spacing: { before: 320, after: 140 },
+    border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: COLORS.amber, space: 4 } },
+    children: [new TextRun({ text, bold: true, color: COLORS.navy })],
+  });
+}
+
+/** Caja de resumen con fondo suave, para que el texto del corte no se pierda en parrafo plano. */
+function calloutBox(text, { color = COLORS.grey, fill = COLORS.bgLight, italics = false, widthDXA = 8800 } = {}) {
+  return new Table({
+    width: { size: widthDXA, type: WidthType.DXA },
+    rows: [new TableRow({
+      children: [new TableCell({
+        width: { size: widthDXA, type: WidthType.DXA },
+        shading: { type: ShadingType.CLEAR, fill },
+        margins: { top: 160, bottom: 160, left: 200, right: 200 },
+        children: [new Paragraph({ children: [new TextRun({ text, color, italics })] })],
+      })],
+    })],
   });
 }
 
@@ -130,4 +192,5 @@ module.exports = {
   COLORS, SEMAFORO, URGENCIA_COLOR,
   classifySemaforo, computeRacha,
   cell, tdRich, urgenciaCell, semaforoCell, headerRow, ctaBox,
+  zebraFill, titleBanner, sectionHeading, calloutBox,
 };

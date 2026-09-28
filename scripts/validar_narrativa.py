@@ -40,6 +40,7 @@ def porcentajes_permitidos(etl):
     if t.get('personas'):
         pc.add(float(round(t['personas_activas'] / t['personas'] * 100)))
     pc.add(100.0)
+    pc.update(float(x) for x in etl.get('porcentajes', []))   # vista DJ (dj.py)
     return pc
 
 

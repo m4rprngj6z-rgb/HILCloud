@@ -14,10 +14,8 @@
 
 ## Falta
 
-- [~] **Reporte Ejecutivo** (6): generador listo y probado; ENN generado. Falta aprobacion de Tony
-      del formato y redactar la narrativa de las otras 5 SD por corte.
-- [ ] **Reporte Fibi DJ** (1): nivel area, maximo 1-2 personas nombradas, trayectoria 5 semanas.
-      Requiere un modo del ETL que junte las 6 SD.
+- [x] **Reporte Ejecutivo** (6): formato aprobado por Tony 28 sep; los 6 del corte 21-25 sep generados.
+- [x] **Reporte Fibi DJ** (1): generado para 21-25 sep, pendiente de revision de Tony.
 - [ ] **Gobierno de Licencias** (1, para Tony): rankings y conteo mensual (reglas en el HIL).
 - [ ] Textos narrativos (Recomendacion del Ejecutivo, casos, lectura del Fibi): decidir si se
       escriben a mano sobre datos del ETL o se generan con plantillas deterministas.

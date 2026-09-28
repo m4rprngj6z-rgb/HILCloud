@@ -152,6 +152,19 @@ Replica `ENN_Ejecutivo_25sep2026.docx` aprobado. Cifras del ETL; texto de `narra
 - **Semáforo de la semana**: celdas con relleno y texto ("3 VERDE"), sin emoji (Estándar).
 - **Regresión**: `tests/test_regresion_ejecutivo_25sep.py` (37 comparaciones, 0 fallas).
 
+## 8d. Reporte Fibi DJ (scripts/dj.py + scripts/generate_fibi.js)
+
+- `dj.py` suma los JSON del ETL de las 6 SD: acciones, semana anterior, personas activas,
+  workflows, WAU, tendencia y conteo de semáforo por SD. No agrega reglas.
+- Estructura = los 5 Fibi aprobados del 28 ago al 25 sep (idéntica en los 5): métricas DJ,
+  Semáforo por SD, Casos de impacto (máx. 3), Puntos de atención. El Context Prompt de Notion
+  (julio) pide una tabla de trayectoria de 5 semanas que ningún Fibi aprobado reciente trae; se
+  sigue lo aprobado.
+- Cambios: sin raya larga en el título ni en los nombres de SD; columna "Exc. / ?" solo si
+  alguna SD la necesita; nota de semana de transición (PLD 21-25 sep).
+- Nivel área: el revisor rechaza el texto si nombra a más de 2 personas.
+- Regresión: `tests/test_regresion_fibi_25sep.py` (12 comparaciones, 0 fallas).
+
 ## 8c. Texto redactado (narrativa/) y su revisor
 
 El código no redacta. La Recomendación y la Acción del Ejecutivo (y los Casos y Puntos de

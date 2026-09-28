@@ -1,0 +1,17 @@
+{
+ "_corte": "21-25 sep 2026",
+ "_redacto": "Claude, sobre out/DJ_2026-09-25.json; validado con scripts/validar_narrativa.py (modo fibi)",
+ "fibi": {
+  "casos": [
+   "La DJ sube 21% (1145 acciones frente a 946), con 60 de 65 personas activas y 147 ejecuciones de Workflow.",
+   "ENN crece 97% con su equipo completo activo; el uso de Harvey dentro de Outlook ya suma 63 de sus 331 acciones.",
+   "GC crece 73% con sus 7 personas activas y mantiene el uso de Workflow que concentra su Champion."
+  ],
+  "puntos": [
+   "PLD: semana de cierre de su reestructuración. La baja de 39% coincide con el Foro PLD del 23 y 24 de septiembre; los colores son de referencia y no se escala.",
+   "JC crece 66% en volumen, pero sigue sin ninguna ejecución de Workflow.",
+   "RL tiene 3 personas en rojo, incluida su Dirección Funcional.",
+   "CN tiene 2 personas sin actividad esta semana."
+  ]
+ }
+}

@@ -51,7 +51,12 @@ node scripts/generate_champion.js out/ENN_2026-09-25.json out/ENN_Champion_25sep
 # Ejecutivo: primero redactar narrativa/2026-09-25/ENN.json y validarla
 python3 scripts/validar_narrativa.py out/ENN_2026-09-25.json narrativa/2026-09-25/ENN.json
 node scripts/generate_ejecutivo.js out/ENN_2026-09-25.json narrativa/2026-09-25/ENN.json out/ENN_Ejecutivo_25sep2026.docx
-python3 tests/test_regresion_26sep.py && python3 tests/test_regresion_ejecutivo_25sep.py   # si tocaste el ETL
+# Fibi: juntar las 6 SD, redactar narrativa/<fecha>/DJ.json, validar en modo fibi y generar
+python3 scripts/dj.py --corte-fin 2026-09-25
+python3 scripts/validar_narrativa.py out/DJ_2026-09-25.json narrativa/2026-09-25/DJ.json fibi
+node scripts/generate_fibi.js out/DJ_2026-09-25.json narrativa/2026-09-25/DJ.json out/FibiDJ_25sep2026.docx
+# Pruebas (si tocaste el ETL)
+python3 tests/test_regresion_26sep.py && python3 tests/test_regresion_ejecutivo_25sep.py && python3 tests/test_regresion_fibi_25sep.py
 ```
 Luego validar (`validate.py`), pasar a PDF y revisarlo visualmente, como pide el Estandar.
 

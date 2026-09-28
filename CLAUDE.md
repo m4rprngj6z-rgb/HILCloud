@@ -29,9 +29,32 @@ sincroniza aqui.
 
 ## Estructura
 
-- `data/roster.py` — roster oficial (user_id -> SD, puesto, Champion), listas de exclusion.
-- `scripts/` — pipeline de generacion de reportes (en construccion, ver docs/PENDIENTES.md).
-- `docs/` — metodologia resumida para referencia rapida sin tener que ir a Notion.
+- `data/roster.json` — roster completo (SD, nombre, puesto, nivel, fortaleza esperada, a quien
+  reporta, altas). Generado parseando el HIL, no a mano. `data/roster.py` solo lo carga.
+- `data/excepciones.json` — copia de la tabla "Excepciones activas" del HIL, con rangos de fecha.
+- `scripts/etl.py` — exports crudos -> JSON por SD. Todo el calculo vive aqui.
+- `scripts/generate_champion.js` + `scripts/helpers.js` — JSON -> docx del Champion. No calcula.
+- `tests/test_regresion_26sep.py` — reproduce los reportes aprobados del 26 sep. Correrlo
+  despues de cualquier cambio al ETL.
+- `docs/REGLAS_ETL.md` — TODAS las reglas de calculo y formato, con su origen. Leerlo antes de
+  tocar el ETL o el generador.
+- `out/` — salidas (ignorado por git).
+
+## Correr un corte
+
+```
+python3 scripts/etl.py --corte-fin 2026-09-25 --sd ENN          # viernes del corte
+node scripts/generate_champion.js out/ENN_2026-09-25.json out/ENN_Champion_25sep2026.docx
+python3 tests/test_regresion_26sep.py                            # si tocaste el ETL
+```
+Luego validar (`validate.py`), pasar a PDF y revisarlo visualmente, como pide el Estandar.
+
+## Lo que NO se hace
+
+- No calcular metricas a mano en la sesion de chat: si una regla falta, se agrega al ETL y a
+  docs/REGLAS_ETL.md. Ese fue el problema original que este repo resuelve.
+- No inventar formato: replicar los reportes aprobados (estan en /mnt/user-data/outputs/ de las
+  sesiones donde Tony los adjunta) y el Estandar de Diseno de Notion.
 
 ## Metodologia clave (resumen; el detalle completo vive en Notion)
 
@@ -46,7 +69,9 @@ sincroniza aqui.
 - **Diversidad de Workflows**: cuantos workflows DISTINTOS ejecuta cada persona (no cuantas
   veces), promedio semanal en las ultimas 5 semanas.
 - **Outlook**: se cuenta aparte de Assistant desde el corte del 26 sep 2026 en adelante.
-- **Codigos de herramienta**: A=Assistant, W=Workflow, V=Vault, Wo=Word add-in, O=Outlook.
+- **Codigos de herramienta**: A=Assistant, W=Workflow, V=Vault, Wo=Word add-in (incluye Playbook),
+  O=Outlook. Precedencia cuando una accion trae varias superficies: W > V > Wo > O > A.
+- **Corte**: lunes a viernes, hora CDMX.
 
 ## Al iniciar una sesion nueva sobre este repo
 

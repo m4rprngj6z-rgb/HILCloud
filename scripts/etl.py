@@ -1,0 +1,441 @@
+#!/usr/bin/env python3
+"""
+etl.py: convierte los exports crudos de Harvey en el JSON que consume generate.js.
+
+Uso:
+  python3 scripts/etl.py --corte-fin 2026-09-25 --sd ENN
+  python3 scripts/etl.py --corte-fin 2026-09-25 --sd ENN --o-en-a   # modo regresion: Outlook dentro de A
+
+Todas las reglas de calculo estan escritas en docs/REGLAS_ETL.md. Si cambias una regla aqui,
+cambiala alla en el mismo commit. Nada de este archivo depende de criterio de un LLM: mismo
+input, mismo output.
+"""
+import argparse
+import glob
+import json
+import os
+import sys
+from datetime import date, datetime, timedelta
+
+import pandas as pd
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+UPLOADS_DEFAULT = '/mnt/user-data/uploads'
+
+# ---------------------------------------------------------------------------
+# 1. Carga y normalizacion de exports (dos esquemas: ingles hasta jul 2026, espanol despues)
+# ---------------------------------------------------------------------------
+COLMAP = {
+    # espanol
+    'Tiempo (Etc/GMT+6)': 'ts', 'Usuario': 'email', 'Acción': 'accion',
+    'Superficie del producto': 'superficie', 'ID de uso único': 'uso_id',
+    'Nombre del workflow': 'workflow', 'Nombre del proyecto Vault': 'vault',
+    'Nombre del Playbook': 'playbook',
+    # ingles
+    'Time (Etc/GMT+6)': 'ts', 'User': 'email', 'Action': 'accion',
+    'Product Surface Area': 'superficie', 'Unique Usage ID': 'uso_id',
+    'Workflow Name': 'workflow', 'Vault Project Name': 'vault', 'Playbook Name': 'playbook',
+}
+TOKEN_ES = {'ASSISTANT': 'ASISTENTE', 'DRAFT': 'BORRADOR', 'COMMAND_CENTER': 'CENTRO_DE_COMANDO'}
+CANON = ['ts', 'email', 'accion', 'superficie', 'uso_id', 'workflow', 'vault', 'playbook']
+
+
+_CACHE = {}
+
+
+def load_events(uploads):
+    if uploads in _CACHE:
+        ev, meta = _CACHE[uploads]
+        return ev.copy(), meta
+    files = sorted(glob.glob(os.path.join(uploads, 'harvey-usage-start_*.xlsx')))
+    if not files:
+        sys.exit(f'No hay exports harvey-usage-start_*.xlsx en {uploads}')
+    frames = []
+    for f in files:
+        d = pd.read_excel(f)
+        d = d.rename(columns={c: COLMAP[c] for c in d.columns if c in COLMAP})
+        missing = [c for c in ['ts', 'email', 'superficie', 'uso_id'] if c not in d.columns]
+        if missing:
+            sys.exit(f'{os.path.basename(f)}: faltan columnas {missing}. Esquema nuevo de Harvey: actualizar COLMAP.')
+        for c in CANON:
+            if c not in d.columns:
+                d[c] = None
+        d = d[CANON].copy()
+        d['_archivo'] = os.path.basename(f)
+        frames.append(d)
+    ev = pd.concat(frames, ignore_index=True)
+    n_raw = len(ev)
+    # Los exports son ventanas moviles de ~30 dias que se traslapan: deduplicar por ID unico.
+    con_id = ev[ev['uso_id'].notna()].drop_duplicates(subset=['uso_id'])
+    sin_id = ev[ev['uso_id'].isna()].drop_duplicates(subset=['ts', 'email', 'superficie', 'workflow'])
+    ev = pd.concat([con_id, sin_id], ignore_index=True)
+    ev['ts'] = pd.to_datetime(ev['ts'])
+    ev['email'] = ev['email'].astype(str).str.strip().str.lower()
+    ev['user_id'] = ev['email'].str.split('@').str[0]
+    ev['superficie'] = ev['superficie'].fillna('').astype(str).map(
+        lambda s: ', '.join(TOKEN_ES.get(t.strip(), t.strip()) for t in s.split(',') if t.strip()))
+    meta = {
+        'archivos': [os.path.basename(f) for f in files],
+        'filas_crudas': n_raw, 'eventos_unicos': len(ev),
+        'filas_sin_id': int(len(sin_id)),
+        'datos_desde': str(ev['ts'].min()), 'datos_hasta': str(ev['ts'].max()),
+    }
+    _CACHE[uploads] = (ev, meta)
+    return ev.copy(), meta
+
+
+# ---------------------------------------------------------------------------
+# 2. Clasificacion de herramienta (regla confirmada por Tony, 28 sep 2026)
+#    Precedencia: W > V > Wo (Word o Playbook) > O > A
+# ---------------------------------------------------------------------------
+TOOLS = ['A', 'Wo', 'V', 'W', 'O']   # orden de columnas del reporte aprobado (+ O)
+ORDEN_DESEMPATE = ['A', 'W', 'V', 'Wo', 'O']   # orden de la Nomenclatura del HIL; desempata la Firma
+# Nombres de "workflow" que Harvey pone a hilos de Assistant lanzados desde Workflow. Cuentan en W
+# (regla de precedencia), pero no son un workflow real: no se nombran ni cuentan para Diversidad.
+WF_GENERICOS = {'Assist', 'Word Add-In Assistant'}
+
+
+def classify(superficie, o_en_a=False):
+    toks = {t.strip() for t in superficie.split(',') if t.strip()}
+    if 'WORKFLOW' in toks:
+        return 'W'
+    if 'VAULT' in toks:
+        return 'V'
+    if 'WORD' in toks or 'PLAYBOOK' in toks:
+        return 'Wo'
+    if 'OUTLOOK' in toks:
+        return 'A' if o_en_a else 'O'
+    if 'ASISTENTE' in toks:
+        return 'A'
+    return 'OTRO'
+
+
+# ---------------------------------------------------------------------------
+# 3. Cortes: lunes 00:00 a viernes 23:59 hora CDMX (Context Prompt, Notion)
+# ---------------------------------------------------------------------------
+def corte_windows(corte_fin, n):
+    """Regresa n cortes [(lunes, viernes)] terminando en corte_fin (viernes), del mas viejo al actual."""
+    out = []
+    for k in range(n - 1, -1, -1):
+        fri = corte_fin - timedelta(days=7 * k)
+        out.append((fri - timedelta(days=4), fri))
+    return out
+
+
+def label(mon, fri):
+    meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+    if mon.month == fri.month:
+        return f'{mon.day}-{fri.day} {meses[fri.month - 1]} {fri.year}'
+    return f'{mon.day} {meses[mon.month - 1]}-{fri.day} {meses[fri.month - 1]} {fri.year}'
+
+
+# ---------------------------------------------------------------------------
+# 4. Excepciones (data/excepciones.json, copia de la tabla de Notion)
+# ---------------------------------------------------------------------------
+def load_excepciones():
+    return json.load(open(os.path.join(REPO, 'data', 'excepciones.json')))['excepciones']
+
+
+def dias_semana(mon):
+    return [mon + timedelta(days=i) for i in range(5)]
+
+
+def excepcion_semana(uid, sd, mon, excs):
+    """Evalua una persona en un corte. Regresa dict con dias_habiles, dias_ausente, tipos y
+    si la semana es de excepcion (regla en docs/REGLAS_ETL.md, seccion 4)."""
+    feriados, ausente, tipos, incapacidad = set(), set(), [], False
+    for e in excs:
+        d0, d1 = date.fromisoformat(e['desde']), date.fromisoformat(e['hasta'])
+        aplica_dj = e.get('sd') == 'TODA_DJ'
+        aplica = aplica_dj or e.get('sd') == sd or uid in e.get('personas', [])
+        if not aplica:
+            continue
+        for d in dias_semana(mon):
+            if d0 <= d <= d1:
+                if aplica_dj:
+                    feriados.add(d)
+                else:
+                    ausente.add(d)
+                    if e['tipo'] not in tipos:
+                        tipos.append(e['tipo'])
+                    if e['tipo'].lower().startswith('incapacidad'):
+                        incapacidad = True
+    habiles = 5 - len(feriados)
+    ausente -= feriados
+    es_exc = incapacidad or len(ausente) >= 3 or (habiles > 0 and len(ausente) >= habiles)
+    return {'dias_habiles': habiles, 'dias_ausente': len(ausente), 'tipos': tipos, 'es_excepcion': es_exc}
+
+
+# ---------------------------------------------------------------------------
+# 5. Semaforo self-relative (HIL, regla 26 sep 2026)
+# ---------------------------------------------------------------------------
+def semaforo(total, baseline):
+    if baseline is None:
+        return 'sin_historial'
+    if baseline == 0:
+        return 'verde' if total > 0 else 'rojo'
+    r = total / baseline
+    if r >= 1.0:
+        return 'verde'
+    if r >= 0.4:
+        return 'amarillo'
+    return 'rojo'
+
+
+# ---------------------------------------------------------------------------
+# 6. Columnas derivadas del reporte Champion (reconstruidas y verificadas contra los 65
+#    casos de los reportes Champion aprobados del 26 sep 2026; ver docs/REGLAS_ETL.md)
+# ---------------------------------------------------------------------------
+UMBRAL_ALTA_RATIO = 0.5     # cualquier valor en (0.455, 0.639] reproduce lo aprobado
+UMBRAL_BAJA_RATIO = 1.2     # cualquier valor en (1.113, 1.230] reproduce lo aprobado
+UMBRAL_LEVE = 2.0           # delta maximo por herramienta para "cambio leve"
+UMBRAL_PAREJO = 0.5         # segunda herramienta / primera >= 0.5 -> "parejo"
+
+
+def urgencia(sem, total, ratio):
+    if sem == 'excepcion':
+        return 'Sin acción'
+    if sem == 'sin_historial':
+        return 'Media'
+    if sem == 'rojo' or total <= UMBRAL_RACHA or (ratio is not None and ratio < UMBRAL_ALTA_RATIO):
+        return 'Alta'
+    if sem == 'amarillo' or (ratio is not None and ratio < UMBRAL_BAJA_RATIO):
+        return 'Media'
+    return 'Baja'
+
+
+def motivo(sem, cur, base_tool):
+    """Regresa lista de fragmentos [{'text','tool'?}] para que el generador coloree los codigos."""
+    if not base_tool:
+        return [{'text': 'Sin línea base suficiente para comparar por herramienta.'}]
+    delta = {t: cur[t] - base_tool.get(t, 0) for t in TOOLS}
+    if max(abs(v) for v in delta.values()) < UMBRAL_LEVE:
+        return [{'text': 'Cambio leve y parejo entre herramientas, sin un patrón concentrado.'}]
+    sube = sem == 'verde'
+    movs = sorted(((t, v) for t, v in delta.items() if (v > 0 if sube else v < 0)),
+                  key=lambda kv: (-abs(kv[1]), ORDEN_DESEMPATE.index(kv[0])))
+    if not movs:
+        return [{'text': 'Cambio leve y parejo entre herramientas, sin un patrón concentrado.'}]
+    verbo = 'Aumento' if sube else 'Caída'
+    conc, parejo = ('concentrado', 'parejo') if sube else ('concentrada', 'pareja')
+    if len(movs) > 1 and abs(movs[1][1]) >= UMBRAL_PAREJO * abs(movs[0][1]):
+        return [{'text': f'{verbo} {parejo} entre '}, {'text': movs[0][0], 'tool': movs[0][0]},
+                {'text': ' y '}, {'text': movs[1][0], 'tool': movs[1][0]}, {'text': '.'}]
+    return [{'text': f'{verbo} {conc} en '}, {'text': movs[0][0], 'tool': movs[0][0]},
+            {'text': ', el resto se mantiene cerca de su ritmo habitual.'}]
+
+
+def fortaleza(wf_top, fuerte):
+    if wf_top:
+        return [{'text': f"{wf_top[0]} (su workflow más usado, {wf_top[1]}x)"}]
+    if fuerte:
+        return [{'text': fuerte, 'tool': fuerte}, {'text': ' es su herramienta más consistente históricamente.'}]
+    return [{'text': 'Sin historial suficiente.'}]
+
+
+def fmt_fecha(d):
+    meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+    return f'{d.day} {meses[d.month - 1]}'
+
+
+# ---------------------------------------------------------------------------
+# 7. Calculo principal
+# ---------------------------------------------------------------------------
+N_HIST = 5          # ventana de linea base
+N_CICLO = 5         # ciclo de racha / diversidad
+UMBRAL_RACHA = 5    # "mas de 5 interacciones"
+
+
+def build(corte_fin, sd, uploads, o_en_a=False):
+    roster = json.load(open(os.path.join(REPO, 'data', 'roster.json')))
+    personas = {u: p for u, p in roster['personas'].items()
+                if p['sd'] == sd and not p.get('excluido_metricas') and not p.get('fuera_de_semaforo')}
+    excs = load_excepciones()
+    ev, meta = load_events(uploads)
+    ev['tool'] = ev['superficie'].map(lambda s: classify(s, o_en_a))
+    data_desde = ev['ts'].min().normalize()
+
+    # Hace falta historial para: ciclo de 5 cortes, cada uno con 5 semanas de linea base.
+    wins = corte_windows(corte_fin, N_CICLO + N_HIST)
+    ev['fecha'] = ev['ts'].dt.date
+    ev['dow'] = ev['ts'].dt.dayofweek
+
+    fin_ = datetime.combine(corte_fin, datetime.max.time())
+    fds = ev[(ev['user_id'].isin(personas)) & (ev['dow'] >= 5) & (ev['ts'] <= fin_)]
+    fuera = ev[(ev['user_id'].isin(personas)) & (ev['tool'] == 'OTRO')]
+
+    # tabla semana x persona
+    semanas = []
+    for mon, fri in wins:
+        cubierta = pd.Timestamp(mon) >= data_desde
+        semanas.append({'lunes': mon, 'viernes': fri, 'label': label(mon, fri), 'con_datos': bool(cubierta)})
+
+    def week_stats(uid, mon, fri):
+        m = ev[(ev['user_id'] == uid) & (ev['fecha'] >= mon) & (ev['fecha'] <= fri) & (ev['tool'] != 'OTRO')]
+        counts = {t: int((m['tool'] == t).sum()) for t in TOOLS}
+        wf = m[m['tool'] == 'W']['workflow'].dropna()
+        wf = wf[~wf.isin(WF_GENERICOS)]
+        return {
+            **counts,
+            'total': int(sum(counts.values())),
+            'dias_activos': int(m['fecha'].nunique()),
+            'wf_distintos': int(wf.nunique()),
+            'wf_conteo': wf.value_counts().to_dict(),
+            'ultima': str(m['ts'].max()) if len(m) else None,
+        }
+
+    cur_mon_, cur_fri_ = wins[-1]
+    rows = []
+    for uid, p in personas.items():
+        hist = []
+        for s in semanas:
+            st = week_stats(uid, s['lunes'], s['viernes'])
+            st['excepcion'] = excepcion_semana(uid, sd, s['lunes'], excs)
+            st['con_datos'] = s['con_datos']
+            st['label'] = s['label']
+            hist.append(st)
+
+        def baseline_at(i):
+            prev = [hist[j] for j in range(max(0, i - N_HIST), i)
+                    if hist[j]['con_datos'] and not hist[j]['excepcion']['es_excepcion']]
+            if not prev:
+                return None, [], 0
+            b = sum(h['total'] for h in prev) / len(prev)
+            per_tool = {t: sum(h[t] for h in prev) / len(prev) for t in TOOLS}
+            return b, per_tool, len(prev)
+
+        alta = date.fromisoformat(p['alta']) if p.get('alta') else None
+        for i, h in enumerate(hist):
+            b, bt, n = baseline_at(i)
+            h['baseline'] = b
+            h['baseline_tool'] = bt
+            h['baseline_semanas'] = n
+            if h['excepcion']['es_excepcion']:
+                h['semaforo'] = 'excepcion'
+            elif alta and semanas[i]['lunes'] - timedelta(weeks=N_HIST) < alta:
+                h['semaforo'] = 'sin_historial'         # alta documentada hace <5 semanas
+            else:
+                h['semaforo'] = semaforo(h['total'], b)  # b=None (sin semanas utiles) -> sin_historial
+
+        ciclo = hist[-N_CICLO:]
+        # Racha: desde el corte actual hacia atras; excepcion se salta sin romper.
+        racha, rota = 0, False
+        for h in reversed(ciclo):
+            if rota or h['semaforo'] == 'excepcion':
+                continue
+            if h['semaforo'] in ('verde', 'amarillo') and h['total'] > UMBRAL_RACHA:
+                racha += 1
+            else:
+                rota = True
+        na_ciclo = all(h['semaforo'] == 'excepcion' for h in ciclo)
+        evaluables = [h for h in ciclo if h['semaforo'] != 'excepcion']
+        div = round(sum(h['wf_distintos'] for h in evaluables) / len(evaluables), 1) if evaluables else None
+
+        cur = hist[-1]
+        prev_real = next((h for h in reversed(hist[:-1]) if h['con_datos']), None)
+        ultima_exc = hist[-2]['excepcion']['es_excepcion'] if len(hist) > 1 else False
+        firma = '>'.join(t for t, _ in sorted(((t, cur[t]) for t in TOOLS if cur[t] > 0),
+                                               key=lambda kv: (-kv[1], ORDEN_DESEMPATE.index(kv[0]))))
+        # Fortaleza historica: herramienta con mas uso promedio en las semanas de linea base.
+        _, bt, _ = baseline_at(len(hist) - 1)
+        fuerte = (max(TOOLS, key=lambda t: (bt.get(t, 0), -ORDEN_DESEMPATE.index(t)))
+                  if bt and any(bt.values()) else None)
+        wf_ciclo = {}
+        for h in hist[-N_CICLO:]:
+            for k, v in h['wf_conteo'].items():
+                wf_ciclo[k] = wf_ciclo.get(k, 0) + v
+        # workflow mas usado esta semana; empate: mas usado en el ciclo de 5 semanas; luego alfabetico
+        wf_top = min(cur['wf_conteo'].items(), key=lambda kv: (-kv[1], -wf_ciclo.get(kv[0], 0), kv[0]), default=None)
+        ratio = None if not cur['baseline'] else cur['total'] / cur['baseline']
+        exc = cur['excepcion']
+        if cur['semaforo'] == 'excepcion':
+            vig = [e for e in excs if (uid in e.get('personas', []) or e.get('sd') == sd)
+                   and date.fromisoformat(e['desde']) <= cur_fri_ and date.fromisoformat(e['hasta']) >= cur_mon_]
+            vig.sort(key=lambda e: 0 if uid in e.get('personas', []) else 1)   # la personal gana
+            rango = vig[0] if vig else None
+            txt = (f"{rango['tipo']} ({fmt_fecha(date.fromisoformat(rango['desde']))}-"
+                   f"{fmt_fecha(date.fromisoformat(rango['hasta']))} {rango['hasta'][:4]})") if rango else 'Excepción documentada'
+            mot = [{'text': txt}]
+            fort = [{'text': 'Sin datos esta semana (excepción).'}]
+        else:
+            mot = motivo(cur['semaforo'], cur, cur['baseline_tool'])
+            fort = fortaleza(wf_top, fuerte)
+        post = bool(len(hist) > 1 and hist[-2]['excepcion']['es_excepcion'] and not exc['es_excepcion'])
+        if post:
+            mot = [{'text': 'Primera semana completa tras una excepción: la cifra todavía no se lee como ritmo sostenido. '}] + mot
+
+        rows.append({
+            'usuario': uid, 'nombre': p['nombre'], 'nivel': p['nivel'], 'puesto': p['puesto'],
+            'champion': p['champion'], 'f_esperada': p['f_esperada'], 'reporta_a': p.get('reporta_a'),
+            **{t.lower(): cur[t] for t in TOOLS},
+            'total': cur['total'], 'dias_activos': cur['dias_activos'], 'ultima_actividad': cur['ultima'],
+            'semaforo': cur['semaforo'],
+            'baseline': None if cur['baseline'] is None else round(cur['baseline'], 1),
+            'baseline_semanas': cur['baseline_semanas'],
+            'ratio': None if not cur['baseline'] else round(cur['total'] / cur['baseline'], 3),
+            'baseline_tool': {t: round(v, 1) for t, v in (cur['baseline_tool'] or {}).items()},
+            'excepcion_actual': cur['excepcion'],
+            'post_excepcion': post,
+            'total_anterior': prev_real['total'] if prev_real else None,
+            'racha': None if na_ciclo else racha, 'naCiclo': na_ciclo,
+            'diversidadWf': div,
+            'firma': firma or 'Sin actividad',
+            'urgencia': urgencia(cur['semaforo'], cur['total'], ratio),
+            'motivo': mot,
+            'fortaleza': fort,
+            'fortaleza_tool': fuerte,
+            'workflow_top': {'nombre': wf_top[0], 'veces': int(wf_top[1])} if wf_top else None,
+            'historial': [{'corte': h['label'], 'total': h['total'], 'semaforo': h['semaforo'],
+                           **{t: h[t] for t in TOOLS},
+                           'excepcion': h['excepcion']['es_excepcion']} for h in hist],
+        })
+
+    cur_mon, cur_fri = wins[-1]
+    out = {
+        'sd': sd,
+        'sdNombre': roster['sd_nombres'][sd],
+        'champion': next((p['nombre'] for p in personas.values() if p['champion']), None),
+        'subdirector': roster['personas'][roster['subdirectores'][sd]]['nombre'],
+        'corte': label(cur_mon, cur_fri),
+        'corte_lunes': str(cur_mon), 'corte_viernes': str(cur_fri),
+        'o_en_a': o_en_a,
+        'totales': {
+            'acciones': sum(r['total'] for r in rows),
+            'acciones_anterior': sum((r['total_anterior'] or 0) for r in rows),
+            'personas': len(rows),
+            'personas_activas': sum(1 for r in rows if r['total'] > 0),
+            'workflows': sum(r['w'] for r in rows),
+        },
+        'calidad_datos': {
+            **meta,
+            'eventos_fin_de_semana_excluidos': int(len(fds)),
+            'eventos_superficie_no_clasificada': fuera['superficie'].value_counts().to_dict(),
+            'usuarios_activos_fuera_de_roster': sorted(
+                set(ev[(ev['fecha'] >= cur_mon) & (ev['fecha'] <= cur_fri)]['user_id'])
+                - set(roster['personas'])),
+        },
+        'rows': rows,
+    }
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--corte-fin', required=True, help='viernes del corte, AAAA-MM-DD')
+    ap.add_argument('--sd', required=True)
+    ap.add_argument('--uploads', default=UPLOADS_DEFAULT)
+    ap.add_argument('--o-en-a', action='store_true', help='regresion: contar Outlook dentro de A (criterio previo al 26 sep)')
+    ap.add_argument('--out')
+    a = ap.parse_args()
+    fin = date.fromisoformat(a.corte_fin)
+    if fin.weekday() != 4:
+        sys.exit('--corte-fin debe ser viernes')
+    out = build(fin, a.sd, a.uploads, a.o_en_a)
+    path = a.out or os.path.join(REPO, 'out', f'{a.sd}_{a.corte_fin}{"_oena" if a.o_en_a else ""}.json')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    json.dump(out, open(path, 'w'), ensure_ascii=False, indent=1, default=str)
+    print('OK:', path)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,785 @@
+{
+ "_fuente": "Notion HIL 37df66a17162812a9f53e15cb031792d (tabla maestra + organigramas) y Base de Usuarios 376f66a1716281c5a12fd8385313d6e7",
+ "_sincronizado": "2026-09-28",
+ "_nota": "Generado parseando las tablas del HIL, no transcrito a mano. Si Notion cambia, Notion gana: re-sincronizar. Correcciones sobre la tabla maestra: lrobert = Luis Ricardo Robert (asi en Excepciones y reportes aprobados). Fechas de alta tomadas de las notas del HIL.",
+ "sd_nombres": {
+  "ENN": "Expansión Nuevos Negocios",
+  "CN": "Cumplimiento Normativo",
+  "PLD": "Prevención de Lavado de Dinero",
+  "GC": "Gobierno Corporativo",
+  "JC": "Jurídico Contencioso",
+  "RL": "Relaciones Laborales"
+ },
+ "subdirectores": {
+  "ENN": "kmendez",
+  "CN": "farcos",
+  "PLD": "gcadena",
+  "GC": "lrobert",
+  "JC": "masmora",
+  "RL": "jcenteno"
+ },
+ "personas": {
+  "adguillen": {
+   "sd": "CN",
+   "nombre": "Armando de la Rosa",
+   "puesto": "Gerente de Seguros",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "farcos"
+  },
+  "aksalinas": {
+   "sd": "CN",
+   "nombre": "Ana Karen Salinas",
+   "puesto": "Coordinador CN",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "ealvarez"
+  },
+  "amaqueda": {
+   "sd": "CN",
+   "nombre": "Alejandro Maqueda",
+   "puesto": "Gerente Normativo SPEI",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "farcos"
+  },
+  "anraya": {
+   "sd": "CN",
+   "nombre": "Aaron Raya",
+   "puesto": "Líder CN",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "jgsantillan"
+  },
+  "ceberrelleza": {
+   "sd": "CN",
+   "nombre": "César Berelleza",
+   "puesto": "Coordinador CN",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "amaqueda"
+  },
+  "ealvarez": {
+   "sd": "CN",
+   "nombre": "Elisa Álvarez",
+   "puesto": "Gerente CN",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "farcos"
+  },
+  "farcos": {
+   "sd": "CN",
+   "nombre": "Fehebell Arcos",
+   "puesto": "Subdirector Jurídico CN",
+   "nivel": "Subdirector",
+   "rol_hai": "User",
+   "f_esperada": "A>V",
+   "champion": false,
+   "reporta_a": "zmanzur"
+  },
+  "fymedina": {
+   "sd": "CN",
+   "nombre": "Fernando Yhibran Medina",
+   "puesto": "Líder CN",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "jixta"
+  },
+  "japperez": {
+   "sd": "CN",
+   "nombre": "Janis Pérez",
+   "puesto": "Líder CN",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "amaqueda"
+  },
+  "jbelloc": {
+   "sd": "CN",
+   "nombre": "Jorge Belloc",
+   "puesto": "Líder CN",
+   "nivel": "Líder",
+   "rol_hai": "★ Champion",
+   "f_esperada": "M (W>A>V)",
+   "champion": true,
+   "reporta_a": "jgsantillan"
+  },
+  "jgsantillan": {
+   "sd": "CN",
+   "nombre": "Javier García",
+   "puesto": "Gerente CN",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "farcos"
+  },
+  "jixta": {
+   "sd": "CN",
+   "nombre": "Alonso Ixta",
+   "puesto": "Gerente CN",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "farcos"
+  },
+  "kiguerrero": {
+   "sd": "CN",
+   "nombre": "Karla Guerrero",
+   "puesto": "Coordinador CN",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "larrazola"
+  },
+  "larrazola": {
+   "sd": "CN",
+   "nombre": "Lucía Arrazola",
+   "puesto": "Gerente Servicios Normativos",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "farcos"
+  },
+  "lesespinoza": {
+   "sd": "CN",
+   "nombre": "Leslie Espinoza",
+   "puesto": "Líder CN",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "ealvarez"
+  },
+  "zmanzur": {
+   "sd": "DJ",
+   "nombre": "Zurihe Manzur",
+   "puesto": "Directora Jurídica",
+   "nivel": "Director",
+   "rol_hai": "User",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "excluido_metricas": true
+  },
+  "alduarte": {
+   "sd": "ENN",
+   "nombre": "Alfredo Duarte",
+   "puesto": "Gerente Corporativo",
+   "nivel": "Gerente",
+   "rol_hai": "User (permisos Champion)",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "kmendez"
+  },
+  "dfuentes": {
+   "sd": "ENN",
+   "nombre": "Diana Fuentes",
+   "puesto": "Gerente Contratos TI",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "kmendez"
+  },
+  "isrodriguez": {
+   "sd": "ENN",
+   "nombre": "Isis Rodríguez",
+   "puesto": "Coordinadora Contratos",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "jbueno"
+  },
+  "jbueno": {
+   "sd": "ENN",
+   "nombre": "Tony Bueno",
+   "puesto": "Champion de Champions (capa DJ)",
+   "nivel": "Gerente",
+   "rol_hai": "★ Champion de Champions",
+   "f_esperada": "M",
+   "champion": false,
+   "reporta_a": "kmendez",
+   "excluido_metricas": true
+  },
+  "kmendez": {
+   "sd": "ENN",
+   "nombre": "Karla Méndez",
+   "puesto": "Subdirectora ENN",
+   "nivel": "Subdirector",
+   "rol_hai": "User",
+   "f_esperada": "A>V",
+   "champion": false,
+   "reporta_a": "zmanzur"
+  },
+  "migjaimes": {
+   "sd": "ENN",
+   "nombre": "Miguel Jaimes",
+   "puesto": "Coordinador Contratos",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "alduarte"
+  },
+  "nsotelo": {
+   "sd": "ENN",
+   "nombre": "Karime Sotelo",
+   "puesto": "Líder Contratos",
+   "nivel": "Líder",
+   "rol_hai": "★ Champion",
+   "f_esperada": "W>A",
+   "champion": true,
+   "reporta_a": "alduarte"
+  },
+  "rodosuna": {
+   "sd": "ENN",
+   "nombre": "Rodolfo Osuna",
+   "puesto": "Gerente Contratos",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W>V",
+   "champion": false,
+   "reporta_a": "kmendez"
+  },
+  "rrcubillo": {
+   "sd": "ENN",
+   "nombre": "Raquel Reyes Cubillo",
+   "puesto": "Gerente Arrendamientos (Inmuebles)",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "kmendez"
+  },
+  "soochoa": {
+   "sd": "ENN",
+   "nombre": "Sofía Ochoa",
+   "puesto": "Coordinadora Jurídico Corporativo",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "dfuentes"
+  },
+  "aestrada": {
+   "sd": "EXTERNO",
+   "nombre": "Artemio Estrada",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": true
+  },
+  "bleperez": {
+   "sd": "EXTERNO",
+   "nombre": "Blanca Pérez",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": true
+  },
+  "brytrujillo": {
+   "sd": "EXTERNO",
+   "nombre": "Bryan Trujillo",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": false
+  },
+  "gchirinos": {
+   "sd": "EXTERNO",
+   "nombre": "George Chirinos",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": false
+  },
+  "jcajuarez": {
+   "sd": "EXTERNO",
+   "nombre": "Juan Carlos Juárez",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": true
+  },
+  "jonbecerril": {
+   "sd": "EXTERNO",
+   "nombre": "Jonathan Becerril",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": true
+  },
+  "marvillanuev": {
+   "sd": "EXTERNO",
+   "nombre": "María Villanueva",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": true
+  },
+  "amireles": {
+   "sd": "GC",
+   "nombre": "Alejandra Mireles",
+   "puesto": "Coordinador Propiedad Intelectual",
+   "nivel": "Coordinador",
+   "rol_hai": "★ Champion",
+   "f_esperada": "M (W>A)",
+   "champion": true,
+   "reporta_a": "lrobert"
+  },
+  "dialvarado": {
+   "sd": "GC",
+   "nombre": "Diego Alvarado",
+   "puesto": "Analista Jurídico Corporativo",
+   "nivel": "Analista",
+   "rol_hai": "User",
+   "f_esperada": "W>V>A",
+   "champion": false,
+   "reporta_a": "lrobert"
+  },
+  "gjuarez": {
+   "sd": "GC",
+   "nombre": "Gabriel Juárez",
+   "puesto": "Gerente GC",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "lrobert"
+  },
+  "juagalvez": {
+   "sd": "GC",
+   "nombre": "Juan Miguel Gálvez",
+   "puesto": "Gerente GC",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "lrobert"
+  },
+  "lrobert": {
+   "sd": "GC",
+   "nombre": "Luis Ricardo Robert",
+   "puesto": "Subdirector GC",
+   "nivel": "Subdirector",
+   "rol_hai": "User",
+   "f_esperada": "A>V",
+   "champion": false,
+   "reporta_a": "zmanzur"
+  },
+  "myalvarezf": {
+   "sd": "GC",
+   "nombre": "María Yesenia Álvarez",
+   "puesto": "Coordinador GC",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "juagalvez"
+  },
+  "zulgarcia": {
+   "sd": "GC",
+   "nombre": "Zuleycka García",
+   "puesto": "Coordinador GC",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "gjuarez"
+  },
+  "amhernandez": {
+   "sd": "JC",
+   "nombre": "Amed Hernández",
+   "puesto": "Gerente Contencioso Normativo",
+   "nivel": "Gerente",
+   "rol_hai": "★ Champion",
+   "f_esperada": "M (A>W)",
+   "champion": true,
+   "reporta_a": "masmora"
+  },
+  "aqsordo": {
+   "sd": "JC",
+   "nombre": "Andrés Quintero",
+   "puesto": "Líder Jurídico Atención Autoridades",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "amhernandez"
+  },
+  "arperez": {
+   "sd": "JC",
+   "nombre": "Adriana Rodríguez",
+   "puesto": "Gerente Jurídico Contencioso",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "masmora"
+  },
+  "crifernandez": {
+   "sd": "JC",
+   "nombre": "Cristian Fernández",
+   "puesto": "Abogado Contencioso",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "omonteverde"
+  },
+  "glosanchez": {
+   "sd": "JC",
+   "nombre": "Gloria Sánchez",
+   "puesto": "Abogado Contencioso",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "omonteverde"
+  },
+  "masmora": {
+   "sd": "JC",
+   "nombre": "Marcia Mora",
+   "puesto": "Subdirector Asuntos Legales Contencioso Normativo",
+   "nivel": "Subdirector",
+   "rol_hai": "User",
+   "f_esperada": "A>V",
+   "champion": false,
+   "reporta_a": "zmanzur"
+  },
+  "omonteverde": {
+   "sd": "JC",
+   "nombre": "Oscar Monteverde",
+   "puesto": "Gerente Jurídico Contencioso",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "masmora"
+  },
+  "acasillas": {
+   "sd": "PLD",
+   "nombre": "Alejandra Casillas",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "hfalcon"
+  },
+  "akamartinez": {
+   "sd": "PLD",
+   "nombre": "Ana Karen Martínez",
+   "puesto": "Gerente PLD",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "gcadena"
+  },
+  "anlramirez": {
+   "sd": "PLD",
+   "nombre": "Ana Lilia Ramírez Barranco",
+   "puesto": "Gerente PLD",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "gcadena",
+   "alta": "2026-08-22"
+  },
+  "cjreyes": {
+   "sd": "PLD",
+   "nombre": "Carlos Reyes",
+   "puesto": "Gerente PLD",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "gcadena"
+  },
+  "dammercado": {
+   "sd": "PLD",
+   "nombre": "Damaris Mercado",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "cjreyes"
+  },
+  "dilmendoza": {
+   "sd": "PLD",
+   "nombre": "Diana Laura Mendoza Osorio",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "hfalcon",
+   "alta": "2026-08-22"
+  },
+  "gaguerrero": {
+   "sd": "PLD",
+   "nombre": "Gabriela Mejía Guerrero",
+   "puesto": "Gerente PLD",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "gcadena",
+   "alta": "2026-08-22"
+  },
+  "gcadena": {
+   "sd": "PLD",
+   "nombre": "Gabriela Cadena",
+   "puesto": "Subdirector PLD",
+   "nivel": "Subdirector",
+   "rol_hai": "User",
+   "f_esperada": "A>V",
+   "champion": false,
+   "reporta_a": "zmanzur"
+  },
+  "gubernal": {
+   "sd": "PLD",
+   "nombre": "Gustavo Bernal",
+   "puesto": "Líder PLD",
+   "nivel": "Líder",
+   "rol_hai": "★ Champion",
+   "f_esperada": "M (W>A)",
+   "champion": true,
+   "reporta_a": "cjreyes"
+  },
+  "hfalcon": {
+   "sd": "PLD",
+   "nombre": "Heriberto Falcón",
+   "puesto": "Gerente PLD",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "gcadena"
+  },
+  "imbecerra": {
+   "sd": "PLD",
+   "nombre": "Israel Márquez Becerra",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "anlramirez",
+   "alta": "2026-08-22"
+  },
+  "jepallares": {
+   "sd": "PLD",
+   "nombre": "Jesús Paúl Pallares",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "anlramirez",
+   "alta": "2026-08-22"
+  },
+  "kaparicio": {
+   "sd": "PLD",
+   "nombre": "Karla Stephanie Aparicio González",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "hfalcon",
+   "alta": "2026-08-22"
+  },
+  "kshernandez": {
+   "sd": "PLD",
+   "nombre": "Kelly Hernández",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "cjreyes"
+  },
+  "mamanzano": {
+   "sd": "PLD",
+   "nombre": "Mario Manzano",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "cjreyes"
+  },
+  "msotomayor": {
+   "sd": "PLD",
+   "nombre": "Martha Sotomayor",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "hfalcon"
+  },
+  "nerangel": {
+   "sd": "PLD",
+   "nombre": "Néstor Rangel",
+   "puesto": "Líder PLD",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "hfalcon"
+  },
+  "radimas": {
+   "sd": "PLD",
+   "nombre": "Raúl Dimas",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "akamartinez"
+  },
+  "rcenturion": {
+   "sd": "PLD",
+   "nombre": "Ricardo Centurión",
+   "puesto": "Coordinador PLD",
+   "nivel": "Coordinador",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "hfalcon"
+  },
+  "ajogarcia": {
+   "sd": "RL",
+   "nombre": "Alan García",
+   "puesto": "Líder Contencioso Laboral",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "charamirez"
+  },
+  "charamirez": {
+   "sd": "RL",
+   "nombre": "Christian Ramírez",
+   "puesto": "Gerente Contencioso Laboral",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "jcenteno"
+  },
+  "jcenteno": {
+   "sd": "RL",
+   "nombre": "Julián Centeno",
+   "puesto": "Director (Funcional) RL",
+   "nivel": "Director",
+   "rol_hai": "User",
+   "f_esperada": "A>V",
+   "champion": false,
+   "reporta_a": "zmanzur"
+  },
+  "jnajera": {
+   "sd": "RL",
+   "nombre": "Jean Cub Nájera",
+   "puesto": "Líder RL",
+   "nivel": "Líder",
+   "rol_hai": "★ Champion",
+   "f_esperada": "M (A>W)",
+   "champion": true,
+   "reporta_a": "kzetina"
+  },
+  "kzetina": {
+   "sd": "RL",
+   "nombre": "Karla Zetina",
+   "puesto": "Gerente RL",
+   "nivel": "Gerente",
+   "rol_hai": "User",
+   "f_esperada": "A>W",
+   "champion": false,
+   "reporta_a": "jcenteno"
+  },
+  "pgodinez": {
+   "sd": "RL",
+   "nombre": "Patsy Godínez",
+   "puesto": "Líder Contencioso Laboral",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "charamirez"
+  },
+  "rvfernandezl": {
+   "sd": "RL",
+   "nombre": "Rocío Fernández",
+   "puesto": "Líder RL",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "jcenteno"
+  },
+  "valcruz": {
+   "sd": "RL",
+   "nombre": "Valeria Cruz",
+   "puesto": "Líder RL",
+   "nivel": "Líder",
+   "rol_hai": "User",
+   "f_esperada": "W>A",
+   "champion": false,
+   "reporta_a": "kzetina"
+  }
+ }
+}

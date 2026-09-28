@@ -1,0 +1,131 @@
+{
+ "_fuente": "Notion HIL, tabla 'Excepciones activas' (notion.so/37df66a17162812a9f53e15cb031792d). La mantiene unicamente Tony.",
+ "_sincronizado": "2026-09-28",
+ "_regla": "Notion gana. Cada fila: a quien aplica (personas, sd o 'TODA_DJ'), rango de fechas inclusivo, tipo. El ETL decide que semanas quedan cubiertas con la regla documentada en docs/REGLAS_ETL.md.",
+ "excepciones": [
+  {
+   "personas": [
+    "soochoa"
+   ],
+   "tipo": "Incapacidad",
+   "desde": "2026-07-06",
+   "hasta": "2026-08-20",
+   "nota": "Cerrada 20 ago 2026"
+  },
+  {
+   "personas": [
+    "nsotelo"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-08-13",
+   "hasta": "2026-08-20"
+  },
+  {
+   "personas": [
+    "isrodriguez"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-09-17",
+   "hasta": "2026-09-18"
+  },
+  {
+   "personas": [
+    "alduarte"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-09-04",
+   "hasta": "2026-09-18"
+  },
+  {
+   "personas": [
+    "dfuentes"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-09-09",
+   "hasta": "2026-09-15"
+  },
+  {
+   "sd": "TODA_DJ",
+   "tipo": "Día inhábil",
+   "desde": "2026-09-16",
+   "hasta": "2026-09-16",
+   "nota": "Independencia de Mexico"
+  },
+  {
+   "sd": "PLD",
+   "tipo": "Reestructuración organizacional + capacitaciones",
+   "desde": "2026-08-03",
+   "hasta": "2026-09-24",
+   "nota": "Cerrada 23-24 sep 2026. Cubre el ciclo completo: racha N/A de ciclo"
+  },
+  {
+   "sd": "PLD",
+   "tipo": "Seminario PLD de la ABM",
+   "desde": "2026-09-03",
+   "hasta": "2026-09-04"
+  },
+  {
+   "personas": [
+    "akamartinez"
+   ],
+   "tipo": "Incapacidad por maternidad",
+   "desde": "2026-09-01",
+   "hasta": "2027-01-31",
+   "nota": "Hasta finales de enero 2027 (estimado)"
+  },
+  {
+   "sd": "PLD",
+   "tipo": "Foro PLD UNIFIMEX (presencial)",
+   "desde": "2026-09-23",
+   "hasta": "2026-09-24"
+  },
+  {
+   "personas": [
+    "acasillas"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-09-14",
+   "hasta": "2026-09-21"
+  },
+  {
+   "personas": [
+    "lrobert"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-09-17",
+   "hasta": "2026-09-18"
+  },
+  {
+   "personas": [
+    "dialvarado"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-09-14",
+   "hasta": "2026-09-14"
+  },
+  {
+   "personas": [
+    "valcruz"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-09-17",
+   "hasta": "2026-09-18"
+  },
+  {
+   "personas": [
+    "pgodinez"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-09-17",
+   "hasta": "2026-10-02"
+  },
+  {
+   "personas": [
+    "charamirez"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-10-02",
+   "hasta": "2026-10-09"
+  }
+ ]
+}

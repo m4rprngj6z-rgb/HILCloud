@@ -1,196 +1,165 @@
 /**
- * helpers.js — utilidades de armado para los reportes docx Champion.
+ * helpers.js: primitivas de formato para los reportes docx.
  *
- * Reconstruido 26 sep 2026 tras perderse la version anterior en un reset de sandbox.
- * Consolida: tablas con columnas fijas, celdas de color (semaforo / urgencia), y el
- * bloque de CTA. Pensado para usarse desde generate.js, uno por SD.
+ * TODO lo visual de aqui se tomo del XML de los reportes aprobados por Tony
+ * ({SD}_Champion_26sep2026.docx) y del "Estandar de Diseno y QA de Entregables" en Notion
+ * (notion.so/38bf66a171628106af37eb6098e6ee82). No inventar colores ni tamanos: si algo cambia,
+ * cambia primero el estandar o un reporte aprobado, y luego esto.
+ *
+ * Reglas del estandar que viven aqui:
+ *  - Arial en todo el documento.
+ *  - Encabezado de tabla #1F3864, filas alternas #EBF3FB.
+ *  - Semaforo con relleno de celda + etiqueta en texto. Nunca emoji dentro de texto Arial
+ *    (se rompe en Word; regla 25 sep 2026).
+ *  - "Persona", no "Usuario", en encabezados.
+ *  - Nunca raya larga (em dash) en ningun texto.
  */
 const {
-  Table, TableRow, TableCell, Paragraph, TextRun,
-  WidthType, ShadingType, BorderStyle, AlignmentType, HeadingLevel,
+  Table, TableRow, TableCell, Paragraph, TextRun, WidthType, ShadingType, BorderStyle,
+  AlignmentType, VerticalAlign, TableLayoutType,
 } = require('docx');
 
-const COLORS = {
-  navy: '1B2A45',
-  teal: '2F6F62',
-  amber: 'C98A3E',
-  red: 'B23A3A',
-  grey: '4A5568',
-  greyLight: '8A94A6',
-  bgLight: 'F1EEE6',
-  white: 'FFFFFF',
+const FONT = 'Arial';
+
+const C = {
+  navy: '1F3864',
+  negro: '000000',
+  gris: '595959',
+  grisBorde: 'BFBFBF',
+  filaAlterna: 'EBF3FB',
+  blanco: 'FFFFFF',
+  cajaVerde: 'E2EFDA',
+  verdeTexto: '375623',
 };
 
-const SEMAFORO = {
-  verde: { label: '🟢 Verde', color: COLORS.teal },
-  amarillo: { label: '🟡 Amarillo', color: COLORS.amber },
-  rojo: { label: '🔴 Rojo', color: COLORS.red },
-  excepcion: { label: '⚪ Excepción', color: COLORS.greyLight },
-  sin_historial: { label: '? Sin historial', color: COLORS.greyLight },
+// Relleno + texto para semaforo y urgencia (tomado de los aprobados)
+const ESTADO = {
+  verde: { fill: 'C6EFCE', color: '375623', label: 'VERDE' },
+  amarillo: { fill: 'FFEB9C', color: '9C5700', label: 'AMARILLO' },
+  rojo: { fill: 'FFC7CE', color: '9C0006', label: 'ROJO' },
+  excepcion: { fill: 'F2F2F2', color: '666666', label: 'EXCEPCIÓN' },
+  sin_historial: { fill: 'F2F2F2', color: '666666', label: '?' },
+};
+const URGENCIA = {
+  Alta: ESTADO.rojo, Media: ESTADO.amarillo, Baja: ESTADO.verde, 'Sin acción': ESTADO.excepcion,
 };
 
-const URGENCIA_COLOR = {
-  Alta: COLORS.red,
-  Media: COLORS.amber,
-  Baja: COLORS.greyLight,
-  'Sin acción': COLORS.teal,
-};
+// Color de los codigos de herramienta dentro del texto (A, Wo, W de los aprobados; V y O
+// no aparecieron en ningun aprobado: V toma el verde de la paleta; O usa morado estandar de Office
+// para no confundirse con el texto gris).
+const TOOL_COLOR = { A: '1F3864', Wo: '9C5700', W: '9C0006', V: '375623', O: '7030A0' };
 
-/** Clasifica ratio (actividad / baseline propio) al color de semaforo self-relative. */
-function classifySemaforo(actions, baseline, { hasHistory = true, isException = false } = {}) {
-  if (isException) return 'excepcion';
-  if (!hasHistory) return 'sin_historial';
-  if (baseline === 0) return actions > 0 ? 'verde' : 'rojo';
-  const ratio = actions / baseline;
-  if (ratio >= 1.0) return 'verde';
-  if (ratio >= 0.4) return 'amarillo';
-  return 'rojo';
-}
-
-/** Racha: cortes consecutivos (desde el mas reciente) en verde/amarillo con >5 acciones.
- *  weeklyData: array ordenado ASC [{actions, baseline, isException, hasHistory}], normalmente
- *  las ultimas 5 semanas (un ciclo). Las semanas de excepcion se saltan sin romper la racha. */
-function computeRacha(weeklyData) {
-  let racha = 0;
-  let broken = false;
-  let allException = true;
-  for (let i = weeklyData.length - 1; i >= 0; i--) {
-    const wk = weeklyData[i];
-    const color = classifySemaforo(wk.actions, wk.baseline, wk);
-    if (!wk.isException) allException = false;
-    if (broken) continue;
-    if (wk.isException) continue; // se salta, no rompe, no cuenta
-    const active = (color === 'verde' || color === 'amarillo') && wk.actions > 5;
-    if (active) racha += 1;
-    else broken = true;
-  }
-  return { racha, naCiclo: allException };
-}
-
-function cell(text, opts = {}) {
-  const children = Array.isArray(text)
-    ? text
-    : [new TextRun({ text: String(text), bold: !!opts.bold, color: opts.color, italics: !!opts.italics })];
-  return new TableCell({
-    width: { size: opts.width || 1000, type: WidthType.DXA },
-    shading: opts.fill ? { type: ShadingType.CLEAR, fill: opts.fill } : undefined,
-    margins: { top: 100, bottom: 100, left: 120, right: 120 },
-    children: [new Paragraph({ alignment: opts.align, children })],
+function run(text, o = {}) {
+  if (/—/.test(text)) throw new Error(`Raya larga (em dash) prohibida en: ${text}`);
+  return new TextRun({
+    text, font: FONT, size: o.size || 17, bold: !!o.bold, italics: !!o.italics, color: o.color || C.negro,
   });
 }
 
-/** Franjas alternas (zebra striping) para que una tabla larga se lea sin perder la fila. */
-function zebraFill(rowIndex, opts = {}) {
-  if (opts.fill) return opts.fill; // respeta un fill explicito (p.ej. semaforo/urgencia)
-  return rowIndex % 2 === 1 ? COLORS.bgLight : undefined;
-}
-
-/** Titulo del reporte como banner de color, en vez de texto plano sobre fondo blanco. */
-function titleBanner({ kicker, title, subtitle, widthDXA = 8800 }) {
-  const paras = [
-    new Paragraph({
-      children: [new TextRun({ text: kicker, bold: true, color: COLORS.amber, size: 20 })],
-      spacing: { after: 60 },
-    }),
-    new Paragraph({
-      children: [new TextRun({ text: title, bold: true, color: COLORS.white, size: 44 })],
-      spacing: { after: 60 },
-    }),
-  ];
-  if (subtitle) {
-    paras.push(new Paragraph({
-      children: [new TextRun({ text: subtitle, color: 'D7DCE5', size: 20, italics: true })],
-    }));
-  }
-  return new Table({
-    width: { size: widthDXA, type: WidthType.DXA },
-    rows: [new TableRow({
-      children: [new TableCell({
-        width: { size: widthDXA, type: WidthType.DXA },
-        shading: { type: ShadingType.CLEAR, fill: COLORS.navy },
-        margins: { top: 260, bottom: 260, left: 320, right: 320 },
-        children: paras,
-      })],
-    })],
-  });
-}
-
-/** Encabezado de seccion: color navy + linea inferior, en vez del Heading1 negro por defecto. */
-function sectionHeading(text) {
+function para(children, o = {}) {
   return new Paragraph({
-    heading: HeadingLevel.HEADING_1,
-    spacing: { before: 320, after: 140 },
-    border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: COLORS.amber, space: 4 } },
-    children: [new TextRun({ text, bold: true, color: COLORS.navy })],
+    alignment: o.align,
+    spacing: { before: o.before || 0, after: o.after === undefined ? 0 : o.after },
+    children: Array.isArray(children) ? children : [children],
   });
 }
 
-/** Caja de resumen con fondo suave, para que el texto del corte no se pierda en parrafo plano. */
-function calloutBox(text, { color = COLORS.grey, fill = COLORS.bgLight, italics = false, widthDXA = 8800 } = {}) {
+const BORDE = { style: BorderStyle.SINGLE, size: 4, color: C.grisBorde };
+
+function cell(content, o = {}) {
+  const runs = Array.isArray(content) ? content : [run(String(content ?? ''), o)];
+  return new TableCell({
+    width: { size: o.width, type: WidthType.DXA },
+    shading: o.fill ? { type: ShadingType.CLEAR, fill: o.fill, color: 'auto' } : undefined,
+    verticalAlign: VerticalAlign.CENTER,
+    borders: { top: BORDE, left: BORDE, bottom: BORDE, right: BORDE },
+    margins: { top: 60, bottom: 60, left: o.tight ? 40 : 90, right: o.tight ? 40 : 90 },
+    children: [para(runs, { align: o.align || AlignmentType.LEFT })],
+  });
+}
+
+function headerRow(cols, widths, centered = new Set()) {
+  return new TableRow({
+    tableHeader: true,
+    children: cols.map((c, i) => cell(c, {
+      width: widths[i], fill: C.navy, bold: true, color: C.blanco, size: 16,
+      align: centered.has(i) ? AlignmentType.CENTER : AlignmentType.LEFT, tight: centered.has(i),
+    })),
+  });
+}
+
+function table(widths, rows) {
   return new Table({
-    width: { size: widthDXA, type: WidthType.DXA },
+    width: { size: widths.reduce((a, b) => a + b, 0), type: WidthType.DXA },
+    columnWidths: widths,
+    layout: TableLayoutType.FIXED,
+    rows,
+  });
+}
+
+function estadoCell(key, width, map = ESTADO, size = 14) {
+  const e = map[key] || ESTADO.sin_historial;
+  const label = map === ESTADO ? e.label : key;
+  return cell([run(label, { bold: true, color: e.color, size })], { width, fill: e.fill, align: AlignmentType.CENTER, tight: true });
+}
+
+/** Fragmentos [{text, tool?}] -> runs, con los codigos de herramienta en negrita y color. */
+function richRuns(parts, o = {}) {
+  return parts.map((p) => (p.tool
+    ? run(p.text, { ...o, bold: true, color: TOOL_COLOR[p.tool] || C.navy })
+    : run(p.text, o)));
+}
+
+// Encabezado del documento, igual al aprobado
+function docHeader(sdNombre, tipo, corte, fecha, champion) {
+  return [
+    para(run('Harvey AI × Gentera', { size: 28, bold: true, color: C.navy }), { after: 40 }),
+    para(run(`SD ${sdNombre}`, { size: 24, bold: true }), { after: 40 }),
+    para(run(`${tipo}  |  Corte: ${corte}  |  ${fecha}${champion ? `  |  Champion: ${champion}` : ''}`,
+      { size: 18, color: C.gris }), { after: 160 }),
+  ];
+}
+
+function h2(text) {
+  return para(run(text, { size: 22, bold: true, color: C.navy }), { before: 200, after: 100 });
+}
+
+function nota(text, o = {}) {
+  return para(run(text, { size: o.size || 14, italics: o.italics !== false, bold: !!o.bold, color: C.gris }), { after: o.after ?? 160 });
+}
+
+function cajaVerde(titulo, texto, plantilla, width = 9620) {
+  return new Table({
+    width: { size: width, type: WidthType.DXA },
+    columnWidths: [width],
+    layout: TableLayoutType.FIXED,
     rows: [new TableRow({
       children: [new TableCell({
-        width: { size: widthDXA, type: WidthType.DXA },
-        shading: { type: ShadingType.CLEAR, fill },
-        margins: { top: 160, bottom: 160, left: 200, right: 200 },
-        children: [new Paragraph({ children: [new TextRun({ text, color, italics })] })],
+        width: { size: width, type: WidthType.DXA },
+        shading: { type: ShadingType.CLEAR, fill: C.cajaVerde, color: 'auto' },
+        borders: {
+          top: { style: BorderStyle.SINGLE, size: 12, color: '70AD47' },
+          left: { style: BorderStyle.SINGLE, size: 12, color: '70AD47' },
+          bottom: { style: BorderStyle.SINGLE, size: 12, color: '70AD47' },
+          right: { style: BorderStyle.SINGLE, size: 12, color: '70AD47' },
+        },
+        margins: { top: 120, bottom: 120, left: 160, right: 160 },
+        children: [
+          para(run(titulo, { size: 20, bold: true, color: C.verdeTexto }), { after: 80 }),
+          para(run(texto, { size: 17 }), { after: 100 }),
+          para(run(plantilla, { size: 17, italics: true, color: C.gris })),
+        ],
       })],
     })],
   });
 }
 
-/** Celda con varios "tokens" de texto en distinto color/negrita, para citar codigos
- *  de herramienta (A/W/V/Wo/O) en negrita+color dentro de una frase (Motivo del semaforo). */
-function tdRich(parts, opts = {}) {
-  const runs = parts.map(p =>
-    typeof p === 'string'
-      ? new TextRun({ text: p })
-      : new TextRun({ text: p.text, bold: !!p.bold, color: p.color })
-  );
-  return cell(runs, opts);
-}
-
-function urgenciaCell(urgencia, opts = {}) {
-  const color = URGENCIA_COLOR[urgencia] || COLORS.grey;
-  return cell(urgencia, { ...opts, bold: true, color });
-}
-
-function semaforoCell(colorKey, opts = {}) {
-  const s = SEMAFORO[colorKey] || { label: colorKey, color: COLORS.grey };
-  return cell(s.label, { ...opts, bold: true, color: s.color });
-}
-
-function headerRow(cols, widths, fill = COLORS.navy) {
-  return new TableRow({
-    children: cols.map((c, i) => cell(c, { width: widths[i], fill, bold: true, color: COLORS.white })),
-  });
-}
-
-/** Bloque de llamado a la accion (CTA), usado al cierre de los reportes Champion. */
-function ctaBox(title, lines, widthDXA = 8800) {
-  return new Table({
-    width: { size: widthDXA, type: WidthType.DXA },
-    rows: [
-      new TableRow({
-        children: [
-          new TableCell({
-            width: { size: widthDXA, type: WidthType.DXA },
-            shading: { type: ShadingType.CLEAR, fill: COLORS.bgLight },
-            children: [
-              new Paragraph({ children: [new TextRun({ text: title, bold: true, color: COLORS.navy })] }),
-              ...lines.map(l => new Paragraph({ children: [new TextRun({ text: `• ${l}`, color: COLORS.grey })] })),
-            ],
-          }),
-        ],
-      }),
-    ],
-  });
+function firma() {
+  return para(run('Elaboró: José Antonio Bueno Díaz  |  Harvey AI Champion de Champions, DJ', { size: 16, color: C.gris }),
+    { before: 220, after: 20 });
 }
 
 module.exports = {
-  COLORS, SEMAFORO, URGENCIA_COLOR,
-  classifySemaforo, computeRacha,
-  cell, tdRich, urgenciaCell, semaforoCell, headerRow, ctaBox,
-  zebraFill, titleBanner, sectionHeading, calloutBox,
+  C, ESTADO, URGENCIA, TOOL_COLOR, FONT,
+  run, para, cell, headerRow, table, estadoCell, richRuns, docHeader, h2, nota, cajaVerde, firma,
 };

@@ -1,0 +1,126 @@
+# Reglas del ETL (scripts/etl.py)
+
+Todo lo que el ETL calcula está aquí, en español, con su origen. Si cambias una regla en el
+código, cámbiala aquí en el mismo commit. Nada de esto depende del criterio de un LLM: mismo
+input, mismo output.
+
+**Verificación:** `python3 tests/test_regresion_26sep.py` reproduce los 6 reportes Champion
+aprobados del 26 sep 2026 (65 personas): 313 comparaciones idénticas, 0 fallas, y solo las
+diferencias documentadas en la sección 9. Además, un recuento independiente (script distinto,
+sin ver este código) cuadró exacto las 9 personas de ENN del corte 21-25 sep.
+
+## 1. Fuentes
+
+| Qué | Dónde | Quién manda |
+|---|---|---|
+| Uso de Harvey | `harvey-usage-start_*.xlsx` en `/mnt/user-data/uploads/` (no se versionan) | Harvey |
+| Roster (SD, nombre, nivel, fortaleza esperada, a quién reporta) | `data/roster.json` | Notion HIL (tabla maestra + organigramas) |
+| Excepciones (vacaciones, incapacidades, eventos) | `data/excepciones.json` | Notion HIL, tabla "Excepciones activas" |
+
+Si Notion y el repo difieren, Notion gana: re-sincronizar aquí.
+
+## 2. Carga
+
+- Se leen **todos** los exports (son ventanas móviles de ~30 días que se traslapan) y se
+  deduplica por `ID de uso único`.
+- Dos esquemas: hasta jul 2026 Harvey exportó en inglés (`Time`, `User`, `Product Surface Area`,
+  `ASSISTANT`, `DRAFT`); después en español. El ETL normaliza ambos. **Antes se descartaban en
+  silencio las filas en inglés** (junio-julio), lo que acortaba el historial.
+- Persona = parte del correo antes de la @, en minúsculas. Fusiona dominios
+  (`compartamos.com`, `genteraservicios.com`, `gentera.com.mx`).
+
+## 3. Herramienta de cada acción (regla confirmada por Tony, 28 sep 2026)
+
+La columna "Superficie del producto" trae combinaciones. Precedencia, gana la primera:
+
+1. contiene WORKFLOW → **W**
+2. contiene VAULT → **V**
+3. contiene WORD o PLAYBOOK → **Wo**
+4. contiene OUTLOOK → **O** (desde el corte del 26 sep; antes se contaba en A)
+5. contiene ASISTENTE → **A** (incluye BORRADOR y CENTRO_DE_COMANDO)
+
+Filas de W cuyo nombre de workflow es genérico (`Assist`, `Word Add-In Assistant`) cuentan en W
+pero no se nombran como workflow ni cuentan para Diversidad.
+
+## 4. Cortes y excepciones
+
+- Corte = **lunes 00:00 a viernes 23:59** hora CDMX (Context Prompt en Notion). Actividad de fin
+  de semana no cuenta (el JSON reporta cuántas acciones se excluyeron).
+- Una semana es **de excepción** para una persona si: tiene cualquier día de incapacidad, o 3 o
+  más días hábiles cubiertos por una excepción personal o de su SD. Los días inhábiles de toda la
+  DJ (ej. 16 sep) reducen los días hábiles pero no cuentan como ausencia.
+- Si la persona tiene excepción personal y además hay una de su SD, la etiqueta muestra la
+  personal.
+
+## 5. Semáforo (HIL, regla 26 sep 2026)
+
+- Línea base = promedio de las 5 semanas anteriores **excluyendo semanas de excepción** (pueden
+  quedar menos de 5). Aplica igual al total y a la línea base por herramienta.
+- Verde ≥ 100% de su línea base; Amarillo 40-99%; Rojo < 40%. Sin piso absoluto.
+- Línea base 0: verde si tuvo actividad, rojo si no.
+- Excepción esta semana → EXCEPCIÓN (no se califica).
+- `?` → alta documentada (`alta` en roster.json) hace menos de 5 semanas, o sin ninguna semana
+  útil de línea base.
+
+## 6. Racha y Diversidad (agregadas 26 sep 2026)
+
+- **Racha**: desde el corte actual hacia atrás, dentro de los últimos 5 cortes, cuántos seguidos
+  en verde o amarillo con más de 5 acciones. Excepción se salta sin romper. Si los 5 cortes son
+  excepción: `N/A` (N/A de ciclo, no 0).
+- **Div. Wf**: promedio semanal de workflows distintos en los últimos 5 cortes, sin contar
+  semanas de excepción ni nombres genéricos.
+
+## 7. Columnas del reporte Champion
+
+Reconstruidas del generador que se perdió, ajustadas contra los 65 casos aprobados del 26 sep.
+Donde un umbral no quedó determinado de forma única por los datos, se anota el rango que
+reproduce lo aprobado.
+
+- **Urgencia**
+  - Excepción → Sin acción
+  - `?` → Media
+  - Rojo, o 5 acciones o menos, o menos de 50% de su línea base → **Alta** (cualquier umbral
+    entre 46% y 64% reproduce lo aprobado)
+  - Amarillo, o verde por debajo de 120% → **Media** (cualquier umbral entre 112% y 123%)
+  - Verde ≥ 120% con más de 5 acciones → **Baja**
+- **Orden de la tabla**: Urgencia (Alta, Media, Baja, Sin acción), luego % de su línea base de
+  menor a mayor.
+- **Firma**: herramientas usadas esta semana, de mayor a menor. Empates: orden de la
+  Nomenclatura del HIL (A, W, V, Wo, O).
+- **Motivo del semáforo** (compara cada herramienta contra su propia línea base):
+  - Si ninguna herramienta se movió 2 o más acciones → "Cambio leve y parejo entre herramientas".
+  - Si no: verde = Aumento, amarillo/rojo = Caída. Se toman solo las herramientas que se
+    movieron en esa dirección. Si la segunda se movió al menos la mitad que la primera →
+    "pareja entre X y Y"; si no → "concentrada en X, el resto se mantiene cerca de su ritmo".
+  - Primera semana completa tras una excepción: se antepone la nota obligatoria del HIL.
+- **Fortaleza actual**: si usó workflows reales esta semana → el más usado ("su workflow más
+  usado, Nx"; empate: más usado en el ciclo, luego alfabético). Si no → la herramienta con mayor
+  promedio en su línea base ("es su herramienta más consistente históricamente").
+
+## 8. Formato (scripts/helpers.js, scripts/generate_champion.js)
+
+Replica el XML de `ENN_Champion_26sep2026.docx` aprobado: Arial, encabezados #1F3864, filas
+alternas #EBF3FB, bordes #BFBFBF, estados con relleno (verde C6EFCE/375623, amarillo
+FFEB9C/9C5700, rojo FFC7CE/9C0006, excepción F2F2F2/666666), códigos A #1F3864, Wo #9C5700,
+W #9C0006. V (#375623) y O (#7030A0) no aparecían en ningún aprobado. Sin emoji dentro de texto
+Arial. "Persona", no "Usuario". El generador lanza error si algún texto trae raya larga.
+
+Agregado sobre el aprobado (acordado 26 sep): columnas O, Racha, Div. Wf y la tabla de códigos
+autocontenida.
+
+## 9. Diferencias conocidas contra los reportes del 26 sep (esperadas)
+
+| Caso | Por qué |
+|---|---|
+| PLD completo | El 26 sep se calificó con semáforo. Después Tony confirmó que la reestructuración cerró el 23-24 sep: la semana 21-25 sep tiene 4 días cubiertos y ahora es excepción. |
+| Karime Sotelo, Motivo | El generador viejo usaba línea base por herramienta sin excluir vacaciones (inconsistente con su propia línea base total). |
+| Alfredo Duarte, Motivo | El ETL agrega la nota post-excepción obligatoria del HIL; el reporte del 26 sep la omitió (el del 25 sí la traía). |
+| Javier García, Firma | Empate Wo = W: el generador viejo desempataba por orden de aparición en el archivo (con Gabriel Juárez lo hizo al revés). |
+| Gramática | "Caída parejo/concentrado" → "Caída pareja/concentrada". |
+
+## 10. Decisiones abiertas (Tony)
+
+- Umbral de 3 días para semana de excepción: con él, las vacaciones de Isis del 17-18 sep (2
+  días) no convierten esa semana en excepción; el cálculo a mano del 26 sep sí la marcaba.
+- PLD, corte 21-25 sep: ¿excepción (4 días de reestructuración) o ya se evalúa? Notion dice "a
+  partir del corte 25 sep", que puede leerse de las dos formas.

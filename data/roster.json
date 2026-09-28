@@ -302,7 +302,8 @@
    "champion": false,
    "reporta_a": null,
    "fuera_de_semaforo": true,
-   "baja_ejecutada": true
+   "baja_ejecutada": true,
+   "area": "Inteligencia Fraudes"
   },
   "bleperez": {
    "sd": "EXTERNO",
@@ -314,7 +315,8 @@
    "champion": false,
    "reporta_a": null,
    "fuera_de_semaforo": true,
-   "baja_ejecutada": true
+   "baja_ejecutada": true,
+   "area": "Área sin confirmar"
   },
   "brytrujillo": {
    "sd": "EXTERNO",
@@ -326,7 +328,9 @@
    "champion": false,
    "reporta_a": null,
    "fuera_de_semaforo": true,
-   "baja_ejecutada": false
+   "baja_ejecutada": false,
+   "area": "Control Interno",
+   "nota_licencia": "Regulador: no candidato a liberar licencia (Tony, 7 ago 2026)"
   },
   "gchirinos": {
    "sd": "EXTERNO",
@@ -338,7 +342,8 @@
    "champion": false,
    "reporta_a": null,
    "fuera_de_semaforo": true,
-   "baja_ejecutada": false
+   "baja_ejecutada": false,
+   "area": "Área sin confirmar"
   },
   "jcajuarez": {
    "sd": "EXTERNO",
@@ -350,7 +355,8 @@
    "champion": false,
    "reporta_a": null,
    "fuera_de_semaforo": true,
-   "baja_ejecutada": true
+   "baja_ejecutada": true,
+   "area": "Control Interno Operativo TI"
   },
   "jonbecerril": {
    "sd": "EXTERNO",
@@ -362,7 +368,8 @@
    "champion": false,
    "reporta_a": null,
    "fuera_de_semaforo": true,
-   "baja_ejecutada": true
+   "baja_ejecutada": true,
+   "area": "Área sin confirmar"
   },
   "marvillanuev": {
    "sd": "EXTERNO",
@@ -374,7 +381,8 @@
    "champion": false,
    "reporta_a": null,
    "fuera_de_semaforo": true,
-   "baja_ejecutada": true
+   "baja_ejecutada": true,
+   "area": "Auditoría Estados Financieros"
   },
   "amireles": {
    "sd": "GC",

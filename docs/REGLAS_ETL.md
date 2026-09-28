@@ -179,6 +179,23 @@ Replica `ENN_Ejecutivo_25sep2026.docx` aprobado. Cifras del ETL; texto de `narra
 - Nivel área: el revisor rechaza el texto si nombra a más de 2 personas.
 - Regresión: `tests/test_regresion_fibi_25sep.py` (12 comparaciones, 0 fallas).
 
+## 8e. Gobierno de Licencias (scripts/licencias.py + scripts/generate_licencias.js)
+
+Reglas del HIL (sección "Gobierno de Licencias", 25 sep 2026), aplicadas tal cual:
+- Dos ránkings de menor a mayor uso semanal: Jurídico (roster de las 6 SD, sin ningún filtro) y
+  No Jurídico (cortesías y externos con licencia activa; las bajas ejecutadas no entran). jbueno y
+  zmanzur van aparte, solo como referencia.
+- Top 10 por semana. **Empates en el lugar 10: entran todos los empatados** (decisión de Claude,
+  28 sep 2026; el aprobado del 25 sep dejó fuera a 2 personas con las mismas 3 acciones sin regla).
+- Apariciones: veces en el top 10 en los cortes del mes calendario (mes del viernes), desde el
+  primer corte del sistema (25 sep 2026). Una semana de excepción (misma regla del ETL) no cuenta.
+- Candidato = 2 o más apariciones en el mismo mes. Se presenta; Tony decide.
+- Radar: top 10 de ambos ránkings esta semana + quien ya apareció este mes + saltos al alza, con
+  gráfica de 8 semanas (semana de excepción = punto hueco gris). "Salto al alza" solo en no
+  jurídicos: esta semana 20+ acciones y al menos el triple de su promedio de las 7 previas.
+- Notas al lado de la persona (ej. "Regulador"), nunca como razón para omitirla.
+- Regresión: `tests/test_regresion_licencias_25sep.py` (24 comparaciones, 0 fallas).
+
 ## 8c. Texto redactado (narrativa/) y su revisor
 
 El código no redacta. La Recomendación y la Acción del Ejecutivo (y los Casos y Puntos de

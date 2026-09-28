@@ -59,6 +59,7 @@ function run(text, o = {}) {
 function para(children, o = {}) {
   return new Paragraph({
     alignment: o.align,
+    keepNext: !!o.keepNext,
     spacing: { before: o.before || 0, after: o.after === undefined ? 0 : o.after },
     children: Array.isArray(children) ? children : [children],
   });
@@ -131,7 +132,7 @@ function docHeader(sdNombre, tipo, corte, fecha, champion) {
 }
 
 function h2(text, before = 200) {
-  return para(run(text, { size: 22, bold: true, color: C.navy }), { before, after: 100 });
+  return para(run(text, { size: 22, bold: true, color: C.navy }), { before, after: 100, keepNext: true });
 }
 
 function nota(text, o = {}) {

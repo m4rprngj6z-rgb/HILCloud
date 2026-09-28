@@ -16,8 +16,8 @@
 
 - [x] **Reporte Ejecutivo** (6): formato aprobado por Tony 28 sep; los 6 del corte 21-25 sep generados.
 - [x] **Reporte Fibi DJ** (1): generado para 21-25 sep, pendiente de revision de Tony.
-- [ ] **Gobierno de Licencias** (1, para Tony): rankings y conteo mensual (reglas en el HIL).
-- [ ] Textos narrativos (Recomendacion del Ejecutivo, casos, lectura del Fibi): decidir si se
+- [x] **Gobierno de Licencias** (1): generado para 21-25 sep; pendiente de revision de Tony.
+- [x] `scripts/correr_corte.sh`: los 14 docx de un corte con un comando.
       escriben a mano sobre datos del ETL o se generan con plantillas deterministas.
 - [ ] Decisiones abiertas de Tony: ver docs/REGLAS_ETL.md seccion 10.
 - [ ] `sync_notion.py`: regenerar roster.json y excepciones.json desde Notion sin copiar a mano.

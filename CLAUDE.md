@@ -33,8 +33,10 @@ sincroniza aqui.
   reporta, altas). Generado parseando el HIL, no a mano. `data/roster.py` solo lo carga.
 - `data/excepciones.json` — copia de la tabla "Excepciones activas" del HIL, con rangos de fecha.
 - `scripts/etl.py` — exports crudos -> JSON por SD. Todo el calculo vive aqui.
-- `scripts/generate_champion.js`, `scripts/generate_ejecutivo.js` + `scripts/helpers.js` — JSON -> docx.
+- `scripts/dj.py` (vista DJ para el Fibi), `scripts/licencias.py` (Gobierno de Licencias): calculo.
+- `scripts/generate_{champion,ejecutivo,fibi,licencias}.js` + `scripts/helpers.js` — JSON -> docx.
   No calculan.
+- `scripts/correr_corte.sh` — corre el corte completo (14 docx).
 - `narrativa/<fecha>/<SD>.json` — texto redactado por corte (Recomendacion, Accion...).
   `scripts/validar_narrativa.py` lo revisa contra el ETL antes de generar.
 - `tests/test_regresion_26sep.py` — reproduce los reportes aprobados del 26 sep. Correrlo
@@ -45,20 +47,14 @@ sincroniza aqui.
 
 ## Correr un corte
 
-```
-python3 scripts/etl.py --corte-fin 2026-09-25 --sd ENN          # viernes del corte
-node scripts/generate_champion.js out/ENN_2026-09-25.json out/ENN_Champion_25sep2026.docx
-# Ejecutivo: primero redactar narrativa/2026-09-25/ENN.json y validarla
-python3 scripts/validar_narrativa.py out/ENN_2026-09-25.json narrativa/2026-09-25/ENN.json
-node scripts/generate_ejecutivo.js out/ENN_2026-09-25.json narrativa/2026-09-25/ENN.json out/ENN_Ejecutivo_25sep2026.docx
-# Fibi: juntar las 6 SD, redactar narrativa/<fecha>/DJ.json, validar en modo fibi y generar
-python3 scripts/dj.py --corte-fin 2026-09-25
-python3 scripts/validar_narrativa.py out/DJ_2026-09-25.json narrativa/2026-09-25/DJ.json fibi
-node scripts/generate_fibi.js out/DJ_2026-09-25.json narrativa/2026-09-25/DJ.json out/FibiDJ_25sep2026.docx
-# Pruebas (si tocaste el ETL)
-python3 tests/test_regresion_26sep.py && python3 tests/test_regresion_ejecutivo_25sep.py && python3 tests/test_regresion_fibi_25sep.py
-```
-Luego validar (`validate.py`), pasar a PDF y revisarlo visualmente, como pide el Estandar.
+1. Correr el ETL de las 6 SD para ver los datos: `python3 scripts/etl.py --corte-fin <viernes> --sd <SD>`
+2. Redactar la narrativa del corte en `narrativa/<viernes>/`: `<SD>.json` (ejecutivo: recomendacion,
+   accion) y `DJ.json` (fibi: casos, puntos; licencias: notas opcionales). Usar las del corte
+   anterior como modelo. El revisor rechaza cifras que no salen del ETL.
+3. `scripts/correr_corte.sh <viernes> "<fecha larga>"`: genera y valida los 14 docx en `out/`.
+4. Pasar a PDF y revisarlo visualmente (Estandar): al menos 1 Champion, 1 Ejecutivo, Fibi y Licencias.
+5. Si tocaste el ETL: `python3 tests/test_regresion_26sep.py`, `..._ejecutivo_25sep.py`,
+   `..._fibi_25sep.py`, `..._licencias_25sep.py`. Todas deben dar 0 fallas.
 
 ## Lo que NO se hace
 

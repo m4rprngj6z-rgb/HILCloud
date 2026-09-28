@@ -186,6 +186,9 @@ def excepcion_semana(uid, sd, mon, excs):
     for d in sorted(ausente):
         for t in ausente[d]:
             por_tipo.setdefault(t, []).append(d)
+    # la excepcion personal va primero (la etiqueta muestra la personal sobre la de la SD)
+    personales = {e['tipo'] for e in excs if uid in e.get('personas', [])}
+    por_tipo = dict(sorted(por_tipo.items(), key=lambda kv: 0 if kv[0] in personales else 1))
     return {'dias_habiles': habiles, 'dias_ausente': n, 'tipos': list(por_tipo),
             'por_tipo': {t: [str(x) for x in v] for t, v in por_tipo.items()},
             'feriados': [str(d) for d in sorted(feriados)],

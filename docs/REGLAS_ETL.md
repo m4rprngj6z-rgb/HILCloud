@@ -147,6 +147,20 @@ Replica `ENN_Ejecutivo_25sep2026.docx` aprobado. Cifras del ETL; texto de `narra
 - **Regla 8 del HIL**: la gerencia de jbueno (Contratos TI & AI) aparece con sus integrantes
   (Isis) y la nota de reporte funcional; las métricas de jbueno siguen excluidas. El aprobado del
   25 sep la omitía.
+- **W deja de ser métrica estelar** (Tony, 28 sep 2026): en Métricas (Ejecutivo y Fibi),
+  "Workflows ejecutados" se reemplaza por **Personas en atención alta** (urgencia Alta, de las
+  calificadas esta semana). W sigue visible en Fortaleza y Usos clave.
+- **Qué pedirle a la gerencia** (reemplaza la columna W; Tony, 28 sep 2026). Reglas fijas,
+  máximo 2 renglones por gerencia, una acción por persona:
+  1. "Buscar a X (N% de su ritmo | sin actividad | solo N acciones en la semana)": personas en
+     urgencia Alta. Se dice "solo N acciones" cuando la Alta es por volumen bajo, no por caída.
+  2. "Proponer un primer uso de <herramienta> a X: su puesto lo espera y no lo usa": la primera
+     herramienta de su F. esperada (HIL) no es Assistant, no la usó esta semana y su promedio en
+     esa herramienta es menor a 1 (el Gap esperada vs. observada del HIL).
+  3. Si no hay nada: "Sin pendiente: sostener el ritmo". En excepción o transición: no escalar.
+  El Subdirector (destinatario) no aparece en su propia fila: su semana ya se ve en el semáforo.
+- **"?" → "Alta reciente"** en todos los reportes (Tony: el "?" no se entendía). En el Fibi la
+  columna es "Sin calificar", escrita en palabras (ej. "1 en excepción, 6 altas recientes").
 - **Usos clave**: una fila por persona con workflow nombrado esta semana (su más usado), de más a
   menos veces; empate alfabético.
 - **Semáforo de la semana**: celdas con relleno y texto ("3 VERDE"), sin emoji (Estándar).

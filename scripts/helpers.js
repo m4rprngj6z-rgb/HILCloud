@@ -38,7 +38,7 @@ const ESTADO = {
   amarillo: { fill: 'FFEB9C', color: '9C5700', label: 'AMARILLO' },
   rojo: { fill: 'FFC7CE', color: '9C0006', label: 'ROJO' },
   excepcion: { fill: 'F2F2F2', color: '666666', label: 'EXCEPCIÓN' },
-  sin_historial: { fill: 'F2F2F2', color: '666666', label: '?' },
+  sin_historial: { fill: 'F2F2F2', color: '666666', label: 'ALTA RECIENTE' },   // antes '?': Tony 28 sep, poco claro
 };
 const URGENCIA = {
   Alta: ESTADO.rojo, Media: ESTADO.amarillo, Baja: ESTADO.verde, 'Sin acción': ESTADO.excepcion,
@@ -130,8 +130,8 @@ function docHeader(sdNombre, tipo, corte, fecha, champion) {
   ];
 }
 
-function h2(text) {
-  return para(run(text, { size: 22, bold: true, color: C.navy }), { before: 200, after: 100 });
+function h2(text, before = 200) {
+  return para(run(text, { size: 22, bold: true, color: C.navy }), { before, after: 100 });
 }
 
 function nota(text, o = {}) {

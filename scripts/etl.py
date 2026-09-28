@@ -497,6 +497,8 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             'personas': len(rows),
             'personas_activas': sum(1 for r in rows if r['total'] > 0),
             'workflows': sum(r['w'] for r in rows),
+            'atencion_alta': sum(1 for r in rows if r['urgencia'] == 'Alta'),
+            'evaluadas': sum(1 for r in rows if not r['en_excepcion'] and r['semaforo'] != 'sin_historial'),
         },
         'calidad_datos': {
             **meta,
@@ -512,6 +514,64 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         'rows': rows,
     }
     return out
+
+
+NOMBRE_TOOL = {'A': 'Assistant', 'W': 'Workflow', 'V': 'Vault', 'Wo': 'Word Add-in', 'O': 'Outlook'}
+
+
+def herramienta_esperada(f_esperada):
+    """'W>A' -> 'W'; 'M (W>A)' -> 'W'; 'A>W>V' -> 'A'. Primera herramienta que el puesto espera (HIL)."""
+    s = (f_esperada or '').replace('M (', '').replace(')', '').strip()
+    t = s.split('>')[0].strip() if s else ''
+    return t if t in NOMBRE_TOOL else None
+
+
+def detalle_baja(m):
+    if m['total'] == 0:
+        return 'sin actividad'
+    if m['ratio'] is not None and (m['ratio'] < UMBRAL_ALTA_RATIO or m['semaforo'] == 'rojo'):
+        return f"{round(m['ratio'] * 100)}% de su ritmo"
+    return f"solo {m['total']} acciones en la semana"   # Alta por volumen bajo, no por caida
+
+
+def acciones_gerencia(miembros, destinatario=None):
+    """'Que pedirle a la gerencia' (decision Tony 28 sep 2026: reemplaza la columna W). Reglas
+    fijas, maximo 2 renglones:
+      1. Personas en urgencia Alta: buscarlas, con su % contra su propio ritmo (o 'sin actividad').
+      2. Gap de herramienta (HIL, 'el Gap es el dato accionable'): la primera herramienta que su
+         puesto espera no es Assistant, no la uso esta semana y casi no la usa en su linea base.
+      3. Si no hay nada: sostener. Si todos estan en excepcion o en semana de transicion: no escalar."""
+    evaluables = [m for m in miembros if not m['en_excepcion']]
+    # El Ejecutivo lo recibe el Subdirector: su propia fila no le pide buscarse a si mismo.
+    accionables = [m for m in evaluables if m['usuario'] != destinatario]
+    if not evaluables:
+        return ['Sin escalar esta semana (cierre de excepción).' if any(m['transicion'] for m in miembros)
+                else 'Sin acción: toda la gerencia en excepción.']
+    out = []
+    altas = [m for m in accionables if m['urgencia'] == 'Alta']
+    if altas:
+        det = [f"{m['nombre']} ({detalle_baja(m)})" for m in sorted(altas, key=lambda m: (m['ratio'] if m['ratio'] is not None else -1))]
+        out.append('Buscar a ' + ', '.join(det[:3]) + ('' if len(det) <= 3 else f' y {len(det) - 3} más') + '.')
+    gaps = []
+    ya = {m['usuario'] for m in altas}
+    for m in accionables:
+        if m['usuario'] in ya:
+            continue   # una sola accion por persona
+        t = herramienta_esperada(m['f_esperada'])
+        if not t or t == 'A':
+            continue
+        if m[t.lower()] == 0 and (m['baseline_tool'] or {}).get(t, 0) < 1:
+            gaps.append((m['nombre'], t))
+    if gaps:
+        por_tool = {}
+        for n, t in gaps:
+            por_tool.setdefault(t, []).append(n)
+        for t, ns in list(por_tool.items())[:1]:
+            quien = ' y '.join(ns[:2]) + ('' if len(ns) <= 2 else f' y {len(ns) - 2} más')
+            out.append(f"Proponer un primer uso de {NOMBRE_TOOL[t]} a {quien}: su puesto lo espera y no lo usa.")
+    if any(m['transicion'] for m in miembros):
+        out = ['Sin escalar esta semana (cierre de excepción).'] + out[1:] if not altas else out
+    return out[:2] or ['Sin pendiente: sostener el ritmo.']
 
 
 def agrupar_gerencias(rows, roster, sd):
@@ -564,6 +624,7 @@ def agrupar_gerencias(rows, roster, sd):
             'personas': len(miembros),
             'integrantes': [m['nombre'] for m in miembros],
             'acciones': tot, 'w': herr['W'], 'firma': firma, 'semaforo': sem,
+            'que_pedir': acciones_gerencia(miembros, destinatario=sub),
             'en_transicion': any(m['transicion'] for m in miembros),
         })
     return out

@@ -70,7 +70,7 @@ function codigosTable() {
     [{ estado: 'amarillo' }, 'Entre 40% y 99% de su propio promedio.'],
     [{ estado: 'rojo' }, 'Menos de 40% de su propio promedio.'],
     [{ estado: 'excepcion' }, 'Ausencia documentada (vacaciones, incapacidad, evento de toda la SD). No cuenta en el promedio.'],
-    [{ estado: 'sin_historial' }, 'Alta reciente: menos de 5 semanas de historial, el promedio todavía no es confiable.'],
+    [{ estado: 'sin_historial' }, 'Menos de 5 semanas de historial propio: su promedio todavía no es confiable para calificar.'],
     [{ code: 'Racha', color: H.C.navy }, 'Cortes consecutivos (de los últimos 5) en verde o amarillo con más de 5 interacciones. Las excepciones se saltan sin romperla.'],
     [{ code: 'Div. Wf', color: H.C.navy }, 'Promedio semanal de workflows distintos en las últimas 5 semanas: mide exploración, no volumen.'],
     [{ code: 'Firma', color: H.C.navy }, 'Herramientas usadas esta semana, de mayor a menor uso.'],

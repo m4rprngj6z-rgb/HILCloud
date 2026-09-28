@@ -16,6 +16,7 @@ const {
   BorderStyle, VerticalAlign, TableLayoutType, Table, Footer, PageNumber,
 } = require('docx');
 const H = require('./helpers');
+H.h2E = (t) => H.h2(t, 130);   // Ejecutivo: una sola pagina
 
 const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const fechaLarga = (d = new Date()) => `${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
@@ -44,7 +45,7 @@ function metricaCell(titulo, valor, pie, width) {
   return new TableCell({
     width: { size: width, type: WidthType.DXA },
     verticalAlign: VerticalAlign.CENTER,
-    margins: { top: 100, bottom: 100, left: 90, right: 90 },
+    margins: { top: 60, bottom: 60, left: 90, right: 90 },
     children: [
       H.para(H.run(titulo, { bold: true, size: 18, color: H.C.gris }), { align: AlignmentType.CENTER }),
       H.para(H.run(valor, { bold: true, size: 36, color: H.C.navy }), { align: AlignmentType.CENTER, before: 40 }),
@@ -63,7 +64,7 @@ function metricas(d) {
     rows: [new TableRow({
       children: [
         metricaCell('Acciones totales', String(t.acciones), delta === null ? '' : `vs ${t.acciones_anterior} sem. anterior (${delta >= 0 ? '+' : ''}${delta}%)`, W[0]),
-        metricaCell('Workflows ejecutados', String(t.workflows), '', W[1]),
+        metricaCell('Personas en atención alta', String(t.atencion_alta), t.evaluadas ? `de ${t.evaluadas} calificadas esta semana` : 'semana en excepción: sin escalar', W[1]),
         metricaCell('Personas activas', `${t.personas_activas} / ${t.personas}`, `${wau}% WAU`, W[2]),
       ],
     })],
@@ -71,22 +72,31 @@ function metricas(d) {
 }
 
 function vistaGerencia(d) {
-  const W = [2100, 1900, 900, 1000, 600, 1800, 1200];
-  const cols = ['Gerencia', 'Responsable', 'Personas', 'Acciones', 'W', 'Fortaleza', 'Sem.'];
+  // Columna W reemplazada por "Que pedirle" (Tony, 28 sep 2026): acciones concretas por gerencia.
+  const W = [1650, 1400, 880, 850, 1250, 1000, 2470];
+  const cols = ['Gerencia', 'Responsable', 'Personas', 'Acciones', 'Fortaleza', 'Sem.', 'Qué pedirle'];
   const trs = d.gerencias.map((g, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
     const c = (v, w, o = {}) => H.cell(String(v), { width: w, fill, align: AlignmentType.CENTER, ...o });
+    const pedir = new TableCell({
+      width: { size: W[6], type: WidthType.DXA },
+      shading: fill ? { type: ShadingType.CLEAR, fill, color: 'auto' } : undefined,
+      verticalAlign: VerticalAlign.CENTER,
+      margins: { top: 60, bottom: 60, left: 90, right: 90 },
+      children: g.que_pedir.map((t) => H.para(H.run(t, { size: 16 }), { after: 20 })),
+    });
     return new TableRow({
       cantSplit: true,
       children: [
-        H.cell(g.gerencia, { width: W[0], fill, bold: true }),
-        H.cell(g.responsable + (g.responsable_excluido ? ' *' : ''), { width: W[1], fill }),
-        c(g.personas, W[2]), c(g.acciones, W[3]), c(g.w, W[4]), c(g.firma, W[5], { bold: true }),
-        H.estadoCell(g.semaforo, W[6], undefined, 14, undefined, g.en_transicion ? 'en excepción' : undefined),
+        H.cell(g.gerencia, { width: W[0], fill, bold: true, size: 16 }),
+        H.cell(g.responsable + (g.responsable_excluido ? ' *' : ''), { width: W[1], fill, size: 16 }),
+        c(g.personas, W[2], { size: 16 }), c(g.acciones, W[3], { size: 16 }), c(g.firma, W[4], { bold: true, size: 15, tight: true }),
+        H.estadoCell(g.semaforo, W[5], undefined, 14, undefined, g.en_transicion ? 'en excepción' : undefined),
+        pedir,
       ],
     });
   });
-  return H.table(W, [H.headerRow(cols, W, new Set([2, 3, 4, 5, 6])), ...trs]);
+  return H.table(W, [H.headerRow(cols, W, new Set([2, 3, 4, 5])), ...trs]);
 }
 
 function usosClave(d) {
@@ -133,35 +143,34 @@ function buildDocument(d, narr, fecha) {
     H.para(H.run(`${d.etiqueta_subdireccion === 'Dirección Funcional' ? 'Dirección Funcional' : 'Subdirección'} ${d.sdNombre}`, { size: 24, bold: true }), { after: 60 }),
     H.para(H.run(`Reporte Ejecutivo  |  Corte: ${corteConGuion(d.corte)}  |  ${fecha}`, { size: 18, color: H.C.gris }), { after: 180 }),
 
-    H.h2('Semáforo de la semana'),
+    H.h2E('Semáforo de la semana'),
     semaforoSemana(d),
   ];
   if (trans) {
     children.push(nota('Semana de cierre de la excepción de la SD: los colores son de referencia contra el ritmo previo de cada persona. La semana sigue en excepción: no se escala.'));
   }
   children.push(
-    H.h2('Métricas'),
+    H.h2E('Métricas'),
     metricas(d),
 
-    H.h2('Vista por Gerencia'),
+    H.h2E('Vista por Gerencia'),
     vistaGerencia(d),
-    nota('Acciones y W suman a toda la gerencia (responsable y su equipo), no solo a quien la encabeza. El semáforo compara el total del equipo contra la suma del promedio propio de cada integrante; quien está en excepción no cuenta.'),
+    nota('Personas y Acciones suman a toda la gerencia. Semáforo: total del equipo contra la suma del promedio propio de cada integrante. Qué pedirle: a quién buscar (bajó de su ritmo o tuvo muy poca actividad) y a quién proponer una herramienta que su puesto espera y no usa.'),
   );
   if (excluido) {
     children.push(nota(`* ${excluido.gerencia} reporta funcionalmente a ${excluido.responsable} (Champion de Champions). ${excluido.integrantes.join(', ')} se incluye${excluido.integrantes.length > 1 ? 'n' : ''} aquí para visibilidad operativa de línea; las métricas personales de ${excluido.responsable} siguen excluidas de la DJ.`));
   }
   children.push(
-    nota('W = Workflows ejecutados  |  A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  O = Outlook  |  Verde = igual o arriba de su propio promedio  |  Amarillo = entre 40% y 99% de su propio promedio  |  Rojo = menos de 40%  |  Excepción = ausencia documentada (vacaciones, incapacidad, evento de toda la SD)  |  ? = alta reciente'),
+    nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  Verde = igual o arriba de su propio promedio  |  Amarillo = 40% a 99%  |  Rojo = menos de 40%  |  Excepción = ausencia documentada  |  Alta reciente = menos de 5 semanas de historial'),
 
-    H.h2('Usos clave observados'),
+    H.h2E('Usos clave observados'),
     ...usosClave(d),
 
-    H.h2('Recomendación'),
+    H.h2E('Recomendación'),
     H.para(H.run(n.recomendacion, { size: 18 }), { after: 100 }),
     cajaAccion(n.accion),
 
-    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Harvey AI Champion de Champions, DJ', { size: 16, color: H.C.gris }), { before: 140, after: 0 }),
-    H.para(H.run('Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris })),
+    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Harvey AI Champion de Champions, DJ  |  Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris }), { before: 140, after: 0 }),
   );
 
   return new Document({

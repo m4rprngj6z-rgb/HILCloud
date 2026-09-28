@@ -36,15 +36,15 @@ function cajaMetricas(d) {
     children: [H.para(H.run(v, { size: 15 }), { align: AlignmentType.CENTER })],
   });
   return H.table(W, [
-    new TableRow({ children: [num(String(t.acciones), W[0]), num(`${t.personas_activas} / ${t.personas}`, W[1]), num(String(t.workflows), W[2])] }),
-    new TableRow({ children: [lab(`Acciones DJ (vs ${t.acciones_anterior})`, W[0]), lab(`Personas activas (${d.wau_pct}%)`, W[1]), lab('Workflows ejecutados', W[2])] }),
+    new TableRow({ children: [num(String(t.acciones), W[0]), num(`${t.personas_activas} / ${t.personas}`, W[1]), num(String(t.atencion_alta), W[2])] }),
+    new TableRow({ children: [lab(`Acciones DJ (vs ${t.acciones_anterior})`, W[0]), lab(`Personas activas (${d.wau_pct}%)`, W[1]), lab(`Personas en atención alta (de ${t.evaluadas} calificadas)`, W[2])] }),
   ]);
 }
 
 function semaforoSD(d) {
   const conExc = d.sds.some((s) => s.semaforo.excepcion || s.semaforo.sin_historial);
-  const W = conExc ? [2600, 1100, 1200, 1000, 1300, 1100, 1200] : [2900, 1300, 1300, 1300, 1300, 1400];
-  const cols = ['SD', 'Verde', 'Amarillo', 'Rojo', ...(conExc ? ['Exc. / ?'] : []), 'WAU %', 'Tendencia'];
+  const W = conExc ? [2500, 900, 1000, 800, 2100, 1000, 1100] : [2900, 1300, 1300, 1300, 1300, 1400];
+  const cols = ['SD', 'Verde', 'Amarillo', 'Rojo', ...(conExc ? ['Sin calificar'] : []), 'WAU %', 'Tendencia'];
   const trs = d.sds.map((s, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
     const c = (v, w, o = {}) => H.cell(String(v), { width: w, fill, align: AlignmentType.CENTER, ...o });
@@ -57,8 +57,8 @@ function semaforoSD(d) {
     ];
     let j = 4;
     if (conExc) {
-      const partes = [k.excepcion ? `${k.excepcion} exc.` : '', k.sin_historial ? `${k.sin_historial} ?` : ''].filter(Boolean).join(' / ');
-      cells.push(c(partes || '0', W[j])); j += 1;
+      const partes = [k.excepcion ? `${k.excepcion} en excepción` : '', k.sin_historial ? `${k.sin_historial} ${k.sin_historial > 1 ? 'altas recientes' : 'alta reciente'}` : ''].filter(Boolean).join(', ');
+      cells.push(c(partes || '-', W[j])); j += 1;
     }
     cells.push(c(fmtPct(s.wau_pct), W[j]));
     cells.push(c(tend, W[j + 1], { bold: true, color: (s.delta_pct ?? 0) >= 0 ? H.ESTADO.verde.color : H.ESTADO.rojo.color }));
@@ -79,7 +79,7 @@ function buildDocument(d, narr, fecha) {
     nota(`Corte actual: ${d.corte}. Tendencia contra el corte anterior (lunes a viernes).`),
     H.h2('Semáforo por SD'),
     semaforoSD(d),
-    nota('Vista de una sola mirada para dirigir a cada Subdirección: dónde escalar primero. Cada persona se compara contra su propio promedio de 5 semanas.', 60),
+    nota('Vista de una sola mirada para dirigir a cada Subdirección: dónde escalar primero. Cada persona se compara contra su propio promedio de 5 semanas. Sin calificar: personas en ausencia documentada (vacaciones, incapacidad) o con alta reciente (menos de 5 semanas de historial propio); no cuentan en verde, amarillo ni rojo.', 60),
   ];
   if (trans.length) {
     children.push(nota(`* ${trans.map((s) => s.sd).join(', ')}: semana de cierre de una excepción de toda la SD. Los colores son de referencia contra el ritmo previo de cada persona; no se escala.`));

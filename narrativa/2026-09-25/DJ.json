@@ -3,7 +3,7 @@
  "_redacto": "Claude, sobre out/DJ_2026-09-25.json; validado con scripts/validar_narrativa.py (modo fibi)",
  "fibi": {
   "casos": [
-   "La DJ sube 21% (1145 acciones frente a 946), con 60 de 65 personas activas y 147 ejecuciones de Workflow.",
+   "La DJ sube 21% (1145 acciones frente a 946) con 60 de 65 personas activas; 13 personas requieren atención alta esta semana, concentradas en CN y RL.",
    "ENN crece 97% con su equipo completo activo; el uso de Harvey dentro de Outlook ya suma 63 de sus 331 acciones.",
    "GC crece 73% con sus 7 personas activas y mantiene el uso de Workflow que concentra su Champion."
   ],

@@ -170,7 +170,16 @@ function firma() {
     { before: 220, after: 20 });
 }
 
+function fraseTransicion(ti) {
+  if (!ti) return '';
+  const partes = [`Las ${ti.sin_conteo} semanas anteriores quedaron sin conteo por la excepción.`];
+  if (ti.personas_con_referencia) partes.push(`${ti.personas_con_referencia} personas se comparan contra sus 5 semanas previas a la excepción (${ti.rango_referencia}).`);
+  if (ti.altas_sin_historial) partes.push(`${ti.altas_sin_historial} ${ti.altas_sin_historial > 1 ? 'altas recientes no tienen' : 'alta reciente no tiene'} semanas previas y no se ${ti.altas_sin_historial > 1 ? 'califican' : 'califica'}.`);
+  return partes.join(' ');
+}
+
 module.exports = {
+  fraseTransicion,
   C, ESTADO, URGENCIA, TOOL_COLOR, FONT,
   run, para, cell, headerRow, table, estadoCell, richRuns, docHeader, h2, nota, cajaVerde, firma,
 };

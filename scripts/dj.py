@@ -39,11 +39,12 @@ def main():
             'wau_pct': round(t['personas_activas'] / t['personas'] * 1000) / 10 if t['personas'] else 0,
             'semaforo': cuenta,
             'transicion': any(r['transicion'] for r in d['rows']),
+            'transicion_info': d.get('transicion_info'),
             'herramientas': {k: sum(r[k] for r in d['rows']) for k in TOOLS},
             'corte': d['corte'],
         })
         rows += [{**r, 'sd': sd} for r in d['rows']]
-    tot = {k: sum(s[k] for s in sds) for k in ['acciones', 'acciones_anterior', 'personas', 'personas_activas', 'workflows', 'atencion_alta', 'evaluadas']}
+    tot = {k: sum(s[k] for s in sds) for k in ['acciones', 'acciones_anterior', 'personas', 'personas_activas', 'workflows', 'atencion_alta', 'evaluadas', 'conversaciones']}
     out = {
         'corte': sds[0]['corte'],
         'totales': tot,

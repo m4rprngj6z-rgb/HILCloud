@@ -10,7 +10,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { Document, Packer, TableRow, AlignmentType, Footer, PageNumber, TextRun, Paragraph } = require('docx');
+const { Document, Packer, TableRow, AlignmentType, Footer, PageNumber, TextRun, Paragraph, PageOrientation } = require('docx');
 const H = require('./helpers');
 
 const ORDEN_URG = { Alta: 0, Media: 1, Baja: 2, 'Sin acción': 3 };
@@ -32,10 +32,10 @@ function ordenar(rows) {
 }
 
 function usoTable(rows) {
-  const W = [1040, 1000, 820, 340, 340, 340, 340, 340, 820, 590, 560, 760, 1430, 1360];
+  const W = [1500, 1150, 850, 400, 400, 400, 400, 400, 560, 900, 620, 620, 1000, 2250, 2200];   // horizontal: 13650
   const S = 16;   // 8 pt en el cuerpo de esta tabla (14 columnas)
-  const cols = ['Persona', 'Nivel', 'Urgencia', 'A', 'Wo', 'V', 'W', 'O', 'Sem.', 'Racha', 'Div. Wf', 'Firma', 'Motivo del semáforo', 'Fortaleza actual'];
-  const centered = new Set([2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const cols = ['Persona', 'Nivel', 'Urgencia', 'A', 'Wo', 'V', 'W', 'O', 'Conv.', 'Sem.', 'Racha', 'Div. Wf', 'Firma', 'Motivo del semáforo', 'Fortaleza actual'];
+  const centered = new Set([2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
   const trs = rows.map((r, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
     const num = (v, w) => H.cell(String(v), { width: w, fill, align: AlignmentType.CENTER, tight: true, size: S });
@@ -46,12 +46,13 @@ function usoTable(rows) {
         H.cell(r.nivel, { width: W[1], fill, size: S, tight: true }),
         H.estadoCell(r.urgencia, W[2], H.URGENCIA, 15),
         num(r.a, W[3]), num(r.wo, W[4]), num(r.v, W[5]), num(r.w, W[6]), num(r.o, W[7]),
-        H.estadoCell(r.semaforo, W[8], undefined, 14, undefined, r.transicion ? 'en excepción' : undefined),
-        num(r.naCiclo ? 'N/A' : `${r.racha}/5`, W[9]),
-        num(r.diversidadWf == null ? '-' : r.diversidadWf.toFixed(1), W[10]),
-        H.cell(r.firma, { width: W[11], fill, size: S, tight: true }),
-        H.cell(H.richRuns(r.motivo, { italics: true, size: S }), { width: W[12], fill }),
-        H.cell(H.richRuns(r.fortaleza, { italics: true, size: S }), { width: W[13], fill }),
+        num(r.conversaciones, W[8]),
+        H.estadoCell(r.semaforo, W[9], undefined, 14, undefined, r.transicion ? 'en excepción' : undefined),
+        num(r.naCiclo ? 'N/A' : `${r.racha}/5`, W[10]),
+        num(r.diversidadWf == null ? '-' : r.diversidadWf.toFixed(1), W[11]),
+        H.cell(r.firma, { width: W[12], fill, size: S, tight: true }),
+        H.cell(H.richRuns(r.motivo, { italics: true, size: S }), { width: W[13], fill }),
+        H.cell(H.richRuns(r.fortaleza, { italics: true, size: S }), { width: W[14], fill }),
       ],
     });
   });
@@ -59,7 +60,7 @@ function usoTable(rows) {
 }
 
 function codigosTable() {
-  const W = [1400, 8220];
+  const W = [1600, 12000];
   const filas = [
     [{ code: 'A', color: H.TOOL_COLOR.A }, 'Assistant: consulta, análisis, redacción libre, criterio.'],
     [{ code: 'Wo', color: H.TOOL_COLOR.Wo }, 'Word Add-in: redacción y revisión dentro de documentos (incluye Playbooks en Word).'],
@@ -71,6 +72,7 @@ function codigosTable() {
     [{ estado: 'rojo' }, 'Menos de 40% de su propio promedio.'],
     [{ estado: 'excepcion' }, 'Ausencia documentada (vacaciones, incapacidad, evento de toda la SD). No cuenta en el promedio.'],
     [{ estado: 'sin_historial' }, 'Menos de 5 semanas de historial propio: su promedio todavía no es confiable para calificar.'],
+    [{ code: 'Conv.', color: H.C.navy }, 'Conversaciones distintas: una conversación con varios seguimientos cuenta como 1. En Word cada acción es su propia conversación.'],
     [{ code: 'Racha', color: H.C.navy }, 'Cortes consecutivos (de los últimos 5) en verde o amarillo con más de 5 interacciones. Las excepciones se saltan sin romperla.'],
     [{ code: 'Div. Wf', color: H.C.navy }, 'Promedio semanal de workflows distintos en las últimas 5 semanas: mide exploración, no volumen.'],
     [{ code: 'Firma', color: H.C.navy }, 'Herramientas usadas esta semana, de mayor a menor uso.'],
@@ -104,7 +106,7 @@ function buildDocument(d, fecha) {
   const trans = rows.filter((r) => r.transicion);
   if (trans.length) {
     const quien = trans.length === rows.length ? 'Todo el equipo' : (trans.length > 3 ? `${trans.length} de ${rows.length} personas` : trans.map((r) => r.nombre).join(', '));
-    children.push(H.para(H.run(`Esta semana cierra la excepción de la SD. ${quien} se califica como referencia (marcado "en excepción"), pero la semana sigue en excepción: sin escalar, no rompe racha y no entra al promedio de las próximas semanas. Si no hay semanas útiles recientes, la referencia es su ritmo previo a la excepción.`,
+    children.push(H.para(H.run(`Esta semana cierra la excepción de la SD. ${quien} se califica como referencia (marcado "en excepción"), pero la semana sigue en excepción: sin escalar, no rompe racha y no entra al promedio de las próximas semanas. ${H.fraseTransicion(d.transicion_info)}`,
       { size: 18 }), { after: 100 }));
   }
   const exc = rows.filter((r) => r.semaforo === 'excepcion');
@@ -124,12 +126,12 @@ function buildDocument(d, fecha) {
     H.h2('Reporte de uso, ordenado por prioridad de atención'),
     H.nota('No es un ranking de desempeño. El orden es de triage: primero quién necesita tu atención esta semana, no quién produjo más.', { size: 15, after: 100 }),
     usoTable(rows),
-    H.nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  ★ Champion: uso contaminado por rol HAI. Significado completo al final.', { after: 160 }),
+    H.nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  Conv. = conversaciones distintas  |  ★ Champion: uso contaminado por rol HAI. Significado completo al final.', { after: 160 }),
 
     H.h2('Antes del próximo corte'),
     H.cajaVerde('Antes del próximo corte',
       'Responde con una línea por persona que hayas trabajado esta semana: ¿de qué hablaron, y qué le ofreciste? Lo que me mandes se cruza con su siguiente corte para ver si el gap se cerró.',
-      '[Persona]  |  [Conversación]  |  [Seguimiento propuesto]'),
+      '[Persona]  |  [Conversación]  |  [Seguimiento propuesto]', 13600),
 
     H.h2('Tabla de códigos'),
     H.nota('Incluida para que no dependas de tener acceso a Notion para leer tu propio reporte.', { after: 100 }),
@@ -142,7 +144,7 @@ function buildDocument(d, fecha) {
     sections: [{
       properties: {
         page: {
-          size: { width: 12240, height: 15840 },
+          size: { width: 12240, height: 15840, orientation: PageOrientation.LANDSCAPE },   // 15 columnas: horizontal
           margin: { top: 1080, right: 1080, bottom: 1080, left: 1080, header: 708, footer: 708 },
         },
       },

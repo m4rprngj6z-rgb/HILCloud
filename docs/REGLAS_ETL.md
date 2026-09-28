@@ -78,7 +78,11 @@ pero no se nombran como workflow ni cuentan para Diversidad.
 - **Respaldo tras excepción larga** (decisión de Claude, 28 sep 2026, pendiente de ratificar): si
   no queda ninguna semana útil en la ventana de 5, se usan las últimas 5 semanas útiles antes de
   la excepción (el ETL carga 16 semanas de historial). Sin esto, PLD saldría "?" completo varias
-  semanas después de la reestructuración. El Motivo lo indica.
+  semanas después de la reestructuración. **Ratificada por Tony, 28 sep 2026**, con la condición
+  de aclararlo en el reporte: cuántas semanas quedaron sin conteo y contra qué semanas previas se
+  compara (ej. "Las 5 semanas anteriores quedaron sin conteo por la excepción. 12 personas se
+  comparan contra sus 5 semanas previas a la excepción (29 jun-31 jul)"). Va en el Motivo de la
+  persona, y en semana de transición en el resumen del Champion, la nota del Ejecutivo y el Fibi.
 - Semanas anteriores a la fecha de alta de una persona no cuentan como historial (no son ceros
   reales).
 - Verde ≥ 100% de su línea base; Amarillo 40-99%; Rojo < 40%. Sin piso absoluto.
@@ -87,7 +91,14 @@ pero no se nombran como workflow ni cuentan para Diversidad.
 - `?` → alta documentada (`alta` en roster.json) hace menos de 5 semanas, o sin ninguna semana
   útil de línea base.
 
-## 6. Racha y Diversidad (agregadas 26 sep 2026)
+## 6. Racha, Diversidad y Conversaciones
+
+- **Conversaciones distintas** (Tony, 28 sep 2026, a partir del caso de Diana Fuentes: 18
+  acciones en un Vault que eran casi una sola sesión): número de hilos distintos (`ID del hilo de
+  la Matriz`) en la semana. Un hilo con varios follow-ups cuenta 1. En Word cada acción es su
+  propio hilo, así que ahí acciones = conversaciones. Se muestra junto a las acciones; no cambia
+  semáforo, urgencia ni racha (esos siguen sobre acciones).
+
 
 - **Racha**: desde el corte actual hacia atrás, dentro de los últimos 5 cortes, cuántos seguidos
   en verde o amarillo con más de 5 acciones. Excepción se salta sin romper. Si los 5 cortes son
@@ -131,7 +142,8 @@ W #9C0006. V (#375623) y O (#7030A0) no aparecían en ningún aprobado. Sin emoj
 Arial. "Persona", no "Usuario". El generador lanza error si algún texto trae raya larga.
 
 Agregado sobre el aprobado (acordado 26 sep): columnas O, Racha, Div. Wf y la tabla de códigos
-autocontenida.
+autocontenida. Desde el 28 sep, columna Conv. y **página horizontal** (15 columnas no caben en
+vertical sin partir palabras).
 
 ## 8b. Reporte Ejecutivo (scripts/generate_ejecutivo.js)
 
@@ -185,7 +197,7 @@ Reglas del HIL (sección "Gobierno de Licencias", 25 sep 2026), aplicadas tal cu
 - Dos ránkings de menor a mayor uso semanal: Jurídico (roster de las 6 SD, sin ningún filtro) y
   No Jurídico (cortesías y externos con licencia activa; las bajas ejecutadas no entran). jbueno y
   zmanzur van aparte, solo como referencia.
-- Top 10 por semana. **Empates en el lugar 10: entran todos los empatados** (decisión de Claude,
+- Top 10 por semana. **Empates en el lugar 10: entran todos los empatados** (ratificado por Tony,
   28 sep 2026; el aprobado del 25 sep dejó fuera a 2 personas con las mismas 3 acciones sin regla).
 - Apariciones: veces en el top 10 en los cortes del mes calendario (mes del viernes), desde el
   primer corte del sistema (25 sep 2026). Una semana de excepción (misma regla del ETL) no cuenta.
@@ -217,4 +229,4 @@ Correrlo siempre antes de generar.
 
 ## 10. Decisiones abiertas (Tony)
 
-- Respaldo de línea base tras excepción larga (sección 5): ratificar.
+Ninguna al 28 sep 2026 (respaldo de línea base y empates de Licencias, ratificados).

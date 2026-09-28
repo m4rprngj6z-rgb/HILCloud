@@ -37,7 +37,7 @@ function cajaMetricas(d) {
   });
   return H.table(W, [
     new TableRow({ children: [num(String(t.acciones), W[0]), num(`${t.personas_activas} / ${t.personas}`, W[1]), num(String(t.atencion_alta), W[2])] }),
-    new TableRow({ children: [lab(`Acciones DJ (vs ${t.acciones_anterior})`, W[0]), lab(`Personas activas (${d.wau_pct}%)`, W[1]), lab(`Personas en atención alta (de ${t.evaluadas} calificadas)`, W[2])] }),
+    new TableRow({ children: [lab(`Acciones DJ (vs ${t.acciones_anterior}), en ${t.conversaciones} conversaciones`, W[0]), lab(`Personas activas (${d.wau_pct}%)`, W[1]), lab(`Personas en atención alta (de ${t.evaluadas} calificadas)`, W[2])] }),
   ]);
 }
 
@@ -82,7 +82,7 @@ function buildDocument(d, narr, fecha) {
     nota('Vista de una sola mirada para dirigir a cada Subdirección: dónde escalar primero. Cada persona se compara contra su propio promedio de 5 semanas. Sin calificar: personas en ausencia documentada (vacaciones, incapacidad) o con alta reciente (menos de 5 semanas de historial propio); no cuentan en verde, amarillo ni rojo.', 60),
   ];
   if (trans.length) {
-    children.push(nota(`* ${trans.map((s) => s.sd).join(', ')}: semana de cierre de una excepción de toda la SD. Los colores son de referencia contra el ritmo previo de cada persona; no se escala.`));
+    children.push(nota(trans.map((s) => `* ${s.sd}: semana de cierre de una excepción de toda la SD; los colores son de referencia y no se escala. ${H.fraseTransicion(s.transicion_info)}`).join(' ')));
   }
   children.push(
     H.h2('Casos de impacto del corte'),

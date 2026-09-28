@@ -30,14 +30,15 @@ COLMAP = {
     'Tiempo (Etc/GMT+6)': 'ts', 'Usuario': 'email', 'Acción': 'accion',
     'Superficie del producto': 'superficie', 'ID de uso único': 'uso_id',
     'Nombre del workflow': 'workflow', 'Nombre del proyecto Vault': 'vault',
-    'Nombre del Playbook': 'playbook',
+    'Nombre del Playbook': 'playbook', 'ID del hilo de la Matriz': 'hilo',
     # ingles
     'Time (Etc/GMT+6)': 'ts', 'User': 'email', 'Action': 'accion',
     'Product Surface Area': 'superficie', 'Unique Usage ID': 'uso_id',
     'Workflow Name': 'workflow', 'Vault Project Name': 'vault', 'Playbook Name': 'playbook',
+    'Parent Thread ID': 'hilo',
 }
 TOKEN_ES = {'ASSISTANT': 'ASISTENTE', 'DRAFT': 'BORRADOR', 'COMMAND_CENTER': 'CENTRO_DE_COMANDO'}
-CANON = ['ts', 'email', 'accion', 'superficie', 'uso_id', 'workflow', 'vault', 'playbook']
+CANON = ['ts', 'email', 'accion', 'superficie', 'uso_id', 'workflow', 'vault', 'playbook', 'hilo']
 
 
 _CACHE = {}
@@ -334,6 +335,8 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             **counts,
             'total': int(sum(counts.values())),
             'dias_activos': int(m['fecha'].nunique()),
+            # Conversaciones distintas (Tony, 28 sep 2026): un hilo con varios follow-ups cuenta 1.
+            'conversaciones': int(m['hilo'].nunique()) + int(m['hilo'].isna().sum()),
             'wf_distintos': int(wf.nunique()),
             'wf_conteo': wf.value_counts().to_dict(),
             'ultima': str(m['ts'].max()) if len(m) else None,
@@ -366,6 +369,20 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             b = sum(h['total'] for h in prev) / len(prev)
             per_tool = {t: sum(h[t] for h in prev) / len(prev) for t in TOOLS}
             return b, per_tool, len(prev), previa
+
+        def detalle_base(i):
+            """Para aclarar en el reporte (Tony, 28 sep 2026): cuantas de las 5 semanas anteriores
+            quedaron sin conteo por excepcion y, si se uso el respaldo, que semanas se usaron."""
+            ventana = [hist[j] for j in range(max(0, i - N_HIST), i) if hist[j]['con_datos']]
+            sin_conteo = sum(1 for h in ventana if h['excepcion']['es_excepcion'])
+            prev = utiles(range(max(0, i - N_HIST), i))
+            usadas = prev if prev else utiles(range(i - 1, -1, -1))[:N_HIST]
+            idx = sorted(hist.index(h) for h in usadas)
+            rango = None
+            if idx:
+                d0, d1 = semanas[idx[0]]['lunes'], semanas[idx[-1]]['viernes']
+                rango = f'{fmt_fecha(d0)}-{fmt_fecha(d1)}'
+            return {'sin_conteo': sin_conteo, 'usadas': len(usadas), 'rango_usado': rango}
 
         def calificar(i, h, b):
             if alta and semanas[i]['lunes'] - timedelta(weeks=N_HIST) < alta:
@@ -446,7 +463,9 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                 if nota:
                     mot = [{'text': nota}] + mot
             if cur['baseline_previa'] and cur['semaforo'] not in ('sin_historial',):
-                mot = [{'text': 'Comparado contra su ritmo previo a su última excepción (no hay semanas útiles recientes). '}] + mot
+                db = detalle_base(len(hist) - 1)
+                mot = [{'text': f"Sus {db['sin_conteo']} semanas anteriores quedaron sin conteo por excepción: se compara contra "
+                                f"sus {db['usadas']} semanas previas a la excepción ({db['rango_usado']}). "}] + mot
         post = bool(len(hist) > 1 and hist[-2]['excepcion']['es_excepcion'] and not exc['es_excepcion'])
         if post:
             mot = [{'text': 'Primera semana completa tras una excepción: la cifra todavía no se lee como ritmo sostenido. '}] + mot
@@ -455,11 +474,12 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             'usuario': uid, 'nombre': p['nombre'], 'nivel': p['nivel'], 'puesto': p['puesto'],
             'champion': p['champion'], 'f_esperada': p['f_esperada'], 'reporta_a': p.get('reporta_a'),
             **{t.lower(): cur[t] for t in TOOLS},
-            'total': cur['total'], 'dias_activos': cur['dias_activos'], 'ultima_actividad': cur['ultima'],
+            'total': cur['total'], 'conversaciones': cur['conversaciones'], 'dias_activos': cur['dias_activos'], 'ultima_actividad': cur['ultima'],
             'semaforo': sem_reporte,
             'en_excepcion': cur['semaforo'] == 'excepcion',
             'transicion': bool(cur['calificacion_transicion']),
             'baseline_previa': cur['baseline_previa'],
+            'base_detalle': detalle_base(len(hist) - 1),
             'baseline': None if cur['baseline'] is None else round(cur['baseline'], 1),
             'baseline_semanas': cur['baseline_semanas'],
             'ratio': None if not cur['baseline'] else round(cur['total'] / cur['baseline'], 3),
@@ -481,6 +501,19 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         })
 
     gerencias = agrupar_gerencias(rows, roster, sd)
+    # Resumen de la referencia pre-excepcion para la semana de transicion (Tony, 28 sep 2026)
+    tr = [r for r in rows if r['transicion']]
+    transicion_info = None
+    if tr:
+        from collections import Counter
+        con_ref = [r for r in tr if r['baseline_previa'] and r['semaforo'] != 'sin_historial']
+        rango = Counter(r['base_detalle']['rango_usado'] for r in con_ref).most_common(1)
+        transicion_info = {
+            'sin_conteo': max(r['base_detalle']['sin_conteo'] for r in tr),
+            'rango_referencia': rango[0][0] if rango else None,
+            'personas_con_referencia': len(con_ref),
+            'altas_sin_historial': sum(1 for r in tr if r['semaforo'] == 'sin_historial'),
+        }
     usos = sorted(({'persona': r['nombre'], 'uso': r['workflow_top']['nombre'], 'veces': r['workflow_top']['veces']}
                    for r in rows if r['workflow_top']), key=lambda u: (-u['veces'], u['persona']))
 
@@ -496,6 +529,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         'vault_solo_superficie': vault_solo_superficie,
         'totales': {
             'acciones': sum(r['total'] for r in rows),
+            'conversaciones': sum(r['conversaciones'] for r in rows),
             'acciones_anterior': sum((r['total_anterior'] or 0) for r in rows),
             'personas': len(rows),
             'personas_activas': sum(1 for r in rows if r['total'] > 0),
@@ -513,6 +547,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         },
         'etiqueta_subdireccion': roster.get('etiqueta_subdireccion', {}).get(sd, 'Subdirección'),
         'gerencias': gerencias,
+        'transicion_info': transicion_info,
         'usos_clave': usos,
         'rows': rows,
     }
@@ -548,7 +583,7 @@ def acciones_gerencia(miembros, destinatario=None):
     # El Ejecutivo lo recibe el Subdirector: su propia fila no le pide buscarse a si mismo.
     accionables = [m for m in evaluables if m['usuario'] != destinatario]
     if not evaluables:
-        return ['Sin escalar esta semana (cierre de excepción).' if any(m['transicion'] for m in miembros)
+        return ['Sin escalar (cierre de excepción).' if any(m['transicion'] for m in miembros)
                 else 'Sin acción: toda la gerencia en excepción.']
     out = []
     altas = [m for m in accionables if m['urgencia'] == 'Alta']
@@ -573,7 +608,7 @@ def acciones_gerencia(miembros, destinatario=None):
             quien = ' y '.join(ns[:2]) + ('' if len(ns) <= 2 else f' y {len(ns) - 2} más')
             out.append(f"Proponer un primer uso de {NOMBRE_TOOL[t]} a {quien}: su puesto lo espera y no lo usa.")
     if any(m['transicion'] for m in miembros):
-        out = ['Sin escalar esta semana (cierre de excepción).'] + out[1:] if not altas else out
+        out = ['Sin escalar (cierre de excepción).'] + out[1:] if not altas else out
     return out[:2] or ['Sin pendiente: sostener el ritmo.']
 
 
@@ -626,7 +661,8 @@ def agrupar_gerencias(rows, roster, sd):
             'responsable_excluido': bool(P[h].get('excluido_metricas')),
             'personas': len(miembros),
             'integrantes': [m['nombre'] for m in miembros],
-            'acciones': tot, 'w': herr['W'], 'firma': firma, 'semaforo': sem,
+            'acciones': tot, 'conversaciones': sum(m['conversaciones'] for m in miembros),
+            'w': herr['W'], 'firma': firma, 'semaforo': sem,
             'que_pedir': acciones_gerencia(miembros, destinatario=sub),
             'en_transicion': any(m['transicion'] for m in miembros),
         })

@@ -97,10 +97,20 @@ function table(widths, rows) {
   });
 }
 
-function estadoCell(key, width, map = ESTADO, size = 14) {
+function estadoCell(key, width, map = ESTADO, size = 14, fill, subtitulo) {
   const e = map[key] || ESTADO.sin_historial;
   const label = map === ESTADO ? e.label : key;
-  return cell([run(label, { bold: true, color: e.color, size })], { width, fill: e.fill, align: AlignmentType.CENTER, tight: true });
+  const sz = label.length > 8 ? Math.min(size, 12) : size;   // EXCEPCIÓN no cabe a 7 pt
+  const paras = [para([run(label, { bold: true, color: e.color, size: sz })], { align: AlignmentType.CENTER })];
+  if (subtitulo) paras.push(para([run(subtitulo, { color: '666666', size: 12, italics: true })], { align: AlignmentType.CENTER }));
+  return new TableCell({
+    width: { size: width, type: WidthType.DXA },
+    shading: { type: ShadingType.CLEAR, fill: e.fill, color: 'auto' },
+    verticalAlign: VerticalAlign.CENTER,
+    borders: { top: BORDE, left: BORDE, bottom: BORDE, right: BORDE },
+    margins: { top: 60, bottom: 60, left: 40, right: 40 },
+    children: paras,
+  });
 }
 
 /** Fragmentos [{text, tool?}] -> runs, con los codigos de herramienta en negrita y color. */

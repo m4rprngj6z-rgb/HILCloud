@@ -51,11 +51,27 @@ pero no se nombran como workflow ni cuentan para Diversidad.
   DJ (ej. 16 sep) reducen los días hábiles pero no cuentan como ausencia.
 - Si la persona tiene excepción personal y además hay una de su SD, la etiqueta muestra la
   personal.
+- **Ausencia parcial (1 o 2 días) o día inhábil** (decisión Tony, 28 sep 2026): la regla de 3
+  días no se mueve, la semana se califica normal. Si sale amarillo o rojo, el Motivo empieza con
+  la razón: "Semana con 2 días de vacaciones (17-18 sep) y 1 día inhábil (16 sep): explica parte
+  de la baja, pero no alcanza los 3 días hábiles para excepción." Si solo hubo día inhábil:
+  "Semana de 4 días hábiles (16 sep inhábil): explica parte de la baja."
+- **Semana de transición** (decisión Tony, 28 sep 2026, caso PLD 21-25 sep): si la semana es de
+  excepción solo porque una excepción de toda la SD cierra dentro de ella (sin incapacidad y con
+  menos de 3 días de ausencia personal), se **califica** como referencia (la celda dice "en
+  excepción"), pero **sigue siendo excepción**: urgencia Sin acción, no rompe racha, no entra a
+  la línea base de las semanas siguientes.
 
 ## 5. Semáforo (HIL, regla 26 sep 2026)
 
 - Línea base = promedio de las 5 semanas anteriores **excluyendo semanas de excepción** (pueden
   quedar menos de 5). Aplica igual al total y a la línea base por herramienta.
+- **Respaldo tras excepción larga** (decisión de Claude, 28 sep 2026, pendiente de ratificar): si
+  no queda ninguna semana útil en la ventana de 5, se usan las últimas 5 semanas útiles antes de
+  la excepción (el ETL carga 16 semanas de historial). Sin esto, PLD saldría "?" completo varias
+  semanas después de la reestructuración. El Motivo lo indica.
+- Semanas anteriores a la fecha de alta de una persona no cuentan como historial (no son ceros
+  reales).
 - Verde ≥ 100% de su línea base; Amarillo 40-99%; Rojo < 40%. Sin piso absoluto.
 - Línea base 0: verde si tuvo actividad, rojo si no.
 - Excepción esta semana → EXCEPCIÓN (no se califica).
@@ -112,7 +128,7 @@ autocontenida.
 
 | Caso | Por qué |
 |---|---|
-| PLD completo | El 26 sep se calificó con semáforo. Después Tony confirmó que la reestructuración cerró el 23-24 sep: la semana 21-25 sep tiene 4 días cubiertos y ahora es excepción. |
+| PLD completo | El 26 sep se calificó contra una línea base que incluía semanas de la reestructuración. Ahora es semana de transición (sección 4): se califica contra su ritmo previo a la reestructuración y con urgencia Sin acción. |
 | Karime Sotelo, Motivo | El generador viejo usaba línea base por herramienta sin excluir vacaciones (inconsistente con su propia línea base total). |
 | Alfredo Duarte, Motivo | El ETL agrega la nota post-excepción obligatoria del HIL; el reporte del 26 sep la omitió (el del 25 sí la traía). |
 | Javier García, Firma | Empate Wo = W: el generador viejo desempataba por orden de aparición en el archivo (con Gabriel Juárez lo hizo al revés). |
@@ -120,7 +136,4 @@ autocontenida.
 
 ## 10. Decisiones abiertas (Tony)
 
-- Umbral de 3 días para semana de excepción: con él, las vacaciones de Isis del 17-18 sep (2
-  días) no convierten esa semana en excepción; el cálculo a mano del 26 sep sí la marcaba.
-- PLD, corte 21-25 sep: ¿excepción (4 días de reestructuración) o ya se evalúa? Notion dice "a
-  partir del corte 25 sep", que puede leerse de las dos formas.
+- Respaldo de línea base tras excepción larga (sección 5): ratificar.

@@ -141,29 +141,75 @@ def dias_semana(mon):
 
 
 def excepcion_semana(uid, sd, mon, excs):
-    """Evalua una persona en un corte. Regresa dict con dias_habiles, dias_ausente, tipos y
-    si la semana es de excepcion (regla en docs/REGLAS_ETL.md, seccion 4)."""
-    feriados, ausente, tipos, incapacidad = set(), set(), [], False
+    """Evalua una persona en un corte (regla en docs/REGLAS_ETL.md, seccion 4).
+    - es_excepcion: incapacidad cualquier dia, o 3+ dias habiles cubiertos.
+    - transicion: la semana es de excepcion SOLO porque una excepcion de toda la SD cierra
+      dentro de esta semana (decision Tony 28 sep 2026: se califica, pero sigue en excepcion).
+    - detalle: dias por tipo, para explicar bajas parciales (<3 dias) en el Motivo."""
+    feriados, ausente, personal, incapacidad = set(), {}, set(), False
+    cierra_sd = False
+    fri = mon + timedelta(days=4)
     for e in excs:
         d0, d1 = date.fromisoformat(e['desde']), date.fromisoformat(e['hasta'])
         aplica_dj = e.get('sd') == 'TODA_DJ'
-        aplica = aplica_dj or e.get('sd') == sd or uid in e.get('personas', [])
-        if not aplica:
+        es_personal = uid in e.get('personas', [])
+        if not (aplica_dj or es_personal or e.get('sd') == sd):
             continue
         for d in dias_semana(mon):
             if d0 <= d <= d1:
                 if aplica_dj:
                     feriados.add(d)
-                else:
-                    ausente.add(d)
-                    if e['tipo'] not in tipos:
-                        tipos.append(e['tipo'])
-                    if e['tipo'].lower().startswith('incapacidad'):
-                        incapacidad = True
+                    continue
+                ausente.setdefault(d, [])
+                if e['tipo'] not in ausente[d]:
+                    ausente[d].append(e['tipo'])
+                if es_personal:
+                    personal.add(d)
+                if e['tipo'].lower().startswith('incapacidad'):
+                    incapacidad = True
+        if not es_personal and not aplica_dj and mon <= d1 <= fri and d1 >= d0:
+            cierra_sd = True
+    for d in feriados:
+        ausente.pop(d, None)
+    personal -= feriados
     habiles = 5 - len(feriados)
-    ausente -= feriados
-    es_exc = incapacidad or len(ausente) >= 3 or (habiles > 0 and len(ausente) >= habiles)
-    return {'dias_habiles': habiles, 'dias_ausente': len(ausente), 'tipos': tipos, 'es_excepcion': es_exc}
+    n = len(ausente)
+    es_exc = incapacidad or n >= 3 or (habiles > 0 and n >= habiles)
+    transicion = bool(es_exc and cierra_sd and not incapacidad and len(personal) < 3)
+    # detalle legible: {tipo: [fechas]} + feriados
+    por_tipo = {}
+    for d in sorted(ausente):
+        for t in ausente[d]:
+            por_tipo.setdefault(t, []).append(d)
+    return {'dias_habiles': habiles, 'dias_ausente': n, 'tipos': list(por_tipo),
+            'por_tipo': {t: [str(x) for x in v] for t, v in por_tipo.items()},
+            'feriados': [str(d) for d in sorted(feriados)],
+            'es_excepcion': es_exc, 'transicion': transicion}
+
+
+def rango_txt(fechas):
+    ds = sorted(date.fromisoformat(f) if isinstance(f, str) else f for f in fechas)
+    if len(ds) == 1:
+        return fmt_fecha(ds[0])
+    return f'{ds[0].day}-{fmt_fecha(ds[-1])}' if ds[0].month == ds[-1].month else f'{fmt_fecha(ds[0])}-{fmt_fecha(ds[-1])}'
+
+
+def nota_ausencia_parcial(exc):
+    """Explica una baja en semana con ausencia documentada que NO llega a excepcion (regla de 3
+    dias intacta; decision Tony 28 sep 2026)."""
+    partes = []
+    for tipo, fechas in exc['por_tipo'].items():
+        n = len(fechas)
+        partes.append(f"{n} día{'s' if n > 1 else ''} de {tipo.lower()} ({rango_txt(fechas)})")
+    if exc['feriados']:
+        n = len(exc['feriados'])
+        partes.append(f"{n} día{'s' if n > 1 else ''} inhábil{'es' if n > 1 else ''} ({rango_txt(exc['feriados'])})")
+    if not partes:
+        return None
+    if not exc['por_tipo']:   # solo dia(s) inhabil(es) de toda la DJ: no es ausencia
+        return f"Semana de {exc['dias_habiles']} días hábiles ({rango_txt(exc['feriados'])} inhábil): explica parte de la baja. "
+    return ('Semana con ' + ' y '.join(partes) +
+            ': explica parte de la baja, pero no alcanza los 3 días hábiles para excepción. ')
 
 
 # ---------------------------------------------------------------------------
@@ -244,6 +290,7 @@ def fmt_fecha(d):
 N_HIST = 5          # ventana de linea base
 N_CICLO = 5         # ciclo de racha / diversidad
 UMBRAL_RACHA = 5    # "mas de 5 interacciones"
+N_LOOKBACK = 16     # semanas de historial que se cargan (respaldo de linea base tras excepciones largas)
 
 
 def build(corte_fin, sd, uploads, o_en_a=False):
@@ -256,7 +303,7 @@ def build(corte_fin, sd, uploads, o_en_a=False):
     data_desde = ev['ts'].min().normalize()
 
     # Hace falta historial para: ciclo de 5 cortes, cada uno con 5 semanas de linea base.
-    wins = corte_windows(corte_fin, N_CICLO + N_HIST)
+    wins = corte_windows(corte_fin, N_LOOKBACK)
     ev['fecha'] = ev['ts'].dt.date
     ev['dow'] = ev['ts'].dt.dayofweek
 
@@ -287,35 +334,49 @@ def build(corte_fin, sd, uploads, o_en_a=False):
     cur_mon_, cur_fri_ = wins[-1]
     rows = []
     for uid, p in personas.items():
+        alta = date.fromisoformat(p['alta']) if p.get('alta') else None
         hist = []
         for s in semanas:
             st = week_stats(uid, s['lunes'], s['viernes'])
             st['excepcion'] = excepcion_semana(uid, sd, s['lunes'], excs)
-            st['con_datos'] = s['con_datos']
+            # Semanas anteriores a su alta no son historial (no son ceros reales).
+            st['con_datos'] = s['con_datos'] and (alta is None or s['viernes'] >= alta)
             st['label'] = s['label']
             hist.append(st)
 
+        def utiles(rng):
+            return [hist[j] for j in rng if hist[j]['con_datos'] and not hist[j]['excepcion']['es_excepcion']]
+
         def baseline_at(i):
-            prev = [hist[j] for j in range(max(0, i - N_HIST), i)
-                    if hist[j]['con_datos'] and not hist[j]['excepcion']['es_excepcion']]
+            """Promedio de las semanas utiles dentro de las 5 anteriores. Si no queda ninguna
+            (excepcion larga), respaldo: las ultimas 5 semanas utiles antes de ella."""
+            prev, previa = utiles(range(max(0, i - N_HIST), i)), False
             if not prev:
-                return None, [], 0
+                prev, previa = utiles(range(i - 1, -1, -1))[:N_HIST], True
+            if not prev:
+                return None, [], 0, False
             b = sum(h['total'] for h in prev) / len(prev)
             per_tool = {t: sum(h[t] for h in prev) / len(prev) for t in TOOLS}
-            return b, per_tool, len(prev)
+            return b, per_tool, len(prev), previa
 
-        alta = date.fromisoformat(p['alta']) if p.get('alta') else None
+        def calificar(i, h, b):
+            if alta and semanas[i]['lunes'] - timedelta(weeks=N_HIST) < alta:
+                return 'sin_historial'                  # alta documentada hace <5 semanas
+            return semaforo(h['total'], b)              # b=None (sin semanas utiles) -> sin_historial
+
         for i, h in enumerate(hist):
-            b, bt, n = baseline_at(i)
+            b, bt, n, previa = baseline_at(i)
             h['baseline'] = b
             h['baseline_tool'] = bt
             h['baseline_semanas'] = n
+            h['baseline_previa'] = previa
+            h['calificacion_transicion'] = None
             if h['excepcion']['es_excepcion']:
                 h['semaforo'] = 'excepcion'
-            elif alta and semanas[i]['lunes'] - timedelta(weeks=N_HIST) < alta:
-                h['semaforo'] = 'sin_historial'         # alta documentada hace <5 semanas
+                if h['excepcion']['transicion']:
+                    h['calificacion_transicion'] = calificar(i, h, b)
             else:
-                h['semaforo'] = semaforo(h['total'], b)  # b=None (sin semanas utiles) -> sin_historial
+                h['semaforo'] = calificar(i, h, b)
 
         ciclo = hist[-N_CICLO:]
         # Racha: desde el corte actual hacia atras; excepcion se salta sin romper.
@@ -337,7 +398,7 @@ def build(corte_fin, sd, uploads, o_en_a=False):
         firma = '>'.join(t for t, _ in sorted(((t, cur[t]) for t in TOOLS if cur[t] > 0),
                                                key=lambda kv: (-kv[1], ORDEN_DESEMPATE.index(kv[0]))))
         # Fortaleza historica: herramienta con mas uso promedio en las semanas de linea base.
-        _, bt, _ = baseline_at(len(hist) - 1)
+        _, bt, _, _ = baseline_at(len(hist) - 1)
         fuerte = (max(TOOLS, key=lambda t: (bt.get(t, 0), -ORDEN_DESEMPATE.index(t)))
                   if bt and any(bt.values()) else None)
         wf_ciclo = {}
@@ -348,7 +409,19 @@ def build(corte_fin, sd, uploads, o_en_a=False):
         wf_top = min(cur['wf_conteo'].items(), key=lambda kv: (-kv[1], -wf_ciclo.get(kv[0], 0), kv[0]), default=None)
         ratio = None if not cur['baseline'] else cur['total'] / cur['baseline']
         exc = cur['excepcion']
-        if cur['semaforo'] == 'excepcion':
+        sem_reporte = cur['calificacion_transicion'] or cur['semaforo']
+        if cur['calificacion_transicion']:
+            vig = [e for e in excs if e.get('sd') == sd and cur_mon_ <= date.fromisoformat(e['hasta']) <= cur_fri_]
+            cierre = max((date.fromisoformat(e['hasta']) for e in vig), default=cur_fri_)
+            inicio = min((date.fromisoformat(e['desde']) for e in vig), default=cur_mon_)
+            ref = ('vs. su ritmo previo a la excepción' if cur['baseline_previa']
+                   else 'vs. su propio promedio')
+            if sem_reporte == 'sin_historial':
+                mot = [{'text': "Alta reciente: todavía sin 5 semanas de historial propio fuera de la excepción."}]
+            else:
+                mot = motivo(sem_reporte, cur, cur['baseline_tool'])   # el resumen explica la transicion
+            fort = fortaleza(wf_top, fuerte)
+        elif cur['semaforo'] == 'excepcion':
             vig = [e for e in excs if (uid in e.get('personas', []) or e.get('sd') == sd)
                    and date.fromisoformat(e['desde']) <= cur_fri_ and date.fromisoformat(e['hasta']) >= cur_mon_]
             vig.sort(key=lambda e: 0 if uid in e.get('personas', []) else 1)   # la personal gana
@@ -360,6 +433,12 @@ def build(corte_fin, sd, uploads, o_en_a=False):
         else:
             mot = motivo(cur['semaforo'], cur, cur['baseline_tool'])
             fort = fortaleza(wf_top, fuerte)
+            if cur['semaforo'] in ('amarillo', 'rojo'):
+                nota = nota_ausencia_parcial(exc)
+                if nota:
+                    mot = [{'text': nota}] + mot
+            if cur['baseline_previa'] and cur['semaforo'] not in ('sin_historial',):
+                mot = [{'text': 'Comparado contra su ritmo previo a su última excepción (no hay semanas útiles recientes). '}] + mot
         post = bool(len(hist) > 1 and hist[-2]['excepcion']['es_excepcion'] and not exc['es_excepcion'])
         if post:
             mot = [{'text': 'Primera semana completa tras una excepción: la cifra todavía no se lee como ritmo sostenido. '}] + mot
@@ -369,7 +448,10 @@ def build(corte_fin, sd, uploads, o_en_a=False):
             'champion': p['champion'], 'f_esperada': p['f_esperada'], 'reporta_a': p.get('reporta_a'),
             **{t.lower(): cur[t] for t in TOOLS},
             'total': cur['total'], 'dias_activos': cur['dias_activos'], 'ultima_actividad': cur['ultima'],
-            'semaforo': cur['semaforo'],
+            'semaforo': sem_reporte,
+            'en_excepcion': cur['semaforo'] == 'excepcion',
+            'transicion': bool(cur['calificacion_transicion']),
+            'baseline_previa': cur['baseline_previa'],
             'baseline': None if cur['baseline'] is None else round(cur['baseline'], 1),
             'baseline_semanas': cur['baseline_semanas'],
             'ratio': None if not cur['baseline'] else round(cur['total'] / cur['baseline'], 3),
@@ -380,7 +462,7 @@ def build(corte_fin, sd, uploads, o_en_a=False):
             'racha': None if na_ciclo else racha, 'naCiclo': na_ciclo,
             'diversidadWf': div,
             'firma': firma or 'Sin actividad',
-            'urgencia': urgencia(cur['semaforo'], cur['total'], ratio),
+            'urgencia': urgencia(cur['semaforo'], cur['total'], ratio),   # transicion -> Sin accion
             'motivo': mot,
             'fortaleza': fort,
             'fortaleza_tool': fuerte,

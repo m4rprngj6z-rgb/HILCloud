@@ -32,7 +32,7 @@ function ordenar(rows) {
 }
 
 function usoTable(rows) {
-  const W = [1100, 1000, 820, 340, 340, 340, 340, 340, 820, 590, 560, 700, 1430, 1360];
+  const W = [1040, 1000, 820, 340, 340, 340, 340, 340, 820, 590, 560, 760, 1430, 1360];
   const S = 16;   // 8 pt en el cuerpo de esta tabla (14 columnas)
   const cols = ['Persona', 'Nivel', 'Urgencia', 'A', 'Wo', 'V', 'W', 'O', 'Sem.', 'Racha', 'Div. Wf', 'Firma', 'Motivo del semáforo', 'Fortaleza actual'];
   const centered = new Set([2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -46,7 +46,7 @@ function usoTable(rows) {
         H.cell(r.nivel, { width: W[1], fill, size: S, tight: true }),
         H.estadoCell(r.urgencia, W[2], H.URGENCIA, 15),
         num(r.a, W[3]), num(r.wo, W[4]), num(r.v, W[5]), num(r.w, W[6]), num(r.o, W[7]),
-        H.estadoCell(r.semaforo, W[8]),
+        H.estadoCell(r.semaforo, W[8], undefined, 14, undefined, r.transicion ? 'en excepción' : undefined),
         num(r.naCiclo ? 'N/A' : `${r.racha}/5`, W[9]),
         num(r.diversidadWf == null ? '-' : r.diversidadWf.toFixed(1), W[10]),
         H.cell(r.firma, { width: W[11], fill, size: S, tight: true }),
@@ -101,6 +101,12 @@ function buildDocument(d, fecha) {
       { size: 18 }), { after: 100 }),
   ];
 
+  const trans = rows.filter((r) => r.transicion);
+  if (trans.length) {
+    const quien = trans.length === rows.length ? 'Todo el equipo' : (trans.length > 3 ? `${trans.length} de ${rows.length} personas` : trans.map((r) => r.nombre).join(', '));
+    children.push(H.para(H.run(`Esta semana cierra la excepción de la SD. ${quien} se califica como referencia (marcado "en excepción"), pero la semana sigue en excepción: sin escalar, no rompe racha y no entra al promedio de las próximas semanas. Si no hay semanas útiles recientes, la referencia es su ritmo previo a la excepción.`,
+      { size: 18 }), { after: 100 }));
+  }
   const exc = rows.filter((r) => r.semaforo === 'excepcion');
   if (exc.length) {
     children.push(H.para(H.run(`Con excepción documentada esta semana: ${exc.map((r) => r.nombre).join(', ')}. No se califican ni cuentan en su promedio.`,

@@ -18,6 +18,6 @@
 - [x] **Reporte Fibi DJ** (1): generado para 21-25 sep, pendiente de revision de Tony.
 - [x] **Gobierno de Licencias** (1): generado para 21-25 sep; pendiente de revision de Tony.
 - [x] `scripts/correr_corte.sh`: los 14 docx de un corte con un comando.
-      escriben a mano sobre datos del ETL o se generan con plantillas deterministas.
+- [x] Texto narrativo: lo redacta Claude por corte en narrativa/ y lo revisa validar_narrativa.py.
 - [ ] Decisiones abiertas de Tony: ver docs/REGLAS_ETL.md seccion 10.
 - [ ] `sync_notion.py`: regenerar roster.json y excepciones.json desde Notion sin copiar a mano.

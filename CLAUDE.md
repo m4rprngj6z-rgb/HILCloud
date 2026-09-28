@@ -33,7 +33,10 @@ sincroniza aqui.
   reporta, altas). Generado parseando el HIL, no a mano. `data/roster.py` solo lo carga.
 - `data/excepciones.json` — copia de la tabla "Excepciones activas" del HIL, con rangos de fecha.
 - `scripts/etl.py` — exports crudos -> JSON por SD. Todo el calculo vive aqui.
-- `scripts/generate_champion.js` + `scripts/helpers.js` — JSON -> docx del Champion. No calcula.
+- `scripts/generate_champion.js`, `scripts/generate_ejecutivo.js` + `scripts/helpers.js` — JSON -> docx.
+  No calculan.
+- `narrativa/<fecha>/<SD>.json` — texto redactado por corte (Recomendacion, Accion...).
+  `scripts/validar_narrativa.py` lo revisa contra el ETL antes de generar.
 - `tests/test_regresion_26sep.py` — reproduce los reportes aprobados del 26 sep. Correrlo
   despues de cualquier cambio al ETL.
 - `docs/REGLAS_ETL.md` — TODAS las reglas de calculo y formato, con su origen. Leerlo antes de
@@ -45,7 +48,10 @@ sincroniza aqui.
 ```
 python3 scripts/etl.py --corte-fin 2026-09-25 --sd ENN          # viernes del corte
 node scripts/generate_champion.js out/ENN_2026-09-25.json out/ENN_Champion_25sep2026.docx
-python3 tests/test_regresion_26sep.py                            # si tocaste el ETL
+# Ejecutivo: primero redactar narrativa/2026-09-25/ENN.json y validarla
+python3 scripts/validar_narrativa.py out/ENN_2026-09-25.json narrativa/2026-09-25/ENN.json
+node scripts/generate_ejecutivo.js out/ENN_2026-09-25.json narrativa/2026-09-25/ENN.json out/ENN_Ejecutivo_25sep2026.docx
+python3 tests/test_regresion_26sep.py && python3 tests/test_regresion_ejecutivo_25sep.py   # si tocaste el ETL
 ```
 Luego validar (`validate.py`), pasar a PDF y revisarlo visualmente, como pide el Estandar.
 

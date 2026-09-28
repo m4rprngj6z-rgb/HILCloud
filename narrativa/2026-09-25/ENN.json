@@ -1,0 +1,8 @@
+{
+ "_corte": "21-25 sep 2026",
+ "_redacto": "Claude, sobre out/ENN_2026-09-25.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "ENN cerró con 331 acciones (+97% frente a 168 la semana anterior) y las 9 personas activas. Dos casos piden atención: Sofía Ochoa quedó al 24% de su propio promedio, sin Word Add-in ni Workflow esta semana, y Rodolfo Osuna al 41%, con la caída concentrada en Word Add-in. Alfredo Duarte regresó de vacaciones con 45 acciones, 33 de ellas en Outlook; es su primera semana completa de regreso, así que todavía no se lee como ritmo sostenido.",
+  "accion": "Champion Karime Sotelo: conversar esta semana con Sofía Ochoa y Rodolfo Osuna sobre qué cambió en su uso de Word Add-in, y confirmar en el próximo corte si el arranque de Alfredo Duarte se sostiene."
+ }
+}

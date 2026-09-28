@@ -1,7 +1,7 @@
 {
  "_fuente": "Notion HIL 37df66a17162812a9f53e15cb031792d (tabla maestra + organigramas) y Base de Usuarios 376f66a1716281c5a12fd8385313d6e7",
  "_sincronizado": "2026-09-28",
- "_nota": "Generado parseando las tablas del HIL, no transcrito a mano. Si Notion cambia, Notion gana: re-sincronizar. Correcciones sobre la tabla maestra: lrobert = Luis Ricardo Robert (asi en Excepciones y reportes aprobados). Fechas de alta tomadas de las notas del HIL.",
+ "_nota": "Generado parseando las tablas del HIL, no transcrito a mano. Si Notion cambia, Notion gana: re-sincronizar. Correcciones sobre la tabla maestra: lrobert = Luis Ricardo Robert (asi en Excepciones y reportes aprobados). Fechas de alta tomadas de las notas del HIL. Nombres de gerencia tomados de los reportes Ejecutivo aprobados del 25 sep 2026.",
  "sd_nombres": {
   "ENN": "Expansión Nuevos Negocios",
   "CN": "Cumplimiento Normativo",
@@ -27,7 +27,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "farcos"
+   "reporta_a": "farcos",
+   "gerencia": "Gerencia de Seguros"
   },
   "aksalinas": {
    "sd": "CN",
@@ -47,7 +48,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "farcos"
+   "reporta_a": "farcos",
+   "gerencia": "Gerencia Normativo SPEI"
   },
   "anraya": {
    "sd": "CN",
@@ -77,7 +79,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "farcos"
+   "reporta_a": "farcos",
+   "gerencia": "Gerencia CN III"
   },
   "farcos": {
    "sd": "CN",
@@ -127,7 +130,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "farcos"
+   "reporta_a": "farcos",
+   "gerencia": "Gerencia CN I"
   },
   "jixta": {
    "sd": "CN",
@@ -137,7 +141,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "farcos"
+   "reporta_a": "farcos",
+   "gerencia": "Gerencia CN II"
   },
   "kiguerrero": {
    "sd": "CN",
@@ -157,7 +162,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "farcos"
+   "reporta_a": "farcos",
+   "gerencia": "Gerencia Servicios Normativos"
   },
   "lesespinoza": {
    "sd": "CN",
@@ -188,7 +194,8 @@
    "rol_hai": "User (permisos Champion)",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "kmendez"
+   "reporta_a": "kmendez",
+   "gerencia": "Gerencia Corporativa"
   },
   "dfuentes": {
    "sd": "ENN",
@@ -198,7 +205,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "kmendez"
+   "reporta_a": "kmendez",
+   "gerencia": "Gerencia Contratos TI"
   },
   "isrodriguez": {
    "sd": "ENN",
@@ -219,7 +227,8 @@
    "f_esperada": "M",
    "champion": false,
    "reporta_a": "kmendez",
-   "excluido_metricas": true
+   "excluido_metricas": true,
+   "gerencia": "Gerencia Contratos TI & AI"
   },
   "kmendez": {
    "sd": "ENN",
@@ -259,7 +268,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W>V",
    "champion": false,
-   "reporta_a": "kmendez"
+   "reporta_a": "kmendez",
+   "gerencia": "Gerencia Contratos"
   },
   "rrcubillo": {
    "sd": "ENN",
@@ -269,7 +279,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "kmendez"
+   "reporta_a": "kmendez",
+   "gerencia": "Gerencia Arrendamientos"
   },
   "soochoa": {
    "sd": "ENN",
@@ -393,7 +404,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "lrobert"
+   "reporta_a": "lrobert",
+   "gerencia": "Gerencia GC I"
   },
   "juagalvez": {
    "sd": "GC",
@@ -403,7 +415,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "lrobert"
+   "reporta_a": "lrobert",
+   "gerencia": "Gerencia GC II"
   },
   "lrobert": {
    "sd": "GC",
@@ -443,7 +456,8 @@
    "rol_hai": "★ Champion",
    "f_esperada": "M (A>W)",
    "champion": true,
-   "reporta_a": "masmora"
+   "reporta_a": "masmora",
+   "gerencia": "Gerencia Contencioso Normativo"
   },
   "aqsordo": {
    "sd": "JC",
@@ -463,7 +477,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "masmora"
+   "reporta_a": "masmora",
+   "gerencia": "Gerencia Jurídico Contencioso I"
   },
   "crifernandez": {
    "sd": "JC",
@@ -503,7 +518,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "masmora"
+   "reporta_a": "masmora",
+   "gerencia": "Gerencia Jurídico Contencioso II"
   },
   "acasillas": {
    "sd": "PLD",
@@ -523,7 +539,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "gcadena"
+   "reporta_a": "gcadena",
+   "gerencia": "Gerencia PLD (Martínez)"
   },
   "anlramirez": {
    "sd": "PLD",
@@ -534,7 +551,8 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "gcadena",
-   "alta": "2026-08-22"
+   "alta": "2026-08-22",
+   "gerencia": "Gerencia PLD (Ramírez)"
   },
   "cjreyes": {
    "sd": "PLD",
@@ -544,7 +562,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "gcadena"
+   "reporta_a": "gcadena",
+   "gerencia": "Gerencia PLD (Reyes)"
   },
   "dammercado": {
    "sd": "PLD",
@@ -576,7 +595,8 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "gcadena",
-   "alta": "2026-08-22"
+   "alta": "2026-08-22",
+   "gerencia": "Gerencia PLD (Guerrero)"
   },
   "gcadena": {
    "sd": "PLD",
@@ -606,7 +626,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "gcadena"
+   "reporta_a": "gcadena",
+   "gerencia": "Gerencia PLD (Falcón)"
   },
   "imbecerra": {
    "sd": "PLD",
@@ -719,7 +740,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "jcenteno"
+   "reporta_a": "jcenteno",
+   "gerencia": "Gerencia Contencioso Laboral"
   },
   "jcenteno": {
    "sd": "RL",
@@ -749,7 +771,8 @@
    "rol_hai": "User",
    "f_esperada": "A>W",
    "champion": false,
-   "reporta_a": "jcenteno"
+   "reporta_a": "jcenteno",
+   "gerencia": "Gerencia RL"
   },
   "pgodinez": {
    "sd": "RL",
@@ -781,5 +804,50 @@
    "champion": false,
    "reporta_a": "kzetina"
   }
+ },
+ "etiqueta_subdireccion": {
+  "ENN": "Subdirección",
+  "CN": "Subdirección",
+  "PLD": "Subdirección",
+  "GC": "Subdirección",
+  "JC": "Subdirección",
+  "RL": "Dirección Funcional"
+ },
+ "orden_gerencias": {
+  "ENN": [
+   "alduarte",
+   "rodosuna",
+   "dfuentes",
+   "rrcubillo",
+   "jbueno"
+  ],
+  "CN": [
+   "jgsantillan",
+   "amaqueda",
+   "jixta",
+   "ealvarez",
+   "larrazola",
+   "adguillen"
+  ],
+  "PLD": [
+   "hfalcon",
+   "cjreyes",
+   "akamartinez",
+   "anlramirez",
+   "gaguerrero"
+  ],
+  "GC": [
+   "gjuarez",
+   "juagalvez"
+  ],
+  "JC": [
+   "amhernandez",
+   "arperez",
+   "omonteverde"
+  ],
+  "RL": [
+   "kzetina",
+   "charamirez"
+  ]
  }
 }

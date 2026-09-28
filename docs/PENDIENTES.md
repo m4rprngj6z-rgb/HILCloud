@@ -14,9 +14,8 @@
 
 ## Falta
 
-- [ ] **Reporte Ejecutivo** (6): portar la estructura de `{SD}_Ejecutivo_25sep2026.docx`
-      (semaforo de la semana, metricas, Vista por Gerencia, usos clave, recomendacion, caja de
-      accion). Los datos ya estan en el JSON del ETL (`reporta_a` para gerencias, workflow_top).
+- [~] **Reporte Ejecutivo** (6): generador listo y probado; ENN generado. Falta aprobacion de Tony
+      del formato y redactar la narrativa de las otras 5 SD por corte.
 - [ ] **Reporte Fibi DJ** (1): nivel area, maximo 1-2 personas nombradas, trayectoria 5 semanas.
       Requiere un modo del ETL que junte las 6 SD.
 - [ ] **Gobierno de Licencias** (1, para Tony): rankings y conteo mensual (reglas en el HIL).

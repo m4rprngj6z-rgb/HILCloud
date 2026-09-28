@@ -1,0 +1,185 @@
+{
+ "_fuente": "Reportes {SD}_Ejecutivo_25sep2026.docx aprobados. Semaforo solo comparable en ENN (las otras SD usaban aun el metodo viejo).",
+ "sd": {
+  "ENN": {
+   "acciones": 331,
+   "acciones_anterior": 168,
+   "workflows": 17,
+   "personas_activas": 9,
+   "personas": 9,
+   "semaforo": [
+    "🟢 3",
+    "🟡 5",
+    "🔴 1"
+   ],
+   "usos_clave": [
+    [
+     "Karla Méndez",
+     "Validador de Expedientes Legales",
+     4
+    ],
+    [
+     "Alfredo Duarte",
+     "Minuta desde transcripción (ENN)",
+     2
+    ],
+    [
+     "Karime Sotelo",
+     "Validador de Expedientes Legales",
+     2
+    ],
+    [
+     "Miguel Jaimes",
+     "Validador de Expedientes Legales",
+     2
+    ],
+    [
+     "Isis Rodríguez",
+     "Validador de Expedientes Legales",
+     1
+    ],
+    [
+     "Raquel Reyes Cubillo",
+     "Validador de Expedientes Legales",
+     1
+    ]
+   ]
+  },
+  "CN": {
+   "acciones": 276,
+   "acciones_anterior": 215,
+   "workflows": 38,
+   "personas_activas": 13,
+   "personas": 15,
+   "semaforo": [
+    "🟢 3",
+    "🟡 10",
+    "🔴 2"
+   ],
+   "usos_clave": [
+    [
+     "Aaron Raya",
+     "Notas Informativas Regulatorias (MX)",
+     4
+    ],
+    [
+     "Ana Karen Salinas",
+     "Tracking diario- Términos y Condiciones de Campañas",
+     4
+    ],
+    [
+     "Javier García",
+     "Resumen diario de publicaciones y correo (MX)",
+     2
+    ],
+    [
+     "Leslie Espinoza",
+     "Escrito de Respuesta a Requerimiento de Información.",
+     2
+    ],
+    [
+     "Jorge Belloc",
+     "Transcribe Audio to Text",
+     1
+    ]
+   ]
+  },
+  "PLD": {
+   "acciones": 230,
+   "acciones_anterior": 377,
+   "workflows": 56,
+   "personas_activas": 18,
+   "personas": 19,
+   "semaforo": [
+    "🟢 4",
+    "🟡 13",
+    "🔴 1",
+    "⚪ 1"
+   ],
+   "usos_clave": [
+    [
+     "Ricardo Centurión",
+     "Identificación de Personas Vinculadas a Delitos en Noticias",
+     11
+    ],
+    [
+     "Mario Manzano",
+     "Redactor de descripciones de operaciones",
+     11
+    ],
+    [
+     "Karla Stephanie Aparicio González",
+     "Extractor de Denuncias",
+     5
+    ],
+    [
+     "Néstor Rangel",
+     "Figuras de Relacion de Gentera",
+     3
+    ],
+    [
+     "Alejandra Casillas",
+     "ANÁLISIS PERSONAS EN REGISTROS WEB",
+     2
+    ]
+   ]
+  },
+  "GC": {
+   "acciones": 123,
+   "acciones_anterior": 71,
+   "workflows": 22,
+   "personas_activas": 7,
+   "personas": 7,
+   "semaforo": [
+    "🟢 1",
+    "🟡 6",
+    "🔴 0"
+   ],
+   "usos_clave": [
+    [
+     "Alejandra Mireles",
+     "Clasificación de Productos y Servicios Niza",
+     13
+    ]
+   ]
+  },
+  "JC": {
+   "acciones": 111,
+   "acciones_anterior": 67,
+   "workflows": 0,
+   "personas_activas": 7,
+   "personas": 7,
+   "semaforo": [
+    "🟢 1",
+    "🟡 6",
+    "🔴 0"
+   ],
+   "usos_clave": []
+  },
+  "RL": {
+   "acciones": 74,
+   "acciones_anterior": 48,
+   "workflows": 14,
+   "personas_activas": 6,
+   "personas": 8,
+   "semaforo": [
+    "🟢 2",
+    "🟡 2",
+    "🔴 3",
+    "⚪ 1"
+   ],
+   "usos_clave": [
+    [
+     "Jean Cub Nájera",
+     "Extraer Datos Laborales Banca",
+     6
+    ],
+    [
+     "Valeria Cruz",
+     "Extraer Datos de Resoluciones Laborales",
+     2
+    ]
+   ]
+  }
+ }
+}

@@ -477,6 +477,10 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                            'excepcion': h['excepcion']['es_excepcion']} for h in hist],
         })
 
+    gerencias = agrupar_gerencias(rows, roster, sd)
+    usos = sorted(({'persona': r['nombre'], 'uso': r['workflow_top']['nombre'], 'veces': r['workflow_top']['veces']}
+                   for r in rows if r['workflow_top']), key=lambda u: (-u['veces'], u['persona']))
+
     cur_mon, cur_fri = wins[-1]
     out = {
         'sd': sd,
@@ -502,8 +506,66 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                 set(ev[(ev['fecha'] >= cur_mon) & (ev['fecha'] <= cur_fri)]['user_id'])
                 - set(roster['personas'])),
         },
+        'etiqueta_subdireccion': roster.get('etiqueta_subdireccion', {}).get(sd, 'Subdirección'),
+        'gerencias': gerencias,
+        'usos_clave': usos,
         'rows': rows,
     }
+    return out
+
+
+def agrupar_gerencias(rows, roster, sd):
+    """Vista por Gerencia (decision Tony 28 sep 2026: totales de toda la gerencia, no solo del
+    responsable). Cada persona cae en la gerencia de su jefe inmediato bajo el Subdirector; quien
+    reporta directo al Subdirector sin gerencia propia cae en la fila de la Subdireccion.
+    Semaforo de la gerencia: total del equipo vs. suma de los promedios propios de sus
+    integrantes (sin quienes estan en excepcion). Regla 8 del HIL: la gerencia de jbueno aparece
+    con sus integrantes, sin las metricas de jbueno."""
+    P = roster['personas']
+    sub = roster['subdirectores'][sd]
+    etiqueta = roster.get('etiqueta_subdireccion', {}).get(sd, 'Subdirección')
+
+    def cabeza(uid):
+        c, seen = uid, set()
+        while c and c not in seen:
+            seen.add(c)
+            if c == sub:
+                return sub
+            jefe = P.get(c, {}).get('reporta_a')
+            if jefe == sub:
+                return c if P[c].get('gerencia') else sub
+            c = jefe
+        return sub
+
+    grupos = {}
+    for r in rows:
+        grupos.setdefault(cabeza(r['usuario']), []).append(r)
+    out = []
+    orden = [sub] + roster.get('orden_gerencias', {}).get(sd, [u for u in P if P[u].get('gerencia') and P[u]['sd'] == sd])
+    for h in orden:
+        miembros = grupos.get(h, [])
+        if not miembros:
+            continue
+        cal = [m for m in miembros if (not m['en_excepcion'] or m['transicion']) and m['baseline'] is not None
+               and m['semaforo'] != 'sin_historial']
+        tot = sum(m['total'] for m in miembros)
+        base = sum(m['baseline'] for m in cal)
+        if not cal:
+            sem = 'excepcion' if all(m['en_excepcion'] and not m['transicion'] for m in miembros) else 'sin_historial'
+        else:
+            sem = semaforo(sum(m['total'] for m in cal), base)
+        herr = {t: sum(m[t.lower()] for m in miembros) for t in TOOLS}
+        firma = '>'.join(t for t, _ in sorted(((t, v) for t, v in herr.items() if v > 0),
+                                               key=lambda kv: (-kv[1], ORDEN_DESEMPATE.index(kv[0])))) or 'Sin actividad'
+        out.append({
+            'gerencia': etiqueta if h == sub else P[h]['gerencia'],
+            'responsable': P[h]['nombre'],
+            'responsable_excluido': bool(P[h].get('excluido_metricas')),
+            'personas': len(miembros),
+            'integrantes': [m['nombre'] for m in miembros],
+            'acciones': tot, 'w': herr['W'], 'firma': firma, 'semaforo': sem,
+            'en_transicion': any(m['transicion'] for m in miembros),
+        })
     return out
 
 

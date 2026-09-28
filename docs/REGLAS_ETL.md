@@ -133,6 +133,34 @@ Arial. "Persona", no "Usuario". El generador lanza error si algún texto trae ra
 Agregado sobre el aprobado (acordado 26 sep): columnas O, Racha, Div. Wf y la tabla de códigos
 autocontenida.
 
+## 8b. Reporte Ejecutivo (scripts/generate_ejecutivo.js)
+
+Replica `ENN_Ejecutivo_25sep2026.docx` aprobado. Cifras del ETL; texto de `narrativa/`.
+
+- **Vista por Gerencia = totales de toda la gerencia** (decisión Tony, 28 sep 2026; el aprobado
+  del 25 sep mostraba solo al responsable). Cada persona cae en la gerencia de su jefe inmediato
+  bajo el Subdirector (organigrama del HIL); quien reporta directo al Subdirector sin gerencia
+  propia cae en la fila de la Subdirección. Nombres y orden de gerencias: los del aprobado
+  (`nombre gerencia` y `orden_gerencias` en roster.json). Semáforo de la gerencia: total del
+  equipo contra la suma del promedio propio de sus integrantes, sin quienes están en excepción.
+  El reporte lo aclara en una nota.
+- **Regla 8 del HIL**: la gerencia de jbueno (Contratos TI & AI) aparece con sus integrantes
+  (Isis) y la nota de reporte funcional; las métricas de jbueno siguen excluidas. El aprobado del
+  25 sep la omitía.
+- **Usos clave**: una fila por persona con workflow nombrado esta semana (su más usado), de más a
+  menos veces; empate alfabético.
+- **Semáforo de la semana**: celdas con relleno y texto ("3 VERDE"), sin emoji (Estándar).
+- **Regresión**: `tests/test_regresion_ejecutivo_25sep.py` (37 comparaciones, 0 fallas).
+
+## 8c. Texto redactado (narrativa/) y su revisor
+
+El código no redacta. La Recomendación y la Acción del Ejecutivo (y los Casos y Puntos de
+atención del Fibi) se escriben por corte en `narrativa/<fecha del viernes>/<SD>.json`.
+`scripts/validar_narrativa.py` los rechaza si: citan un número que no sale del ETL (los
+porcentajes deben coincidir con uno calculado), traen raya larga, usan frases prohibidas
+(tratamiento político, "subir a verde", carga operativa), o el Fibi nombra a más de 2 personas.
+Correrlo siempre antes de generar.
+
 ## 9. Diferencias conocidas contra los reportes del 26 sep (esperadas)
 
 | Caso | Por qué |

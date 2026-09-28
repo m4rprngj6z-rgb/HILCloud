@@ -48,6 +48,9 @@ sincroniza aqui.
 
 ## Correr un corte
 
+0. Sincronizar con Notion: fetch del HIL (37df66a17162812a9f53e15cb031792d) con el conector,
+   guardarlo FUERA del repo (scratchpad) y `python3 scripts/sync_notion.py <archivo>`; revisar
+   las diferencias y aplicar con `--escribir`. Si cambia algo, correr las pruebas del paso 5.
 1. Correr el ETL de las 6 SD para ver los datos: `python3 scripts/etl.py --corte-fin <viernes> --sd <SD>`
 2. Redactar la narrativa del corte en `narrativa/<viernes>/`: `<SD>.json` (ejecutivo: recomendacion,
    accion) y `DJ.json` (fibi: casos, puntos; licencias: notas opcionales). Usar las del corte

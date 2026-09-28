@@ -1,0 +1,8 @@
+{
+ "_corte": "21-25 sep 2026",
+ "_redacto": "Claude, sobre out/RL_2026-09-25.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "RL creció 54% (74 acciones frente a 48) con 6 de 8 personas activas; Patsy Godínez está de vacaciones. Christian Ramírez encabeza el volumen con 29 acciones y Jean Cub Nájera sostiene el uso de Workflow con 10 ejecuciones. Hay tres personas en rojo: Julián Centeno sin actividad, y Karla Zetina y Rocío Fernández con 1 acción cada una.",
+  "accion": "Champion Jean Cub Nájera: contactar a Karla Zetina y Rocío Fernández para entender su caída, y registrar la semana sin actividad de Julián Centeno para leer su patrón en los próximos cortes."
+ }
+}

@@ -157,10 +157,10 @@ function buildDocument(d, narr, fecha) {
     ...usosClave(d),
 
     H.h2('Recomendación'),
-    H.para(H.run(n.recomendacion, { size: 18 }), { after: 140 }),
+    H.para(H.run(n.recomendacion, { size: 18 }), { after: 100 }),
     cajaAccion(n.accion),
 
-    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Harvey AI Champion de Champions, DJ', { size: 16, color: H.C.gris }), { before: 220, after: 20 }),
+    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Harvey AI Champion de Champions, DJ', { size: 16, color: H.C.gris }), { before: 140, after: 0 }),
     H.para(H.run('Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris })),
   );
 

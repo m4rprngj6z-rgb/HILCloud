@@ -1,0 +1,8 @@
+{
+ "_corte": "21-25 sep 2026",
+ "_redacto": "Claude, sobre out/GC_2026-09-25.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "GC creció 73% (123 acciones frente a 71) con las 7 personas activas. María Yesenia Álvarez está al 168% de su ritmo y la Subdirección al 192%, con uso de Vault. El único punto de atención es Juan Miguel Gálvez, con 3 acciones en la semana.",
+  "accion": "Champion Alejandra Mireles: preguntar a Juan Miguel Gálvez qué tipo de documento trabaja con más frecuencia y si ya lo intentó con Harvey."
+ }
+}

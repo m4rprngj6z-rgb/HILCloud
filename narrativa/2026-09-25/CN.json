@@ -1,0 +1,8 @@
+{
+ "_corte": "21-25 sep 2026",
+ "_redacto": "Claude, sobre out/CN_2026-09-25.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "CN creció 28% (276 acciones frente a 215) con 13 de 15 personas activas. César Berelleza y Fernando Yhibran Medina quedaron sin actividad esta semana, y Karla Guerrero al 21% de su propio promedio. Del lado positivo, Janis Pérez está al 222% de su ritmo, con 12 ejecuciones de Workflow.",
+  "accion": "Champion Jorge Belloc: confirmar con César Berelleza, Fernando Yhibran Medina y Karla Guerrero qué cambió esta semana, antes de plantear cualquier activación."
+ }
+}

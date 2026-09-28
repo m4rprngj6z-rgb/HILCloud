@@ -1,0 +1,8 @@
+{
+ "_corte": "21-25 sep 2026",
+ "_redacto": "Claude, sobre out/JC_2026-09-25.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "JC creció 66% (111 acciones frente a 67) con las 7 personas activas, pero sigue sin ninguna ejecución de Workflow. El volumen se concentra en Word Add-in y Assistant; Oscar Monteverde tuvo solo 3 acciones.",
+  "accion": "Champion Amed Hernández: usar la sesión de los viernes para identificar con el equipo un proceso repetible que pueda convertirse en el primer Workflow de JC."
+ }
+}

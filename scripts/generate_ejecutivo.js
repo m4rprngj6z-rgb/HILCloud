@@ -63,7 +63,7 @@ function metricas(d) {
     width: { size: 9500, type: WidthType.DXA }, columnWidths: W, layout: TableLayoutType.FIXED, borders: BORDES_TABLA,
     rows: [new TableRow({
       children: [
-        metricaCell('Acciones totales', String(t.acciones), `${t.conversaciones} conv.${delta === null ? '' : `  |  vs ${t.acciones_anterior} (${delta >= 0 ? '+' : ''}${delta}%)`}`, W[0]),
+        metricaCell('Acciones totales', String(t.acciones), delta === null ? '' : `vs ${t.acciones_anterior} (${delta >= 0 ? '+' : ''}${delta}%)`, W[0]),
         metricaCell('Personas en atención alta', String(t.atencion_alta), t.evaluadas ? `de ${t.evaluadas} calificadas esta semana` : 'semana en excepción: sin escalar', W[1]),
         metricaCell('Personas activas', `${t.personas_activas} / ${t.personas}`, `${wau}% WAU`, W[2]),
       ],
@@ -74,7 +74,7 @@ function metricas(d) {
 function vistaGerencia(d) {
   // Columna W reemplazada por "Que pedirle" (Tony, 28 sep 2026): acciones concretas por gerencia.
   const W = [1600, 1350, 880, 1000, 1200, 1000, 2470];
-  const cols = ['Gerencia', 'Responsable', 'Personas', 'Acciones (conv.)', 'Fortaleza', 'Sem.', 'Qué pedirle'];
+  const cols = ['Gerencia', 'Responsable', 'Personas', 'Acciones', 'Fortaleza', 'Sem.', 'Qué pedirle'];
   const trs = d.gerencias.map((g, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
     const c = (v, w, o = {}) => H.cell(String(v), { width: w, fill, align: AlignmentType.CENTER, ...o });
@@ -90,7 +90,7 @@ function vistaGerencia(d) {
       children: [
         H.cell(g.gerencia, { width: W[0], fill, bold: true, size: 16 }),
         H.cell(g.responsable + (g.responsable_excluido ? ' *' : ''), { width: W[1], fill, size: 16 }),
-        c(g.personas, W[2], { size: 16 }), c(`${g.acciones} (${g.conversaciones})`, W[3], { size: 16 }), c(g.firma, W[4], { bold: true, size: 15, tight: true }),
+        c(g.personas, W[2], { size: 16 }), c(g.acciones, W[3], { size: 16 }), c(g.firma, W[4], { bold: true, size: 15, tight: true }),
         H.estadoCell(g.semaforo, W[5], undefined, 14, undefined, g.en_transicion ? 'en excepción' : undefined),
         pedir,
       ],

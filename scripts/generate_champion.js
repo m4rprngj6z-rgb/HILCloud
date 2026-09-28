@@ -32,10 +32,10 @@ function ordenar(rows) {
 }
 
 function usoTable(rows) {
-  const W = [1500, 1150, 850, 400, 400, 400, 400, 400, 560, 900, 620, 620, 1000, 2250, 2200];   // horizontal: 13650
-  const S = 16;   // 8 pt en el cuerpo de esta tabla (14 columnas)
-  const cols = ['Persona', 'Nivel', 'Urgencia', 'A', 'Wo', 'V', 'W', 'O', 'Conv.', 'Sem.', 'Racha', 'Div. Wf', 'Firma', 'Motivo del semáforo', 'Fortaleza actual'];
-  const centered = new Set([2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+  const W = [1500, 1150, 850, 400, 400, 400, 400, 400, 900, 620, 620, 1000, 2500, 2510];   // horizontal: 13650
+  const S = 16;   // 8 pt en el cuerpo de esta tabla (14 columnas; Conversaciones se retiró el 28 sep por decisión de Tony)
+  const cols = ['Persona', 'Nivel', 'Urgencia', 'A', 'Wo', 'V', 'W', 'O', 'Sem.', 'Racha', 'Div. Wf', 'Firma', 'Motivo del semáforo', 'Fortaleza actual'];
+  const centered = new Set([2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const trs = rows.map((r, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
     const num = (v, w) => H.cell(String(v), { width: w, fill, align: AlignmentType.CENTER, tight: true, size: S });
@@ -46,13 +46,12 @@ function usoTable(rows) {
         H.cell(r.nivel, { width: W[1], fill, size: S, tight: true }),
         H.estadoCell(r.urgencia, W[2], H.URGENCIA, 15),
         num(r.a, W[3]), num(r.wo, W[4]), num(r.v, W[5]), num(r.w, W[6]), num(r.o, W[7]),
-        num(r.conversaciones, W[8]),
-        H.estadoCell(r.semaforo, W[9], undefined, 14, undefined, r.transicion ? 'en excepción' : undefined),
-        num(r.naCiclo ? 'N/A' : `${r.racha}/5`, W[10]),
-        num(r.diversidadWf == null ? '-' : r.diversidadWf.toFixed(1), W[11]),
-        H.cell(r.firma, { width: W[12], fill, size: S, tight: true }),
-        H.cell(H.richRuns(r.motivo, { italics: true, size: S }), { width: W[13], fill }),
-        H.cell(H.richRuns(r.fortaleza, { italics: true, size: S }), { width: W[14], fill }),
+        H.estadoCell(r.semaforo, W[8], undefined, 14, undefined, r.transicion ? 'en excepción' : undefined),
+        num(r.naCiclo ? 'N/A' : `${r.racha}/5`, W[9]),
+        num(r.diversidadWf == null ? '-' : r.diversidadWf.toFixed(1), W[10]),
+        H.cell(r.firma, { width: W[11], fill, size: S, tight: true }),
+        H.cell(H.richRuns(r.motivo, { italics: true, size: S }), { width: W[12], fill }),
+        H.cell(H.richRuns(r.fortaleza, { italics: true, size: S }), { width: W[13], fill }),
       ],
     });
   });
@@ -72,7 +71,6 @@ function codigosTable() {
     [{ estado: 'rojo' }, 'Menos de 40% de su propio promedio.'],
     [{ estado: 'excepcion' }, 'Ausencia documentada (vacaciones, incapacidad, evento de toda la SD). No cuenta en el promedio.'],
     [{ estado: 'sin_historial' }, 'Menos de 5 semanas de historial propio: su promedio todavía no es confiable para calificar.'],
-    [{ code: 'Conv.', color: H.C.navy }, 'Conversaciones distintas: una conversación con varios seguimientos cuenta como 1. En Word cada acción es su propia conversación.'],
     [{ code: 'Racha', color: H.C.navy }, 'Cortes consecutivos (de los últimos 5) en verde o amarillo con más de 5 interacciones. Las excepciones se saltan sin romperla.'],
     [{ code: 'Div. Wf', color: H.C.navy }, 'Promedio semanal de workflows distintos en las últimas 5 semanas: mide exploración, no volumen.'],
     [{ code: 'Firma', color: H.C.navy }, 'Herramientas usadas esta semana, de mayor a menor uso.'],
@@ -126,7 +124,7 @@ function buildDocument(d, fecha) {
     H.h2('Reporte de uso, ordenado por prioridad de atención'),
     H.nota('No es un ranking de desempeño. El orden es de triage: primero quién necesita tu atención esta semana, no quién produjo más.', { size: 15, after: 100 }),
     usoTable(rows),
-    H.nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  Conv. = conversaciones distintas  |  ★ Champion: uso contaminado por rol HAI. Significado completo al final.', { after: 160 }),
+    H.nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  ★ Champion: uso contaminado por rol HAI. Significado completo al final.', { after: 160 }),
 
     H.h2('Antes del próximo corte'),
     H.cajaVerde('Antes del próximo corte',

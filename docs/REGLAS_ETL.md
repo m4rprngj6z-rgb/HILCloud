@@ -108,13 +108,12 @@ pero no se nombran como workflow ni cuentan para Diversidad.
 - `?` → alta documentada (`alta` en roster.json) hace menos de 5 semanas, o sin ninguna semana
   útil de línea base.
 
-## 6. Racha, Diversidad y Conversaciones
+## 6. Racha y Diversidad
 
-- **Conversaciones distintas** (Tony, 28 sep 2026, a partir del caso de Diana Fuentes: 18
-  acciones en un Vault que eran casi una sola sesión): número de hilos distintos (`ID del hilo de
-  la Matriz`) en la semana. Un hilo con varios follow-ups cuenta 1. En Word cada acción es su
-  propio hilo, así que ahí acciones = conversaciones. Se muestra junto a las acciones; no cambia
-  semáforo, urgencia ni racha (esos siguen sobre acciones).
+- **Acciones = todas las interacciones** (Tony, 28 sep 2026): cada pregunta y cada follow-up es
+  una fila del export y cuenta 1. Se probó una columna de "conversaciones distintas" (hilos) y se
+  retiró el mismo día: el Champion no tiene cómo interpretarla y en Word/Outlook cada acción es su
+  propio hilo, así que casi no distingue nada.
 
 
 - **Racha**: desde el corte actual hacia atrás, dentro de los últimos 5 cortes, cuántos seguidos
@@ -159,8 +158,7 @@ W #9C0006. V (#375623) y O (#7030A0) no aparecían en ningún aprobado. Sin emoj
 Arial. "Persona", no "Usuario". El generador lanza error si algún texto trae raya larga.
 
 Agregado sobre el aprobado (acordado 26 sep): columnas O, Racha, Div. Wf y la tabla de códigos
-autocontenida. Desde el 28 sep, columna Conv. y **página horizontal** (15 columnas no caben en
-vertical sin partir palabras).
+autocontenida. Desde el 28 sep, **página horizontal** (14 columnas no caben en vertical sin partir palabras).
 
 ## 8b. Reporte Ejecutivo (scripts/generate_ejecutivo.js)
 

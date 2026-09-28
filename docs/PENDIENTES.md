@@ -21,3 +21,10 @@
 - [x] Texto narrativo: lo redacta Claude por corte en narrativa/ y lo revisa validar_narrativa.py.
 - [ ] Decisiones abiertas de Tony: ver docs/REGLAS_ETL.md seccion 10.
 - [x] `scripts/sync_notion.py`: regenera roster.json y excepciones.json desde el HIL (28 sep).
+
+## Operación (28 sep 2026)
+
+- Solo Tony corre el pipeline, hasta nuevo aviso. Jorge queda en pausa.
+- [ ] Antes de las vacaciones de Tony: traspaso a Alejandra Mireles (Champion GC). Definir si
+      trabaja con acceso al repo o con una sesión preparada, y actualizar el Context Prompt de
+      Notion para ella.

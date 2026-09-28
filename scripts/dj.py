@@ -44,7 +44,7 @@ def main():
             'corte': d['corte'],
         })
         rows += [{**r, 'sd': sd} for r in d['rows']]
-    tot = {k: sum(s[k] for s in sds) for k in ['acciones', 'acciones_anterior', 'personas', 'personas_activas', 'workflows', 'atencion_alta', 'evaluadas', 'conversaciones']}
+    tot = {k: sum(s[k] for s in sds) for k in ['acciones', 'acciones_anterior', 'personas', 'personas_activas', 'workflows', 'atencion_alta', 'evaluadas']}
     out = {
         'corte': sds[0]['corte'],
         'totales': tot,

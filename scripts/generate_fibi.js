@@ -37,7 +37,7 @@ function cajaMetricas(d) {
   });
   return H.table(W, [
     new TableRow({ children: [num(String(t.acciones), W[0]), num(`${t.personas_activas} / ${t.personas}`, W[1]), num(String(t.atencion_alta), W[2])] }),
-    new TableRow({ children: [lab(`Acciones DJ (vs ${t.acciones_anterior}), en ${t.conversaciones} conversaciones`, W[0]), lab(`Personas activas (${d.wau_pct}%)`, W[1]), lab(`Personas en atención alta (de ${t.evaluadas} calificadas)`, W[2])] }),
+    new TableRow({ children: [lab(`Acciones DJ (vs ${t.acciones_anterior})`, W[0]), lab(`Personas activas (${d.wau_pct}%)`, W[1]), lab(`Personas en atención alta (de ${t.evaluadas} calificadas)`, W[2])] }),
   ]);
 }
 

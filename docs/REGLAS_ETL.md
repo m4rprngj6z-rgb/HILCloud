@@ -17,7 +17,24 @@ sin ver este código) cuadró exacto las 9 personas de ENN del corte 21-25 sep.
 | Roster (SD, nombre, nivel, fortaleza esperada, a quién reporta) | `data/roster.json` | Notion HIL (tabla maestra + organigramas) |
 | Excepciones (vacaciones, incapacidades, eventos) | `data/excepciones.json` | Notion HIL, tabla "Excepciones activas" |
 
-Si Notion y el repo difieren, Notion gana: re-sincronizar aquí.
+Si Notion y el repo difieren, Notion gana: re-sincronizar aquí con `scripts/sync_notion.py`.
+
+**Sincronización (`scripts/sync_notion.py <hil.md> [--escribir]`).** La sesión trae la página del
+HIL con el conector de Notion, la guarda fuera del repo y se la pasa al script. Sin `--escribir`
+solo lista diferencias.
+- De Notion: quién existe en las 6 tablas maestras, y por persona sd, nombre, puesto, nivel, rol
+  HAI, F. esperada, Champion (rol con ★), reporta a (organigrama de la SD) y alta ("Alta DD mmm
+  AAAA" en Flags). Excepciones: la tabla completa, con las columnas "Fecha inicio/Fecha fin
+  (AAAA-MM-DD)"; la primera palabra de Persona es el usuario, "Toda la SD XXX" o "Toda la DJ".
+- Se conserva del repo: campos que Notion no tiene (gerencia, area, nota_licencia, baja_ejecutada,
+  fuera_de_semaforo, excluido_metricas, orden_gerencias...), las cuentas de "DJ y cortesías" y
+  "Cuentas especiales", y el tipo/nota cortos de una excepción que ya existía con las mismas
+  fechas (ese texto sale en los reportes). Una excepción nueva toma el Tipo de Notion sin el
+  paréntesis final.
+- `data/roster_correcciones.json`: diferencias deliberadas contra Notion, cada una con su motivo
+  (hoy solo lrobert = Luis Ricardo Robert).
+- Avisa, sin inventar datos: altas y bajas de usuarios, personas fuera del organigrama, cuentas
+  nuevas en cortesías (se dan de alta a mano) y excepciones sin fecha AAAA-MM-DD (se detiene).
 
 ## 2. Carga
 

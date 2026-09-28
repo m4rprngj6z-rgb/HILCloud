@@ -14,6 +14,14 @@
   },
   {
    "personas": [
+    "isrodriguez"
+   ],
+   "tipo": "Transición funcional",
+   "desde": "2026-06-15",
+   "hasta": "2026-07-03"
+  },
+  {
+   "personas": [
     "nsotelo"
    ],
    "tipo": "Vacaciones",

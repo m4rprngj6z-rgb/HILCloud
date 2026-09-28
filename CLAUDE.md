@@ -30,7 +30,8 @@ sincroniza aqui.
 ## Estructura
 
 - `data/roster.json` — roster completo (SD, nombre, puesto, nivel, fortaleza esperada, a quien
-  reporta, altas). Generado parseando el HIL, no a mano. `data/roster.py` solo lo carga.
+  reporta, altas). Lo regenera `scripts/sync_notion.py` desde el HIL, no a mano. `data/roster.py`
+  solo lo carga. `data/roster_correcciones.json`: diferencias deliberadas contra Notion.
 - `data/excepciones.json` — copia de la tabla "Excepciones activas" del HIL, con rangos de fecha.
 - `scripts/etl.py` — exports crudos -> JSON por SD. Todo el calculo vive aqui.
 - `scripts/dj.py` (vista DJ para el Fibi), `scripts/licencias.py` (Gobierno de Licencias): calculo.

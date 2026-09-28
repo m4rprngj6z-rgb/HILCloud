@@ -1,0 +1,9 @@
+{
+ "_nota": "Diferencias deliberadas contra la tabla maestra del HIL. scripts/sync_notion.py las aplica encima de Notion. Cada una lleva su motivo; si Notion se corrige, borrar la entrada.",
+ "correcciones": {
+  "lrobert": {
+   "nombre": "Luis Ricardo Robert",
+   "_motivo": "Asi aparece en Excepciones activas del HIL y en los reportes aprobados; la tabla maestra dice 'Ricardo Robert'."
+  }
+ }
+}

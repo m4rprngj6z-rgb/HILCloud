@@ -95,11 +95,16 @@ ORDEN_DESEMPATE = ['A', 'W', 'V', 'Wo', 'O']   # orden de la Nomenclatura del HI
 WF_GENERICOS = {'Assist', 'Word Add-In Assistant'}
 
 
-def classify(superficie, o_en_a=False):
+def classify(superficie, o_en_a=False, proyecto_vault=None, vault_solo_superficie=False):
+    """proyecto_vault: nombre del proyecto Vault de la fila. Harvey registra las consultas a un
+    Vault hechas desde Assistant o Word con superficie ASISTENTE/WORD y el proyecto en otra
+    columna; tambien cuentan como V (regla de Tony: si trae Vault, es V). Hallazgo 28 sep 2026:
+    solo 168 de 1,864 acciones sobre Vault traian VAULT en la superficie."""
     toks = {t.strip() for t in superficie.split(',') if t.strip()}
     if 'WORKFLOW' in toks:
         return 'W'
-    if 'VAULT' in toks:
+    tiene_vault = isinstance(proyecto_vault, str) and proyecto_vault.strip() != ''
+    if 'VAULT' in toks or (tiene_vault and not vault_solo_superficie):
         return 'V'
     if 'WORD' in toks or 'PLAYBOOK' in toks:
         return 'Wo'
@@ -293,13 +298,13 @@ UMBRAL_RACHA = 5    # "mas de 5 interacciones"
 N_LOOKBACK = 16     # semanas de historial que se cargan (respaldo de linea base tras excepciones largas)
 
 
-def build(corte_fin, sd, uploads, o_en_a=False):
+def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
     roster = json.load(open(os.path.join(REPO, 'data', 'roster.json')))
     personas = {u: p for u, p in roster['personas'].items()
                 if p['sd'] == sd and not p.get('excluido_metricas') and not p.get('fuera_de_semaforo')}
     excs = load_excepciones()
     ev, meta = load_events(uploads)
-    ev['tool'] = ev['superficie'].map(lambda s: classify(s, o_en_a))
+    ev['tool'] = [classify(s, o_en_a, v, vault_solo_superficie) for s, v in zip(ev['superficie'], ev['vault'])]
     data_desde = ev['ts'].min().normalize()
 
     # Hace falta historial para: ciclo de 5 cortes, cada uno con 5 semanas de linea base.
@@ -481,6 +486,7 @@ def build(corte_fin, sd, uploads, o_en_a=False):
         'corte': label(cur_mon, cur_fri),
         'corte_lunes': str(cur_mon), 'corte_viernes': str(cur_fri),
         'o_en_a': o_en_a,
+        'vault_solo_superficie': vault_solo_superficie,
         'totales': {
             'acciones': sum(r['total'] for r in rows),
             'acciones_anterior': sum((r['total_anterior'] or 0) for r in rows),
@@ -507,12 +513,13 @@ def main():
     ap.add_argument('--sd', required=True)
     ap.add_argument('--uploads', default=UPLOADS_DEFAULT)
     ap.add_argument('--o-en-a', action='store_true', help='regresion: contar Outlook dentro de A (criterio previo al 26 sep)')
+    ap.add_argument('--vault-solo-superficie', action='store_true', help='regresion: V solo por superficie VAULT (criterio previo al 28 sep)')
     ap.add_argument('--out')
     a = ap.parse_args()
     fin = date.fromisoformat(a.corte_fin)
     if fin.weekday() != 4:
         sys.exit('--corte-fin debe ser viernes')
-    out = build(fin, a.sd, a.uploads, a.o_en_a)
+    out = build(fin, a.sd, a.uploads, a.o_en_a, a.vault_solo_superficie)
     path = a.out or os.path.join(REPO, 'out', f'{a.sd}_{a.corte_fin}{"_oena" if a.o_en_a else ""}.json')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     json.dump(out, open(path, 'w'), ensure_ascii=False, indent=1, default=str)

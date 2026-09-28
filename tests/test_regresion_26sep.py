@@ -42,7 +42,7 @@ def main():
     fx = json.load(open(os.path.join(os.path.dirname(__file__), 'fixtures', 'aprobado_champion_26sep2026.json')))['filas']
     fallas, esperadas, ok = [], [], 0
     for sd in ['ENN', 'CN', 'PLD', 'GC', 'JC', 'RL']:
-        out = etl.build(date(2026, 9, 25), sd, a.uploads, o_en_a=True)
+        out = etl.build(date(2026, 9, 25), sd, a.uploads, o_en_a=True, vault_solo_superficie=True)
         mine = {r['nombre']: r for r in out['rows']}
         for f in [x for x in fx if x['sd'] == sd]:
             r = mine.get(f['persona'])

@@ -34,10 +34,19 @@ Si Notion y el repo difieren, Notion gana: re-sincronizar aquí.
 La columna "Superficie del producto" trae combinaciones. Precedencia, gana la primera:
 
 1. contiene WORKFLOW → **W**
-2. contiene VAULT → **V**
+2. contiene VAULT, **o la fila trae proyecto Vault** (columna "Nombre del proyecto Vault") → **V**
 3. contiene WORD o PLAYBOOK → **Wo**
 4. contiene OUTLOOK → **O** (desde el corte del 26 sep; antes se contaba en A)
 5. contiene ASISTENTE → **A** (incluye BORRADOR y CENTRO_DE_COMANDO)
+
+**Vault fuera de la superficie** (hallazgo 28 sep 2026, caso Diana Fuentes): cuando alguien
+consulta un Vault desde Assistant o Word, Harvey registra la superficie ASISTENTE/WORD y pone el
+proyecto en otra columna. En la DJ, de 1,864 acciones sobre proyectos Vault solo 168 traían VAULT
+en la superficie; el resto se contaba como A (1,293) o Wo (143). Desde el 28 sep cuentan como V.
+Con la precedencia, una acción de Workflow sobre un Vault sigue siendo W. No cambia totales,
+semáforos ni urgencias: solo el reparto entre herramientas (y por eso Firma, Motivo y Fortaleza).
+Los reportes aprobados hasta el 26 sep subcontaban V; la prueba de regresión usa
+`vault_solo_superficie=True` para reproducirlos.
 
 Filas de W cuyo nombre de workflow es genérico (`Assist`, `Word Add-In Assistant`) cuentan en W
 pero no se nombran como workflow ni cuentan para Diversidad.

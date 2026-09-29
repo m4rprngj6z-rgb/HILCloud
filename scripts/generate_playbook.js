@@ -72,10 +72,11 @@ function buildDocument() {
     H.h2('4. Urgencia: a quién atender primero'),
     tabla([1700, 4300, 4080], ['Urgencia', 'Cuándo', 'Qué haces'], [
       [{ estado: 'Alta', map: H.URGENCIA }, 'Rojo, o 5 acciones o menos, o menos de la mitad de su ritmo.', 'Conversación antes del próximo corte. Pregunta primero (sección 7).'],
-      [{ estado: 'Media', map: H.URGENCIA }, 'Amarillo, o verde por debajo de 120% de su ritmo.', 'Seguimiento ligero: un mensaje o un caso de uso concreto.'],
-      [{ estado: 'Baja', map: H.URGENCIA }, 'Verde con margen.', 'Reconocer y aprovechar como referente para el equipo.'],
+      [{ estado: 'Media', map: H.URGENCIA }, 'Amarillo, o verde entre 100% y 119% de su ritmo (sostiene, no crece), o alta reciente.', 'Seguimiento ligero: un mensaje o un caso de uso concreto.'],
+      [{ estado: 'Baja', map: H.URGENCIA }, 'Verde con 120% o más de su ritmo.', 'Reconocer y aprovechar como referente para el equipo.'],
       [{ estado: 'Sin acción', map: H.URGENCIA }, 'Semana de excepción.', 'Nada. No se escala.'],
     ]),
+    H.nota('Una semana de excepción siempre es Sin acción; fuera de eso, gana la primera regla que aplique, de arriba hacia abajo. Por eso alguien en verde con 5 acciones o menos es urgencia Alta (igualar un promedio muy bajo sigue siendo poco uso), y alguien en amarillo por debajo de 50% de su ritmo también es Alta.', { after: 100 }),
 
     H.h2('5. Las columnas del reporte'),
     tabla([1700, 8380], ['Columna', 'Qué te dice'], [

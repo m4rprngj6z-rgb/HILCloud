@@ -309,7 +309,49 @@ slideLicencias(7);
   s.addNotes('GC reporta avance de madurez del workflow y de ahí se estima el tiempo; no es un tiempo medido directo. El KPI de licencias de JC sigue pendiente de aclarar su alcance. Los KPIs de CN tienen una propuesta de cambio pendiente de aprobación con Planeación y Finanzas.');
 }
 
-// 9. Plan de trabajo ---------------------------------------------------------------------------------
+// 10. Modelo de operacion: quien hace que (tambien se exporta sola) -----------------------------------
+function slideRoles(n) {
+  const s = pres.addSlide();
+  titulo(s, 'Cómo llegamos: quién hace qué', 'Cada nivel tiene una tarea concreta cada semana y cada mes');
+  const R = [
+    ['Champion', 'Uno por Subdirección', 'Acompaña a su equipo en el día a día.',
+      ['Cierra cada semana la tarea "Antes del próximo corte".', 'Da sesiones y construye casos de uso con su equipo.', 'Avisa ausencias y reporta los reales de KPIs cada mes.'],
+      'Reporte Champion, cada lunes'],
+    ['Subdirección', 'Subdirectores y Gerentes', 'Es dueña de la adopción y de los KPIs de su área.',
+      ['Pide a cada Gerencia lo que sugiere su reporte.', 'Prioriza qué procesos convertir en Workflow.', 'Valida los reales de sus KPIs.'],
+      'Reporte Ejecutivo, cada lunes'],
+    ['Dirección Jurídica', 'Directora Jurídica', 'Fija el rumbo y decide.',
+      ['Revisa el avance en la junta mensual.', 'Decide la reasignación de licencias.', 'Destraba lo que depende de otras áreas: Planeación y Finanzas, TI.'],
+      'Reporte de Dirección y junta mensual'],
+    ['Coordinación Harvey', 'Gerencia Contratos TI & AI', 'Mide, conecta y habilita.',
+      ['Genera y valida los 14 reportes cada semana.', 'Coordina a los Champions y la relación con Harvey, incluido Harvey 2.0.', 'Consolida KPIs y prepara la lista mensual de licencias.'],
+      'Datos de Harvey, ausencias y reales de KPIs'],
+  ];
+  const cw = 2.9, gap = 0.17;
+  R.forEach(([rol, quien, papel, hace, recibe], i) => {
+    const x = 0.6 + i * (cw + gap);
+    s.addShape(pres.shapes.RECTANGLE, { x, y: 1.7, w: cw, h: 0.85, fill: { color: C.navy }, line: { color: C.navy } });
+    s.addText([{ text: rol, options: { bold: true, fontSize: 16, breakLine: true } }, { text: quien, options: { fontSize: 11, color: C.ice2 } }],
+      { x: x + 0.2, y: 1.7, w: cw - 0.4, h: 0.85, fontFace: F, color: C.blanco, valign: 'middle', margin: 0, isTextBox: true });
+    card(s, x, 2.55, cw, 3.55);
+    s.addText(papel, { x: x + 0.2, y: 2.7, w: cw - 0.4, h: 0.55, fontFace: F, fontSize: 13, bold: true, color: C.acento, margin: 0, valign: 'top', isTextBox: true });
+    bullets(s, hace, x + 0.2, 3.3, cw - 0.4, 2.1, 12);
+    s.addText([{ text: 'Recibe: ', options: { bold: true } }, { text: recibe }], { x: x + 0.2, y: 5.5, w: cw - 0.4, h: 0.5, fontFace: F, fontSize: 11, color: C.gris, margin: 0, valign: 'top', isTextBox: true });
+  });
+  const ciclo = [['Cada semana', 'Datos de Harvey el viernes, reportes el lunes, el Champion actúa y avisa ausencias.'],
+    ['Cada mes', 'Reales de KPIs, lista de licencias y junta con la Dirección.'],
+    ['Cada trimestre', 'Revisión y ajuste del plan de trabajo.']];
+  ciclo.forEach(([t, d], i) => {
+    const x = 0.6 + i * 4.1;
+    s.addText([{ text: `${t}: `, options: { bold: true, color: C.navy } }, { text: d }], { x, y: 6.25, w: 3.95, h: 0.6, fontFace: F, fontSize: 11, color: C.ink, margin: 0, valign: 'top', isTextBox: true });
+  });
+  pie(s, n, '');
+  s.addNotes('Propuesta de modelo de operación. El Champion ejecuta y acompaña; la Subdirección pide y prioriza; la Dirección decide y destraba; la coordinación mide, conecta con Harvey y prepara la información para decidir.');
+  return s;
+}
+slideRoles(10);
+
+// 11. Plan de trabajo ---------------------------------------------------------------------------------
 {
   const s = pres.addSlide();
   titulo(s, 'Plan de trabajo', 'Octubre a diciembre de 2026');
@@ -326,7 +368,7 @@ slideLicencias(7);
     bullets(s, items, x + 0.25, 2.6, 3.4, 2.7, 13);
   });
   s.addText('Continuo: seguimiento con Harvey a la estabilidad de los Workflows y con TI a la integración con SharePoint.  |  Marzo 2027: reporte de ahorro en tiempos (Fase 4).', { x: 0.6, y: 5.7, w: 12.1, h: 0.5, fontFace: F, fontSize: 12, color: C.gris, margin: 0, isTextBox: true });
-  pie(s, 10, '');
+  pie(s, 11, '');
   s.addNotes('El foco en JC y RL responde a lo que reportan las propias Subdirecciones: menos utilidad percibida porque la capacitación inicial fue muy de contratos. El plan es construir casos de uso con su contexto de negocio.');
 }
 
@@ -355,6 +397,13 @@ pres.writeFile({ fileName: OUT }).then(() => {
   pres = new pptxgen();
   pres.layout = 'LAYOUT_WIDE';
   slideLicencias('');
+  const solo2 = OUT.replace(/\.pptx$/, '_lamina_roles.pptx');
   const solo = OUT.replace(/\.pptx$/, '_lamina_licencias.pptx');
-  return pres.writeFile({ fileName: solo }).then(() => console.log('OK:', solo));
+  return pres.writeFile({ fileName: solo }).then(() => {
+    console.log('OK:', solo);
+    pres = new pptxgen();
+    pres.layout = 'LAYOUT_WIDE';
+    slideRoles('');
+    return pres.writeFile({ fileName: solo2 }).then(() => console.log('OK:', solo2));
+  });
 });

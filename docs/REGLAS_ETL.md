@@ -254,7 +254,7 @@ que ya produjo el ETL para las cabezas de SD de `roster.json` (`subdirectores`, 
 Funcional de RL).
 - Ventana: últimas 15 semanas completas (desde que hay datos). Semanas de excepción fuera del
   promedio y de la mezcla; si las últimas 4 son todas de excepción, ese promedio es crudo y va con *.
-- Orden: promedio semanal en semanas útiles. El semáforo es el del reporte semanal (contra su
-  propio ritmo), no contra los demás.
+- Orden: promedio semanal en semanas útiles. Sin semáforo (Tony, 29 sep 2026): solo volumen,
+  constancia, tendencia y mezcla de herramientas.
 - La lectura se arma en código con los mismos números; no hay texto redactado a mano.
 - Firma: "Gerente Contratos TI & AI" (título formal), no el rol de Champion de Champions.

@@ -11,7 +11,7 @@ Reglas (docs/REGLAS_ETL.md seccion 8f):
 - Semanas de excepcion documentada: fuera del promedio y de la mezcla de herramientas (misma
   regla que la linea base). Se dibujan como punto hueco en la tendencia.
 - Orden: promedio semanal de acciones en semanas utiles; empate por nombre.
-- El semaforo es el del reporte de la semana (contra su propio ritmo), no contra los demas.
+- Sin semaforo (Tony, 29 sep 2026): el comparativo es solo de volumen y constancia.
 """
 import argparse
 import json
@@ -47,8 +47,7 @@ def main():
         ult4 = [h for h in hist[-4:] if not h['excepcion']]
         personas.append({
             'usuario': uid, 'nombre': r['nombre'], 'sd': sd, 'puesto': r['puesto'],
-            'esta_semana': r['total'], 'semaforo': r['semaforo'], 'transicion': r.get('transicion', False),
-            'ratio': r.get('ratio'),
+            'esta_semana': r['total'],
             'promedio': prom, 'semanas_utiles': len(utiles), 'semanas_excepcion': len(hist) - len(utiles),
             'semanas_con_uso': sum(1 for h in utiles if h['total'] > 0),
             # Si las 4 ultimas son todas de excepcion de su SD, se muestra el promedio crudo marcado
@@ -82,10 +81,6 @@ def main():
         mw = max(con_w, key=lambda p: p['workflows'])
         lect.append(f"Workflow: {len(con_w)} de {len(personas)} lo usaron en el periodo; más ejecuciones: "
                     f"{mw['nombre']} ({mw['workflows']})." + (f" Sin Workflow: {', '.join(sin_w)}." if sin_w else ''))
-    arriba = [p['nombre'] + (' (como referencia: su SD cerraba excepción)' if p['transicion'] else '')
-              for p in personas if p['semaforo'] == 'verde']
-    if arriba:
-        lect.append(f"Esta semana, por encima de su propio ritmo: {', '.join(arriba)}.")
     exc = [p for p in personas if p['semanas_excepcion']]
     notas = [f"{p['nombre']}: {p['semanas_excepcion']} de {len(p['serie'])} semanas en excepción documentada de su SD; "
              f"su promedio usa las {p['semanas_utiles']} semanas útiles"
@@ -98,7 +93,7 @@ def main():
     json.dump(out, open(path, 'w'), ensure_ascii=False, indent=1)
     print('OK:', path)
     for p in personas:
-        print(p['lugar'], p['nombre'], p['sd'], p['promedio'], p['promedio_4'], p['esta_semana'], p['semaforo'],
+        print(p['lugar'], p['nombre'], p['sd'], p['promedio'], p['promedio_4'], p['esta_semana'],
               p['semanas_con_uso'], '/', p['semanas_utiles'], p['firma'], p['mezcla_pct'])
     print(*lect, *notas, sep='\n')
 

@@ -18,8 +18,8 @@ const n = (v) => (v === null || v === undefined ? '-' : String(v));
 const S = 16;
 
 function vistazo(d) {
-  const W = [520, 2560, 1150, 1100, 950, 1150, 1150, 1500];
-  const cols = ['#', 'Persona', 'Promedio semanal', 'Últimas 4 semanas', 'Esta semana', 'Semanas con uso', 'Vs. su propio ritmo', 'Firma'];
+  const W = [520, 2900, 1350, 1300, 1150, 1300, 1560];
+  const cols = ['#', 'Persona', 'Promedio semanal', 'Últimas 4 semanas', 'Esta semana', 'Semanas con uso', 'Firma'];
   const trs = d.personas.map((p, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
     const c = (v, w, o = {}) => H.cell(v, { width: w, fill, align: AlignmentType.CENTER, size: S, tight: true, ...o });
@@ -32,12 +32,11 @@ function vistazo(d) {
         c(`${n(p.promedio_4)}${p.promedio_4_en_excepcion ? ' *' : ''}`, W[3]),
         c(String(p.esta_semana), W[4]),
         c(`${p.semanas_con_uso} de ${p.semanas_utiles}`, W[5]),
-        H.estadoCell(p.semaforo, W[6], undefined, 14, undefined, p.transicion ? 'referencia' : undefined),
-        c(p.firma, W[7], { size: 15 }),
+        c(p.firma, W[6], { size: 15 }),
       ],
     });
   });
-  return H.table(W, [H.headerRow(cols, W, new Set([0, 2, 3, 4, 5, 6, 7])), ...trs]);
+  return H.table(W, [H.headerRow(cols, W, new Set([0, 2, 3, 4, 5, 6])), ...trs]);
 }
 
 function tendencia(d) {
@@ -84,7 +83,7 @@ function buildDocument(d, fecha) {
 
     H.h2('De un vistazo'),
     vistazo(d),
-    H.nota(`Orden por promedio semanal de acciones (cada pregunta y cada seguimiento cuenta 1) en las semanas útiles de las últimas ${nSem}. "Vs. su propio ritmo" es el semáforo del reporte semanal: compara a cada persona contra su propio promedio de 5 semanas, no contra las demás. Firma: herramientas del periodo, de mayor a menor uso.`, { after: 60 }),
+    H.nota(`Orden por promedio semanal de acciones (cada pregunta y cada seguimiento cuenta 1) en las semanas útiles de las últimas ${nSem}. Firma: herramientas del periodo, de mayor a menor uso.`, { after: 60 }),
     ...d.notas_excepcion.map((t) => H.nota(`* ${t}`, { after: 60 })),
 
     H.h2('Lectura', 180),

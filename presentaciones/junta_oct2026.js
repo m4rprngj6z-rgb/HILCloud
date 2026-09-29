@@ -65,7 +65,7 @@ function bullets(s, items, x, y, w, h, size = 14) {
   const crec = Math.round(100 * (sep.acciones_semana - jun.acciones_semana) / jun.acciones_semana);
   const stats = [
     [fmt(sep.acciones_semana), `acciones por semana en septiembre (+${crec}% vs. junio)`],
-    [String(Math.round(sep.activas_semana)), `de ${D.universo} personas del equipo jurídico usan Harvey cada semana`],
+    [String(Math.round(sep.activas_semana)), `de ${D.universo} personas de la Dirección Jurídica usan Harvey cada semana`],
     [String(sep.workflows_distintos), `workflows distintos en uso en septiembre (${jun.workflows_distintos} en junio)`],
     ['6 de 12', 'KPIs de negocio ya en su meta de 1 año'],
   ];
@@ -81,14 +81,14 @@ function bullets(s, items, x, y, w, h, size = 14) {
     'Word y Outlook ganan terreno: Harvey entra al flujo diario de redacción y correo, no solo a la plataforma.',
     'Jurídico Contencioso y Relaciones Laborales son el foco de acompañamiento del siguiente trimestre.',
   ], 0.6, 5.0, 12.1, 1.8, 15);
-  pie(s, 2, 'Fuente: exports de uso de Harvey, 15 jun a 25 sep 2026; universo de 65 personas del equipo jurídico. KPIs: tablero de KPIs por SD, sep 2026.');
+  pie(s, 2, `Fuente: exports de uso de Harvey, 15 jun a 25 sep 2026; universo de ${D.universo} personas de la Dirección Jurídica (las 6 Subdirecciones, la Directora y la coordinación del proyecto). KPIs: tablero de KPIs por SD, sep 2026.`);
   s.addNotes(`Promedios semanales. Junio = 2 semanas completas (15-26 jun); septiembre = 4 semanas (31 ago a 25 sep). Personas activas: promedio de personas con al menos una acción por semana.`);
 }
 
 // 3. Adopcion: tendencia ---------------------------------------------------------------------------------
 {
   const s = pres.addSlide();
-  titulo(s, 'Adopción: el volumen sube y se sostiene', 'Acciones por semana del equipo jurídico (cada pregunta y cada seguimiento cuenta 1)');
+  titulo(s, 'Adopción: el volumen sube y se sostiene', 'Acciones por semana de la Dirección Jurídica (cada pregunta y cada seguimiento cuenta 1)');
   const labels = D.semanas.map((x) => x.corte.replace(/^(\d+)(?: \w+)?-\d+ (\w+) \d{4}$/, '$1 $2').replace(/^(\d+) (\w+)-.*$/, '$1 $2'));
   s.addChart(pres.charts.BAR, [{ name: 'Acciones', labels, values: D.semanas.map((x) => x.acciones) }], {
     x: 0.5, y: 1.7, w: 8.2, h: 5.0, barDir: 'col', chartColors: [C.navy], barGapWidthPct: 45,
@@ -107,7 +107,7 @@ function bullets(s, items, x, y, w, h, size = 14) {
   blk(3.45, `${s0.activas} → ${s1.activas}`, `personas activas en la semana, de ${D.universo}`);
   blk(5.0, `${M.jun.o_semana} → ${M.sep.o_semana}`, 'acciones por semana en Outlook (promedio jun vs. sep)');
   pie(s, 3, 'Fuente: exports de uso de Harvey, semanas lunes a viernes (hora CDMX).');
-  s.addNotes('Pico de 1,266 en la semana del 24-28 ago. La semana del 14-18 sep incluye el día inhábil del 16 de septiembre.');
+  { const pk = D.semanas.reduce((a, b) => (b.acciones > a.acciones ? b : a)); s.addNotes(`Pico de ${fmt(pk.acciones)} en la semana del ${pk.corte}. La semana del 14-18 sep incluye el día inhábil del 16 de septiembre.`); }
 }
 
 // 4. Adopcion: mezcla y areas ---------------------------------------------------------------------------------
@@ -123,12 +123,12 @@ function bullets(s, items, x, y, w, h, size = 14) {
     mrows.push([ct(n, { fill, bold: true, color: colores[i] }), ct(`${M.jun.mezcla_pct[k]}%`, { fill, align: 'center' }), ct(`${M.sep.mezcla_pct[k]}%`, { fill, align: 'center', bold: true })]);
   });
   s.addTable(mrows, { x: 0.6, y: 1.75, w: 5.4, colW: [2.4, 1.5, 1.5], rowH: 0.52, border: { type: 'solid', pt: 0.5, color: C.grisClaro } });
-  s.addText('Word y Outlook crecen: Harvey entra a la redacción y al correo de todos los días. Workflow se mantiene entre 94 y 124 ejecuciones por semana.', { x: 0.6, y: 5.1, w: 5.4, h: 1.0, fontFace: F, fontSize: 13, color: C.ink, margin: 0, valign: 'top', isTextBox: true });
-  const SD = [['ENN', 'Expansión Nuevos Negocios'], ['CN', 'Cumplimiento Normativo'], ['PLD', 'Prevención de Lavado de Dinero'], ['GC', 'Gobierno Corporativo'], ['JC', 'Jurídico Contencioso'], ['RL', 'Relaciones Laborales']];
+  s.addText(`Word y Outlook crecen: Harvey entra a la redacción y al correo de todos los días. Workflow se mantiene entre ${Math.min(...D.meses.map((m) => m.w_semana))} y ${Math.max(...D.meses.map((m) => m.w_semana))} ejecuciones por semana.`, { x: 0.6, y: 5.1, w: 5.4, h: 1.0, fontFace: F, fontSize: 13, color: C.ink, margin: 0, valign: 'top', isTextBox: true });
+  const SD = [['ENN', 'Expansión Nuevos Negocios'], ['CN', 'Cumplimiento Normativo'], ['PLD', 'Prevención de Lavado de Dinero'], ['GC', 'Gobierno Corporativo'], ['JC', 'Jurídico Contencioso'], ['RL', 'Relaciones Laborales'], ['DJ', 'Dirección y coordinación del proyecto']];
   const hdr = ['Subdirección', 'Jul', 'Ago', 'Sep', 'Lectura'];
   const lectura = {
     ENN: 'Crece y se sostiene', CN: 'Estable y alto', PLD: 'Recupera tras la reestructuración',
-    GC: 'Baja en septiembre', JC: 'Crece desde un nivel bajo', RL: 'A la baja: foco del trimestre',
+    GC: 'Baja en septiembre', JC: 'Crece desde un nivel bajo', RL: 'A la baja: foco del trimestre', DJ: 'Uso de la Dirección',
   };
   const cell = (t, o = {}) => ({ text: String(t), options: { fontFace: F, fontSize: 12, color: C.ink, valign: 'middle', ...o } });
   const rows = [hdr.map((h, i) => cell(h, { bold: true, color: C.blanco, fill: { color: C.navy }, align: i && i < 4 ? 'center' : 'left' }))];
@@ -136,10 +136,10 @@ function bullets(s, items, x, y, w, h, size = 14) {
     const fill = i % 2 ? { color: C.ice } : undefined;
     rows.push([cell(n, { fill, bold: true }), ...['jul', 'ago', 'sep'].map((m) => cell(M[m].sd_semana[k], { fill, align: 'center' })), cell(lectura[k], { fill, fontSize: 11 })]);
   });
-  s.addTable(rows, { x: 6.5, y: 1.75, w: 6.3, colW: [2.55, 0.6, 0.6, 0.6, 1.95], rowH: 0.52, border: { type: 'solid', pt: 0.5, color: C.grisClaro } });
+  s.addTable(rows, { x: 6.5, y: 1.75, w: 6.3, colW: [2.55, 0.6, 0.6, 0.6, 1.95], rowH: 0.46, border: { type: 'solid', pt: 0.5, color: C.grisClaro } });
   s.addText('PLD tuvo una excepción documentada de agosto al 24 de septiembre (reestructuración y capacitaciones).', { x: 6.5, y: 5.55, w: 6.3, h: 0.6, fontFace: F, fontSize: 10, italic: true, color: C.gris, margin: 0, isTextBox: true });
   pie(s, 4, 'Fuente: exports de uso de Harvey. Promedio de acciones por semana; julio = 5 semanas, agosto y septiembre = 4.');
-  s.addNotes('Word pasa de 23% a 30% del uso y Outlook de 1% a 7%: Harvey entra al flujo de redacción y correo. El Workflow se mantiene entre 94 (agosto) y 124 (septiembre) ejecuciones por semana.');
+  s.addNotes(`Word pasa de ${M.jun.mezcla_pct.Wo}% a ${M.sep.mezcla_pct.Wo}% del uso y Outlook de ${M.jun.mezcla_pct.O}% a ${M.sep.mezcla_pct.O}%: Harvey entra al flujo de redacción y correo. El Workflow se mantiene entre ${Math.min(...D.meses.map((m) => m.w_semana))} y ${Math.max(...D.meses.map((m) => m.w_semana))} ejecuciones por semana.`);
 }
 
 // 5. Casos de impacto ---------------------------------------------------------------------------------

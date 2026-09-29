@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Cifras de adopcion para la junta mensual con Juridico. Uso: python3 presentaciones/datos_junta.py 2026-09-25
-Mismas funciones del ETL (carga, clasificacion, cortes). Universo: 65 personas juridicas del roster
-(sin jbueno, zmanzur ni cortesias). Semanas asignadas al mes de su viernes."""
+Mismas funciones del ETL (carga, clasificacion, cortes). Universo: toda la Direccion Juridica (Tony,
+29 sep 2026): las 65 personas de las 6 SD mas la Directora (zmanzur) y jbueno, que en la junta se
+muestran como fila "DJ". Sin cortesias externas. (Los reportes semanales siguen excluyendo a
+zmanzur y jbueno de las metricas por SD.) Semanas asignadas al mes de su viernes."""
 import json, os, sys
 from datetime import date
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scripts'))
@@ -11,8 +13,9 @@ ev, meta = etl.load_events(etl.UPLOADS_DEFAULT)
 ev['tool'] = [etl.classify(s, False, v) for s, v in zip(ev['superficie'], ev['vault'])]
 ev = ev[ev.tool != 'OTRO']; ev['fecha'] = ev['ts'].dt.date
 R = json.load(open(os.path.join(etl.REPO, 'data', 'roster.json')))['personas']
-SDS = ['ENN', 'CN', 'PLD', 'GC', 'JC', 'RL']
-jur = {u for u, p in R.items() if p['sd'] in SDS and not p.get('excluido_metricas')}
+SDS = ['ENN', 'CN', 'PLD', 'GC', 'JC', 'RL', 'DJ']
+sd_de = lambda u: 'DJ' if R[u].get('excluido_metricas') else R[u]['sd']
+jur = {u for u, p in R.items() if p['sd'] in SDS or p.get('excluido_metricas')}
 e = ev[ev.user_id.isin(jur)]
 MES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']
 semanas = []
@@ -22,7 +25,7 @@ for mon, fri in etl.corte_windows(fin, 15):
                     'activas': int(m.user_id.nunique()),
                     'tools': {t: int((m.tool == t).sum()) for t in ['A', 'Wo', 'V', 'W', 'O']},
                     'workflows': sorted(set(m[m.tool == 'W'].workflow.dropna())),
-                    'sd': {sd: int(m.user_id.map(lambda u: R[u]['sd'] == sd).sum()) for sd in SDS}})
+                    'sd': {sd: int(m.user_id.map(lambda u: sd_de(u) == sd).sum()) for sd in SDS}})
 meses = {}
 for s in semanas:
     meses.setdefault(s['mes'], []).append(s)

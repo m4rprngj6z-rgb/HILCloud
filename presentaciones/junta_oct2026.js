@@ -19,7 +19,7 @@ const C = {
 const F = 'Arial';
 const fmt = (n) => n.toLocaleString('en-US');
 
-const pres = new pptxgen();
+let pres = new pptxgen();
 pres.layout = 'LAYOUT_WIDE';   // 13.33 x 7.5
 pres.author = 'José Antonio Bueno Díaz';
 pres.title = 'Harvey AI × Gentera: junta mensual Jurídico, octubre 2026';
@@ -192,7 +192,56 @@ function bullets(s, items, x, y, w, h, size = 14) {
   s.addNotes('Antes el cálculo se hacía a mano cada semana. Ahora vive en un repositorio privado con reglas documentadas y se valida contra los reportes ya aprobados. Los Champions recibieron el Playbook de lectura v3.');
 }
 
-// 7. Harvey 2.0 ---------------------------------------------------------------------------------
+// 7. Gobierno de licencias (tambien se exporta sola) --------------------------------------------------
+function slideLicencias(n) {
+  const s = pres.addSlide();
+  titulo(s, 'Gobierno de licencias: revisión mensual', 'Cada mes identificamos qué licencias se aprovecharían más en otras manos');
+  s.addText('Qué se toma en cuenta', { x: 0.6, y: 1.75, w: 5.2, h: 0.4, fontFace: F, fontSize: 16, bold: true, color: C.navy, margin: 0, isTextBox: true });
+  const crit = [
+    ['Cada semana', 'Las 10 personas con menor uso, en dos listas: equipo jurídico y cuentas externas a la Dirección.'],
+    ['Cada mes', 'Se suman las veces que cada persona aparece en esa lista durante el mes calendario.'],
+    ['Candidato', '2 o más apariciones en el mismo mes.'],
+    ['No cuentan', 'Vacaciones, incapacidades y eventos documentados de la Subdirección.'],
+    ['Antes de decidir', 'Se revisa la tendencia de 8 semanas, para no confundir una semana atípica con falta de uso.'],
+  ];
+  crit.forEach(([t, d], i) => {
+    const y = 2.3 + i * 0.8;
+    s.addShape(pres.shapes.OVAL, { x: 0.6, y, w: 0.5, h: 0.5, fill: { color: C.navy }, line: { color: C.navy } });
+    s.addText(String(i + 1), { x: 0.6, y, w: 0.5, h: 0.5, fontFace: F, fontSize: 14, bold: true, color: C.blanco, align: 'center', valign: 'middle', margin: 0, isTextBox: true });
+    s.addText([{ text: `${t}: `, options: { bold: true } }, { text: d }], { x: 1.3, y: y - 0.08, w: 4.6, h: 0.72, fontFace: F, fontSize: 12, color: C.ink, margin: 0, valign: 'middle', isTextBox: true });
+  });
+  s.addText('La lista es un insumo: la decisión se toma una vez al mes, en la sesión de KPIs, y la toma la Dirección.', { x: 0.6, y: 6.35, w: 5.3, h: 0.55, fontFace: F, fontSize: 12, bold: true, color: C.acento, margin: 0, isTextBox: true });
+
+  s.addText('Ejemplo ilustrativo: octubre', { x: 6.3, y: 1.75, w: 6.4, h: 0.4, fontFace: F, fontSize: 16, bold: true, color: C.navy, margin: 0, isTextBox: true });
+  const c = (t, o = {}) => ({ text: t, options: { fontFace: F, fontSize: 11, color: C.ink, align: 'center', valign: 'middle', ...o } });
+  const T = () => c('Top 10', { fill: { color: C.rojoF }, color: C.rojo, bold: true });
+  const V = () => c('Vacaciones', { fill: { color: C.neutroF }, color: C.neutro, italic: true });
+  const O = () => c('');
+  const hdr = ['', '2 oct', '9 oct', '16 oct', '23 oct', '30 oct'].map((h) => c(h, { bold: true, color: C.blanco, fill: { color: C.navy } }));
+  const rows = [hdr,
+    [c('Persona A', { bold: true, align: 'left' }), O(), T(), O(), T(), O()],
+    [c('Persona B', { bold: true, align: 'left' }), T(), O(), O(), O(), O()],
+    [c('Persona C', { bold: true, align: 'left' }), O(), O(), V(), O(), T()],
+  ];
+  s.addTable(rows, { x: 6.3, y: 2.3, w: 6.4, colW: [1.4, 1.0, 1.0, 1.0, 1.0, 1.0], rowH: 0.5, border: { type: 'solid', pt: 0.5, color: C.grisClaro } });
+  const res = [
+    ['Persona A', '2 apariciones, es candidata para la sesión de noviembre.', C.rojoF, C.rojo],
+    ['Persona B', '1 aparición, una semana atípica: no es candidata.', C.verdeF, C.verde],
+    ['Persona C', '1 aparición, porque la semana de vacaciones no cuenta: no es candidata.', C.verdeF, C.verde],
+  ];
+  res.forEach(([p, t, fill, col], i) => {
+    const y = 4.5 + i * 0.62;
+    s.addShape(pres.shapes.RECTANGLE, { x: 6.3, y, w: 6.4, h: 0.52, fill: { color: fill }, line: { color: fill } });
+    s.addText([{ text: `${p}: `, options: { bold: true } }, { text: t }], { x: 6.45, y, w: 6.15, h: 0.52, fontFace: F, fontSize: 12, color: col, valign: 'middle', margin: 0, isTextBox: true });
+  });
+  s.addText('Si hay empate en el lugar 10, entran todos los empatados.', { x: 6.3, y: 6.45, w: 6.4, h: 0.35, fontFace: F, fontSize: 10, italic: true, color: C.gris, margin: 0, isTextBox: true });
+  pie(s, n, '');
+  s.addNotes('Personas A, B y C son un ejemplo ilustrativo, no casos reales. El sistema empezó a contar el 25 de septiembre; octubre es el primer mes completo, así que la primera lista de candidatos llega a la sesión de KPIs de noviembre.');
+  return s;
+}
+slideLicencias(7);
+
+// 8. Harvey 2.0 ---------------------------------------------------------------------------------
 {
   const s = pres.addSlide();
   titulo(s, 'Harvey 2.0 (Harvey II)', 'Nueva generación de la plataforma, anunciada por Harvey el 18 de agosto de 2026');
@@ -222,7 +271,7 @@ function bullets(s, items, x, y, w, h, size = 14) {
     s.addText([{ text: t, options: { bold: true, breakLine: true } }, { text: d, options: { color: C.gris, fontSize: 11 } }], { x, y: 5.6, w: 1.8, h: 0.8, fontFace: F, fontSize: 13, color: C.ink, margin: 0, valign: 'top', isTextBox: true });
   });
   s.addText('Fechas de habilitación para Gentera: por confirmar con Harvey.', { x: 7.2, y: 6.45, w: 5.6, h: 0.35, fontFace: F, fontSize: 11, italic: true, color: C.acento, margin: 0, isTextBox: true });
-  pie(s, 7, 'Fuente: anuncio público de Harvey II (Artificial Lawyer y Global Legal Post, 18 ago 2026).');
+  pie(s, 8, 'Fuente: anuncio público de Harvey II (Artificial Lawyer y Global Legal Post, 18 ago 2026).');
   s.addNotes('Lo público: Harvey II se anunció el 18 ago 2026 con Memoria, Spaces y agentes con contexto; la Memoria se despliega en tres fases (personal, Spaces, organización). No tenemos confirmado cuándo se habilita en nuestro workspace: es el punto a cerrar con Harvey.');
 }
 
@@ -256,7 +305,7 @@ function bullets(s, items, x, y, w, h, size = 14) {
       c(E[e][0], { fill: { color: E[e][1] }, color: E[e][2], bold: true, align: 'center' })]);
   });
   s.addTable(rows, { x: 0.6, y: 1.7, w: 12.1, colW: [0.8, 4.3, 1.75, 1.95, 1.55, 1.75], rowH: 0.37, border: { type: 'solid', pt: 0.5, color: C.grisClaro } });
-  pie(s, 8, 'Fuente: tablero de KPIs por SD (Notion), reales de ago-sep 2026 reportados por cada Champion. * Una sola medición; muestra no representativa todavía.');
+  pie(s, 9, 'Fuente: tablero de KPIs por SD (Notion), reales de ago-sep 2026 reportados por cada Champion. * Una sola medición; muestra no representativa todavía.');
   s.addNotes('GC reporta avance de madurez del workflow y de ahí se estima el tiempo; no es un tiempo medido directo. El KPI de licencias de JC sigue pendiente de aclarar su alcance. Los KPIs de CN tienen una propuesta de cambio pendiente de aprobación con Planeación y Finanzas.');
 }
 
@@ -277,7 +326,7 @@ function bullets(s, items, x, y, w, h, size = 14) {
     bullets(s, items, x + 0.25, 2.6, 3.4, 2.7, 13);
   });
   s.addText('Continuo: seguimiento con Harvey a la estabilidad de los Workflows y con TI a la integración con SharePoint.  |  Marzo 2027: reporte de ahorro en tiempos (Fase 4).', { x: 0.6, y: 5.7, w: 12.1, h: 0.5, fontFace: F, fontSize: 12, color: C.gris, margin: 0, isTextBox: true });
-  pie(s, 9, '');
+  pie(s, 10, '');
   s.addNotes('El foco en JC y RL responde a lo que reportan las propias Subdirecciones: menos utilidad percibida porque la capacitación inicial fue muy de contratos. El plan es construir casos de uso con su contexto de negocio.');
 }
 
@@ -300,4 +349,12 @@ function bullets(s, items, x, y, w, h, size = 14) {
   s.addText('José Antonio Bueno Díaz  |  Gerente Contratos TI & AI', { x: 0.8, y: 6.5, w: 11.5, h: 0.4, fontFace: F, fontSize: 13, color: C.ice2, margin: 0, isTextBox: true });
 }
 
-pres.writeFile({ fileName: OUT }).then(() => console.log('OK:', OUT));
+pres.writeFile({ fileName: OUT }).then(() => {
+  console.log('OK:', OUT);
+  // Lamina de licencias sola, para insertarla en otra presentacion
+  pres = new pptxgen();
+  pres.layout = 'LAYOUT_WIDE';
+  slideLicencias('');
+  const solo = OUT.replace(/\.pptx$/, '_lamina_licencias.pptx');
+  return pres.writeFile({ fileName: solo }).then(() => console.log('OK:', solo));
+});

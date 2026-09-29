@@ -149,7 +149,7 @@ function buildDocument(d, narr, fecha) {
     H.h2('jbueno y zmanzur'),
     nota('Fuera de ambos ránkings y de la lógica de candidato y reasignación, por instrucción permanente (sus roles no son de consumo jurídico normal). Solo como referencia.', 100),
     aparte(d),
-    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Harvey AI Champion de Champions, Dirección Jurídica', { size: 16, color: H.C.gris }), { before: 220 }),
+    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI', { size: 16, color: H.C.gris }), { before: 220 }),
   );
   return new Document({
     styles: { default: { document: { run: { font: H.FONT } } } },

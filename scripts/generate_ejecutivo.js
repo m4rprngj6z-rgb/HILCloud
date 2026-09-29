@@ -170,7 +170,7 @@ function buildDocument(d, narr, fecha) {
     H.para(H.run(n.recomendacion, { size: 18 }), { after: 100 }),
     cajaAccion(n.accion),
 
-    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Harvey AI Champion de Champions, DJ  |  Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris }), { before: 140, after: 0 }),
+    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI  |  Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris }), { before: 140, after: 0 }),
   );
 
   return new Document({

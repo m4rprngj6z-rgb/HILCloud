@@ -166,7 +166,7 @@ function cajaVerde(titulo, texto, plantilla, width = 9620) {
 }
 
 function firma() {
-  return para(run('Elaboró: José Antonio Bueno Díaz  |  Harvey AI Champion de Champions, DJ', { size: 16, color: C.gris }),
+  return para(run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI', { size: 16, color: C.gris }),
     { before: 220, after: 20 });
 }
 

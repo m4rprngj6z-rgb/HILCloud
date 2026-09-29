@@ -116,6 +116,13 @@ pero no se nombran como workflow ni cuentan para Diversidad.
   propio hilo, así que casi no distingue nada.
 
 
+- **Últimas 5 semanas** (Tony, 29 sep 2026; reemplaza a la columna Racha en el Champion, que no
+  se entendía sin contexto): acciones de cada una de las últimas 5 semanas, de la más antigua a la
+  actual, con el color del semáforo de esa semana; gris e itálica = semana de excepción. El ETL
+  sigue calculando `racha` (queda en el JSON), pero ningún reporte la muestra.
+- **Motivo** (29 sep 2026): "el resto se mantiene cerca de su ritmo" solo cuando las demás
+  herramientas de verdad variaron menos de 2; con 0 acciones: "Sin actividad esta semana; su
+  herramienta principal es X".
 - **Racha**: desde el corte actual hacia atrás, dentro de los últimos 5 cortes, cuántos seguidos
   en verde o amarillo con más de 5 acciones. Excepción se salta sin romper. Si los 5 cortes son
   excepción: `N/A` (N/A de ciclo, no 0).

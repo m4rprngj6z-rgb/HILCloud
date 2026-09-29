@@ -47,7 +47,7 @@ function buildDocument() {
       ['Herramientas', 'A, W, V, Wo.', 'A, W, V, Wo y O (Outlook, aparte de Assistant).'],
       ['Gap', 'Columna de gap (alineado, gap activo, gap crítico) contra la fortaleza esperada.', 'Se retira. Lo reemplazan Motivo del semáforo y Fortaleza actual.'],
       ['Ausencias', 'Se anotaban al margen.', 'Semana de Excepción: no se califica y no cuenta en el promedio.'],
-      ['Nuevas columnas', '', 'Urgencia, Racha, Div. Wf y Firma.'],
+      ['Nuevas columnas', '', 'Urgencia, Últimas 5 semanas, Div. Wf y Firma.'],
     ], 'negrita'),
 
     H.h2('1. La idea central'),
@@ -84,7 +84,7 @@ function buildDocument() {
       [{ code: 'V', color: H.TOOL_COLOR.V }, 'Vault: trabajo sobre repositorios documentales.'],
       [{ code: 'W', color: H.TOOL_COLOR.W }, 'Workflow: procesos repetibles y estandarizables.'],
       [{ code: 'O', color: H.TOOL_COLOR.O }, 'Outlook: Harvey dentro del correo.'],
-      [{ code: 'Racha', color: H.C.navy }, 'De los últimos 5 cortes, cuántos seguidos en verde o amarillo con más de 5 acciones. Las excepciones se saltan sin romperla. N/A si toda la SD estuvo en excepción.'],
+      [{ code: 'Últimas 5', color: H.C.navy }, 'Acciones de cada una de las últimas 5 semanas, de la más antigua a esta, con el color del semáforo de cada semana (gris = excepción). Se lee de un vistazo si la persona es constante, viene bajando o tuvo una semana atípica.'],
       [{ code: 'Div. Wf', color: H.C.navy }, 'Workflows distintos por semana, promedio de 5 semanas. Mide exploración, no volumen: 4 workflows distintos valen más que 1 repetido.'],
       [{ code: 'Firma', color: H.C.navy }, 'Herramientas de la semana, de mayor a menor uso (A>W = más Assistant que Workflow).'],
       [{ code: 'Motivo', color: H.C.navy }, 'Por qué salió ese color: si el cambio es leve, parejo en todas las herramientas o concentrado en una. Ahí está la conversación.'],

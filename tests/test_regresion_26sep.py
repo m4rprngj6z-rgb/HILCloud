@@ -23,7 +23,16 @@ import etl  # noqa: E402
 
 SEM = {'VERDE': 'verde', 'AMARILLO': 'amarillo', 'ROJO': 'rojo', 'EXCEPCIÓN': 'excepcion'}
 ESPERADAS_MOTIVO = {'Karime Sotelo', 'Alfredo Duarte'}   # Alfredo: nota post-excepcion obligatoria (HIL)
-ESPERADAS_FIRMA = {'Javier García'}   # empate Wo=W: el generador viejo desempataba por orden de aparicion
+ESPERADAS_FIRMA = {'Javier García'}
+RESTO = ', el resto se mantiene cerca de su ritmo habitual.'
+
+
+def motivo_29sep(got, exp):
+    """Cambio de redaccion del 29 sep 2026 (Tony): "el resto se mantiene" solo si de verdad se
+    mantiene, y "Sin actividad esta semana" cuando la persona tuvo 0 acciones."""
+    if not exp.endswith(RESTO):
+        return False
+    return got == exp[:-len(RESTO)] + '.' or got.startswith('Sin actividad esta semana')   # empate Wo=W: el generador viejo desempataba por orden de aparicion
 
 
 def plano(parts):
@@ -62,7 +71,7 @@ def main():
                     ok += 1
                     continue
                 msg = f"{sd} {f['persona']} [{k}] ETL={got!r} aprobado={exp!r}"
-                if (sd == 'PLD' and k != 'conteos') or (k == 'motivo' and f['persona'] in ESPERADAS_MOTIVO) or (k == 'firma' and f['persona'] in ESPERADAS_FIRMA):
+                if (sd == 'PLD' and k != 'conteos') or (k == 'motivo' and (f['persona'] in ESPERADAS_MOTIVO or motivo_29sep(got, exp))) or (k == 'firma' and f['persona'] in ESPERADAS_FIRMA):
                     esperadas.append(msg)
                 else:
                     fallas.append(msg)

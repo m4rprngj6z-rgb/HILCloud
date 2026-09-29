@@ -276,8 +276,13 @@ def motivo(sem, cur, base_tool):
     if len(movs) > 1 and abs(movs[1][1]) >= UMBRAL_PAREJO * abs(movs[0][1]):
         return [{'text': f'{verbo} {parejo} entre '}, {'text': movs[0][0], 'tool': movs[0][0]},
                 {'text': ' y '}, {'text': movs[1][0], 'tool': movs[1][0]}, {'text': '.'}]
+    if sum(cur[t] for t in TOOLS) == 0:
+        # Sin actividad: no se puede decir que "el resto se mantiene" (Tony, 29 sep 2026).
+        return [{'text': 'Sin actividad esta semana; su herramienta principal es '}, {'text': movs[0][0], 'tool': movs[0][0]},
+                {'text': '.'}]
+    resto_estable = all(abs(v) < UMBRAL_LEVE for t, v in delta.items() if t != movs[0][0])
     return [{'text': f'{verbo} {conc} en '}, {'text': movs[0][0], 'tool': movs[0][0]},
-            {'text': ', el resto se mantiene cerca de su ritmo habitual.'}]
+            {'text': ', el resto se mantiene cerca de su ritmo habitual.' if resto_estable else '.'}]
 
 
 def fortaleza(wf_top, fuerte):

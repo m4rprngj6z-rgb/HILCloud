@@ -31,10 +31,20 @@ function ordenar(rows) {
     || a.nombre.localeCompare(b.nombre, 'es'));
 }
 
+// "Ultimas 5 semanas" reemplaza a Racha (Tony, 29 sep 2026: la racha no se entendia sin contexto).
+// Acciones de cada semana, de la mas antigua a la actual, coloreadas con el semaforo de esa semana.
+const COLOR_SEM = { verde: '375623', amarillo: '9C5700', rojo: '9C0006' };
+function ultimas5(r, size) {
+  return r.historial.slice(-5).flatMap((h, j) => [
+    ...(j ? [H.run('  ', { size })] : []),
+    H.run(String(h.total), { size, bold: true, color: h.excepcion ? '8C8C8C' : (COLOR_SEM[h.semaforo] || '8C8C8C'), italics: !!h.excepcion }),
+  ]);
+}
+
 function usoTable(rows) {
-  const W = [1500, 1150, 850, 400, 400, 400, 400, 400, 900, 620, 620, 1000, 2500, 2510];   // horizontal: 13650
+  const W = [1500, 1100, 850, 400, 400, 400, 400, 400, 900, 1500, 600, 1000, 2000, 2200];   // horizontal: 13650
   const S = 16;   // 8 pt en el cuerpo de esta tabla (14 columnas; Conversaciones se retiró el 28 sep por decisión de Tony)
-  const cols = ['Persona', 'Nivel', 'Urgencia', 'A', 'Wo', 'V', 'W', 'O', 'Sem.', 'Racha', 'Div. Wf', 'Firma', 'Motivo del semáforo', 'Fortaleza actual'];
+  const cols = ['Persona', 'Nivel', 'Urgencia', 'A', 'Wo', 'V', 'W', 'O', 'Sem.', 'Últimas 5 semanas', 'Div. Wf', 'Firma', 'Motivo del semáforo', 'Fortaleza actual'];
   const centered = new Set([2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const trs = rows.map((r, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
@@ -47,7 +57,7 @@ function usoTable(rows) {
         H.estadoCell(r.urgencia, W[2], H.URGENCIA, 15),
         num(r.a, W[3]), num(r.wo, W[4]), num(r.v, W[5]), num(r.w, W[6]), num(r.o, W[7]),
         H.estadoCell(r.semaforo, W[8], undefined, 14, undefined, r.transicion ? 'en excepción' : undefined),
-        num(r.naCiclo ? 'N/A' : `${r.racha}/5`, W[9]),
+        H.cell(ultimas5(r, S), { width: W[9], fill, align: AlignmentType.CENTER, tight: true }),
         num(r.diversidadWf == null ? '-' : r.diversidadWf.toFixed(1), W[10]),
         H.cell(r.firma, { width: W[11], fill, size: S, tight: true }),
         H.cell(H.richRuns(r.motivo, { italics: true, size: S }), { width: W[12], fill }),
@@ -71,7 +81,7 @@ function codigosTable() {
     [{ estado: 'rojo' }, 'Menos de 40% de su propio promedio.'],
     [{ estado: 'excepcion' }, 'Ausencia documentada (vacaciones, incapacidad, evento de toda la SD). No cuenta en el promedio.'],
     [{ estado: 'sin_historial' }, 'Menos de 5 semanas de historial propio: su promedio todavía no es confiable para calificar.'],
-    [{ code: 'Racha', color: H.C.navy }, 'Cortes consecutivos (de los últimos 5) en verde o amarillo con más de 5 interacciones. Las excepciones se saltan sin romperla.'],
+    [{ code: 'Últimas 5', color: H.C.navy }, 'Acciones de cada una de las últimas 5 semanas, de la más antigua a esta. El color es el semáforo de esa semana; gris = excepción o sin historial suficiente.'],
     [{ code: 'Div. Wf', color: H.C.navy }, 'Promedio semanal de workflows distintos en las últimas 5 semanas: mide exploración, no volumen.'],
     [{ code: 'Firma', color: H.C.navy }, 'Herramientas usadas esta semana, de mayor a menor uso.'],
   ];

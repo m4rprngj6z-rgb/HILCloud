@@ -265,3 +265,13 @@ Funcional de RL).
   constancia, tendencia y mezcla de herramientas.
 - La lectura se arma en código con los mismos números; no hay texto redactado a mano.
 - Firma: "Gerente Contratos TI & AI" (título formal), no el rol de Champion de Champions.
+
+## 8g. Cortesías bajo seguimiento de una Subdirección
+
+Tony, 30 sep 2026 (primer caso: Diana Gabriela Castillo Luna, Compras, licencia solicitada por
+Karla Méndez). En `roster.json` la cortesía lleva `seguimiento_sd` (la SD cuyo Ejecutivo la muestra),
+`solicito` y `alta`. El ETL la lista aparte en `cortesias`: acciones de la semana, las últimas
+semanas (solo desde su alta) y firma. No entra a totales, semáforo, urgencia ni gerencias. El
+Ejecutivo la muestra en una línea bajo la nomenclatura de Vista por Gerencia; con cortesías, Usos
+clave muestra 5 filas para que quepa en una página. En Gobierno de Licencias entra al ránking no
+jurídico desde su fecha de alta (antes de su alta no existe la cuenta).

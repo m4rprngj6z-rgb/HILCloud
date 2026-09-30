@@ -104,7 +104,9 @@ function usosClave(d) {
     return [H.para(H.run('Sin ejecuciones de Workflow con nombre propio en este corte.', { size: 18, italics: true, color: H.C.gris }), { after: 100 })];
   }
   const W = [2500, 5500, 1500];
-  const trs = d.usos_clave.map((u, i) => {
+  // Con cortesias bajo seguimiento la pagina se llena: se muestran los 5 usos mas frecuentes.
+  const usos = (d.cortesias && d.cortesias.length) ? d.usos_clave.slice(0, 5) : d.usos_clave;
+  const trs = usos.map((u, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
     return new TableRow({
       cantSplit: true,
@@ -130,6 +132,17 @@ function cajaAccion(texto) {
       })],
     })],
   });
+}
+
+// Cortesias cuyo uso sigue la Subdireccion (Tony, 30 sep 2026). Informativo: no suma a totales.
+// Una linea por cortesia (una tabla aparte no cabe en la pagina unica del Ejecutivo).
+function cortesias(d) {
+  if (!d.cortesias || !d.cortesias.length) return [];
+  return d.cortesias.map((c) => H.para([
+    H.run('Cortesía bajo seguimiento: ', { size: 16, bold: true, color: H.C.navy }),
+    H.run(`${c.nombre} (${c.area || 'área sin confirmar'}${c.solicito ? `, solicitada por ${c.solicito}` : ''}). `, { size: 16, bold: true }),
+    H.run(`${c.total} acciones esta semana${c.ultimas.length > 1 ? `; últimas semanas: ${c.ultimas.join(', ')}` : ''}; firma: ${c.firma}. No suma a los totales ni al semáforo.`, { size: 16 }),
+  ], { after: 40 }));
 }
 
 function buildDocument(d, narr, fecha) {
@@ -163,6 +176,8 @@ function buildDocument(d, narr, fecha) {
   children.push(
     nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  Verde = igual o arriba de su propio promedio  |  Amarillo = 40% a 99%  |  Rojo = menos de 40%  |  Excepción = ausencia documentada  |  Alta reciente = menos de 5 semanas de historial'),
 
+    ...cortesias(d),
+
     H.h2E('Usos clave observados'),
     ...usosClave(d),
 
@@ -170,7 +185,7 @@ function buildDocument(d, narr, fecha) {
     H.para(H.run(n.recomendacion, { size: 18 }), { after: 100 }),
     cajaAccion(n.accion),
 
-    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI  |  Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris }), { before: 140, after: 0 }),
+    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI  |  Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris }), { before: (d.cortesias && d.cortesias.length) ? 40 : 140, after: 0 }),
   );
 
   return new Document({

@@ -811,6 +811,23 @@
    "f_esperada": "W>A",
    "champion": false,
    "reporta_a": "kzetina"
+  },
+  "digcastillo": {
+   "sd": "EXTERNO",
+   "nombre": "Diana Gabriela Castillo Luna",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": false,
+   "area": "Compras",
+   "alta": "2026-09-30",
+   "seguimiento_sd": "ENN",
+   "solicito": "Karla Méndez",
+   "nota_licencia": "Cortesía solicitada por Karla Méndez (30 sep 2026); su uso aparece en el Ejecutivo de ENN"
   }
  },
  "etiqueta_subdireccion": {

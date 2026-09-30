@@ -521,6 +521,29 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                    for r in rows if r['workflow_top']), key=lambda u: (-u['veces'], u['persona']))
 
     cur_mon, cur_fri = wins[-1]
+    # Cortesias bajo seguimiento de la SD (Tony, 30 sep 2026: la licencia de Diana Gabriela Castillo,
+    # de Compras, la pidio Karla Mendez y su uso va en el Ejecutivo de ENN). Solo informativo: no entran
+    # a totales, semaforo, urgencia ni gerencias. Sin cuenta antes de su alta.
+    cortesias = []
+    for u, p in roster['personas'].items():
+        if p.get('seguimiento_sd') != sd or p.get('baja_ejecutada'):
+            continue
+        alta = date.fromisoformat(p['alta']) if p.get('alta') else None
+        if alta and alta > cur_fri:
+            continue
+        serie = []
+        for mon, fri in wins[-5:]:
+            if alta and fri < alta:
+                continue
+            m = ev[(ev['user_id'] == u) & (ev['fecha'] >= mon) & (ev['fecha'] <= fri) & (ev['tool'] != 'OTRO')]
+            serie.append({'corte': label(mon, fri), 'total': int(len(m)),
+                          **{t: int((m['tool'] == t).sum()) for t in TOOLS}})
+        act = serie[-1] if serie else {'total': 0, **{t: 0 for t in TOOLS}}
+        orden = sorted([t for t in TOOLS if act[t]], key=lambda t: (-act[t], ORDEN_DESEMPATE.index(t)))
+        cortesias.append({'usuario': u, 'nombre': p['nombre'], 'area': p.get('area'),
+                          'solicito': p.get('solicito'), 'alta': p.get('alta'), 'total': act['total'],
+                          'firma': '>'.join(orden) if orden else 'Sin actividad',
+                          'ultimas': [x['total'] for x in serie], 'semanas_con_cuenta': len(serie)})
     out = {
         'sd': sd,
         'sdNombre': roster['sd_nombres'][sd],
@@ -551,6 +574,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         'gerencias': gerencias,
         'transicion_info': transicion_info,
         'usos_clave': usos,
+        'cortesias': cortesias,
         'rows': rows,
     }
     return out

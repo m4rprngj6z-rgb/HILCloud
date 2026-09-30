@@ -80,7 +80,8 @@ def main():
 
     # Universos (regla 1 y 7). Sin filtros de exclusion: Tony decide.
     juridico = [u for u, p in P.items() if p['sd'] in SDS and not p.get('excluido_metricas')]
-    no_juridico = [u for u, p in P.items() if p['sd'] == 'EXTERNO' and not p.get('baja_ejecutada')]
+    no_juridico = [u for u, p in P.items() if p['sd'] == 'EXTERNO' and not p.get('baja_ejecutada')
+                   and not (p.get('alta') and date.fromisoformat(p['alta']) > fin)]   # sin cuenta antes de su alta
     aparte = [u for u, p in P.items() if p.get('excluido_metricas')]
     activos = set(ev[(ev['fecha'] >= wins[-1][0]) & (ev['fecha'] <= fin)]['user_id'])
     sin_mapear = sorted(activos - set(P))

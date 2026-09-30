@@ -140,7 +140,7 @@ function cortesias(d) {
   if (!d.cortesias || !d.cortesias.length) return [];
   return d.cortesias.map((c) => H.para([
     H.run('Cortesía bajo seguimiento: ', { size: 16, bold: true, color: H.C.navy }),
-    H.run(`${c.nombre} (${c.area || 'área sin confirmar'}${c.solicito ? `, solicitada por ${c.solicito}` : ''}). `, { size: 16, bold: true }),
+    H.run(`${c.nombre} (${c.area || 'área sin confirmar'}${c.solicito ? `, licencia a cargo de ${c.solicito}` : ''}). `, { size: 16, bold: true }),
     H.run(`${c.total} acciones esta semana${c.ultimas.length > 1 ? `; últimas semanas: ${c.ultimas.join(', ')}` : ''}; firma: ${c.firma}. No suma a los totales ni al semáforo.`, { size: 16 }),
   ], { after: 40 }));
 }

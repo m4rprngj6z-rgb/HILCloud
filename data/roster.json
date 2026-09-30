@@ -343,7 +343,10 @@
    "reporta_a": null,
    "fuera_de_semaforo": true,
    "baja_ejecutada": false,
-   "area": "Área sin confirmar"
+   "area": "Control Interno",
+   "seguimiento_sd": "ENN",
+   "solicito": "Karla Méndez",
+   "nota_licencia": "Cortesía otorgada por Karla Méndez; su uso aparece en el Ejecutivo de ENN"
   },
   "jcajuarez": {
    "sd": "EXTERNO",

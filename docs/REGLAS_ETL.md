@@ -268,8 +268,8 @@ Funcional de RL).
 
 ## 8g. Cortesías bajo seguimiento de una Subdirección
 
-Tony, 30 sep 2026 (primer caso: Diana Gabriela Castillo Luna, Compras, licencia solicitada por
-Karla Méndez). En `roster.json` la cortesía lleva `seguimiento_sd` (la SD cuyo Ejecutivo la muestra),
+Tony, 30 sep 2026 (casos: Diana Gabriela Castillo Luna, Compras, y George Chirinos, Control Interno; ambas licencias a cargo de
+Karla Méndez). Son solo informativas. En `roster.json` la cortesía lleva `seguimiento_sd` (la SD cuyo Ejecutivo la muestra),
 `solicito` y `alta`. El ETL la lista aparte en `cortesias`: acciones de la semana, las últimas
 semanas (solo desde su alta) y firma. No entra a totales, semáforo, urgencia ni gerencias. El
 Ejecutivo la muestra en una línea bajo la nomenclatura de Vista por Gerencia; con cortesías, Usos

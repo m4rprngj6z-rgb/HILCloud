@@ -9,8 +9,8 @@ sesion, no se versionan aqui.
 ## Que es esto
 
 Tony Bueno (jbueno) es Harvey AI Champion de Champions en la DJ (~70 personas, 6
-sub-direcciones: ENN, CN, PLD, GC, JC, RL). Cada semana ("corte") se generan 13 reportes
-docx (6 SD x Ejecutivo+Champion, mas 1 para su jefa Fibi) a partir de exports de uso de
+sub-direcciones: ENN, CN, PLD, GC, JC, RL). Cada semana ("corte") se generan 14 reportes
+docx (6 SD x Ejecutivo+Champion, 1 para su jefa Fibi y 1 de Gobierno de Licencias) a partir de exports de uso de
 Harvey. Antes de este repo, el pipeline (roster, scripts de generacion) vivia solo en la
 memoria de cada sesion de Claude y se perdia con cada reinicio de sandbox. Este repo es la
 fuente de verdad versionada para que eso deje de pasar.
@@ -73,10 +73,8 @@ sincroniza aqui.
   promedio movil de 5 semanas, no contra su SD. 🟢 >=100% de su ritmo, 🟡 40-99%, 🔴 <40%,
   ⚪ excepcion documentada (se excluye del calculo de baseline, no solo se anota), ? <5
   semanas de historial.
-- **Racha**: cortes consecutivos en 🟢 o 🟡 con mas de 5 interacciones, dentro del ciclo de
-  5 semanas mas reciente. Las semanas ⚪ se saltan sin romper la racha. Si una SD completa
-  tiene una excepcion vigente que cubre todo el ciclo, se reporta como N/A de ciclo, no como
-  racha 0.
+- **Ultimas 5 semanas** (reemplaza a Racha desde el 29 sep 2026): acciones de cada una de las
+  ultimas 5 semanas con el color de su semaforo; gris = excepcion. Racha ya no se reporta.
 - **Diversidad de Workflows**: cuantos workflows DISTINTOS ejecuta cada persona (no cuantas
   veces), promedio semanal en las ultimas 5 semanas.
 - **Outlook**: se cuenta aparte de Assistant desde el corte del 26 sep 2026 en adelante.
@@ -91,3 +89,21 @@ sincroniza aqui.
    `data/roster.py` o `docs/` estan al dia: pudieron cambiar entre sesiones.
 3. Los exports semanales (xlsx) llegan como adjuntos de la conversacion, no viven aqui.
    Procesalos desde `/mnt/user-data/uploads/` cada vez.
+
+## Decisiones vigentes que no estan en el codigo (al 2 oct 2026)
+
+- Firma de todos los documentos: "Jose Antonio Bueno Diaz | Gerente Contratos TI & AI". Nunca
+  "Champion de Champions" como titulo en un documento.
+- Nunca raya larga. Entregables en .docx (presentaciones en .pptx), nunca HTML.
+- Fibi/Direccion: maximo 2 personas nombradas; nunca admitir errores metodologicos pasados; nunca
+  tratamiento politico. Nunca comparar Subdirectores con semaforo (pidio Karla Mendez; ver 8f).
+- Acciones = cada pregunta y cada follow-up. "Conversaciones" se probo y se retiro.
+- Universo de los reportes semanales: 65 personas de las 6 SD. En la junta mensual con la DJ se
+  usa toda la DJ (67: + Fibi y Tony).
+- Cortesias a cargo de Karla Mendez (George Chirinos, Control Interno; Diana Gabriela Castillo,
+  Compras): una linea informativa en el Ejecutivo de ENN, sin sumar a nada (REGLAS 8g).
+- Licencias: candidato = 2+ apariciones en el top 10 de menor uso del mismo mes calendario. Octubre
+  es el primer mes completo; primera lista real para la sesion de KPIs de noviembre.
+- Pendientes abiertos: cuenta duplicada glosanchez@compartamos.com (sin uso desde 14 ago, liberable);
+  Juan Miguel Galvez (GC) en trabajo presencial, Alejandra Mireles lo esta resolviendo (no registrar
+  excepcion hasta que Tony de fechas); caso GC-01 (600 reactivos) sin tiempos antes/despues.

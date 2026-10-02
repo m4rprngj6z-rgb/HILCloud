@@ -15,7 +15,7 @@
 ## Falta
 
 - [x] **Reporte Ejecutivo** (6): formato aprobado por Tony 28 sep; los 6 del corte 21-25 sep generados.
-- [x] **Reporte Fibi DJ** (1): generado para 21-25 sep, pendiente de revision de Tony.
+- [x] **Reporte Fibi DJ** (1): generado para 21-25 sep.
 - [x] **Gobierno de Licencias** (1): generado para 21-25 sep; pendiente de revision de Tony.
 - [x] `scripts/correr_corte.sh`: los 14 docx de un corte con un comando.
 - [x] Texto narrativo: lo redacta Claude por corte en narrativa/ y lo revisa validar_narrativa.py.
@@ -28,3 +28,10 @@
 - [ ] Antes de las vacaciones de Tony: traspaso a Alejandra Mireles (Champion GC). Definir si
       trabaja con acceso al repo o con una sesión preparada, y actualizar el Context Prompt de
       Notion para ella.
+
+## Siguiente (2 oct 2026)
+
+- [ ] Corte 28 sep-2 oct: primer corte real. Tony sube los exports nuevos (harvey-usage-*.xlsx,
+      vaults_export si hay, Gentera_users CSV). Sincronizar Notion, redactar narrativa/2026-10-02/,
+      correr_corte.sh 2026-10-02, QA visual. Es el primer corte de octubre para Licencias.
+- [ ] Junta mensual DJ (1 oct): presentacion en presentaciones/junta_oct2026.js.

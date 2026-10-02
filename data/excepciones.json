@@ -64,7 +64,8 @@
    "tipo": "Reestructuración organizacional + capacitaciones",
    "desde": "2026-08-03",
    "hasta": "2026-09-24",
-   "nota": "Cerrada 23-24 sep 2026. Cubre el ciclo completo: racha N/A de ciclo"
+   "cuenta_en_base_desde": "2026-10-05",
+   "nota": "Cerrada 23-24 sep 2026. Cubre el ciclo completo: racha N/A de ciclo. Desde el corte del 9 oct sus semanas cuentan en la linea base (el equipo si trabajo; decision Tony 2 oct 2026)"
   },
   {
    "sd": "PLD",

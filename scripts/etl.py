@@ -358,6 +358,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         }
 
     cur_mon_, cur_fri_ = wins[-1]
+    excs_base = [e for e in excs if e.get('cuenta_en_base_desde') and e.get('sd') == sd]
     rows = []
     for uid, p in personas.items():
         alta = date.fromisoformat(p['alta']) if p.get('alta') else None
@@ -365,13 +366,28 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         for s in semanas:
             st = week_stats(uid, s['lunes'], s['viernes'])
             st['excepcion'] = excepcion_semana(uid, sd, s['lunes'], excs)
+            # Excepciones marcadas "cuenta_en_base_desde" (la SD si trabajo durante ella; decision Tony
+            # 2 oct 2026, PLD): desde esa fecha sus semanas entran a la linea base. Siguen en gris.
+            st['base_desde'] = None
+            if st['excepcion']['es_excepcion'] and excs_base:
+                sin = excepcion_semana(uid, sd, s['lunes'], [e for e in excs if not e.get('cuenta_en_base_desde')])
+                if not sin['es_excepcion']:
+                    st['base_desde'] = max(date.fromisoformat(e['cuenta_en_base_desde']) for e in excs_base)
             # Semanas anteriores a su alta no son historial (no son ceros reales).
             st['con_datos'] = s['con_datos'] and (alta is None or s['viernes'] >= alta)
             st['label'] = s['label']
             hist.append(st)
 
-        def utiles(rng):
-            return [hist[j] for j in rng if hist[j]['con_datos'] and not hist[j]['excepcion']['es_excepcion']]
+        def exc_base(j, i):
+            """La semana j es de excepcion para la linea base de la semana i."""
+            h = hist[j]
+            if not h['excepcion']['es_excepcion']:
+                return False
+            return not (h['base_desde'] and i < len(semanas) and semanas[i]['lunes'] >= h['base_desde'])
+
+        def utiles(rng, i=None):
+            i = len(semanas) if i is None else i
+            return [hist[j] for j in rng if hist[j]['con_datos'] and not exc_base(j, i)]
 
         def semanas_base(i):
             """Semanas que forman la linea base de la semana i y si incluyen semanas previas a una
@@ -387,22 +403,22 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                 h = hist[j]
                 if not h['con_datos']:
                     break
-                if not h['excepcion']['es_excepcion']:
+                if not exc_base(j, i):
                     nuevas.append(h)
                     j -= 1
                     continue
                 k = j
-                while k >= 0 and hist[k]['con_datos'] and hist[k]['excepcion']['es_excepcion']:
+                while k >= 0 and hist[k]['con_datos'] and exc_base(k, i):
                     k -= 1
                 de_sd = sum(1 for x in range(k + 1, j + 1) if hist[x]['excepcion'].get('de_sd'))
                 if de_sd >= N_HIST:   # excepcion larga de la SD (roles distintos): se completa con las previas
-                    antes = utiles(range(k, -1, -1))
+                    antes = utiles(range(k, -1, -1), i)
                     usadas = (nuevas + antes)[:N_HIST]
                     return usadas, any(h in antes for h in usadas), len(nuevas)
                 j = k
-            prev = utiles(range(max(0, i - N_HIST), i))
+            prev = utiles(range(max(0, i - N_HIST), i), i)
             if not prev:   # excepcion larga personal: respaldo, las ultimas 5 utiles antes de ella
-                return utiles(range(i - 1, -1, -1))[:N_HIST], True, 0
+                return utiles(range(i - 1, -1, -1), i)[:N_HIST], True, 0
             return prev, False, None
 
         def baseline_at(i):
@@ -417,8 +433,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         def detalle_base(i):
             """Para aclarar en el reporte (Tony, 28 sep 2026): cuantas de las 5 semanas anteriores
             quedaron sin conteo por excepcion y, si se uso el respaldo, que semanas se usaron."""
-            ventana = [hist[j] for j in range(max(0, i - N_HIST), i) if hist[j]['con_datos']]
-            sin_conteo = sum(1 for h in ventana if h['excepcion']['es_excepcion'])
+            sin_conteo = sum(1 for j in range(max(0, i - N_HIST), i) if hist[j]['con_datos'] and exc_base(j, i))
             usadas, _, nuevas = semanas_base(i)
             idx = sorted(hist.index(h) for h in usadas)
             rango = None
@@ -430,7 +445,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         def calificar(i, h, b):
             if alta and semanas[i]['lunes'] - timedelta(weeks=N_HIST) < alta:
                 return 'sin_historial'                  # alta documentada hace <5 semanas
-            if alta and len(utiles(range(0, i))) < N_HIST:
+            if alta and len(utiles(range(0, i), i)) < N_HIST:
                 return 'sin_historial'                  # alta sin 5 semanas utiles propias (p. ej. entro en excepcion de su SD)
             return semaforo(h['total'], b)              # b=None (sin semanas utiles) -> sin_historial
 

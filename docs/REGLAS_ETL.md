@@ -300,5 +300,12 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   referencia. Solo aplica a excepciones de toda la SD (5+ semanas): tras una ausencia personal larga se
   compara contra las semanas nuevas, como siempre. Altas: sin calificar hasta tener 5 semanas útiles
   propias, aunque su alta tenga más de 5 semanas (las 6 altas de PLD del 22 ago entraron en la
-  excepción). PLD: semanas nuevas 28 sep a 30 oct; primer corte calificado, 2-6 nov 2026.
+  excepción).
+- **Excepción con actividad (`cuenta_en_base_desde`, Tony, 2 oct 2026; caso PLD)**: si la SD sí trabajó
+  durante su excepción, la excepción lleva una fecha desde la cual sus semanas entran a la línea base
+  (siguen en gris en Últimas 5 semanas y no se califican en su momento). PLD: la reestructura del 3 ago
+  al 24 sep cuenta desde el corte del 9 oct (lunes 5 oct). Efecto: sin escudo desde el 9 oct; todo PLD,
+  altas incluidas, se compara contra sus últimas 5 semanas reales. El corte del 2 oct no cambia.
+  Motivo: la reestructura fue en agosto, así que esas semanas reflejan los roles actuales mejor que
+  junio y julio, y el uso de PLD (unas 12 acciones por persona a la semana) no mostraba crecimiento.
 - `correr_corte.sh` acepta `UPLOADS=<carpeta>` cuando los exports no están en /mnt/user-data/uploads.

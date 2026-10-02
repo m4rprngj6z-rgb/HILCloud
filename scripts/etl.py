@@ -200,6 +200,11 @@ def rango_txt(fechas):
     ds = sorted(date.fromisoformat(f) if isinstance(f, str) else f for f in fechas)
     if len(ds) == 1:
         return fmt_fecha(ds[0])
+    if (ds[-1] - ds[0]).days + 1 != len(ds):
+        # Dias no consecutivos (ej. 28 y 30 sep): se listan, no se dibuja un rango que incluye el 29.
+        if all(d.month == ds[-1].month for d in ds):
+            return ', '.join(str(d.day) for d in ds[:-1]) + f' y {fmt_fecha(ds[-1])}'
+        return ', '.join(fmt_fecha(d) for d in ds[:-1]) + f' y {fmt_fecha(ds[-1])}'
     return f'{ds[0].day}-{fmt_fecha(ds[-1])}' if ds[0].month == ds[-1].month else f'{fmt_fecha(ds[0])}-{fmt_fecha(ds[-1])}'
 
 
@@ -264,6 +269,11 @@ def motivo(sem, cur, base_tool):
     if not base_tool:
         return [{'text': 'Sin línea base suficiente para comparar por herramienta.'}]
     delta = {t: cur[t] - base_tool.get(t, 0) for t in TOOLS}
+    if sum(cur[t] for t in TOOLS) == 0:
+        principal = max(TOOLS, key=lambda t: (base_tool.get(t, 0), -ORDEN_DESEMPATE.index(t)))
+        if base_tool.get(principal, 0) > 0:
+            return [{'text': 'Sin actividad esta semana; su herramienta principal es '}, {'text': principal, 'tool': principal}, {'text': '.'}]
+        return [{'text': 'Sin actividad esta semana.'}]
     if max(abs(v) for v in delta.values()) < UMBRAL_LEVE:
         return [{'text': 'Cambio leve y parejo entre herramientas, sin un patrón concentrado.'}]
     sube = sem == 'verde'
@@ -517,6 +527,28 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             'personas_con_referencia': len(con_ref),
             'altas_sin_historial': sum(1 for r in tr if r['semaforo'] == 'sin_historial'),
         }
+    # Semanas despues de una excepcion larga de toda la SD (sin transicion): si el promedio de
+    # comparacion todavia sale de las semanas previas a la excepcion, el reporte lo dice
+    # (decision Tony 28 sep 2026: aclarar semanas sin conteo y que se usan las previas).
+    base_previa_info = None
+    if not tr:
+        from collections import Counter
+        prev = [r for r in rows if r['baseline_previa'] and not r['en_excepcion']]
+        if len(prev) >= max(2, len(rows) // 2):
+            rango = Counter(r['base_detalle']['rango_usado'] for r in prev if r['base_detalle']['rango_usado']).most_common(1)
+            base_previa_info = {
+                'sin_conteo': max(r['base_detalle']['sin_conteo'] for r in prev),
+                'rango_referencia': rango[0][0] if rango else None,
+                'personas_con_referencia': sum(1 for r in prev if r['semaforo'] != 'sin_historial'),
+                'altas_sin_historial': sum(1 for r in rows if r['semaforo'] == 'sin_historial' and not r['en_excepcion']),
+            }
+            # El resumen ya lo explica una vez para toda la SD: en cada fila se deja solo el motivo
+            # (si no, la columna Motivo repite 3 renglones por persona y el reporte crece a 7 paginas).
+            for r in rows:
+                txt = [m for m in r['motivo'] if not m['text'].startswith('Sus ') or 'sin conteo' not in m['text']]
+                if txt and txt[0]['text'].startswith('Primera semana completa tras una excepción'):
+                    txt = txt[1:]   # el resumen ya dice que es la primera semana tras la excepcion
+                r['motivo'] = txt or [{'text': 'Primera semana tras la excepción.'}]
     usos = sorted(({'persona': r['nombre'], 'uso': r['workflow_top']['nombre'], 'veces': r['workflow_top']['veces']}
                    for r in rows if r['workflow_top']), key=lambda u: (-u['veces'], u['persona']))
 
@@ -573,6 +605,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         'etiqueta_subdireccion': roster.get('etiqueta_subdireccion', {}).get(sd, 'Subdirección'),
         'gerencias': gerencias,
         'transicion_info': transicion_info,
+        'base_previa_info': base_previa_info,
         'usos_clave': usos,
         'cortesias': cortesias,
         'rows': rows,

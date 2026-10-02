@@ -1,0 +1,8 @@
+{
+ "_corte": "28 sep-2 oct 2026",
+ "_redacto": "Claude, sobre out/JC_2026-10-02.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "JC cerró con 115 acciones, 4% más que la semana anterior, con sus 7 personas activas y 6 de ellas en verde frente a su propio ritmo. Solo Oscar Monteverde requiere atención alta, con 4 acciones. El uso sigue sin Workflow (1 ejecución), pero hay base para construirlo: Adriana Rodríguez sumó 49 acciones en Word Add-in y Cristian Fernández 18 consultas a Vault.",
+  "accion": "Champion Amed Hernández: conversar con Oscar Monteverde, y usar el repositorio de Vault de Cristian Fernández como punto de partida para el primer Workflow de la Subdirección."
+ }
+}

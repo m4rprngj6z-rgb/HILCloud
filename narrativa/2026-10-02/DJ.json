@@ -1,0 +1,33 @@
+{
+ "_corte": "28 sep-2 oct 2026",
+ "_redacto": "Claude, sobre out/DJ_2026-10-02.json y out/GL_2026-10-02.json; validado con scripts/validar_narrativa.py",
+ "fibi": {
+  "casos": [
+   "La DJ registró 1118 acciones, 4% menos que la semana anterior, con 61 de 65 personas activas; 20 personas requieren atención alta, 7 de ellas en PLD.",
+   "CN crece 24% con sus 15 personas activas y 67 ejecuciones de Workflow, la cifra más alta de la DJ esta semana.",
+   "JC sube 4% y tiene a 6 de sus 7 personas en verde frente a su propio ritmo."
+  ],
+  "puntos": [
+   "PLD: primera semana completa tras su reestructuración. Se compara contra sus semanas previas a la excepción, anteriores a los nuevos roles; los casos de atención alta se leen como punto de partida, no como caída.",
+   "RL baja 31% con cobertura reducida por vacaciones, y su Dirección Funcional no registró actividad esta semana.",
+   "ENN baja 23% frente a una semana anterior alta; 2 personas requieren atención alta.",
+   "GC mantiene a sus 7 personas activas, pero con solo 2 ejecuciones de Workflow."
+  ]
+ },
+ "licencias": {
+  "notas": [
+   {
+    "titulo": "George Chirinos",
+    "texto": "cortesía de Control Interno a cargo de Karla Méndez; 98 acciones esta semana, después de 38, 119 y 150 en las anteriores. Su uso ya aparece en el Ejecutivo de ENN."
+   },
+   {
+    "titulo": "Ránking no jurídico",
+    "texto": "con menos de 10 cuentas, el top 10 incluye a todas. Por eso una aparición solo cuenta si la persona quedó en la franja de menor uso de la DJ esa semana (igual o debajo del lugar 10 del ránking jurídico). Regla provisional, pendiente de ratificar."
+   },
+   {
+    "titulo": "Diana Gabriela Castillo Luna",
+    "texto": "cortesía de Compras a cargo de Karla Méndez, alta del 30 de septiembre; sin actividad registrada en su primera semana."
+   }
+  ]
+ }
+}

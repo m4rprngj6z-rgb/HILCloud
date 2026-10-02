@@ -1,0 +1,8 @@
+{
+ "_corte": "28 sep-2 oct 2026",
+ "_redacto": "Claude, sobre out/ENN_2026-10-02.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "ENN cerró con 264 acciones, 23% menos que la semana anterior (343), con las 9 personas activas. Dos personas quedaron en rojo frente a su propio ritmo; la más marcada es Diana Fuentes, con 15 acciones y la caída concentrada en Word Add-in. En sentido contrario, Sofía Ochoa sumó 77 acciones, el doble de su promedio, repartidas entre Vault, Word Add-in y Workflow.",
+  "accion": "Champion Karime Sotelo: conversar esta semana con Diana Fuentes sobre qué cambió en su uso de Word Add-in, y pedirle a Sofía Ochoa que comparta con el equipo cómo combina Vault y Workflow."
+ }
+}

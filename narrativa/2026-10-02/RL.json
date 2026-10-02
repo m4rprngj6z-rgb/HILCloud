@@ -1,0 +1,8 @@
+{
+ "_corte": "28 sep-2 oct 2026",
+ "_redacto": "Claude, sobre out/RL_2026-10-02.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "RL cerró con 51 acciones, 31% menos que la semana anterior, con cobertura reducida: Patsy Godínez de vacaciones toda la semana y Christian Ramírez desde el viernes. Tres personas requieren atención alta: la Dirección Funcional no registró actividad, Alan García quedó en 4 acciones y Rocío Fernández en 2.",
+  "accion": "Champion Jean Cub Nájera: buscar esta semana a Alan García y Rocío Fernández, y tomar en cuenta que la cobertura del equipo sigue reducida hasta el 9 de octubre por las vacaciones de Christian Ramírez."
+ }
+}

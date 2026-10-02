@@ -14,11 +14,12 @@ FARG=(); [ -n "$FECHA" ] && FARG=(--fecha "$FECHA")
 TAG=$(python3 -c "import datetime as d;x=d.date.fromisoformat('$FIN');m=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];print(f'{x.day:02d}{m[x.month-1]}{x.year}')")
 N="narrativa/$FIN"
 VAL=/mnt/skills/public/docx/scripts/office/validate.py
+UPL="${UPLOADS:-/mnt/user-data/uploads}"   # carpeta con los exports; se puede cambiar con UPLOADS=...
 
 echo "== ETL por SD"
-for SD in ENN CN PLD GC JC RL; do python3 scripts/etl.py --corte-fin "$FIN" --sd "$SD" >/dev/null; done
+for SD in ENN CN PLD GC JC RL; do python3 scripts/etl.py --corte-fin "$FIN" --sd "$SD" --uploads "$UPL" >/dev/null; done
 python3 scripts/dj.py --corte-fin "$FIN"
-python3 scripts/licencias.py --corte-fin "$FIN"
+python3 scripts/licencias.py --corte-fin "$FIN" --uploads "$UPL"
 
 echo "== Revisión de narrativa"
 for SD in ENN CN PLD GC JC RL; do python3 scripts/validar_narrativa.py "out/${SD}_$FIN.json" "$N/$SD.json" ejecutivo >/dev/null || { echo "Narrativa $SD rechazada"; python3 scripts/validar_narrativa.py "out/${SD}_$FIN.json" "$N/$SD.json" ejecutivo; exit 1; }; done
@@ -28,7 +29,12 @@ python3 scripts/validar_narrativa.py "out/GL_$FIN.json" "$N/DJ.json" licencias >
 echo "== Reportes"
 for SD in ENN CN PLD GC JC RL; do
   node scripts/generate_champion.js "out/${SD}_$FIN.json" "out/${SD}_Champion_$TAG.docx" "${FARG[@]}" >/dev/null
-  node scripts/generate_ejecutivo.js "out/${SD}_$FIN.json" "$N/$SD.json" "out/${SD}_Ejecutivo_$TAG.docx" "${FARG[@]}" >/dev/null
+  # El Ejecutivo debe caber en una pagina: si no, se regenera con mas compactacion (hasta nivel 3).
+  for C in 0 1 2 3; do
+    node scripts/generate_ejecutivo.js "out/${SD}_$FIN.json" "$N/$SD.json" "out/${SD}_Ejecutivo_$TAG.docx" "${FARG[@]}" --compacto $C >/dev/null
+    [ "$(python3 scripts/paginas.py "out/${SD}_Ejecutivo_$TAG.docx")" = "1" ] && break
+    [ $C = 3 ] && echo "  AVISO: ${SD} Ejecutivo sigue en 2 paginas; acortar la narrativa"
+  done
 done
 node scripts/generate_fibi.js "out/DJ_$FIN.json" "$N/DJ.json" "out/FibiDJ_$TAG.docx" "${FARG[@]}" >/dev/null
 node scripts/generate_licencias.js "out/GL_$FIN.json" "$N/DJ.json" "out/GobiernoDeLicencias_$TAG.docx" "${FARG[@]}" >/dev/null

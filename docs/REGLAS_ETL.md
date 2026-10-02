@@ -275,3 +275,20 @@ semanas (solo desde su alta) y firma. No entra a totales, semáforo, urgencia ni
 Ejecutivo la muestra en una línea bajo la nomenclatura de Vista por Gerencia; con cortesías, Usos
 clave muestra 5 filas para que quepa en una página. En Gobierno de Licencias entra al ránking no
 jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
+
+## 8h. Ajustes del corte 28 sep-2 oct 2026
+
+- **Semanas después de una excepción larga de toda la SD** (`base_previa_info`): mientras la mayoría
+  del equipo se compare contra sus semanas previas a la excepción, el Champion, el Ejecutivo y el Fibi
+  lo dicen una vez para toda la SD (rango usado y altas sin historial); la columna Motivo ya no lo
+  repite por persona.
+- **Motivo con 0 acciones**: siempre "Sin actividad esta semana; su herramienta principal es X",
+  aunque el cambio contra su promedio sea leve.
+- **Días de ausencia no consecutivos** se escriben "28 y 30 sep", no "28-30 sep".
+- **Ejecutivo en una página**: `correr_corte.sh` mide las páginas y, si hace falta, lo regenera con
+  `--compacto` 1 a 3 (Usos clave a 3 filas; letra 0.5 pt menor; Usos clave en una línea y márgenes
+  menores). Si aun así no cabe, avisa para acortar la narrativa.
+- **Ránking no jurídico (provisional, pendiente de Tony)**: con menos de 10 cuentas el top 10 las
+  incluye a todas; una aparición solo cuenta si la persona quedó igual o debajo del lugar 10 del
+  ránking jurídico de esa semana.
+- `correr_corte.sh` acepta `UPLOADS=<carpeta>` cuando los exports no están en /mnt/user-data/uploads.

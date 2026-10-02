@@ -40,6 +40,7 @@ def main():
             'semaforo': cuenta,
             'transicion': any(r['transicion'] for r in d['rows']),
             'transicion_info': d.get('transicion_info'),
+            'base_previa_info': d.get('base_previa_info'),
             'herramientas': {k: sum(r[k] for r in d['rows']) for k in TOOLS},
             'corte': d['corte'],
         })

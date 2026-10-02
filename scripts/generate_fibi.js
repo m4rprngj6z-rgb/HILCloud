@@ -51,7 +51,7 @@ function semaforoSD(d) {
     const k = s.semaforo;
     const tend = s.delta_pct === null ? '-' : `${s.delta_pct >= 0 ? '+' : ''}${s.delta_pct}%`;
     const cells = [
-      H.cell(`${s.sd} (${s.nombre})${s.transicion ? ' *' : ''}`, { width: W[0], fill, bold: true }),
+      H.cell(`${s.sd} (${s.nombre})${(s.transicion || s.base_previa_info) ? ' *' : ''}`, { width: W[0], fill, bold: true }),
       c(k.verde, W[1]), c(k.amarillo, W[2]),
       c(k.rojo, W[3], k.rojo ? { bold: true, color: H.ESTADO.rojo.color } : {}),
     ];
@@ -81,6 +81,10 @@ function buildDocument(d, narr, fecha) {
     semaforoSD(d),
     nota('Vista de una sola mirada para dirigir a cada Subdirección: dónde escalar primero. Cada persona se compara contra su propio promedio de 5 semanas. Sin calificar: personas en ausencia documentada (vacaciones, incapacidad) o con alta reciente (menos de 5 semanas de historial propio); no cuentan en verde, amarillo ni rojo.', 60),
   ];
+  const previa = d.sds.filter((s) => s.base_previa_info);
+  if (previa.length) {
+    children.push(nota(previa.map((s) => `* ${s.sd}: ${H.fraseBasePrevia(s.base_previa_info)}`).join(' ')));
+  }
   if (trans.length) {
     children.push(nota(trans.map((s) => `* ${s.sd}: semana de cierre de una excepción de toda la SD; los colores son de referencia y no se escala. ${H.fraseTransicion(s.transicion_info)}`).join(' ')));
   }

@@ -1,0 +1,8 @@
+{
+ "_corte": "28 sep-2 oct 2026",
+ "_redacto": "Claude, sobre out/CN_2026-10-02.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "CN cerró con 347 acciones, 24% más que la semana anterior, con sus 15 personas activas y 67 ejecuciones de Workflow. Cuatro personas requieren atención alta por volumen muy bajo: César Berelleza registró 1 acción, y Alejandro Maqueda y Armando de la Rosa 4 y 3. Ana Karen Salinas estuvo 2 días fuera de oficina y aun así sumó 51 acciones.",
+  "accion": "Champion Jorge Belloc: buscar esta semana a César Berelleza, que lleva dos cortes casi sin uso, y revisar con Alejandro Maqueda y Armando de la Rosa qué tareas de su Gerencia podrían pasar a Harvey."
+ }
+}

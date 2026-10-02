@@ -1,0 +1,8 @@
+{
+ "_corte": "28 sep-2 oct 2026",
+ "_redacto": "Claude, sobre out/GC_2026-10-02.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "GC cerró con 106 acciones, 14% menos que la semana anterior, con sus 7 personas activas pero solo 2 ejecuciones de Workflow. Tres personas requieren atención alta: Diego Alvarado y Gabriel Juárez quedaron en rojo, al 26% y 19% de su propio ritmo, y Juan Miguel Gálvez registró 4 acciones durante su periodo de trabajo presencial. María Yesenia Álvarez sumó 47 acciones, casi todas en Word Add-in.",
+  "accion": "Champion Alejandra Mireles: cerrar con Tony las fechas del trabajo presencial de Juan Miguel Gálvez para registrarlo, y conversar con Diego Alvarado y Gabriel Juárez sobre su baja de esta semana."
+ }
+}

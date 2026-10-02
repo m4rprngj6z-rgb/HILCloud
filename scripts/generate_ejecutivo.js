@@ -17,6 +17,11 @@ const {
 } = require('docx');
 const H = require('./helpers');
 H.h2E = (t) => H.h2(t, 110);   // Ejecutivo: una sola pagina
+// Nivel de compactacion para que el Ejecutivo quepa en una pagina (lo sube correr_corte.sh si la
+// version normal sale en 2 paginas): 1 = Usos clave a 3 filas; 2 = ademas letra 0.5 pt menor en
+// Vista por Gerencia y texto; 3 = ademas Usos clave en una sola linea y margenes menores.
+let COMPACTO = 0;
+const T = (n) => (COMPACTO >= 2 ? n - 1 : n);
 
 const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const fechaLarga = (d = new Date()) => `${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
@@ -83,14 +88,14 @@ function vistaGerencia(d) {
       shading: fill ? { type: ShadingType.CLEAR, fill, color: 'auto' } : undefined,
       verticalAlign: VerticalAlign.CENTER,
       margins: { top: 60, bottom: 60, left: 90, right: 90 },
-      children: g.que_pedir.map((t) => H.para(H.run(t, { size: 16 }), { after: 20 })),
+      children: g.que_pedir.map((t) => H.para(H.run(t, { size: T(16) }), { after: 20 })),
     });
     return new TableRow({
       cantSplit: true,
       children: [
-        H.cell(g.gerencia, { width: W[0], fill, bold: true, size: 16 }),
-        H.cell(g.responsable + (g.responsable_excluido ? ' *' : ''), { width: W[1], fill, size: 16 }),
-        c(g.personas, W[2], { size: 16 }), c(g.acciones, W[3], { size: 16 }), c(g.firma, W[4], { bold: true, size: 15, tight: true }),
+        H.cell(g.gerencia, { width: W[0], fill, bold: true, size: T(16) }),
+        H.cell(g.responsable + (g.responsable_excluido ? ' *' : ''), { width: W[1], fill, size: T(16) }),
+        c(g.personas, W[2], { size: T(16) }), c(g.acciones, W[3], { size: T(16) }), c(g.firma, W[4], { bold: true, size: 15, tight: true }),
         H.estadoCell(g.semaforo, W[5], undefined, 14, undefined, g.en_transicion ? 'en excepción' : undefined),
         pedir,
       ],
@@ -105,7 +110,11 @@ function usosClave(d) {
   }
   const W = [2500, 5500, 1500];
   // Con cortesias bajo seguimiento la pagina se llena: se muestran los 5 usos mas frecuentes.
-  const usos = (d.cortesias && d.cortesias.length) ? d.usos_clave.slice(0, 5) : d.usos_clave;
+  if (COMPACTO >= 3) {
+    const top = d.usos_clave.slice(0, 3).map((u) => `${u.persona}: ${u.uso} (${u.veces}x)`).join('; ');
+    return [H.para(H.run(`${top}.`, { size: T(17) }), { after: 80 })];
+  }
+  const usos = COMPACTO >= 1 ? d.usos_clave.slice(0, 3) : ((d.cortesias && d.cortesias.length) ? d.usos_clave.slice(0, 5) : d.usos_clave);
   const trs = usos.map((u, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
     return new TableRow({
@@ -128,7 +137,7 @@ function cajaAccion(texto) {
         width: { size: 9500, type: WidthType.DXA },
         shading: { type: ShadingType.CLEAR, fill: 'FFF3CD', color: 'auto' },
         margins: { top: 100, bottom: 100, left: 130, right: 130 },
-        children: [H.para([H.run('Acción   ', { bold: true, size: 18 }), H.run(texto, { size: 18 })])],
+        children: [H.para([H.run('Acción   ', { bold: true, size: T(18) }), H.run(texto, { size: T(18) })])],
       })],
     })],
   });
@@ -159,6 +168,9 @@ function buildDocument(d, narr, fecha) {
     H.h2E('Semáforo de la semana'),
     semaforoSemana(d),
   ];
+  if (d.base_previa_info) {
+    children.push(nota(H.fraseBasePrevia(d.base_previa_info)));
+  }
   if (trans) {
     children.push(nota(`Semana de cierre de la excepción de la SD: los colores son de referencia y no se escala. ${H.fraseTransicion(d.transicion_info)}`));
   }
@@ -182,16 +194,16 @@ function buildDocument(d, narr, fecha) {
     ...usosClave(d),
 
     H.h2E('Recomendación'),
-    H.para(H.run(n.recomendacion, { size: 18 }), { after: 100 }),
+    H.para(H.run(n.recomendacion, { size: T(18) }), { after: 100 }),
     cajaAccion(n.accion),
 
-    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI  |  Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris }), { before: (d.cortesias && d.cortesias.length) ? 40 : 140, after: 0 }),
+    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI  |  Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris }), { before: (COMPACTO || (d.cortesias && d.cortesias.length)) ? 40 : 140, after: 0 }),
   );
 
   return new Document({
     styles: { default: { document: { run: { font: H.FONT } } } },
     sections: [{
-      properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1080, right: 1080, bottom: 1080, left: 1080, header: 708, footer: 708 } } },
+      properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: COMPACTO >= 3 ? 860 : 1080, right: 1080, bottom: COMPACTO >= 3 ? 860 : 1080, left: 1080, header: 708, footer: 708 } } },
       footers: {
         default: new Footer({
           children: [new Paragraph({
@@ -212,8 +224,10 @@ if (require.main === module) {
   const args = process.argv.slice(2);
   const [inp, narrPath, outp] = args;
   const fi = args.indexOf('--fecha');
+  const ci = args.indexOf('--compacto');
+  if (ci > -1) COMPACTO = Number(args[ci + 1]) || 0;
   if (!inp || !narrPath || !outp) {
-    console.error('Uso: node scripts/generate_ejecutivo.js <etl.json> <narrativa.json> <salida.docx> [--fecha "..."]');
+    console.error('Uso: node scripts/generate_ejecutivo.js <etl.json> <narrativa.json> <salida.docx> [--fecha "..."] [--compacto 0-3]');
     process.exit(1);
   }
   const d = JSON.parse(fs.readFileSync(inp, 'utf8'));

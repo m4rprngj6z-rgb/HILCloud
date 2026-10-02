@@ -114,8 +114,11 @@ function buildDocument(d, fecha) {
   const trans = rows.filter((r) => r.transicion);
   if (trans.length) {
     const quien = trans.length === rows.length ? 'Todo el equipo' : (trans.length > 3 ? `${trans.length} de ${rows.length} personas` : trans.map((r) => r.nombre).join(', '));
-    children.push(H.para(H.run(`Esta semana cierra la excepción de la SD. ${quien} se califica como referencia (marcado "en excepción"), pero la semana sigue en excepción: sin escalar, no rompe racha y no entra al promedio de las próximas semanas. ${H.fraseTransicion(d.transicion_info)}`,
+    children.push(H.para(H.run(`Esta semana cierra la excepción de la SD. ${quien} se califica como referencia (marcado "en excepción"), pero la semana sigue en excepción: sin escalar y sin entrar al promedio de las próximas semanas. ${H.fraseTransicion(d.transicion_info)}`,
       { size: 18 }), { after: 100 }));
+  }
+  if (d.base_previa_info) {
+    children.push(H.para(H.run(H.fraseBasePrevia(d.base_previa_info), { size: 18 }), { after: 100 }));
   }
   const exc = rows.filter((r) => r.semaforo === 'excepcion');
   if (exc.length) {
@@ -124,7 +127,8 @@ function buildDocument(d, fecha) {
   }
   const post = rows.filter((r) => r.post_excepcion);
   if (post.length) {
-    children.push(H.para(H.run(`Primera semana completa de regreso: ${post.map((r) => r.nombre).join(', ')}. Su cifra todavía no se lee como ritmo sostenido.`,
+    const quienes = post.length >= rows.filter((r) => r.semaforo !== 'excepcion').length ? 'todo el equipo' : (post.length > 3 ? `${post.length} personas` : post.map((r) => r.nombre).join(', '));
+    children.push(H.para(H.run(`Primera semana completa de regreso para ${quienes}: la cifra todavía no se lee como ritmo sostenido.`,
       { size: 18 }), { after: 100 }));
   }
   children.push(

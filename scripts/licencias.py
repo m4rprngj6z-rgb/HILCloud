@@ -110,21 +110,31 @@ def main():
 
     # Regla 2-4: apariciones en el top 10 de cada corte del mes calendario (desde el inicio del
     # sistema); las semanas de excepcion no cuentan.
-    def apariciones(grupo):
+    def apariciones(grupo, techo=None):
+        """techo: por semana, el maximo de acciones que todavia cuenta como aparicion. Se usa en el
+        ranking no juridico: con menos de 10 cuentas, el top 10 incluye a todas y cualquier cortesia
+        con uso alto apareceria cada semana. Ahi solo cuenta quien esta en la franja de menor uso
+        de la DJ (igual o debajo del lugar 10 del ranking juridico de esa semana). Regla provisional
+        del 2 oct 2026, pendiente de ratificar por Tony."""
         cuenta = {p['usuario']: 0 for p in grupo}
-        cortes_mes = []
+        cortes_mes, cortes = [], {}
         for i, (mon, fri) in enumerate(wins):
             if fri.month != fin.month or fri.year != fin.year or fri < SISTEMA_DESDE:
                 continue
             cortes_mes.append(etl.label(mon, fri))
             semana = [{**p, 'total': p['serie'][i]['total']} for p in grupo]
-            for p in top_con_empates(semana, TOP):
-                if not p['serie'][i]['excepcion']:
-                    cuenta[p['usuario']] += 1
-        return cuenta, cortes_mes
+            top = top_con_empates(semana, TOP)
+            cortes[i] = max((p['total'] for p in top), default=0)
+            for p in top:
+                if p['serie'][i]['excepcion']:
+                    continue
+                if techo is not None and p['total'] > techo.get(i, 0):
+                    continue
+                cuenta[p['usuario']] += 1
+        return cuenta, cortes_mes, cortes
 
-    cj, cortes_mes = apariciones(J)
-    cnj, _ = apariciones(NJ)
+    cj, cortes_mes, techo_j = apariciones(J)
+    cnj, _, _ = apariciones(NJ, techo_j)
     for p in J:
         p['apariciones_mes'] = cj[p['usuario']]
     for p in NJ:

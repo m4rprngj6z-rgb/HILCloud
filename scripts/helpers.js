@@ -178,8 +178,15 @@ function fraseTransicion(ti) {
   return partes.join(' ');
 }
 
+function fraseBasePrevia(bi) {
+  if (!bi) return '';
+  const partes = [`Primeras semanas después de la excepción de la SD: cada persona se compara contra sus 5 semanas previas a la excepción${bi.rango_referencia ? ` (${bi.rango_referencia})` : ''}, porque las semanas de la excepción no cuentan.`];
+  if (bi.altas_sin_historial) partes.push(`${bi.altas_sin_historial} ${bi.altas_sin_historial > 1 ? 'altas recientes todavía no tienen' : 'alta reciente todavía no tiene'} semanas previas y no se ${bi.altas_sin_historial > 1 ? 'califican' : 'califica'}.`);
+  return partes.join(' ');
+}
+
 module.exports = {
-  fraseTransicion,
+  fraseTransicion, fraseBasePrevia,
   C, ESTADO, URGENCIA, TOOL_COLOR, FONT,
   run, para, cell, headerRow, table, estadoCell, richRuns, docHeader, h2, nota, cajaVerde, firma,
 };

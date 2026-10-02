@@ -295,4 +295,10 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   persona se compare contra sus semanas previas a la excepción (`baseline_previa`), su urgencia es
   Sin acción, el color se marca "referencia", no cuenta en "calificadas" y Qué pedirle dice "Sin
   escalar". Se apaga solo cuando junta 5 semanas propias después de la excepción.
+  Cómo se arma la base en esas semanas (`semanas_base`, 2 oct 2026): las semanas útiles desde la
+  excepción, completadas hasta 5 con las previas a ella; mientras incluya alguna previa sigue siendo
+  referencia. Solo aplica a excepciones de toda la SD (5+ semanas): tras una ausencia personal larga se
+  compara contra las semanas nuevas, como siempre. Altas: sin calificar hasta tener 5 semanas útiles
+  propias, aunque su alta tenga más de 5 semanas (las 6 altas de PLD del 22 ago entraron en la
+  excepción). PLD: semanas nuevas 28 sep a 30 oct; primer corte calificado, 2-6 nov 2026.
 - `correr_corte.sh` acepta `UPLOADS=<carpeta>` cuando los exports no están en /mnt/user-data/uploads.

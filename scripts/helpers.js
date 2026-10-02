@@ -180,8 +180,13 @@ function fraseTransicion(ti) {
 
 function fraseBasePrevia(bi) {
   if (!bi) return '';
-  const partes = [`Primeras semanas después de la excepción de la SD: cada persona se compara contra sus 5 semanas previas a la excepción${bi.rango_referencia ? ` (${bi.rango_referencia})` : ''}, porque las semanas de la excepción no cuentan. Como esas semanas son anteriores a los roles actuales, los colores son de referencia y no se escala hasta tener 5 semanas nuevas.`];
-  if (bi.altas_sin_historial) partes.push(`${bi.altas_sin_historial} ${bi.altas_sin_historial > 1 ? 'altas recientes todavía no tienen' : 'alta reciente todavía no tiene'} semanas previas y no se ${bi.altas_sin_historial > 1 ? 'califican' : 'califica'}.`);
+  const n = bi.semanas_nuevas || 0;
+  const ref = bi.rango_referencia ? ` (${bi.rango_referencia})` : '';
+  const partes = [n
+    ? `Semanas posteriores a la excepción de la SD: cada persona se compara contra ${n > 1 ? `sus ${n} semanas desde la excepción, completadas` : 'su semana desde la excepción, completada'} con ${5 - n} previas a ella${ref}. Mientras la referencia incluya semanas anteriores a los roles actuales, los colores son de referencia y no se escala; ${5 - n > 1 ? `faltan ${5 - n} semanas` : 'falta 1 semana'} para tener 5 nuevas.`
+    : `Primeras semanas después de la excepción de la SD: cada persona se compara contra sus 5 semanas previas a la excepción${ref}, porque las semanas de la excepción no cuentan. Como esas semanas son anteriores a los roles actuales, los colores son de referencia y no se escala hasta tener 5 semanas nuevas.`];
+  const pl = bi.altas_sin_historial > 1;
+  if (bi.altas_sin_historial) partes.push(`${bi.altas_sin_historial} ${pl ? 'altas recientes todavía no' : 'alta reciente todavía no'} ${n ? `${pl ? 'juntan' : 'junta'} 5 semanas propias` : `${pl ? 'tienen' : 'tiene'} semanas previas`} y no se ${pl ? 'califican' : 'califica'}.`);
   return partes.join(' ');
 }
 

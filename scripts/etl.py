@@ -193,7 +193,9 @@ def excepcion_semana(uid, sd, mon, excs):
     return {'dias_habiles': habiles, 'dias_ausente': n, 'tipos': list(por_tipo),
             'por_tipo': {t: [str(x) for x in v] for t, v in por_tipo.items()},
             'feriados': [str(d) for d in sorted(feriados)],
-            'es_excepcion': es_exc, 'transicion': transicion}
+            'es_excepcion': es_exc, 'transicion': transicion,
+            # excepcion por evento de toda la SD (no personal): 3+ dias de la SD en la semana
+            'de_sd': bool(es_exc and len(set(ausente) - personal) >= min(3, habiles))}
 
 
 def rango_txt(fechas):
@@ -371,12 +373,41 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         def utiles(rng):
             return [hist[j] for j in rng if hist[j]['con_datos'] and not hist[j]['excepcion']['es_excepcion']]
 
+        def semanas_base(i):
+            """Semanas que forman la linea base de la semana i y si incluyen semanas previas a una
+            excepcion larga de toda la SD (>= 5 semanas).
+            Normal: semanas utiles dentro de las 5 anteriores.
+            Tras una excepcion larga (decision Tony 2 oct 2026): mientras no haya 5 semanas utiles
+            nuevas, la base son las utiles mas recientes completadas con las previas a la excepcion,
+            y queda marcada como previa (referencia, sin escalar) hasta juntar 5 propias.
+            Solo aplica a excepciones de toda la SD; tras una ausencia personal larga se compara
+            contra las semanas nuevas, como siempre (reporte aprobado 26 sep, Sofia Ochoa)."""
+            nuevas, j = [], i - 1
+            while j >= 0 and len(nuevas) < N_HIST:
+                h = hist[j]
+                if not h['con_datos']:
+                    break
+                if not h['excepcion']['es_excepcion']:
+                    nuevas.append(h)
+                    j -= 1
+                    continue
+                k = j
+                while k >= 0 and hist[k]['con_datos'] and hist[k]['excepcion']['es_excepcion']:
+                    k -= 1
+                de_sd = sum(1 for x in range(k + 1, j + 1) if hist[x]['excepcion'].get('de_sd'))
+                if de_sd >= N_HIST:   # excepcion larga de la SD (roles distintos): se completa con las previas
+                    antes = utiles(range(k, -1, -1))
+                    usadas = (nuevas + antes)[:N_HIST]
+                    return usadas, any(h in antes for h in usadas), len(nuevas)
+                j = k
+            prev = utiles(range(max(0, i - N_HIST), i))
+            if not prev:   # excepcion larga personal: respaldo, las ultimas 5 utiles antes de ella
+                return utiles(range(i - 1, -1, -1))[:N_HIST], True, 0
+            return prev, False, None
+
         def baseline_at(i):
-            """Promedio de las semanas utiles dentro de las 5 anteriores. Si no queda ninguna
-            (excepcion larga), respaldo: las ultimas 5 semanas utiles antes de ella."""
-            prev, previa = utiles(range(max(0, i - N_HIST), i)), False
-            if not prev:
-                prev, previa = utiles(range(i - 1, -1, -1))[:N_HIST], True
+            """Promedio de las semanas de semanas_base(i)."""
+            prev, previa, _ = semanas_base(i)
             if not prev:
                 return None, [], 0, False
             b = sum(h['total'] for h in prev) / len(prev)
@@ -388,18 +419,19 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             quedaron sin conteo por excepcion y, si se uso el respaldo, que semanas se usaron."""
             ventana = [hist[j] for j in range(max(0, i - N_HIST), i) if hist[j]['con_datos']]
             sin_conteo = sum(1 for h in ventana if h['excepcion']['es_excepcion'])
-            prev = utiles(range(max(0, i - N_HIST), i))
-            usadas = prev if prev else utiles(range(i - 1, -1, -1))[:N_HIST]
+            usadas, _, nuevas = semanas_base(i)
             idx = sorted(hist.index(h) for h in usadas)
             rango = None
             if idx:
                 d0, d1 = semanas[idx[0]]['lunes'], semanas[idx[-1]]['viernes']
                 rango = f'{fmt_fecha(d0)}-{fmt_fecha(d1)}'
-            return {'sin_conteo': sin_conteo, 'usadas': len(usadas), 'rango_usado': rango}
+            return {'sin_conteo': sin_conteo, 'usadas': len(usadas), 'rango_usado': rango, 'nuevas': nuevas}
 
         def calificar(i, h, b):
             if alta and semanas[i]['lunes'] - timedelta(weeks=N_HIST) < alta:
                 return 'sin_historial'                  # alta documentada hace <5 semanas
+            if alta and len(utiles(range(0, i))) < N_HIST:
+                return 'sin_historial'                  # alta sin 5 semanas utiles propias (p. ej. entro en excepcion de su SD)
             return semaforo(h['total'], b)              # b=None (sin semanas utiles) -> sin_historial
 
         for i, h in enumerate(hist):
@@ -528,6 +560,8 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                 'sin_conteo': max(r['base_detalle']['sin_conteo'] for r in prev),
                 'rango_referencia': rango[0][0] if rango else None,
                 'personas_con_referencia': sum(1 for r in prev if r['semaforo'] != 'sin_historial'),
+                # semanas utiles desde que cerro la excepcion; con 5 se califica normal
+                'semanas_nuevas': max((r['base_detalle'].get('nuevas') or 0) for r in prev),
                 'altas_sin_historial': sum(1 for r in rows if r['semaforo'] == 'sin_historial' and not r['en_excepcion']),
             }
             # El resumen ya lo explica una vez para toda la SD: en cada fila se deja solo el motivo

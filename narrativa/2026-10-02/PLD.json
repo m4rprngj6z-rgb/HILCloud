@@ -2,7 +2,7 @@
  "_corte": "28 sep-2 oct 2026",
  "_redacto": "Claude, sobre out/PLD_2026-10-02.json; validado con scripts/validar_narrativa.py",
  "ejecutivo": {
-  "recomendacion": "PLD registró 235 acciones, prácticamente igual que la semana anterior, en su primera semana completa tras la reestructuración. Las personas se comparan contra sus semanas previas a la excepción (29 jun-31 jul), anteriores a los nuevos roles; por eso 7 personas salen en atención alta y conviene leerlo como punto de partida, no como caída. Las 6 altas de agosto ya muestran uso propio, en especial Jesús Paúl Pallares, con 59 acciones.",
+  "recomendacion": "PLD registró 235 acciones, prácticamente igual que la semana anterior, en su primera semana completa tras la reestructuración. Las personas se comparan contra sus semanas previas a la excepción (29 jun-31 jul), anteriores a los nuevos roles; por eso los colores son de referencia y no se escala hasta contar con 5 semanas propias con los roles actuales. Las 6 altas de agosto ya muestran uso propio, en especial Jesús Paúl Pallares, con 59 acciones.",
   "accion": "Champion Gustavo Bernal: confirmar con cada Gerencia si los nuevos roles cambian el uso que se espera de cada persona, y empezar por Kelly Hernández y Ricardo Centurión, que esta semana casi no registraron actividad."
  }
 }

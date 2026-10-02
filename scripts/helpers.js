@@ -180,7 +180,7 @@ function fraseTransicion(ti) {
 
 function fraseBasePrevia(bi) {
   if (!bi) return '';
-  const partes = [`Primeras semanas después de la excepción de la SD: cada persona se compara contra sus 5 semanas previas a la excepción${bi.rango_referencia ? ` (${bi.rango_referencia})` : ''}, porque las semanas de la excepción no cuentan.`];
+  const partes = [`Primeras semanas después de la excepción de la SD: cada persona se compara contra sus 5 semanas previas a la excepción${bi.rango_referencia ? ` (${bi.rango_referencia})` : ''}, porque las semanas de la excepción no cuentan. Como esas semanas son anteriores a los roles actuales, los colores son de referencia y no se escala hasta tener 5 semanas nuevas.`];
   if (bi.altas_sin_historial) partes.push(`${bi.altas_sin_historial} ${bi.altas_sin_historial > 1 ? 'altas recientes todavía no tienen' : 'alta reciente todavía no tiene'} semanas previas y no se ${bi.altas_sin_historial > 1 ? 'califican' : 'califica'}.`);
   return partes.join(' ');
 }

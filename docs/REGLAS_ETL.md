@@ -288,7 +288,11 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
 - **Ejecutivo en una página**: `correr_corte.sh` mide las páginas y, si hace falta, lo regenera con
   `--compacto` 1 a 3 (Usos clave a 3 filas; letra 0.5 pt menor; Usos clave en una línea y márgenes
   menores). Si aun así no cabe, avisa para acortar la narrativa.
-- **Ránking no jurídico (provisional, pendiente de Tony)**: con menos de 10 cuentas el top 10 las
+- **Ránking no jurídico (ratificado por Tony, 2 oct 2026)**: con menos de 10 cuentas el top 10 las
   incluye a todas; una aparición solo cuenta si la persona quedó igual o debajo del lugar 10 del
   ránking jurídico de esa semana.
+- **No escalar tras una excepción larga de la SD (Tony, 2 oct 2026; caso PLD)**: mientras una
+  persona se compare contra sus semanas previas a la excepción (`baseline_previa`), su urgencia es
+  Sin acción, el color se marca "referencia", no cuenta en "calificadas" y Qué pedirle dice "Sin
+  escalar". Se apaga solo cuando junta 5 semanas propias después de la excepción.
 - `correr_corte.sh` acepta `UPLOADS=<carpeta>` cuando los exports no están en /mnt/user-data/uploads.

@@ -56,7 +56,7 @@ function usoTable(rows) {
         H.cell(r.nivel, { width: W[1], fill, size: S, tight: true }),
         H.estadoCell(r.urgencia, W[2], H.URGENCIA, 15),
         num(r.a, W[3]), num(r.wo, W[4]), num(r.v, W[5]), num(r.w, W[6]), num(r.o, W[7]),
-        H.estadoCell(r.semaforo, W[8], undefined, 14, undefined, r.transicion ? 'en excepción' : undefined),
+        H.estadoCell(r.semaforo, W[8], undefined, 14, undefined, r.transicion ? 'en excepción' : (r.comparacion_previa ? 'referencia' : undefined)),
         H.cell(ultimas5(r, S), { width: W[9], fill, align: AlignmentType.CENTER, tight: true }),
         num(r.diversidadWf == null ? '-' : r.diversidadWf.toFixed(1), W[10]),
         H.cell(r.firma, { width: W[11], fill, size: S, tight: true }),

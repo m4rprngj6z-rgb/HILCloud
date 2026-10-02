@@ -513,20 +513,8 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                            'excepcion': h['excepcion']['es_excepcion']} for h in hist],
         })
 
-    gerencias = agrupar_gerencias(rows, roster, sd)
     # Resumen de la referencia pre-excepcion para la semana de transicion (Tony, 28 sep 2026)
     tr = [r for r in rows if r['transicion']]
-    transicion_info = None
-    if tr:
-        from collections import Counter
-        con_ref = [r for r in tr if r['baseline_previa'] and r['semaforo'] != 'sin_historial']
-        rango = Counter(r['base_detalle']['rango_usado'] for r in con_ref).most_common(1)
-        transicion_info = {
-            'sin_conteo': max(r['base_detalle']['sin_conteo'] for r in tr),
-            'rango_referencia': rango[0][0] if rango else None,
-            'personas_con_referencia': len(con_ref),
-            'altas_sin_historial': sum(1 for r in tr if r['semaforo'] == 'sin_historial'),
-        }
     # Semanas despues de una excepcion larga de toda la SD (sin transicion): si el promedio de
     # comparacion todavia sale de las semanas previas a la excepcion, el reporte lo dice
     # (decision Tony 28 sep 2026: aclarar semanas sin conteo y que se usan las previas).
@@ -549,6 +537,24 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                 if txt and txt[0]['text'].startswith('Primera semana completa tras una excepción'):
                     txt = txt[1:]   # el resumen ya dice que es la primera semana tras la excepcion
                 r['motivo'] = txt or [{'text': 'Primera semana tras la excepción.'}]
+            # Decision Tony 2 oct 2026: mientras la comparacion sea contra semanas previas a la
+            # excepcion (roles distintos), no se escala: urgencia Sin accion y color de referencia.
+            for r in rows:
+                if r['baseline_previa'] and not r['en_excepcion']:
+                    r['urgencia'] = 'Sin acción'
+                    r['comparacion_previa'] = True
+    gerencias = agrupar_gerencias(rows, roster, sd)
+    transicion_info = None
+    if tr:
+        from collections import Counter
+        con_ref = [r for r in tr if r['baseline_previa'] and r['semaforo'] != 'sin_historial']
+        rango = Counter(r['base_detalle']['rango_usado'] for r in con_ref).most_common(1)
+        transicion_info = {
+            'sin_conteo': max(r['base_detalle']['sin_conteo'] for r in tr),
+            'rango_referencia': rango[0][0] if rango else None,
+            'personas_con_referencia': len(con_ref),
+            'altas_sin_historial': sum(1 for r in tr if r['semaforo'] == 'sin_historial'),
+        }
     usos = sorted(({'persona': r['nombre'], 'uso': r['workflow_top']['nombre'], 'veces': r['workflow_top']['veces']}
                    for r in rows if r['workflow_top']), key=lambda u: (-u['veces'], u['persona']))
 
@@ -592,7 +598,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             'personas_activas': sum(1 for r in rows if r['total'] > 0),
             'workflows': sum(r['w'] for r in rows),
             'atencion_alta': sum(1 for r in rows if r['urgencia'] == 'Alta'),
-            'evaluadas': sum(1 for r in rows if not r['en_excepcion'] and r['semaforo'] != 'sin_historial'),
+            'evaluadas': sum(1 for r in rows if not r['en_excepcion'] and r['semaforo'] != 'sin_historial' and not r.get('comparacion_previa')),
         },
         'calidad_datos': {
             **meta,
@@ -668,6 +674,8 @@ def acciones_gerencia(miembros, destinatario=None):
             out.append(f"Proponer un primer uso de {NOMBRE_TOOL[t]} a {quien}: su puesto lo espera y no lo usa.")
     if any(m['transicion'] for m in miembros):
         out = ['Sin escalar (cierre de excepción).'] + out[1:] if not altas else out
+    if any(m.get('comparacion_previa') for m in miembros) and not altas:
+        out = ['Sin escalar: primeras semanas tras la excepción de la SD.'] + out[:1]
     return out[:2] or ['Sin pendiente: sostener el ritmo.']
 
 

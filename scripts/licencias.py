@@ -114,8 +114,8 @@ def main():
         """techo: por semana, el maximo de acciones que todavia cuenta como aparicion. Se usa en el
         ranking no juridico: con menos de 10 cuentas, el top 10 incluye a todas y cualquier cortesia
         con uso alto apareceria cada semana. Ahi solo cuenta quien esta en la franja de menor uso
-        de la DJ (igual o debajo del lugar 10 del ranking juridico de esa semana). Regla provisional
-        del 2 oct 2026, pendiente de ratificar por Tony."""
+        de la DJ (igual o debajo del lugar 10 del ranking juridico de esa semana). Ratificada por Tony
+        el 2 oct 2026."""
         cuenta = {p['usuario']: 0 for p in grupo}
         cortes_mes, cortes = [], {}
         for i, (mon, fri) in enumerate(wins):

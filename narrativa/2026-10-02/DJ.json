@@ -3,12 +3,12 @@
  "_redacto": "Claude, sobre out/DJ_2026-10-02.json y out/GL_2026-10-02.json; validado con scripts/validar_narrativa.py",
  "fibi": {
   "casos": [
-   "La DJ registró 1118 acciones, 4% menos que la semana anterior, con 61 de 65 personas activas; 20 personas requieren atención alta, 7 de ellas en PLD.",
+   "La DJ registró 1118 acciones, 4% menos que la semana anterior, con 61 de 65 personas activas; 13 personas requieren atención alta, concentradas en CN, GC y RL.",
    "CN crece 24% con sus 15 personas activas y 67 ejecuciones de Workflow, la cifra más alta de la DJ esta semana.",
    "JC sube 4% y tiene a 6 de sus 7 personas en verde frente a su propio ritmo."
   ],
   "puntos": [
-   "PLD: primera semana completa tras su reestructuración. Se compara contra sus semanas previas a la excepción, anteriores a los nuevos roles; los casos de atención alta se leen como punto de partida, no como caída.",
+   "PLD: primera semana completa tras su reestructuración. Se compara contra semanas anteriores a sus nuevos roles, así que sus colores son de referencia y no se escala hasta contar con 5 semanas propias.",
    "RL baja 31% con cobertura reducida por vacaciones, y su Dirección Funcional no registró actividad esta semana.",
    "ENN baja 23% frente a una semana anterior alta; 2 personas requieren atención alta.",
    "GC mantiene a sus 7 personas activas, pero con solo 2 ejecuciones de Workflow."
@@ -22,7 +22,7 @@
    },
    {
     "titulo": "Ránking no jurídico",
-    "texto": "con menos de 10 cuentas, el top 10 incluye a todas. Por eso una aparición solo cuenta si la persona quedó en la franja de menor uso de la DJ esa semana (igual o debajo del lugar 10 del ránking jurídico). Regla provisional, pendiente de ratificar."
+    "texto": "con menos de 10 cuentas, el top 10 incluye a todas. Por eso una aparición solo cuenta si la persona quedó en la franja de menor uso de la DJ esa semana (igual o debajo del lugar 10 del ránking jurídico). Regla ratificada el 2 de octubre."
    },
    {
     "titulo": "Diana Gabriela Castillo Luna",

@@ -69,7 +69,7 @@ function metricas(d) {
     rows: [new TableRow({
       children: [
         metricaCell('Acciones totales', String(t.acciones), delta === null ? '' : `vs ${t.acciones_anterior} (${delta >= 0 ? '+' : ''}${delta}%)`, W[0]),
-        metricaCell('Personas en atención alta', String(t.atencion_alta), t.evaluadas ? `de ${t.evaluadas} calificadas esta semana` : 'semana en excepción: sin escalar', W[1]),
+        metricaCell('Personas en atención alta', String(t.atencion_alta), t.evaluadas ? `de ${t.evaluadas} calificadas esta semana` : (d.base_previa_info ? 'colores de referencia: sin escalar' : 'semana en excepción: sin escalar'), W[1]),
         metricaCell('Personas activas', `${t.personas_activas} / ${t.personas}`, `${wau}% WAU`, W[2]),
       ],
     })],

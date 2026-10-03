@@ -13,7 +13,9 @@ Reglas (docs/REGLAS_ETL.md seccion 8i):
   cuenta_en_base_desde, como la reestructura de PLD, si cuentan: el equipo trabajo). Las metricas son por persona por semana
   util, para que meses de 4 y 5 cortes se comparen parejo y las ausencias no cuenten como caida.
 - SD con menos de 2 semanas utiles en un mes (excepcion de toda la SD): sin comparativo.
-- Candidatos a licencia: los del ultimo corte del mes en GL (2+ apariciones en el mes).
+- Candidatos a licencia: los del ultimo corte del mes en GL (2+ apariciones en el mes), con nombre
+  (Tony, 2 oct 2026, excepcion a la regla de 2 nombres solo en esta seccion). Mandos (Director y
+  Subdirector) en su propia linea. Fuera: quien tenga nota_licencia en el roster.
 """
 import argparse
 import json
@@ -29,6 +31,7 @@ SDS = ['ENN', 'CN', 'PLD', 'GC', 'JC', 'RL']
 MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre',
          'octubre', 'noviembre', 'diciembre']
 N_SERIE = 10   # semanas en la grafica de tendencia
+MANDOS = ('Director', 'Subdirector')
 
 
 def mes_de(viernes):
@@ -67,7 +70,7 @@ def grafica_barras(serie, path):
     import matplotlib.pyplot as plt
     ys = [x['total'] for x in serie]
     xs = range(len(ys))
-    fig = plt.figure(figsize=(7.2, 1.7), dpi=150)
+    fig = plt.figure(figsize=(7.2, 1.3), dpi=150)
     ax = fig.add_axes([0.01, 0.2, 0.98, 0.72])
     cols = ['#1F3864' if x['del_mes'] else '#C9D3E3' for x in serie]
     ax.bar(xs, ys, width=0.62, color=cols, edgecolor='white', linewidth=1)
@@ -92,10 +95,12 @@ def grafica_barras(serie, path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--corte-fin', required=True)
+    ap.add_argument('--gl', default=None, help='GL json a usar (p. ej. cierre retroactivo de septiembre)')
     a = ap.parse_args()
     fin = date.fromisoformat(a.corte_fin)
+    P = json.load(open(os.path.join(REPO, 'data', 'roster.json')))['personas']
     datos = {sd: json.load(open(os.path.join(REPO, 'out', f'{sd}_{a.corte_fin}.json'))) for sd in SDS}
-    gl = json.load(open(os.path.join(REPO, 'out', f'GL_{a.corte_fin}.json')))
+    gl = json.load(open(a.gl or os.path.join(REPO, 'out', f'GL_{a.corte_fin}.json')))
 
     viernes = [h['viernes'] for h in datos['ENN']['rows'][0]['historial']]
     labels = {h['viernes']: h['corte'] for h in datos['ENN']['rows'][0]['historial']}
@@ -104,6 +109,16 @@ def main():
     sem_mes = [v for v in viernes if mes_de(v) == mes]
     sem_ant = [v for v in viernes if mes_de(v) == ant]
 
+    # Candidatos (Tony, 2 oct 2026): con nombre; mandos (Director/Subdirector) en su propia linea;
+    # fuera quien tenga nota_licencia (regulador "no candidato" o "En revision").
+    fuera = [c for c in gl['candidatos'] if c.get('nota_licencia')]
+    cand = [c for c in gl['candidatos'] if not c.get('nota_licencia')]
+    sem_gl = {x['viernes'] for x in cand[0]['serie']} if cand else set()
+
+    def fila(c):
+        mes_serie = [x['total'] for x in c['serie'] if mes_de(x['viernes']) == (fin.year, fin.month)]
+        return {'nombre': c['nombre'], 'sd': c['sd'], 'nivel': c['nivel'], 'puesto': P.get(c['usuario'], {}).get('puesto', c['nivel']),
+                'apariciones': c['apariciones_mes'], 'cortes': len(gl['cortes_del_mes']), 'serie_mes': mes_serie}
     sds, todas = [], []
     for sd in SDS:
         rows = datos[sd]['rows']
@@ -115,7 +130,7 @@ def main():
             'mes': m, 'anterior': p, 'comparable': comparable,
             'delta_pct': pct(m['acc_ppw'], p['acc_ppw']) if comparable else None,
             'en_excepcion_ant': bool(p is None or p['semanas_utiles'] < 2),
-            'candidatos_licencia': sum(1 for c in gl['candidatos'] if c['sd'] == sd),
+            'candidatos_licencia': sum(1 for c in cand if c['sd'] == sd),
         })
     dj_m, dj_p = agregar(todas, sem_mes), agregar(todas, sem_ant)
     # Serie semanal de la DJ (acciones por persona por semana util), para la grafica.
@@ -128,7 +143,6 @@ def main():
     os.makedirs(carpeta, exist_ok=True)
     grafica = grafica_barras(serie, os.path.join(carpeta, 'dj.png'))
 
-    cand = gl['candidatos']
     out = {
         'mes': MESES[fin.month - 1], 'anio': fin.year, 'mes_anterior': MESES[ant[1] - 1],
         'corte_viernes': a.corte_fin, 'corte': datos['ENN']['corte'],
@@ -140,9 +154,13 @@ def main():
         'serie': serie, 'grafica': grafica,
         'licencias': {
             'candidatos': len(cand),
-            'juridico': sum(1 for c in cand if c['sd'] in SDS),
-            'no_juridico': sum(1 for c in cand if c['sd'] not in SDS),
+            'mandos': sorted([fila(c) for c in cand if c['nivel'] in MANDOS], key=lambda f: (-f['apariciones'], f['nombre'])),
+            'resto': sorted([fila(c) for c in cand if c['nivel'] not in MANDOS], key=lambda f: (-f['apariciones'], f['nombre'])),
+            'mandos_n': sum(1 for c in cand if c['nivel'] in MANDOS),
+            'en_revision': sum(1 for c in fuera if c['nota_licencia'].startswith('En revisión')),
+            'no_candidato': sum(1 for c in fuera if not c['nota_licencia'].startswith('En revisión')),
             'cortes_contados': len(gl['cortes_del_mes']),
+            'retroactivo': bool(a.gl),
         },
     }
     # porcentajes que el texto puede citar (validar_narrativa.py)

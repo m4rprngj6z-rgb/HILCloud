@@ -321,8 +321,12 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   % de personas activas por semana, ejecuciones de Workflow por semana. Las excepciones de SD con
   `cuenta_en_base_desde` (reestructura de PLD) sí cuentan: el equipo trabajó.
 - **SD sin comparativo**: menos de 2 semanas útiles en alguno de los dos meses; se marca con *.
-- **Candidatos a licencia**: los del Gobierno de Licencias del último corte del mes (solo el número,
-  por SD; la lista con nombres se revisa en la sesión de KPIs).
+- **Candidatos a licencia** (Tony, 2 oct 2026): los del Gobierno de Licencias del último corte del mes,
+  CON nombre (excepción a la regla de 2 nombres, solo en esta sección: la decisión es de Fibi). Mandos
+  (Director y Subdirector) en su propia línea. Fuera: quien tenga `nota_licencia` en el roster (regulador,
+  o "En revisión", como Juan Miguel Gálvez por trabajo presencial hasta tener fechas).
+- **Septiembre 2026** se cerró retroactivo (`licencias.py --sistema-desde 2026-09-01`, `fibi_mensual.py --gl`):
+  la regla aplicada a sus 4 cortes. Se entregó el 2 oct junto con el Fibi semanal, una sola vez.
 - **Narrativa**: `narrativa/<viernes>/DJ.json` -> `fibi_mensual.destacados` (máx. 3) y
   `fibi_mensual.decisiones` (máx. 3, opcional). Máximo 2 personas nombradas, como el Fibi semanal.
 - **Formato**: 1 página; métricas del mes, barras de las últimas 10 semanas (el mes en azul), tabla

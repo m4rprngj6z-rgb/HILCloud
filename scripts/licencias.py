@@ -66,7 +66,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--corte-fin', required=True)
     ap.add_argument('--uploads', default=etl.UPLOADS_DEFAULT)
+    ap.add_argument('--sistema-desde', default=None,
+                    help='AAAA-MM-DD: contar apariciones desde esta fecha (cierre retroactivo de un mes, '
+                         'p. ej. septiembre 2026 para el Fibi mensual; Tony, 2 oct 2026)')
+    ap.add_argument('--out', default=None)
     a = ap.parse_args()
+    desde = date.fromisoformat(a.sistema_desde) if a.sistema_desde else SISTEMA_DESDE
     fin = date.fromisoformat(a.corte_fin)
     roster = json.load(open(os.path.join(REPO, 'data', 'roster.json')))
     P = roster['personas']
@@ -119,7 +124,7 @@ def main():
         cuenta = {p['usuario']: 0 for p in grupo}
         cortes_mes, cortes = [], {}
         for i, (mon, fri) in enumerate(wins):
-            if fri.month != fin.month or fri.year != fin.year or fri < SISTEMA_DESDE:
+            if fri.month != fin.month or fri.year != fin.year or fri < desde:
                 continue
             cortes_mes.append(etl.label(mon, fri))
             semana = [{**p, 'total': p['serie'][i]['total']} for p in grupo]
@@ -179,7 +184,7 @@ def main():
     os.makedirs(carpeta, exist_ok=True)
     for p in radar:
         p['grafica'] = sparkline(p['serie'], os.path.join(carpeta, f"{p['usuario']}.png"))
-    path = os.path.join(REPO, 'out', f'GL_{a.corte_fin}.json')
+    path = a.out or os.path.join(REPO, 'out', f'GL_{a.corte_fin}.json')
     json.dump(out, open(path, 'w'), ensure_ascii=False, indent=1, default=str)
     print('OK:', path, '| top jur', len(top_j), '| no jur', len(top_nj), '| candidatos', len(candidatos), '| radar', len(radar))
 

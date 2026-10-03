@@ -20,7 +20,7 @@ const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', '
 const fechaLarga = (d = new Date()) => `${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const signo = (v) => (v === null || v === undefined ? '-' : `${v > 0 ? '+' : ''}${v}%`);
-const S = 17;
+const S = 16;
 const f1 = (v) => (v === null || v === undefined ? '-' : Number(v).toFixed(1));
 
 function cajaMetricas(d) {
@@ -30,8 +30,8 @@ function cajaMetricas(d) {
   const L = d.licencias;
   const num = (v, w) => new TableCell({
     width: { size: w, type: WidthType.DXA }, shading: { type: ShadingType.CLEAR, fill: H.C.navy, color: 'auto' },
-    verticalAlign: VerticalAlign.CENTER, margins: { top: 100, bottom: 40, left: 80, right: 80 },
-    children: [H.para(H.run(v, { bold: true, size: 34, color: H.C.blanco }), { align: AlignmentType.CENTER })],
+    verticalAlign: VerticalAlign.CENTER, margins: { top: 60, bottom: 20, left: 80, right: 80 },
+    children: [H.para(H.run(v, { bold: true, size: 30, color: H.C.blanco }), { align: AlignmentType.CENTER })],
   });
   const lab = (v, w) => new TableCell({
     width: { size: w, type: WidthType.DXA }, shading: { type: ShadingType.CLEAR, fill: 'D6E4F0', color: 'auto' },
@@ -56,16 +56,16 @@ function grafica(d) {
   return new Paragraph({
     alignment: AlignmentType.CENTER,
     spacing: { before: 60, after: 0 },
-    children: [new ImageRun({ type: 'png', data: fs.readFileSync(d.grafica), transformation: { width: 620, height: 146 } })],
+    children: [new ImageRun({ type: 'png', data: fs.readFileSync(d.grafica), transformation: { width: 600, height: 108 } })],
   });
 }
 
 function tablaSD(d) {
-  const W = [2900, 2000, 1100, 1300, 1400, 1380];
+  const W = [3640, 1900, 1000, 1200, 1300, 1200];
   const cols = ['SD', `Acciones por persona por semana (${d.mes_anterior.slice(0, 3)} → ${d.mes.slice(0, 3)})`, 'Cambio', 'Activas por semana', 'Workflow por semana', 'Candidatos licencia'];
   const trs = d.sds.map((s, i) => {
     const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
-    const c = (v, w, o = {}) => H.cell(String(v), { width: w, fill, align: AlignmentType.CENTER, size: S, ...o });
+    const c = (v, w, o = {}) => H.cell(String(v), { width: w, fill, align: AlignmentType.CENTER, size: S, tight: true, ...o });
     const m = s.mes || {};
     const p = s.anterior || {};
     const marca = s.comparable ? '' : ' *';
@@ -73,7 +73,7 @@ function tablaSD(d) {
     return new TableRow({
       cantSplit: true,
       children: [
-        H.cell(`${s.sd} (${s.nombre})${marca}`, { width: W[0], fill, bold: true, size: S }),
+        H.cell(`${s.sd} (${s.nombre})${marca}`, { width: W[0], fill, bold: true, size: S, tight: true }),
         c(`${f1(p.acc_ppw)} → ${f1(m.acc_ppw)}`, W[1]),
         c(cambio, W[2], s.delta_pct === null ? {} : { bold: true, color: s.delta_pct >= 0 ? H.ESTADO.verde.color : H.ESTADO.rojo.color }),
         c(m.activas_pct !== undefined ? `${m.activas_pct}%` : '-', W[3]),
@@ -85,43 +85,83 @@ function tablaSD(d) {
   return H.table(W, [H.headerRow(cols, W, new Set([1, 2, 3, 4, 5])), ...trs]);
 }
 
+function tablaLicencias(d) {
+  const L = d.licencias;
+  const W = [2300, 700, 4440, 1200, 1600];
+  const cols = ['Persona', 'SD', 'Puesto', 'Apariciones', `Acciones por semana en ${d.mes}`];
+  const grupo = (titulo, filas, base) => [
+    new TableRow({
+      children: [new TableCell({
+        columnSpan: 5, width: { size: W.reduce((x, y) => x + y, 0), type: WidthType.DXA },
+        shading: { type: ShadingType.CLEAR, fill: 'D6E4F0', color: 'auto' }, margins: { top: 30, bottom: 30, left: 90, right: 90 },
+        children: [H.para(H.run(titulo, { bold: true, size: 16, color: H.C.navy }))],
+      })],
+    }),
+    ...filas.map((f, i) => {
+      const fill = (base + i) % 2 === 1 ? H.C.filaAlterna : undefined;
+      const c = (v, w, o = {}) => H.cell(String(v), { width: w, fill, size: 16, tight: true, ...o });
+      return new TableRow({
+        cantSplit: true,
+        children: [
+          c(f.nombre, W[0], { bold: true }), c(f.sd, W[1], { align: AlignmentType.CENTER }), c(f.puesto, W[2]),
+          c(`${f.apariciones} de ${f.cortes}`, W[3], { align: AlignmentType.CENTER }),
+          c(f.serie_mes.join(', '), W[4], { align: AlignmentType.CENTER }),
+        ],
+      });
+    }),
+  ];
+  return H.table(W, [
+    H.headerRow(cols, W, new Set([1, 3, 4])),
+    ...(L.mandos.length ? grupo(`Mandos: Director y Subdirección (${L.mandos.length})`, L.mandos, 0) : []),
+    ...(L.resto.length ? grupo(`Gerencia y coordinación (${L.resto.length})`, L.resto, 0) : []),
+  ]);
+}
+
 function buildDocument(d, narr, fecha) {
   const n = narr.fibi_mensual || {};
   const nota = (t, after = 140) => H.para(H.run(t, { size: 15, italics: true, color: H.C.gris }), { after });
-  const bullet = (t) => new Paragraph({ numbering: { reference: 'vinetas', level: 0 }, spacing: { after: 60 }, children: [H.run(t, { size: 18 })] });
+  const bullet = (t) => new Paragraph({ numbering: { reference: 'vinetas', level: 0 }, spacing: { after: 60 }, children: [H.run(t, { size: 17 })] });
   const rango = `${d.cortes_mes[0].replace(/ \d{4}$/, '')} a ${d.cortes_mes[d.cortes_mes.length - 1]}`;
   const sinComp = d.sds.filter((s) => !s.comparable);
   const children = [
     H.para(H.run('Harvey AI × Gentera', { size: 28, bold: true, color: H.C.navy }), { after: 60 }),
     H.para(H.run(`Dirección Jurídica: ${cap(d.mes)} ${d.anio} en Harvey AI`, { size: 24, bold: true }), { after: 60 }),
-    H.para(H.run(`Reporte mensual para Dirección  |  ${d.cortes_mes.length} cortes: ${rango}  |  ${fecha}`, { size: 18, color: H.C.gris }), { after: 160 }),
+    H.para(H.run(`Reporte mensual para Dirección  |  ${d.cortes_mes.length} cortes: ${rango}  |  ${fecha}`, { size: 18, color: H.C.gris }), { after: 120 }),
     cajaMetricas(d),
-    nota(`${d.personas} personas de las 6 SD. Promedios por persona en sus semanas útiles: las ausencias documentadas no cuentan como baja. Comparación contra ${d.mes_anterior} (${d.cortes_mes_anterior.length} cortes).`, 100),
-    H.h2('Tendencia de la DJ'),
+    nota(`${d.personas} personas de las 6 SD. Promedios por persona en sus semanas útiles (las ausencias documentadas no cuentan como baja).`, 60),
+    H.h2('Tendencia de la DJ', 110),
     grafica(d),
-    nota(`Acciones por persona por semana, últimas ${d.serie.length} semanas (viernes de cada corte). En azul, ${d.mes}.`, 100),
-    H.h2(`${cap(d.mes)} por SD`),
+    nota(`Acciones por persona por semana, últimas ${d.serie.length} semanas (viernes de cada corte). En azul, ${d.mes}.`, 60),
+    H.h2(`${cap(d.mes)} por SD`, 110),
     tablaSD(d),
   ];
   if (sinComp.length) {
     children.push(nota(sinComp.map((s) => `* ${s.sd}: sin comparativo; menos de 2 semanas útiles en uno de los dos meses.`).join(' '), 60));
   }
-  children.push(nota('Candidatos a licencia: 2 o más apariciones en el top 10 de menor uso de la DJ en el mes. La lista se revisa en la sesión de KPIs.', 100));
+  const L = d.licencias;
+  if (L.candidatos) {
+    const fuera = [L.no_candidato ? `${L.no_candidato} ${L.no_candidato > 1 ? 'cuentas de regulador' : 'cuenta de regulador'}` : '',
+      L.en_revision ? `${L.en_revision} ${L.en_revision > 1 ? 'personas' : 'persona'} en revisión por trabajo presencial` : ''].filter(Boolean).join(' y ');
+    children.push(
+      H.h2(`Candidatos a liberar licencia: ${d.mes}`, 110),
+      tablaLicencias(d),
+      nota(`Regla: 2 o más apariciones en el top 10 de menor uso de la DJ en los ${L.cortes_contados} cortes del mes, sin contar ausencias documentadas${L.retroactivo ? ` (vigente desde el 25 sep; aplicada a todo ${d.mes})` : ''}.${fuera ? ` Fuera: ${fuera}.` : ''}`, 80),
+    );
+  }
   if ((n.destacados || []).length) {
-    children.push(H.h2('Lo que destaca del mes'), ...n.destacados.slice(0, 3).map((c, i) => H.para(H.run(`${i + 1}. ${c}`, { size: 18 }), { after: 80 })));
+    children.push(H.h2('Lo que destaca del mes', 110), ...n.destacados.slice(0, 3).map((c, i) => H.para(H.run(`${i + 1}. ${c}`, { size: 17 }), { after: 50 })));
   }
   if ((n.decisiones || []).length) {
-    children.push(H.h2('Decisiones para Dirección'), ...n.decisiones.slice(0, 3).map(bullet));
+    children.push(H.h2('Decisiones para Dirección', 110), ...n.decisiones.slice(0, 3).map(bullet));
   }
   children.push(
-    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI', { size: 16, color: H.C.gris }), { before: 200, after: 0 }),
-    H.para(H.run('Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 16, color: H.C.gris })),
+    H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI  |  Notion HIL: notion.so/37df66a17162812a9f53e15cb031792d', { size: 15, color: H.C.gris }), { before: 60, after: 0 }),
   );
   return new Document({
     styles: { default: { document: { run: { font: H.FONT } } } },
     numbering: { config: [{ reference: 'vinetas', levels: [{ level: 0, format: LevelFormat.BULLET, text: '•', alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 360, hanging: 260 } } } }] }] },
     sections: [{
-      properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1000, right: 1080, bottom: 900, left: 1080, header: 600, footer: 600 } } },
+      properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 760, right: 1000, bottom: 640, left: 1000, header: 450, footer: 400 } } },
       footers: {
         default: new Footer({
           children: [new Paragraph({

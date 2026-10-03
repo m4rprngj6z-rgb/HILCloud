@@ -555,9 +555,11 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             'fortaleza': fort,
             'fortaleza_tool': fuerte,
             'workflow_top': {'nombre': wf_top[0], 'veces': int(wf_top[1])} if wf_top else None,
-            'historial': [{'corte': h['label'], 'total': h['total'], 'semaforo': h['semaforo'],
+            'historial': [{'corte': h['label'], 'viernes': str(sem['viernes']), 'con_datos': h['con_datos'],
+                           'total': h['total'], 'semaforo': h['semaforo'],
                            **{t: h[t] for t in TOOLS},
-                           'excepcion': h['excepcion']['es_excepcion']} for h in hist],
+                           'excepcion': h['excepcion']['es_excepcion'],
+                           'cuenta_en_base': bool(h['base_desde'])} for h, sem in zip(hist, semanas)],
         })
 
     # Resumen de la referencia pre-excepcion para la semana de transicion (Tony, 28 sep 2026)

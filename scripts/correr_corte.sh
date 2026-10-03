@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Corre el corte completo: 6 Champion + 6 Ejecutivo + Fibi + Gobierno de Licencias (14 docx).
+# El ultimo viernes del mes, el Fibi es el mensual (narrativa DJ.json -> fibi_mensual).
 #
 # Uso: scripts/correr_corte.sh 2026-09-25 "28 de septiembre de 2026"
 #   $1 = viernes del corte (AAAA-MM-DD); $2 = fecha que aparece en los reportes (opcional).
@@ -15,15 +16,22 @@ TAG=$(python3 -c "import datetime as d;x=d.date.fromisoformat('$FIN');m=['ene','
 N="narrativa/$FIN"
 VAL=/mnt/skills/public/docx/scripts/office/validate.py
 UPL="${UPLOADS:-/mnt/user-data/uploads}"   # carpeta con los exports; se puede cambiar con UPLOADS=...
+# Ultimo viernes del mes: el Fibi mensual sustituye al semanal (Tony, 2 oct 2026).
+MENSUAL=$(python3 -c "import datetime as d;x=d.date.fromisoformat('$FIN');print(1 if (x+d.timedelta(days=7)).month!=x.month else 0)")
 
 echo "== ETL por SD"
 for SD in ENN CN PLD GC JC RL; do python3 scripts/etl.py --corte-fin "$FIN" --sd "$SD" --uploads "$UPL" >/dev/null; done
 python3 scripts/dj.py --corte-fin "$FIN"
 python3 scripts/licencias.py --corte-fin "$FIN" --uploads "$UPL"
+[ "$MENSUAL" = 1 ] && python3 scripts/fibi_mensual.py --corte-fin "$FIN" >/dev/null
 
 echo "== Revisión de narrativa"
 for SD in ENN CN PLD GC JC RL; do python3 scripts/validar_narrativa.py "out/${SD}_$FIN.json" "$N/$SD.json" ejecutivo >/dev/null || { echo "Narrativa $SD rechazada"; python3 scripts/validar_narrativa.py "out/${SD}_$FIN.json" "$N/$SD.json" ejecutivo; exit 1; }; done
-python3 scripts/validar_narrativa.py "out/DJ_$FIN.json" "$N/DJ.json" fibi >/dev/null
+if [ "$MENSUAL" = 1 ]; then
+  python3 scripts/validar_narrativa.py "out/FM_$FIN.json" "$N/DJ.json" fibi_mensual >/dev/null || { python3 scripts/validar_narrativa.py "out/FM_$FIN.json" "$N/DJ.json" fibi_mensual; exit 1; }
+else
+  python3 scripts/validar_narrativa.py "out/DJ_$FIN.json" "$N/DJ.json" fibi >/dev/null || { python3 scripts/validar_narrativa.py "out/DJ_$FIN.json" "$N/DJ.json" fibi; exit 1; }
+fi
 python3 scripts/validar_narrativa.py "out/GL_$FIN.json" "$N/DJ.json" licencias >/dev/null || true   # notas opcionales
 
 echo "== Reportes"
@@ -36,7 +44,13 @@ for SD in ENN CN PLD GC JC RL; do
     [ $C = 3 ] && echo "  AVISO: ${SD} Ejecutivo sigue en 2 paginas; acortar la narrativa"
   done
 done
-node scripts/generate_fibi.js "out/DJ_$FIN.json" "$N/DJ.json" "out/FibiDJ_$TAG.docx" "${FARG[@]}" >/dev/null
+if [ "$MENSUAL" = 1 ]; then
+  rm -f "out/FibiDJ_$TAG.docx"   # no queda un semanal viejo junto al mensual
+  node scripts/generate_fibi_mensual.js "out/FM_$FIN.json" "$N/DJ.json" "out/FibiDJ_Mensual_$TAG.docx" "${FARG[@]}" >/dev/null
+  [ "$(python3 scripts/paginas.py "out/FibiDJ_Mensual_$TAG.docx")" = "1" ] || echo "  AVISO: Fibi mensual en mas de 1 pagina; acortar la narrativa"
+else
+  node scripts/generate_fibi.js "out/DJ_$FIN.json" "$N/DJ.json" "out/FibiDJ_$TAG.docx" "${FARG[@]}" >/dev/null
+fi
 node scripts/generate_licencias.js "out/GL_$FIN.json" "$N/DJ.json" "out/GobiernoDeLicencias_$TAG.docx" "${FARG[@]}" >/dev/null
 
 echo "== Validación docx"

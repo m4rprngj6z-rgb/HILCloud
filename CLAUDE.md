@@ -35,6 +35,8 @@ sincroniza aqui.
 - `data/excepciones.json` — copia de la tabla "Excepciones activas" del HIL, con rangos de fecha.
 - `scripts/etl.py` — exports crudos -> JSON por SD. Todo el calculo vive aqui.
 - `scripts/dj.py` (vista DJ para el Fibi), `scripts/licencias.py` (Gobierno de Licencias): calculo.
+- `scripts/fibi_mensual.py` + `generate_fibi_mensual.js`: Fibi mensual; el ultimo viernes del mes sustituye al
+  semanal (REGLAS 8i). Narrativa en DJ.json -> fibi_mensual {destacados, decisiones}.
 - `scripts/generate_{champion,ejecutivo,fibi,licencias}.js` + `scripts/helpers.js` — JSON -> docx.
   No calculan.
 - `scripts/correr_corte.sh` — corre el corte completo (14 docx).
@@ -97,6 +99,7 @@ sincroniza aqui.
 - Nunca raya larga. Entregables en .docx (presentaciones en .pptx), nunca HTML.
 - Fibi/Direccion: maximo 2 personas nombradas; nunca admitir errores metodologicos pasados; nunca
   tratamiento politico. Nunca comparar Subdirectores con semaforo (pidio Karla Mendez; ver 8f).
+- Fibi mensual (idea de Tony, 2 oct): sustituye al Fibi semanal del ultimo viernes de cada mes. Primero: 30 oct.
 - Acciones = cada pregunta y cada follow-up. "Conversaciones" se probo y se retiro.
 - Universo de los reportes semanales: 65 personas de las 6 SD. En la junta mensual con la DJ se
   usa toda la DJ (67: + Fibi y Tony).

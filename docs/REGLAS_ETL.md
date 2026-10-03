@@ -309,3 +309,22 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   Motivo: la reestructura fue en agosto, así que esas semanas reflejan los roles actuales mejor que
   junio y julio, y el uso de PLD (unas 12 acciones por persona a la semana) no mostraba crecimiento.
 - `correr_corte.sh` acepta `UPLOADS=<carpeta>` cuando los exports no están en /mnt/user-data/uploads.
+
+## 8i. Fibi mensual (Tony, 2 oct 2026)
+
+- **Cuándo**: el último viernes de cada mes, el Fibi mensual sustituye al Fibi semanal (siguen siendo 14
+  docx). `correr_corte.sh` lo detecta solo. Primero real: corte del 30 oct 2026 (octubre).
+- **Mes**: cortes cuyo viernes cae en el mes calendario (misma regla que licencias; 28 sep-2 oct es de
+  octubre). Se compara contra el mes anterior.
+- **Métricas** (`scripts/fibi_mensual.py`), todas por persona por semana útil, para que meses de 4 y 5
+  cortes se comparen parejo y las ausencias no cuenten como baja: acciones por persona por semana,
+  % de personas activas por semana, ejecuciones de Workflow por semana. Las excepciones de SD con
+  `cuenta_en_base_desde` (reestructura de PLD) sí cuentan: el equipo trabajó.
+- **SD sin comparativo**: menos de 2 semanas útiles en alguno de los dos meses; se marca con *.
+- **Candidatos a licencia**: los del Gobierno de Licencias del último corte del mes (solo el número,
+  por SD; la lista con nombres se revisa en la sesión de KPIs).
+- **Narrativa**: `narrativa/<viernes>/DJ.json` -> `fibi_mensual.destacados` (máx. 3) y
+  `fibi_mensual.decisiones` (máx. 3, opcional). Máximo 2 personas nombradas, como el Fibi semanal.
+- **Formato**: 1 página; métricas del mes, barras de las últimas 10 semanas (el mes en azul), tabla
+  por SD en orden fijo (no es ránking), Lo que destaca, Decisiones para Dirección.
+

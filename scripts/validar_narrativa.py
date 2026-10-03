@@ -118,14 +118,14 @@ def validar(etl, narr, tipo='ejecutivo'):
         for n in nombres:
             if n in t:
                 mencionados.add(n)
-    if tipo == 'fibi' and len(mencionados) > 2:
+    if tipo in ('fibi', 'fibi_mensual') and len(mencionados) > 2:
         errores.append(f'Fibi: nombra a {len(mencionados)} personas ({", ".join(sorted(mencionados))}); el máximo es 2.')
     return errores, sorted(mencionados)
 
 
 def main():
     if len(sys.argv) < 3:
-        sys.exit('Uso: validar_narrativa.py <etl.json> <narrativa.json> [ejecutivo|fibi]')
+        sys.exit('Uso: validar_narrativa.py <etl.json> <narrativa.json> [ejecutivo|fibi|fibi_mensual|licencias]')
     etl = json.load(open(sys.argv[1]))
     narr = json.load(open(sys.argv[2]))
     tipo = sys.argv[3] if len(sys.argv) > 3 else 'ejecutivo'

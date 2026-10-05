@@ -319,6 +319,22 @@ UMBRAL_RACHA = 5    # "mas de 5 interacciones"
 N_LOOKBACK = 16     # semanas de historial que se cargan (respaldo de linea base tras excepciones largas)
 
 
+def champion_del_corte(personas, roster, excs, viernes):
+    """Champion que recibe el reporte. Si el Champion esta fuera cuando se entrega (lunes siguiente al
+    corte) y su excepcion trae "suplente", lo recibe el suplente (Tony, 5 oct 2026: Javier Garcia
+    cubre a Jorge Belloc del 9 al 23 oct)."""
+    champ = next((u for u, p in personas.items() if p['champion']), None)
+    if not champ:
+        return None
+    entrega = viernes + timedelta(days=3)
+    for e in excs:
+        if champ in e.get('personas', []) and e.get('suplente') and \
+                date.fromisoformat(e['desde']) <= entrega <= date.fromisoformat(e['hasta']):
+            sup = roster['personas'][e['suplente']]['nombre']
+            return f"{sup} (suplente de {personas[champ]['nombre']})"
+    return personas[champ]['nombre']
+
+
 def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
     roster = json.load(open(os.path.join(REPO, 'data', 'roster.json')))
     personas = {u: p for u, p in roster['personas'].items()
@@ -636,7 +652,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
     out = {
         'sd': sd,
         'sdNombre': roster['sd_nombres'][sd],
-        'champion': next((p['nombre'] for p in personas.values() if p['champion']), None),
+        'champion': champion_del_corte(personas, roster, excs, cur_fri),
         'subdirector': roster['personas'][roster['subdirectores'][sd]]['nombre'],
         'corte': label(cur_mon, cur_fri),
         'corte_lunes': str(cur_mon), 'corte_viernes': str(cur_fri),

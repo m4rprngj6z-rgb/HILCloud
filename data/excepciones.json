@@ -166,7 +166,9 @@
    ],
    "tipo": "Fuera de oficina",
    "desde": "2026-10-09",
-   "hasta": "2026-10-23"
+   "hasta": "2026-10-23",
+   "suplente": "jgsantillan",
+   "nota": "Javier Garcia es su back y recibe los reportes Champion de CN que se entregan en su ausencia (Tony, 5 oct 2026)"
   }
  ]
 }

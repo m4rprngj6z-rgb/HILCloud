@@ -1,6 +1,6 @@
 {
  "_fuente": "Notion HIL, tabla 'Excepciones activas' (notion.so/37df66a17162812a9f53e15cb031792d). La mantiene unicamente Tony.",
- "_sincronizado": "2026-10-05",
+ "_sincronizado": "2026-10-08",
  "_regla": "Notion gana. Cada fila: a quien aplica (personas, sd o 'TODA_DJ'), rango de fechas inclusivo, tipo. El ETL decide que semanas quedan cubiertas con la regla documentada en docs/REGLAS_ETL.md.",
  "excepciones": [
   {
@@ -134,7 +134,7 @@
    ],
    "tipo": "Vacaciones",
    "desde": "2026-10-02",
-   "hasta": "2026-10-09"
+   "hasta": "2026-10-12"
   },
   {
    "personas": [
@@ -169,6 +169,30 @@
    "hasta": "2026-10-23",
    "suplente": "jgsantillan",
    "nota": "Javier Garcia es su back y recibe los reportes Champion de CN que se entregan en su ausencia (Tony, 5 oct 2026)"
+  },
+  {
+   "personas": [
+    "valcruz"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-10-07",
+   "hasta": "2026-10-19"
+  },
+  {
+   "personas": [
+    "kzetina"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-10-20",
+   "hasta": "2026-10-30"
+  },
+  {
+   "personas": [
+    "jnajera"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-10-19",
+   "hasta": "2026-10-20"
   }
  ]
 }

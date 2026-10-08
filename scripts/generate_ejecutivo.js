@@ -21,6 +21,7 @@ H.h2E = (t) => H.h2(t, 110);   // Ejecutivo: una sola pagina
 // version normal sale en 2 paginas): 1 = Usos clave a 3 filas; 2 = ademas letra 0.5 pt menor en
 // Vista por Gerencia y texto; 3 = ademas Usos clave en una sola linea y margenes menores.
 let COMPACTO = 0;
+let CAP = null;   // out/CAP_<viernes>.json (capacitacion.py), opcional: --cap
 const T = (n) => (COMPACTO >= 2 ? n - 1 : n);
 
 const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -189,6 +190,7 @@ function buildDocument(d, narr, fecha) {
     nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  Verde = igual o arriba de su propio promedio  |  Amarillo = 40% a 99%  |  Rojo = menos de 40%  |  Excepción = ausencia documentada  |  Alta reciente = menos de 5 semanas de historial'),
 
     ...cortesias(d),
+    ...H.lineasCapacitacionSD(CAP && CAP.por_sd ? CAP.por_sd[d.sd] : null, T(16)),
 
     H.h2E('Usos clave observados'),
     ...usosClave(d),
@@ -226,6 +228,8 @@ if (require.main === module) {
   const fi = args.indexOf('--fecha');
   const ci = args.indexOf('--compacto');
   if (ci > -1) COMPACTO = Number(args[ci + 1]) || 0;
+  const ki = args.indexOf('--cap');
+  if (ki > -1 && fs.existsSync(args[ki + 1])) CAP = JSON.parse(fs.readFileSync(args[ki + 1], 'utf8'));
   if (!inp || !narrPath || !outp) {
     console.error('Uso: node scripts/generate_ejecutivo.js <etl.json> <narrativa.json> <salida.docx> [--fecha "..."] [--compacto 0-3]');
     process.exit(1);

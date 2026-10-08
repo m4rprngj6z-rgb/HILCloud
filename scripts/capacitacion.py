@@ -286,6 +286,29 @@ def main():
                                          for p in personas if (p['calidad_a'] or {}).get('instrucciones_minimas')],
            },
            'calendario': cal}
+    # Vista por SD para el Champion y el Ejecutivo (Tony, 7 oct 2026: "hacer sabedora esta informacion
+    # a cada Champion"): sus alertas y, por sesion, a quien de su equipo convocar primero.
+    por_sd = {}
+    for sd in SDS:
+        ps = [p for p in personas if p['sd'] == sd]
+        al = [x for x in out['alertas_personas'] if x['sd'] == sd]
+        ses = []
+        for s in sorted(cal, key=lambda s: s['fecha']):
+            t = s['herramienta']
+            publico = [p for p in ps if p['nivel'] in s['niveles']]
+            if t == 'A':
+                pri = sorted([p for p in publico if (p['calidad_a'] or {}).get('instrucciones_minimas')], key=lambda p: -p['calidad_a']['hilos'])
+                sin = pri
+            else:
+                sin = [p for p in publico if p['suma'][t] == 0]
+                rep = sorted([p for p in publico if t == 'W' and (p['calidad_a'] or {}).get('tarea_repetida')],
+                             key=lambda p: -p['calidad_a']['hilos_repetidos'])
+                pri = rep + [p for p in sorted(sin, key=lambda p: (-p['total_semana'], p['nombre'])) if p not in rep]
+            ses.append({'fecha_txt': s['fecha_txt'], 'tema': s['tema'], 'coordina': s['coordina'], 'estado': s['estado'],
+                        'sin_uso': len(sin), 'publico': len(publico), 'prioridad': [p['nombre'] for p in pri[:3]]})
+        por_sd[sd] = {'alerta_sd': next((x for x in out['alertas_sd'] if x['sd'] == sd), None),
+                      'alertas': al, 'sesiones': ses, 'personas': len(ps)}
+    out['por_sd'] = por_sd
     path = os.path.join(REPO, 'out', f'CAP_{a.corte_fin}.json')
     json.dump(out, open(path, 'w'), ensure_ascii=False, indent=1)
     print('OK:', path)

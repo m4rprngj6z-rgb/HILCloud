@@ -95,6 +95,8 @@ function codigosTable() {
   return H.table(W, [H.headerRow(['Código', 'Qué significa'], W, new Set([0])), ...trs]);
 }
 
+let CAP = null;   // out/CAP_<viernes>.json (capacitacion.py), opcional: --cap
+
 function buildDocument(d, fecha) {
   const rows = ordenar(d.rows);
   const cuenta = (u) => rows.filter((r) => r.urgencia === u).length;
@@ -140,6 +142,7 @@ function buildDocument(d, fecha) {
     usoTable(rows),
     H.nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  ★ Champion: uso contaminado por rol HAI. Significado completo al final.', { after: 160 }),
 
+    ...H.seccionCapacitacionSD(CAP && CAP.por_sd ? CAP.por_sd[d.sd] : null),
     H.h2('Antes del próximo corte'),
     H.cajaVerde('Antes del próximo corte',
       'Responde con una línea por persona que hayas trabajado esta semana: ¿de qué hablaron, y qué le ofreciste? Lo que me mandes se cruza con su siguiente corte para ver si el gap se cerró.',
@@ -186,6 +189,8 @@ if (require.main === module) {
   }
   const d = JSON.parse(fs.readFileSync(inp, 'utf8'));
   const fecha = fi > -1 ? args[fi + 1] : fechaLarga();
+  const ki = args.indexOf('--cap');
+  if (ki > -1 && fs.existsSync(args[ki + 1])) CAP = JSON.parse(fs.readFileSync(args[ki + 1], 'utf8'));
   Packer.toBuffer(buildDocument(d, fecha)).then((buf) => {
     fs.mkdirSync(path.dirname(outp), { recursive: true });
     fs.writeFileSync(outp, buf);

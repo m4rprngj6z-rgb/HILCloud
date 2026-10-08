@@ -190,7 +190,78 @@ function fraseBasePrevia(bi) {
   return partes.join(' ');
 }
 
+const SENAL_CORTA = {
+  'Tarea repetida en Assistant': 'tarea repetida en Assistant',
+  'Instrucciones mínimas': 'instrucciones mínimas',
+  'Escribe el nombre del workflow en Assistant': 'invoca workflows escribiendo su nombre',
+  'Respuestas calificadas como negativas': 'respuestas calificadas negativas',
+};
+
+/** Seccion del Champion: alertas amarillas y capacitaciones de su equipo (Tony, 7 oct 2026). */
+function seccionCapacitacionSD(c, W = 13680) {
+  if (!c) return [];
+  const out = [h2('Alertas y capacitación de tu equipo')];
+  if (c.alerta_sd) {
+    out.push(para([
+      run('ALERTA AMARILLA DE LA SD  ', { size: 17, bold: true, color: ESTADO.amarillo.color }),
+      run(`${c.alerta_sd.personas} de ${c.alerta_sd.de} personas con prácticas de uso deficiente${c.alerta_sd.champion ? `, incluido el Champion (${c.alerta_sd.champion})` : ''}.`, { size: 18, bold: true }),
+    ], { after: 80 }));
+  }
+  if (c.alertas.length) {
+    const w = [Math.round(W * 0.2), Math.round(W * 0.18), Math.round(W * 0.32)];
+    w.push(W - w[0] - w[1] - w[2]);
+    const filas = c.alertas.flatMap((p) => p.senales.map((x, i) => [i === 0 ? `${p.nombre}${p.champion ? ' (Champion)' : ''}` : '', x.senal, x.detalle, x.follow_up]));
+    out.push(table(w, [headerRow(['Persona', 'Alerta amarilla', 'Detalle', 'Follow-up'], w),
+      ...filas.map((f, i) => new (require('docx').TableRow)({ cantSplit: true, children: f.map((v, j) => cell(String(v), { width: w[j], size: 16, bold: j === 0, fill: i % 2 === 1 ? C.filaAlterna : undefined })) }))]));
+    out.push(nota('Prácticas de uso deficiente detectadas en las últimas 8 semanas (revisión de la instrucción con la que arranca cada tarea en Assistant y de las calificaciones a las respuestas). Señales provisionales: confírmalas con la persona antes de actuar.', { after: 120 }));
+  } else {
+    out.push(para(run('Sin alertas de uso deficiente en tu equipo.', { size: 18 }), { after: 100 }));
+  }
+  const ses = c.sesiones.filter((s) => s.sin_uso);
+  if (ses.length) {
+    const w = [Math.round(W * 0.14), Math.round(W * 0.26), Math.round(W * 0.18), Math.round(W * 0.12)];
+    w.push(W - w[0] - w[1] - w[2] - w[3]);
+    out.push(table(w, [headerRow(['Fecha', 'Capacitación', 'Coordina', 'Tu equipo sin uso', 'Convocar primero'], w, new Set([3])),
+      ...ses.map((s, i) => new (require('docx').TableRow)({ cantSplit: true, children: [
+        cell(s.fecha_txt, { width: w[0], size: 16, bold: true, fill: i % 2 === 1 ? C.filaAlterna : undefined }),
+        cell(s.tema, { width: w[1], size: 16, fill: i % 2 === 1 ? C.filaAlterna : undefined }),
+        cell(s.coordina, { width: w[2], size: 16, fill: i % 2 === 1 ? C.filaAlterna : undefined }),
+        cell(`${s.sin_uso} de ${s.publico}`, { width: w[3], size: 16, align: require('docx').AlignmentType.CENTER, fill: i % 2 === 1 ? C.filaAlterna : undefined }),
+        cell(s.prioridad.join(', '), { width: w[4], size: 16, fill: i % 2 === 1 ? C.filaAlterna : undefined }),
+      ] }))]));
+    out.push(nota('Capacitaciones abiertas por necesidad y rango. "Sin uso": personas de los rangos convocados que no usan esa herramienta (en Assistant: con instrucciones mínimas). Convocar primero: quien más gana con la sesión.', { after: 120 }));
+  }
+  return out;
+}
+
+/** Ejecutivo: version de una linea por bloque. */
+function lineasCapacitacionSD(c, size = 16) {
+  if (!c) return [];
+  const out = [];
+  if (c.alertas.length) {
+    const grupos = {};
+    c.alertas.forEach((p) => p.senales.forEach((x) => {
+      const k = SENAL_CORTA[x.senal] || x.senal;
+      (grupos[k] = grupos[k] || []).push(`${p.nombre.split(' ').slice(0, 2).join(' ')}${p.champion ? ' (Champion)' : ''}`);
+    }));
+    const quien = Object.entries(grupos).map(([k, v]) => `${k.charAt(0).toUpperCase() + k.slice(1)}: ${v.join(', ')}`).join('. ');
+    out.push(para([
+      run(c.alerta_sd ? 'Alerta amarilla de la SD: ' : 'Alerta amarilla: ', { size, bold: true, color: ESTADO.amarillo.color }),
+      run(`${c.alerta_sd ? `${c.alerta_sd.personas} de ${c.alerta_sd.de} personas con uso deficiente. ` : ''}${quien}.`, { size }),
+    ], { after: 40 }));
+  }
+  const ses = c.sesiones.filter((s) => s.prioridad.length).slice(0, 2);
+  if (ses.length) {
+    out.push(para([
+      run('Capacitaciones para su equipo: ', { size, bold: true, color: C.navy }),
+      run(ses.map((s) => `${s.tema.split(':')[0]} (${s.fecha_txt}): ${s.prioridad.slice(0, 2).map((n) => n.split(' ').slice(0, 2).join(' ')).join(', ')}`).join('; ') + '. Detalle en el reporte del Champion.', { size }),
+    ], { after: 40 }));
+  }
+  return out;
+}
+
 module.exports = {
+  seccionCapacitacionSD, lineasCapacitacionSD,
   fraseTransicion, fraseBasePrevia,
   C, ESTADO, URGENCIA, TOOL_COLOR, FONT,
   run, para, cell, headerRow, table, estadoCell, richRuns, docHeader, h2, nota, cajaVerde, firma,

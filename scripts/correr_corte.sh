@@ -37,10 +37,10 @@ python3 scripts/validar_narrativa.py "out/GL_$FIN.json" "$N/DJ.json" licencias >
 
 echo "== Reportes"
 for SD in ENN CN PLD GC JC RL; do
-  node scripts/generate_champion.js "out/${SD}_$FIN.json" "out/${SD}_Champion_$TAG.docx" "${FARG[@]}" >/dev/null
+  node scripts/generate_champion.js "out/${SD}_$FIN.json" "out/${SD}_Champion_$TAG.docx" "${FARG[@]}" --cap "out/CAP_$FIN.json" >/dev/null
   # El Ejecutivo debe caber en una pagina: si no, se regenera con mas compactacion (hasta nivel 3).
   for C in 0 1 2 3; do
-    node scripts/generate_ejecutivo.js "out/${SD}_$FIN.json" "$N/$SD.json" "out/${SD}_Ejecutivo_$TAG.docx" "${FARG[@]}" --compacto $C >/dev/null
+    node scripts/generate_ejecutivo.js "out/${SD}_$FIN.json" "$N/$SD.json" "out/${SD}_Ejecutivo_$TAG.docx" "${FARG[@]}" --compacto $C --cap "out/CAP_$FIN.json" >/dev/null
     [ "$(python3 scripts/paginas.py "out/${SD}_Ejecutivo_$TAG.docx")" = "1" ] && break
     [ $C = 3 ] && echo "  AVISO: ${SD} Ejecutivo sigue en 2 paginas; acortar la narrativa"
   done

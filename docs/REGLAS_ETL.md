@@ -377,4 +377,9 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   con `"coordina": "rotacion"` toma al siguiente, saltando a quien coordinó la anterior, a quien está fuera
   esa semana (excepciones personales) y a quien tiene alerta amarilla. Quien tenga alerta tampoco es
   experto ni referente de ninguna herramienta.
+- **Cada Champion y cada Subdirector ven lo de su equipo (Tony, 7 oct 2026)**: `capacitacion.py` arma
+  `por_sd` (alerta de la SD, alertas por persona con follow-up, y por sesión cuántos de su equipo no usan la
+  herramienta y a quién convocar primero). Champion: sección "Alertas y capacitación de tu equipo" antes de
+  "Antes del próximo corte". Ejecutivo: dos líneas (alerta agrupada por señal; 2 sesiones con 2 nombres),
+  dentro del auto-compacto de una página.
 

@@ -45,6 +45,9 @@ ESPERADA = {'Subdirector': ['A', 'V'], 'Gerente': ['A', 'W'], 'Líder': ['W', 'A
             'Analista': ['W', 'V', 'A']}
 ORDEN_RANGO = ['Subdirector', 'Gerente', 'Líder', 'Coordinador', 'Analista']
 MIN_RANGO = 3
+MIN_WF_ESCRITO = 2       # hilos que arrancan solo con el nombre de un workflow
+MIN_NEGATIVOS = 5        # calificaciones negativas en la ventana
+MIN_ALERTA_SD = 3        # personas con senal para alerta amarilla de la SD (o su Champion con senal)
 UPLOADS_DEFAULT = '/mnt/user-data/uploads'
 PREFIJOS_ROL = ('actua como', 'actuando como', 'como experto', 'como abogado', 'eres un', 'eres una', 'mention type')
 
@@ -65,7 +68,10 @@ def calidad_assistant(uploads, fin, roster_uids):
     x['t'] = pd.to_datetime(x['Tiempo (Etc/GMT+6)'])
     desde = fin - timedelta(weeks=N_SEM) + timedelta(days=3)   # lunes de la primera semana
     wf_nombres = {norm(w) for w in x['Nombre del workflow'].dropna().unique()}
-    x = x[(x['t'].dt.date >= desde) & (x['t'].dt.date <= fin) & (x['Superficie del producto'] == 'ASISTENTE')].copy()
+    x = x[(x['t'].dt.date >= desde) & (x['t'].dt.date <= fin)].copy()
+    x['u'] = x['Usuario'].str.split('@').str[0]
+    negativos = x.groupby('u')['Valoración de los comentarios'].apply(lambda s: int((s == 'Negativo').sum())).to_dict()
+    x = x[x['Superficie del producto'] == 'ASISTENTE'].copy()
     x['u'] = x['Usuario'].str.split('@').str[0]
     first = x.sort_values('t').groupby(['u', 'ID del hilo de la Matriz']).head(1).copy()
     first['k'] = first['Consulta'].map(norm)
@@ -83,7 +89,13 @@ def calidad_assistant(uploads, fin, roster_uids):
                   'plantilla': ' '.join(str(tareas[tareas['k'] == vc.index[0]]['Consulta'].iloc[0]).split()[:8]) if rep else None,
                   'pal_inicial': float(propias['pal'].median()) if len(propias) else None,
                   'tarea_repetida': bool(len(g) >= 10 and rep / len(g) >= 0.5),
-                  'instrucciones_minimas': bool(len(propias) >= 5 and propias['pal'].median() < 15)}
+                  'instrucciones_minimas': bool(len(propias) >= 5 and propias['pal'].median() < 15),
+                  'workflow_escrito': int(g['k'].isin(wf_nombres).sum()),
+                  'negativos': negativos.get(u, 0)}
+    for u in set(negativos) - set(out):
+        if u in roster_uids and negativos[u]:
+            out[u] = {'hilos': 0, 'hilos_repetidos': 0, 'plantilla': None, 'pal_inicial': None, 'tarea_repetida': False,
+                      'instrucciones_minimas': False, 'workflow_escrito': 0, 'negativos': negativos[u]}
     return out
 
 
@@ -115,13 +127,34 @@ def main():
     for p in personas:
         p['calidad_a'] = cal_a.get(p['usuario'])
 
+    def senales(p):
+        """Practicas de uso deficiente (alerta amarilla por persona; Tony 7 oct 2026)."""
+        c = p['calidad_a'] or {}
+        out = []
+        if c.get('tarea_repetida'):
+            out.append({'senal': 'Tarea repetida en Assistant', 'detalle': f"{c['hilos_repetidos']} de {c['hilos']} hilos arrancan igual: \"{c['plantilla']}...\"",
+                        'follow_up': 'Convertir esa tarea en un Workflow con un experto de Workflow.'})
+        if c.get('instrucciones_minimas'):
+            out.append({'senal': 'Instrucciones mínimas', 'detalle': f"instrucción inicial de {c['pal_inicial']:g} palabras en promedio ({c['hilos']} hilos)",
+                        'follow_up': 'Sesión de Assistant: contexto, documento y resultado esperado en la instrucción.'})
+        if c.get('workflow_escrito', 0) >= MIN_WF_ESCRITO:
+            out.append({'senal': 'Escribe el nombre del workflow en Assistant', 'detalle': f"{c['workflow_escrito']} hilos arrancan solo con el nombre de un workflow",
+                        'follow_up': 'Mostrarle cómo ejecutar el workflow desde su sección (por confirmar si así no corre).'})
+        if c.get('negativos', 0) >= MIN_NEGATIVOS:
+            out.append({'senal': 'Respuestas calificadas como negativas', 'detalle': f"{c['negativos']} calificaciones negativas en {N_SEM} semanas",
+                        'follow_up': 'Revisar con la persona qué falló: la instrucción, el documento o la herramienta.'})
+        return out
+
+    for p in personas:
+        p['senales'] = senales(p)
+
     def senal_a(p):
         c = p['calidad_a'] or {}
         return bool(c.get('tarea_repetida') or c.get('instrucciones_minimas'))
 
     def elegibles(t, ps):
-        """Para Assistant, el volumen no basta: fuera quien tenga una senal de calidad."""
-        return [p for p in ps if not (t == 'A' and senal_a(p))]
+        """El volumen no basta: fuera de expertos y referentes quien tenga una alerta amarilla."""
+        return [p for p in ps if not p['senales'] and not (t == 'A' and senal_a(p))]
 
     def grupo(ps):
         suma = {t: sum(p['suma'][t] for p in ps) for t in T}
@@ -174,6 +207,39 @@ def main():
     def fila(p, motivo):
         return {'nombre': p['nombre'], 'sd': p['sd'], 'nivel': p['nivel'], 'motivo': motivo}
 
+    # Coordinacion rotativa (Tony, 7 oct 2026): "rotacion" = siguiente Champion de la lista de
+    # data/capacitaciones.json, saltando a quien coordino la sesion anterior, a quien este fuera esa
+    # semana y a quien tenga una alerta amarilla activa (no ensena una practica que no tiene).
+    import json as _j
+    excs = _j.load(open(os.path.join(REPO, 'data', 'excepciones.json')))['excepciones']
+    rot = _j.load(open(os.path.join(REPO, 'data', 'capacitaciones.json'))).get('rotacion', [])
+    R = _j.load(open(os.path.join(REPO, 'data', 'roster.json')))['personas']
+    por_uid = {p['usuario']: p for p in personas}
+
+    def esta_fuera(uid, ini):
+        fin_s = ini + timedelta(days=4)
+        return any(uid in e.get('personas', []) and date.fromisoformat(e['desde']) <= fin_s and date.fromisoformat(e['hasta']) >= ini for e in excs)
+
+    i_rot, previo = 0, None
+    for s in sorted(cal, key=lambda s: s['fecha']):
+        if s.get('coordina') != 'rotacion':
+            previo = s.get('coordina_uid', previo)
+            continue
+        ini = date.fromisoformat(s['fecha'])
+        saltados = []
+        for k in range(len(rot)):
+            uid = rot[(i_rot + k) % len(rot)]
+            motivo = ('coordinó la sesión anterior' if uid == previo else 'fuera esa semana' if esta_fuera(uid, ini)
+                      else 'alerta amarilla activa' if por_uid.get(uid, {}).get('senales') else None)
+            if motivo:
+                saltados.append(f"{R[uid]['nombre']} ({motivo})")
+                continue
+            s['coordina'] = f"{R[uid]['nombre']} ({R[uid]['sd']})"
+            s['coordina_uid'] = uid
+            s['rotacion_saltados'] = saltados
+            i_rot, previo = (i_rot + k + 1) % len(rot), uid
+            break
+
     for s in cal:
         t = s['herramienta']
         ps = [p for p in personas if p['nivel'] in s['niveles']]
@@ -203,6 +269,14 @@ def main():
            'equipos': equipos, 'champions': champions, 'herramientas': herramientas,
            'rangos': rangos, 'rangos_fuera': fuera,
            'sin_outlook': sum(1 for p in personas if p['suma']['O'] == 0),
+           'alertas_personas': [{'nombre': p['nombre'], 'sd': p['sd'], 'nivel': p['nivel'], 'champion': p['champion'], 'senales': p['senales']}
+                                for p in sorted(personas, key=lambda p: (SDS.index(p['sd']), not p['champion'], p['nombre'])) if p['senales']],
+           'alertas_sd': [{'sd': sd, 'personas': len([p for p in personas if p['sd'] == sd and p['senales']]),
+                           'de': len([p for p in personas if p['sd'] == sd]),
+                           'champion': next((p['nombre'] for p in personas if p['sd'] == sd and p['champion'] and p['senales']), None)}
+                          for sd in SDS
+                          if len([p for p in personas if p['sd'] == sd and p['senales']]) >= MIN_ALERTA_SD
+                          or any(p['champion'] and p['senales'] for p in personas if p['sd'] == sd)],
            'assistant_calidad': {
                'evaluadas': sum(1 for p in personas if p['calidad_a']),
                'tarea_repetida': [{'nombre': p['nombre'], 'sd': p['sd'], 'nivel': p['nivel'], **p['calidad_a']}
@@ -228,6 +302,12 @@ def main():
         print(' ', s['fecha_txt'], s['tema'], s['publico'], s['publico_sin_uso'], s.get('expertos'))
         for u in s['urgentes']:
             print('     urge:', u)
+    for x in out['alertas_sd']:
+        print('  ALERTA SD', x)
+    for x in out['alertas_personas']:
+        print('  alerta', x['nombre'], x['sd'], [z['senal'] for z in x['senales']])
+    for s in cal:
+        print('  coordina', s['fecha_txt'], s['tema'], s['coordina'], s.get('rotacion_saltados'))
     ac = out['assistant_calidad']
     print('  Assistant evaluadas', ac['evaluadas'])
     for r in ac['tarea_repetida']:

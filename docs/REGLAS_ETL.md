@@ -368,4 +368,13 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   de Assistant no se lee como ritmo de valor. Instrucciones mínimas = mediana < 15 palabras (mín. 5 hilos;
   sin contar llamadas a workflows por mención o nombre escrito). No adjuntar documentos NO es señal:
   en PLD se pegan los datos en la instrucción.
+- **Alertas amarillas de uso deficiente (Tony, 7 oct 2026: "el pez se pudre desde la cabeza")**: por
+  persona, cualquiera de estas señales en sus últimas 8 semanas: tarea repetida en Assistant; instrucciones
+  mínimas; 2 o más hilos que arrancan solo con el nombre de un workflow; 5 o más calificaciones negativas.
+  Por SD: 3 o más personas con señal, o su Champion con señal. Van como "Follow-ups" al inicio de la
+  sección de Capacitación del Gobierno de Licencias, con la acción sugerida por señal. Provisionales.
+- **Coordinación rotativa**: `rotacion` en `data/capacitaciones.json` (lista de Champions). Cada sesión
+  con `"coordina": "rotacion"` toma al siguiente, saltando a quien coordinó la anterior, a quien está fuera
+  esa semana (excepciones personales) y a quien tiene alerta amarilla. Quien tenga alerta tampoco es
+  experto ni referente de ninguna herramienta.
 

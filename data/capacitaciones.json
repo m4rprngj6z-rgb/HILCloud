@@ -1,10 +1,85 @@
 {
- "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia.",
+ "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla.",
  "sesiones": [
-  {"fecha": "2026-10-08", "fecha_txt": "Jue 8 oct", "tema": "Harvey en Outlook", "herramienta": "O", "coordina": "Alejandra Mireles (GC)", "expertos": "auto", "niveles": ["Coordinador", "Gerente", "Líder", "Subdirector"], "estado": "Confirmada"},
-  {"fecha": "2026-10-12", "fecha_txt": "Semana 12-16 oct", "tema": "Workflow: de la tarea repetida al workflow", "herramienta": "W", "coordina": "Por definir", "expertos": "auto", "niveles": ["Coordinador", "Líder", "Gerente"], "estado": "Propuesta"},
-  {"fecha": "2026-10-19", "fecha_txt": "Semana 19-23 oct", "tema": "Assistant: instrucciones que sí funcionan", "herramienta": "A", "coordina": "Por definir", "expertos": "auto", "niveles": ["Coordinador", "Gerente", "Líder", "Subdirector", "Analista"], "estado": "Propuesta"},
-  {"fecha": "2026-10-19", "fecha_txt": "Semana 19-23 oct", "tema": "Word y Playbook", "herramienta": "Wo", "coordina": "Por definir", "expertos": "auto", "niveles": ["Gerente", "Líder"], "estado": "Propuesta"},
-  {"fecha": "2026-10-26", "fecha_txt": "Semana 26-30 oct", "tema": "Vault: repositorios y bases compartidas", "herramienta": "V", "coordina": "Por definir", "expertos": "auto", "niveles": ["Gerente", "Subdirector"], "estado": "Propuesta"}
+  {
+   "fecha": "2026-10-08",
+   "fecha_txt": "Jue 8 oct",
+   "tema": "Harvey en Outlook",
+   "herramienta": "O",
+   "coordina": "Alejandra Mireles (GC)",
+   "expertos": "auto",
+   "niveles": [
+    "Coordinador",
+    "Gerente",
+    "Líder",
+    "Subdirector"
+   ],
+   "estado": "Confirmada",
+   "coordina_uid": "amireles"
+  },
+  {
+   "fecha": "2026-10-12",
+   "fecha_txt": "Semana 12-16 oct",
+   "tema": "Workflow: de la tarea repetida al workflow",
+   "herramienta": "W",
+   "coordina": "rotacion",
+   "expertos": "auto",
+   "niveles": [
+    "Coordinador",
+    "Líder",
+    "Gerente"
+   ],
+   "estado": "Propuesta"
+  },
+  {
+   "fecha": "2026-10-19",
+   "fecha_txt": "Semana 19-23 oct",
+   "tema": "Assistant: instrucciones que sí funcionan",
+   "herramienta": "A",
+   "coordina": "rotacion",
+   "expertos": "auto",
+   "niveles": [
+    "Coordinador",
+    "Gerente",
+    "Líder",
+    "Subdirector",
+    "Analista"
+   ],
+   "estado": "Propuesta"
+  },
+  {
+   "fecha": "2026-10-19",
+   "fecha_txt": "Semana 19-23 oct",
+   "tema": "Word y Playbook",
+   "herramienta": "Wo",
+   "coordina": "rotacion",
+   "expertos": "auto",
+   "niveles": [
+    "Gerente",
+    "Líder"
+   ],
+   "estado": "Propuesta"
+  },
+  {
+   "fecha": "2026-10-26",
+   "fecha_txt": "Semana 26-30 oct",
+   "tema": "Vault: repositorios y bases compartidas",
+   "herramienta": "V",
+   "coordina": "rotacion",
+   "expertos": "auto",
+   "niveles": [
+    "Gerente",
+    "Subdirector"
+   ],
+   "estado": "Propuesta"
+  }
+ ],
+ "rotacion": [
+  "jnajera",
+  "amhernandez",
+  "gubernal",
+  "nsotelo",
+  "jbelloc",
+  "amireles"
  ]
 }

@@ -124,14 +124,34 @@ function tablaSimple(W, cols, filas, centrar = new Set()) {
   return H.table(W, [H.headerRow(cols, W, centrar), ...trs]);
 }
 
+function followUps(c) {
+  if (!c.alertas_personas || !c.alertas_personas.length) return [];
+  const amarillo = H.ESTADO.amarillo;
+  const out = [H.h2('Follow-ups: alertas amarillas de uso deficiente', 120)];
+  c.alertas_sd.forEach((a) => {
+    out.push(H.para([
+      H.run('  ALERTA SD  ', { size: 17, bold: true, color: amarillo.color, highlight: undefined }),
+      H.run(`${a.sd}: ${a.personas} de ${a.de} personas con prácticas de uso deficiente${a.champion ? `, incluido su Champion (${a.champion})` : ''}.`, { size: 18, bold: true }),
+    ], { after: 80 }));
+  });
+  const filas = c.alertas_personas.flatMap((p) => p.senales.map((x, i) => [
+    i === 0 ? `${p.nombre}${p.champion ? ' (Champion)' : ''}, ${p.nivel} ${p.sd}` : '', x.senal, x.detalle, x.follow_up]));
+  out.push(
+    tablaSimple([2400, 1900, 2900, 2880], ['Persona', 'Señal', 'Detalle', 'Follow-up'], filas),
+    nota(`Alerta de SD: ${c.alertas_umbral_sd || 3} o más personas con señal, o su Champion con señal. Un Champion con alerta no coordina capacitaciones hasta cerrarla. Señales provisionales, por validar con más cortes.`, 120),
+  );
+  return out;
+}
+
 function seccionCapacitacion(c) {
   const out = [
     new Paragraph({ pageBreakBefore: true, keepNext: true, spacing: { after: 100 }, children: [H.run('Capacitación: fortalezas, rangos y calendario', { size: 24, bold: true, color: H.C.navy })] }),
     nota(`Últimas ${c.semanas} semanas útiles de cada persona (${c.personas} personas de las 6 SD). Mezcla = % de acciones por herramienta: A Assistant, Wo Word, V Vault, W Workflow, O Outlook.`, 100),
+    ...followUps(c),
     H.h2('Calendario de capacitaciones por necesidad y rango', 120),
     tablaSimple([1250, 1850, 1450, 2450, 1300, 800, 980], ['Fecha', 'Tema', 'Coordina', 'Expertos (más uso)', 'Para quién', 'Sin uso / público', 'Estado'],
       c.calendario.map((s) => [s.fecha_txt, s.tema, s.coordina, Array.isArray(s.expertos) ? s.expertos.join('; ') : (s.expertos || '-'), s.niveles.join(', '), `${s.publico_sin_uso} / ${s.publico}`, s.estado]), new Set([5, 6])),
-    nota('Coordina: quien sabe llevar una capacitación (lo decides tú). Expertos: las 3 personas con más uso de la herramienta; en Assistant, sin señales de calidad. Sin uso / público: personas de esos rangos que no la usaron en sus últimas semanas útiles (en Assistant: con instrucciones mínimas).', 100),
+    nota(`Coordina: rotativo entre Champions, con los expertos al lado; se salta a quien coordinó la anterior, a quien está fuera esa semana y a quien tiene alerta amarilla.${c.calendario.filter((s) => (s.rotacion_saltados || []).length).map((s) => ` ${s.tema}: se saltó a ${s.rotacion_saltados.join(', ')}.`).join('')} Expertos: las 3 personas con más uso de la herramienta, sin alerta amarilla. Sin uso / público: personas de esos rangos que no la usaron en sus últimas semanas útiles (en Assistant: con instrucciones mínimas).`, 100),
     H.h2('Top 3: a quién le urge cada capacitación', 120),
     tablaSimple([2300, 2600, 5180], ['Sesión', 'Persona', 'Por qué'],
       c.calendario.flatMap((s) => (s.urgentes || []).map((u, i) => [i === 0 ? s.tema : '', `${u.nombre} (${u.nivel}, ${u.sd})`, u.motivo]))),

@@ -1,0 +1,9 @@
+{
+ "_nota": "Calendario de capacitaciones abiertas por rango y necesidad (Tony, 7 oct 2026). Lo decide Tony; capacitacion.py solo le agrega a cada sesion cuantas personas del publico no usan la herramienta. Fechas 'semana' = propuesta, dia por confirmar con quien imparte.",
+ "sesiones": [
+  {"fecha": "2026-10-08", "fecha_txt": "Jue 8 oct", "tema": "Harvey en Outlook", "herramienta": "O", "imparte": "Alejandra Mireles (GC)", "apoyo": "Casos reales de ENN, la SD con más uso de Outlook", "niveles": ["Coordinador", "Gerente", "Líder", "Subdirector"], "estado": "Confirmada"},
+  {"fecha": "2026-10-12", "fecha_txt": "Semana 12-16 oct", "tema": "Workflow: de la tarea repetida al workflow", "herramienta": "W", "imparte": "Jean Cub Nájera (RL)", "apoyo": "Alejandra Mireles (GC)", "niveles": ["Coordinador", "Líder"], "estado": "Propuesta"},
+  {"fecha": "2026-10-19", "fecha_txt": "Semana 19-23 oct", "tema": "Word y Playbook", "herramienta": "Wo", "imparte": "Karime Sotelo (ENN)", "apoyo": "Isis Rodríguez (ENN): flujo Vault, Workflow y Word", "niveles": ["Gerente", "Líder"], "estado": "Propuesta"},
+  {"fecha": "2026-10-26", "fecha_txt": "Semana 26-30 oct", "tema": "Vault: repositorios y bases compartidas", "herramienta": "V", "imparte": "Jorge Belloc (CN), de regreso el 26 oct", "apoyo": "Cristian Fernández (JC), el uso de Vault más intenso de la DJ", "niveles": ["Gerente", "Subdirector"], "estado": "Propuesta"}
+ ]
+}

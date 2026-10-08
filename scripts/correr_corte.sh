@@ -23,6 +23,7 @@ echo "== ETL por SD"
 for SD in ENN CN PLD GC JC RL; do python3 scripts/etl.py --corte-fin "$FIN" --sd "$SD" --uploads "$UPL" >/dev/null; done
 python3 scripts/dj.py --corte-fin "$FIN"
 python3 scripts/licencias.py --corte-fin "$FIN" --uploads "$UPL"
+python3 scripts/capacitacion.py --corte-fin "$FIN" >/dev/null
 [ "$MENSUAL" = 1 ] && python3 scripts/fibi_mensual.py --corte-fin "$FIN" >/dev/null
 
 echo "== Revisión de narrativa"
@@ -51,7 +52,7 @@ if [ "$MENSUAL" = 1 ]; then
 else
   node scripts/generate_fibi.js "out/DJ_$FIN.json" "$N/DJ.json" "out/FibiDJ_$TAG.docx" "${FARG[@]}" >/dev/null
 fi
-node scripts/generate_licencias.js "out/GL_$FIN.json" "$N/DJ.json" "out/GobiernoDeLicencias_$TAG.docx" "${FARG[@]}" >/dev/null
+node scripts/generate_licencias.js "out/GL_$FIN.json" "$N/DJ.json" "out/GobiernoDeLicencias_$TAG.docx" "${FARG[@]}" --cap "out/CAP_$FIN.json" >/dev/null
 
 echo "== Validación docx"
 for f in out/*_"$TAG".docx; do python3 "$VAL" "$f" | tail -1 | grep -q PASSED || { echo "INVALIDO: $f"; exit 1; }; echo "  ok $f"; done

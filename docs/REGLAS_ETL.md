@@ -340,3 +340,18 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   (suplente de <Champion>)" y el reporte se envía al suplente.
 - Caso vigente: Jorge Belloc (CN) fuera del 9 al 23 oct; Javier García recibe los cortes del 9 y del 16 oct.
 
+## 8k. Capacitación por rango y necesidad (Tony, 7 oct 2026)
+
+- Sección nueva al final del Gobierno de Licencias (solo para Tony): calendario, rangos, Champions,
+  referentes por herramienta y equipos. Cálculo en `scripts/capacitacion.py` -> `out/CAP_<viernes>.json`.
+- Ventana: últimas 8 semanas útiles de cada persona (las excepciones de SD con `cuenta_en_base_desde`
+  sí cuentan). Mezcla = % de acciones por herramienta.
+- Necesidad de un rango = primera herramienta de su fortaleza esperada que no es Assistant (Playbook,
+  sección 6): Subdirector A>V, Gerente A>W, Líder y Coordinador W>A, Analista W>V>A. Se reporta cuántas
+  personas del rango no la usaron. Rangos con menos de 3 personas quedan fuera. Subdirectores solo en
+  agregado (8f).
+- Fortaleza = herramienta con más uso; hueco de un equipo = la de menor uso entre Wo, V, W y O.
+- Referente por herramienta: el Champion y la persona de la DJ con más acciones por semana útil.
+- Calendario: `data/capacitaciones.json` (lo decide Tony; el script solo cuenta cuántos del público no
+  usan la herramienta).
+

@@ -110,7 +110,47 @@ function aparte(d) {
   return H.table(W, [H.headerRow(['Persona', 'Acciones (semana)', 'Total 8 semanas'], W, new Set([1, 2])), ...trs]);
 }
 
-function buildDocument(d, narr, fecha) {
+const NOMBRE_T = { A: 'Assistant', Wo: 'Word', V: 'Vault', W: 'Workflow', O: 'Outlook' };
+const mezclaTxt = (m) => ['A', 'Wo', 'V', 'W', 'O'].map((t) => `${t} ${m[t]}%`).join('   ');
+
+function tablaSimple(W, cols, filas, centrar = new Set()) {
+  const trs = filas.map((f, i) => new TableRow({
+    cantSplit: true,
+    children: f.map((v, j) => H.cell(String(v), {
+      width: W[j], fill: i % 2 === 1 ? H.C.filaAlterna : undefined, size: 16, tight: true, bold: j === 0,
+      align: centrar.has(j) ? AlignmentType.CENTER : undefined,
+    })),
+  }));
+  return H.table(W, [H.headerRow(cols, W, centrar), ...trs]);
+}
+
+function seccionCapacitacion(c) {
+  const out = [
+    new Paragraph({ pageBreakBefore: true, keepNext: true, spacing: { after: 100 }, children: [H.run('Capacitación: fortalezas, rangos y calendario', { size: 24, bold: true, color: H.C.navy })] }),
+    nota(`Últimas ${c.semanas} semanas útiles de cada persona (${c.personas} personas de las 6 SD). Mezcla = % de acciones por herramienta: A Assistant, Wo Word, V Vault, W Workflow, O Outlook.`, 100),
+    H.h2('Calendario de capacitaciones abiertas', 120),
+    tablaSimple([1500, 2300, 2300, 1900, 1100, 980], ['Fecha', 'Tema', 'Imparte', 'Para quién', 'Sin uso / público', 'Estado'],
+      c.calendario.map((s) => [s.fecha_txt, s.tema, `${s.imparte}${s.apoyo ? `. Apoyo: ${s.apoyo}` : ''}`, s.niveles.join(', '), `${s.publico_sin_uso} / ${s.publico}`, s.estado]), new Set([4, 5])),
+    nota('Sin uso / público: personas de esos rangos que no usaron la herramienta en sus últimas semanas útiles, sobre el total de esos rangos.', 100),
+    H.h2('Por rango: necesidad', 120),
+    tablaSimple([1500, 900, 1300, 3400, 1100, 1880], ['Rango', 'Personas', 'Acciones por persona por semana', 'Mezcla', 'Esperada', 'Necesidad'],
+      c.rangos.map((r) => [r.nivel, r.personas, r.acc_ppw, mezclaTxt(r.mezcla), r.esperada, `${NOMBRE_T[r.necesidad]}: ${r.sin_necesidad} sin uso`]), new Set([1, 2, 4])),
+    nota(`Necesidad = la primera herramienta de la fortaleza esperada del rango que no es Assistant (Playbook, sección 6). Outlook: ${c.sin_outlook} de ${c.personas} personas sin uso. Subdirectores solo en agregado.${c.rangos_fuera ? ` Rangos con menos de 3 personas fuera del análisis: ${c.rangos_fuera} personas.` : ''}`, 100),
+    H.h2('Champions', 120),
+    tablaSimple([2300, 700, 1300, 1400, 4380], ['Champion', 'SD', 'Acciones por semana', 'Fortaleza', 'Mezcla'],
+      c.champions.map((x) => [x.nombre, x.sd, x.acc_semana, NOMBRE_T[x.fortaleza], mezclaTxt(x.mezcla)]), new Set([1, 2])),
+    H.h2('Referentes por herramienta', 120),
+    tablaSimple([1400, 3300, 3880, 1500], ['Herramienta', 'Champion con más uso (por semana)', 'Persona de la DJ con más uso (por semana)', 'Personas sin uso'],
+      c.herramientas.map((h) => [h.nombre, `${h.champion.nombre}, ${h.champion.sd} (${h.champion.por_semana})`, `${h.referente.nombre}, ${h.referente.nivel} ${h.referente.sd} (${h.referente.por_semana})${h.referente.es_champion ? ', Champion' : ''}`, `${h.sin_uso} de ${c.personas}`]), new Set([3])),
+    H.h2('Equipos', 120),
+    tablaSimple([900, 1500, 1400, 1300, 4980], ['SD', 'Acciones por persona por semana', 'Fortaleza', 'Hueco', 'Mezcla'],
+      c.equipos.map((e) => [e.sd, e.acc_ppw, NOMBRE_T[e.fortaleza], NOMBRE_T[e.hueco], mezclaTxt(e.mezcla)]), new Set([1])),
+    nota('Hueco = la herramienta de menor uso entre Word, Vault, Workflow y Outlook (Assistant lo usan todos).', 100),
+  ];
+  return out;
+}
+
+function buildDocument(d, narr, fecha, cap) {
   const notas = (narr.licencias && narr.licencias.notas) || [];
   const nCorte = d.cortes_del_mes.length;
   const children = [
@@ -145,6 +185,7 @@ function buildDocument(d, narr, fecha) {
       children.push(H.para([H.run(`${n.titulo}: `, { size: 18, bold: true }), H.run(n.texto, { size: 18 })], { after: 100 }));
     });
   }
+  if (cap) children.push(...seccionCapacitacion(cap));
   children.push(
     H.h2('jbueno y zmanzur'),
     nota('Fuera de ambos ránkings y de la lógica de candidato y reasignación, por instrucción permanente (sus roles no son de consumo jurídico normal). Solo como referencia.', 100),
@@ -181,7 +222,9 @@ if (require.main === module) {
   }
   const d = JSON.parse(fs.readFileSync(inp, 'utf8'));
   const narr = JSON.parse(fs.readFileSync(narrPath, 'utf8'));
-  Packer.toBuffer(buildDocument(d, narr, fi > -1 ? args[fi + 1] : fechaLarga())).then((buf) => {
+  const ci = args.indexOf('--cap');
+  const cap = ci > -1 && fs.existsSync(args[ci + 1]) ? JSON.parse(fs.readFileSync(args[ci + 1], 'utf8')) : null;
+  Packer.toBuffer(buildDocument(d, narr, fi > -1 ? args[fi + 1] : fechaLarga(), cap)).then((buf) => {
     fs.mkdirSync(path.dirname(outp), { recursive: true });
     fs.writeFileSync(outp, buf);
     console.log('OK:', outp);

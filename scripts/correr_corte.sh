@@ -23,7 +23,7 @@ echo "== ETL por SD"
 for SD in ENN CN PLD GC JC RL; do python3 scripts/etl.py --corte-fin "$FIN" --sd "$SD" --uploads "$UPL" >/dev/null; done
 python3 scripts/dj.py --corte-fin "$FIN"
 python3 scripts/licencias.py --corte-fin "$FIN" --uploads "$UPL"
-python3 scripts/capacitacion.py --corte-fin "$FIN" >/dev/null
+python3 scripts/capacitacion.py --corte-fin "$FIN" --uploads "$UPL" >/dev/null
 [ "$MENSUAL" = 1 ] && python3 scripts/fibi_mensual.py --corte-fin "$FIN" >/dev/null
 
 echo "== Revisión de narrativa"

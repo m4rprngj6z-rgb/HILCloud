@@ -16,10 +16,25 @@ Reglas (docs/REGLAS_ETL.md seccion 8k):
   Rangos con menos de 3 personas no se analizan (se dice cuantas personas quedan fuera).
 - Referente por herramienta: el Champion y la persona de la DJ con mas acciones por semana util.
 - Subdirectores: solo agregado, nunca uno contra otro (REGLAS 8f).
+- Calidad de Assistant (provisional, Tony 7 oct 2026: "no asumir que un uso de Assistant es un uso
+  de valor"), con los exports harvey-queries, superficie ASISTENTE pura, ultimas 8 semanas, por hilo
+  (la primera consulta de cada hilo es la instruccion de la tarea):
+  * Tarea repetida: >= 50% de sus hilos (min. 10) arrancan con la misma instruccion (primeras 8
+    palabras normalizadas, 3+ veces). No cuentan prefijos de rol ("actua como...") ni llamadas a
+    workflows. Lectura: deberia ser un Workflow; su volumen de Assistant no es ritmo de valor.
+  * Instrucciones minimas: mediana de la instruccion inicial < 15 palabras (min. 5 hilos).
+- Top 3 urgentes por sesion: del publico de la sesion. Workflow: primero tarea repetida (por hilos
+  repetidos), luego sin uso de Workflow por volumen total. Otras herramientas: sin uso, por volumen
+  total (los mas activos sin la herramienta son los que mas ganan). Assistant: instrucciones minimas.
+- Expertos por sesion: las 3 personas con mas uso de la herramienta (power users); quien coordina lo
+  decide Tony (habilidad para llevar una capacitacion, no solo uso).
 """
 import argparse
+import glob
 import json
 import os
+import unicodedata
+from datetime import date, timedelta
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SDS = ['ENN', 'CN', 'PLD', 'GC', 'JC', 'RL']
@@ -30,6 +45,46 @@ ESPERADA = {'Subdirector': ['A', 'V'], 'Gerente': ['A', 'W'], 'Líder': ['W', 'A
             'Analista': ['W', 'V', 'A']}
 ORDEN_RANGO = ['Subdirector', 'Gerente', 'Líder', 'Coordinador', 'Analista']
 MIN_RANGO = 3
+UPLOADS_DEFAULT = '/mnt/user-data/uploads'
+PREFIJOS_ROL = ('actua como', 'actuando como', 'como experto', 'como abogado', 'eres un', 'eres una', 'mention type')
+
+
+def norm(txt, n=8):
+    t = unicodedata.normalize('NFKD', str(txt).lower())
+    t = ''.join(c for c in t if c.isalpha() or c == ' ')
+    return ' '.join(t.split()[:n])
+
+
+def calidad_assistant(uploads, fin, roster_uids):
+    """Senales de calidad de Assistant por persona (ver docstring)."""
+    import pandas as pd
+    fs = sorted(glob.glob(os.path.join(uploads, 'harvey-queries-*.xlsx')))
+    if not fs:
+        return {}
+    x = pd.concat([pd.read_excel(f) for f in fs[-4:]]).drop_duplicates('ID de uso único')
+    x['t'] = pd.to_datetime(x['Tiempo (Etc/GMT+6)'])
+    desde = fin - timedelta(weeks=N_SEM) + timedelta(days=3)   # lunes de la primera semana
+    wf_nombres = {norm(w) for w in x['Nombre del workflow'].dropna().unique()}
+    x = x[(x['t'].dt.date >= desde) & (x['t'].dt.date <= fin) & (x['Superficie del producto'] == 'ASISTENTE')].copy()
+    x['u'] = x['Usuario'].str.split('@').str[0]
+    first = x.sort_values('t').groupby(['u', 'ID del hilo de la Matriz']).head(1).copy()
+    first['k'] = first['Consulta'].map(norm)
+    first['pal'] = first['Consulta'].fillna('').str.split().str.len()
+    out = {}
+    for u, g in first.groupby('u'):
+        if u not in roster_uids:
+            continue
+        tareas = g[~g['k'].str.startswith(PREFIJOS_ROL)]
+        # llamadas a workflows (mencion o nombre del workflow escrito) no son instrucciones
+        propias = g[~g['k'].str.startswith('mention type') & ~g['k'].isin(wf_nombres)]
+        vc = tareas['k'].value_counts()
+        rep = int(vc[vc >= 3].sum())
+        out[u] = {'hilos': int(len(g)), 'hilos_repetidos': rep,
+                  'plantilla': ' '.join(str(tareas[tareas['k'] == vc.index[0]]['Consulta'].iloc[0]).split()[:8]) if rep else None,
+                  'pal_inicial': float(propias['pal'].median()) if len(propias) else None,
+                  'tarea_repetida': bool(len(g) >= 10 and rep / len(g) >= 0.5),
+                  'instrucciones_minimas': bool(len(propias) >= 5 and propias['pal'].median() < 15)}
+    return out
 
 
 def mezcla(suma):
@@ -40,7 +95,9 @@ def mezcla(suma):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--corte-fin', required=True)
+    ap.add_argument('--uploads', default=UPLOADS_DEFAULT)
     a = ap.parse_args()
+    fin = date.fromisoformat(a.corte_fin)
     personas = []
     for sd in SDS:
         d = json.load(open(os.path.join(REPO, 'out', f'{sd}_{a.corte_fin}.json')))
@@ -53,6 +110,18 @@ def main():
                              'champion': r['champion'], 'semanas': len(hh), 'suma': suma,
                              'por_semana': {t: round(suma[t] / len(hh), 1) for t in T},
                              'total_semana': round(sum(suma.values()) / len(hh), 1), 'div_wf': r['diversidadWf']})
+
+    cal_a = calidad_assistant(a.uploads, fin, {p['usuario'] for p in personas})
+    for p in personas:
+        p['calidad_a'] = cal_a.get(p['usuario'])
+
+    def senal_a(p):
+        c = p['calidad_a'] or {}
+        return bool(c.get('tarea_repetida') or c.get('instrucciones_minimas'))
+
+    def elegibles(t, ps):
+        """Para Assistant, el volumen no basta: fuera quien tenga una senal de calidad."""
+        return [p for p in ps if not (t == 'A' and senal_a(p))]
 
     def grupo(ps):
         suma = {t: sum(p['suma'][t] for p in ps) for t in T}
@@ -76,8 +145,8 @@ def main():
 
     herramientas = []
     for t in T:
-        ch = max([p for p in personas if p['champion']], key=lambda p: p['por_semana'][t])
-        ref = max(personas, key=lambda p: p['por_semana'][t])
+        ch = max(elegibles(t, [p for p in personas if p['champion']]), key=lambda p: p['por_semana'][t])
+        ref = max(elegibles(t, personas), key=lambda p: p['por_semana'][t])
         herramientas.append({
             'herramienta': t, 'nombre': NOMBRE_T[t],
             'champion': {'nombre': ch['nombre'], 'sd': ch['sd'], 'por_semana': ch['por_semana'][t]},
@@ -102,15 +171,46 @@ def main():
                        'necesidad': nec, 'sin_necesidad': sin[nec]})
 
     cal = json.load(open(os.path.join(REPO, 'data', 'capacitaciones.json')))['sesiones']
+    def fila(p, motivo):
+        return {'nombre': p['nombre'], 'sd': p['sd'], 'nivel': p['nivel'], 'motivo': motivo}
+
     for s in cal:
+        t = s['herramienta']
         ps = [p for p in personas if p['nivel'] in s['niveles']]
         s['publico'] = len(ps)
-        s['publico_sin_uso'] = sum(1 for p in ps if p['suma'][s['herramienta']] == 0)
+        if t == 'A':
+            urg = sorted([p for p in ps if (p['calidad_a'] or {}).get('instrucciones_minimas')],
+                         key=lambda p: (-p['calidad_a']['hilos'], p['nombre']))
+            s['publico_sin_uso'] = len(urg)
+            s['urgentes'] = [fila(p, f"instrucción inicial de {p['calidad_a']['pal_inicial']:g} palabras en promedio ({p['calidad_a']['hilos']} hilos)") for p in urg[:3]]
+        else:
+            sin = [p for p in ps if p['suma'][t] == 0]
+            s['publico_sin_uso'] = len(sin)
+            urg = []
+            if t == 'W':
+                rep = sorted([p for p in ps if (p['calidad_a'] or {}).get('tarea_repetida')],
+                             key=lambda p: (-p['calidad_a']['hilos_repetidos'], p['nombre']))
+                urg = [fila(p, f"repite la misma tarea en Assistant en {p['calidad_a']['hilos_repetidos']} de {p['calidad_a']['hilos']} hilos") for p in rep]
+            vistos = {u['nombre'] for u in urg}
+            urg += [fila(p, f"sin uso de {NOMBRE_T[t]}; {p['total_semana']:g} acciones por semana en otras herramientas")
+                    for p in sorted(sin, key=lambda p: (-p['total_semana'], p['nombre'])) if p['nombre'] not in vistos]
+            s['urgentes'] = urg[:3]
+        if s.get('expertos') == 'auto':
+            top = sorted([p for p in elegibles(t, personas) if p['por_semana'][t] > 0], key=lambda p: -p['por_semana'][t])[:3]
+            s['expertos'] = [f"{p['nombre']} ({p['sd']}, {p['por_semana'][t]:g} por semana)" for p in top]
 
     out = {'corte_viernes': a.corte_fin, 'semanas': N_SEM, 'personas': len(personas),
            'equipos': equipos, 'champions': champions, 'herramientas': herramientas,
            'rangos': rangos, 'rangos_fuera': fuera,
            'sin_outlook': sum(1 for p in personas if p['suma']['O'] == 0),
+           'assistant_calidad': {
+               'evaluadas': sum(1 for p in personas if p['calidad_a']),
+               'tarea_repetida': [{'nombre': p['nombre'], 'sd': p['sd'], 'nivel': p['nivel'], **p['calidad_a']}
+                                  for p in sorted(personas, key=lambda p: -((p['calidad_a'] or {}).get('hilos_repetidos') or 0))
+                                  if (p['calidad_a'] or {}).get('tarea_repetida')],
+               'instrucciones_minimas': [{'nombre': p['nombre'], 'sd': p['sd'], 'nivel': p['nivel'], **p['calidad_a']}
+                                         for p in personas if (p['calidad_a'] or {}).get('instrucciones_minimas')],
+           },
            'calendario': cal}
     path = os.path.join(REPO, 'out', f'CAP_{a.corte_fin}.json')
     json.dump(out, open(path, 'w'), ensure_ascii=False, indent=1)
@@ -125,7 +225,15 @@ def main():
         print(' ', r['nivel'], r['personas'], r['acc_ppw'], r['mezcla'], 'necesidad', r['necesidad'], r['sin_necesidad'], r['sin_uso'])
     print('  fuera', fuera, 'sin outlook', out['sin_outlook'])
     for s in cal:
-        print(' ', s['fecha_txt'], s['tema'], s['publico'], s['publico_sin_uso'])
+        print(' ', s['fecha_txt'], s['tema'], s['publico'], s['publico_sin_uso'], s.get('expertos'))
+        for u in s['urgentes']:
+            print('     urge:', u)
+    ac = out['assistant_calidad']
+    print('  Assistant evaluadas', ac['evaluadas'])
+    for r in ac['tarea_repetida']:
+        print('   repetida:', r['nombre'], r['sd'], r['hilos_repetidos'], '/', r['hilos'], r['plantilla'])
+    for r in ac['instrucciones_minimas']:
+        print('   minimas:', r['nombre'], r['sd'], r['pal_inicial'], r['hilos'])
 
 
 if __name__ == '__main__':

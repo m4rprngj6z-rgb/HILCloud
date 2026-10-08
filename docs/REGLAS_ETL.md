@@ -354,4 +354,18 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
 - Referente por herramienta: el Champion y la persona de la DJ con más acciones por semana útil.
 - Calendario: `data/capacitaciones.json` (lo decide Tony; el script solo cuenta cuántos del público no
   usan la herramienta).
+- **Coordina y expertos (Tony, 7 oct 2026)**: cada sesión separa a quien COORDINA (sabe llevar una
+  capacitación: hoy solo Alejandra Mireles está probada; Karime Sotelo todavía no, primero su reporte) de
+  los EXPERTOS (las 3 personas con más uso de la herramienta, calculado cada semana; en Assistant, sin
+  señales de calidad).
+- **Top 3 urgentes por sesión**: Workflow, primero quien repite la misma tarea en Assistant y luego quien
+  no usa Workflow, por volumen total; otras herramientas, quien no la usa, por volumen total; Assistant,
+  instrucciones mínimas.
+- **Calidad de Assistant (provisional; Tony: "no asumir que un uso de Assistant es un uso de valor")**:
+  sobre `harvey-queries-*.xlsx`, superficie ASISTENTE pura, primera consulta de cada hilo.
+  Tarea repetida = 50% o más de sus hilos (mín. 10) arrancan con la misma instrucción (8 primeras palabras
+  normalizadas, 3+ veces; sin prefijos de rol ni llamadas a workflows): candidata a Workflow, y su volumen
+  de Assistant no se lee como ritmo de valor. Instrucciones mínimas = mediana < 15 palabras (mín. 5 hilos;
+  sin contar llamadas a workflows por mención o nombre escrito). No adjuntar documentos NO es señal:
+  en PLD se pegan los datos en la instrucción.
 

@@ -1,6 +1,6 @@
 {
  "_fuente": "Notion HIL 37df66a17162812a9f53e15cb031792d (tabla maestra + organigramas) y Base de Usuarios 376f66a1716281c5a12fd8385313d6e7",
- "_sincronizado": "2026-10-08",
+ "_sincronizado": "2026-10-09",
  "_nota": "Generado parseando las tablas del HIL, no transcrito a mano. Si Notion cambia, Notion gana: re-sincronizar. Correcciones sobre la tabla maestra: lrobert = Luis Ricardo Robert (asi en Excepciones y reportes aprobados). Fechas de alta tomadas de las notas del HIL. Nombres de gerencia tomados de los reportes Ejecutivo aprobados del 25 sep 2026.",
  "sd_nombres": {
   "ENN": "Expansión Nuevos Negocios",

@@ -1,6 +1,6 @@
 {
  "_fuente": "Notion HIL, tabla 'Excepciones activas' (notion.so/37df66a17162812a9f53e15cb031792d). La mantiene unicamente Tony.",
- "_sincronizado": "2026-10-08",
+ "_sincronizado": "2026-10-09",
  "_regla": "Notion gana. Cada fila: a quien aplica (personas, sd o 'TODA_DJ'), rango de fechas inclusivo, tipo. El ETL decide que semanas quedan cubiertas con la regla documentada en docs/REGLAS_ETL.md.",
  "excepciones": [
   {
@@ -193,6 +193,54 @@
    "tipo": "Vacaciones",
    "desde": "2026-10-19",
    "hasta": "2026-10-20"
+  },
+  {
+   "personas": [
+    "kmendez"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-10-06",
+   "hasta": "2026-10-07"
+  },
+  {
+   "personas": [
+    "farcos"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-10-06",
+   "hasta": "2026-10-07"
+  },
+  {
+   "personas": [
+    "gcadena"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-10-06",
+   "hasta": "2026-10-07"
+  },
+  {
+   "personas": [
+    "lrobert"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-10-06",
+   "hasta": "2026-10-07"
+  },
+  {
+   "personas": [
+    "masmora"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-10-06",
+   "hasta": "2026-10-07"
+  },
+  {
+   "personas": [
+    "jcenteno"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-10-06",
+   "hasta": "2026-10-07"
   }
  ]
 }

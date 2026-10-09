@@ -35,3 +35,12 @@
       vaults_export si hay, Gentera_users CSV). Sincronizar Notion, redactar narrativa/2026-10-02/,
       correr_corte.sh 2026-10-02, QA visual. Es el primer corte de octubre para Licencias.
 - [ ] Junta mensual DJ (1 oct): presentacion en presentaciones/junta_oct2026.js.
+
+## Harvey Wrapped 2026 (idea de Tony, 9 oct 2026)
+- Wrapped personal (tarjeta por persona, estilo Spotify): acciones del año y mes pico, herramienta favorita,
+  workflow más usado, horario Harvey (hora y día), tipo de usuario (por mezcla y diversidad), un dato único.
+- Wrapped de la DJ para la junta de diciembre: año en números, herramienta que más creció, workflow del año,
+  casos estrella.
+- Reglas: solo en positivo, sin rankings; cada quien recibe solo el suyo; las alertas amarillas no aparecen.
+- Calendario: prototipo con el Wrapped de Tony en noviembre; entrega con el corte del 11 dic.
+- Datos desde el 10 jun 2026 (primer export).

@@ -320,13 +320,13 @@ N_LOOKBACK = 16     # semanas de historial que se cargan (respaldo de linea base
 
 
 def champion_del_corte(personas, roster, excs, viernes):
-    """Champion que recibe el reporte. Si el Champion esta fuera cuando se entrega (lunes siguiente al
-    corte) y su excepcion trae "suplente", lo recibe el suplente (Tony, 5 oct 2026: Javier Garcia
-    cubre a Jorge Belloc del 9 al 23 oct)."""
+    """Champion que recibe el reporte. Si el Champion esta fuera el dia de entrega (el mismo viernes
+    del corte; Tony 9 oct 2026) y su excepcion trae "suplente", lo recibe el suplente (Tony, 5 oct
+    2026: Javier Garcia cubre a Jorge Belloc del 9 al 23 oct)."""
     champ = next((u for u, p in personas.items() if p['champion']), None)
     if not champ:
         return None
-    entrega = viernes + timedelta(days=3)
+    entrega = viernes
     for e in excs:
         if champ in e.get('personas', []) and e.get('suplente') and \
                 date.fromisoformat(e['desde']) <= entrega <= date.fromisoformat(e['hasta']):

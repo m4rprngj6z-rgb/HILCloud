@@ -335,10 +335,10 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
 ## 8j. Suplente del Champion (Tony, 5 oct 2026)
 
 - Una excepción personal del Champion puede traer `"suplente": "<usuario>"` en `data/excepciones.json`
-  (se conserva en el sync; en Notion va en la nota de la fila). Si el lunes de entrega del reporte (viernes
-  del corte + 3 días) cae dentro de la ausencia, el encabezado del Champion dice "Champion: <suplente>
+  (se conserva en el sync; en Notion va en la nota de la fila). Si el día de entrega del reporte (el mismo
+  viernes del corte; corregido por Tony el 9 oct 2026) cae dentro de la ausencia, el encabezado del Champion dice "Champion: <suplente>
   (suplente de <Champion>)" y el reporte se envía al suplente.
-- Caso vigente: Jorge Belloc (CN) fuera del 9 al 23 oct; Javier García recibe los cortes del 9 y del 16 oct.
+- Caso vigente: Jorge Belloc (CN) fuera del 9 al 23 oct; Javier García recibe los cortes del 9, 16 y 23 oct.
 
 ## 8k. Capacitación por rango y necesidad (Tony, 7 oct 2026)
 

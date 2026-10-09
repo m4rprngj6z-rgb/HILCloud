@@ -184,7 +184,7 @@ function buildDocument(d, narr, fecha) {
     nota('Personas y Acciones suman a toda la gerencia. Semáforo: total del equipo contra la suma del promedio propio de cada integrante. Qué pedirle: a quién buscar (bajó de su ritmo o tuvo muy poca actividad) y a quién proponer una herramienta que su puesto espera y no usa.'),
   );
   if (excluido) {
-    children.push(nota(`* ${excluido.gerencia} reporta funcionalmente a ${excluido.responsable} (Champion de Champions). ${excluido.integrantes.join(', ')} se incluye${excluido.integrantes.length > 1 ? 'n' : ''} aquí para visibilidad operativa de línea; las métricas personales de ${excluido.responsable} siguen excluidas de la DJ.`));
+    children.push(nota(`* ${excluido.gerencia} reporta funcionalmente a ${excluido.responsable} (Gerente Contratos TI & AI). ${excluido.integrantes.join(', ')} se incluye${excluido.integrantes.length > 1 ? 'n' : ''} aquí para visibilidad operativa de línea; las métricas personales de ${excluido.responsable} siguen excluidas de la DJ.`));
   }
   children.push(
     nota('A = Assistant  |  Wo = Word Add-in  |  V = Vault  |  W = Workflow  |  O = Outlook  |  Verde = igual o arriba de su propio promedio  |  Amarillo = 40% a 99%  |  Rojo = menos de 40%  |  Excepción = ausencia documentada  |  Alta reciente = menos de 5 semanas de historial'),

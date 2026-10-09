@@ -1,0 +1,8 @@
+{
+ "_corte": "5-9 oct 2026",
+ "_redacto": "Claude, sobre out/GC_2026-10-09.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "GC registró 103 acciones, 3% menos que la semana anterior (106), con las 7 personas activas. Zuleycka García quedó en 4% de su ritmo, con 1 acción en la semana. En sentido contrario, Alejandra Mireles, Diego Alvarado y Gabriel Juárez superaron su promedio.",
+  "accion": "Champion Alejandra Mireles: buscar a Zuleycka García para entender qué cambió esta semana y proponer a Diego Alvarado un primer uso de Workflow."
+ }
+}

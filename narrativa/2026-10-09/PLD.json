@@ -1,0 +1,8 @@
+{
+ "_corte": "5-9 oct 2026",
+ "_redacto": "Claude, sobre out/PLD_2026-10-09.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "PLD sumó 256 acciones, 5% más que la semana anterior (243), con 17 de 19 personas activas. Es la primera semana en que el equipo se compara contra su actividad real de las últimas 5 semanas, que incluye las capacitaciones de septiembre; por eso varias personas aparecen en amarillo aunque su uso se sostiene. Cuatro personas requieren atención alta, entre ellas Heriberto Falcón, en 17% de su ritmo.",
+  "accion": "Champion Gustavo Bernal: buscar a Heriberto Falcón, Kelly Hernández (sin actividad) y Néstor Rangel, y convertir en Workflow las tareas que el equipo repite en Assistant, empezando por las de Jesús Paúl Pallares y Mario Manzano."
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "_corte": "5-9 oct 2026",
+ "_redacto": "Claude, sobre out/DJ_2026-10-09.json y out/GL_2026-10-09.json; validado con scripts/validar_narrativa.py",
+ "fibi": {
+  "casos": [
+   "La DJ registró 1116 acciones, 4% menos que la semana anterior, con 60 de 65 personas activas; 12 personas requieren atención alta.",
+   "CN tiene a 12 de sus 15 personas en verde frente a su propio ritmo, y ENN sube 7% con sus 9 personas activas.",
+   "PLD sube 5% en su primera semana calificada contra su actividad real, con 30 ejecuciones de Workflow."
+  ],
+  "puntos": [
+   "JC baja 34%, con la caída concentrada en dos personas.",
+   "Los Subdirectores estuvieron fuera de oficina el 6 y 7 de octubre; su semana se califica normal y el reporte de cada SD lo explica.",
+   "RL opera con cobertura reducida en octubre por vacaciones escalonadas: esta semana 2 de sus 8 personas no se califican.",
+   "Capacitaciones abiertas por rango: Outlook se impartió el 8 de octubre y la siguiente es Workflow, la semana del 12."
+  ]
+ },
+ "licencias": {
+  "notas": [
+   {
+    "titulo": "Bryan Trujillo",
+    "texto": "regulador de Control Interno; no es candidato a liberar licencia por instrucción del 7 de agosto. Su cuenta ya no aparece en la lista de usuarios de Harvey de esta semana: confirmar si se dio de baja."
+   },
+   {
+    "titulo": "Julián Centeno",
+    "texto": "suma 2 apariciones este mes; la de esta semana coincide con 2 días fuera de oficina (6 y 7 de octubre), que no alcanzan para excepción."
+   },
+   {
+    "titulo": "Cuenta duplicada de Gloria Sánchez",
+    "texto": "glosanchez@compartamos.com ya no aparece en la lista de usuarios de Harvey: la licencia duplicada quedó liberada."
+   }
+  ]
+ }
+}

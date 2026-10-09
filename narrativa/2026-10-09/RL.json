@@ -1,0 +1,8 @@
+{
+ "_corte": "5-9 oct 2026",
+ "_redacto": "Claude, sobre out/RL_2026-10-09.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "RL registró 49 acciones, 6% menos que la semana anterior (52), en una semana con 2 personas de vacaciones. De las 6 personas calificadas, 4 están en verde frente a su propio ritmo. Karla Zetina duplicó su promedio con 8 acciones, apoyada en el workflow Extraer Datos de Resoluciones Laborales.",
+  "accion": "Champion Jean Cub Nájera: buscar a Rocío Fernández (5 acciones esta semana) y proponer a Alan García y Patsy Godínez un primer uso de Workflow, como el que ya usa Karla Zetina."
+ }
+}

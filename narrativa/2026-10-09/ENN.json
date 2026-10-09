@@ -2,7 +2,7 @@
  "_corte": "5-9 oct 2026",
  "_redacto": "Claude, sobre out/ENN_2026-10-09.json; validado con scripts/validar_narrativa.py",
  "ejecutivo": {
-  "recomendacion": "ENN cerró con 294 acciones, 7% más que la semana anterior (275), con las 9 personas activas y 5 en verde frente a su propio ritmo. La única persona en atención alta coincide con 2 días fuera de oficina (6 y 7 de octubre), que explican parte de su baja. Alfredo Duarte destacó con 54 acciones, más del doble de su promedio, sobre todo en Outlook y Assistant.",
+  "recomendacion": "ENN cerró con 294 acciones, 7% más que la semana anterior (275), con las 9 personas activas; 5 de las 8 personas calificadas están en verde frente a su propio ritmo y nadie requiere atención alta. Alfredo Duarte destacó con 54 acciones, más del doble de su promedio, sobre todo en Outlook y Assistant.",
   "accion": "Champion Karime Sotelo: pedirle a Alfredo Duarte que comparta con el equipo cómo usa Outlook y Assistant, y revisar con Sofía Ochoa qué falló en las respuestas que calificó como negativas."
  }
 }

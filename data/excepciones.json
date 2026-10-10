@@ -241,6 +241,14 @@
    "tipo": "Juntas presenciales y fuera de oficina",
    "desde": "2026-10-05",
    "hasta": "2026-10-07"
+  },
+  {
+   "personas": [
+    "kmendez"
+   ],
+   "tipo": "Fuera de oficina",
+   "desde": "2026-10-12",
+   "hasta": "2026-10-12"
   }
  ]
 }

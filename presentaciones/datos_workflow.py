@@ -64,8 +64,7 @@ def main():
                        'fuente': [os.path.basename(wfx), os.path.basename(agx)]},
         'tarea_repetida': [{'nombre': r['nombre'], 'sd': r['sd'], 'hilos': r['hilos'], 'repetidos': r['hilos_repetidos']} for r in rep],
         'sesion': ses,
-        'expertos_workflows': {R[u]['nombre']: por_persona.get(u, {}) for u in
-                               [k for k, p in R.items() if p['nombre'] in [e.split(' (')[0] for e in ses['expertos']]]},
+        'workflows_por_persona': {R[u]['nombre']: v for u, v in por_persona.items()},
     }
     dest = os.path.join(RAIZ, f'out/WF_sesion_{a.corte_fin}.json')
     json.dump(out, open(dest, 'w'), ensure_ascii=False, indent=1)

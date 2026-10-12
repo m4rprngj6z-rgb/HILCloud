@@ -18,8 +18,6 @@ const ses = D.sesion;
 const comp = D.compartidos;
 const cr = D.creados_dj;
 const nConstruyen = Object.keys(D.construyen).length;
-const pruebas = (n) => D.construyen[n] || 0;
-const wfDe = (n) => Object.keys(D.expertos_workflows[n] || {}).filter((w) => !/eliminar|\(\d+\)$/i.test(w));
 
 const pres = new pptxgen();
 pres.layout = 'LAYOUT_WIDE';
@@ -50,7 +48,7 @@ const FUENTE = `Fuente: export de uso de Harvey del 10 sep al 9 oct 2026 y expor
   T(s, 'De la tarea repetida al workflow', { x: 0.8, y: 2.4, w: 11.5, h: 1.0, fontSize: 44, bold: true, color: C.blanco });
   T(s, 'Sesión abierta de Workflow  |  Semana del 12 al 16 de octubre de 2026', { x: 0.8, y: 3.5, w: 11.5, h: 0.5, fontSize: 20, color: C.ice2 });
   T(s, 'José Antonio Bueno Díaz  |  Gerente Contratos TI & AI', { x: 0.8, y: 6.3, w: 11.5, h: 0.4, fontSize: 13, color: C.blanco });
-  s.addNotes(`[1 min] Bienvenida. Objetivo de hoy: que cada quien salga con una tarea suya identificada para convertirla en workflow, y que lo que ya existe en la DJ se comparta. Duración sugerida: 45 minutos. Expertos que acompañan: ${ses.expertos.filter((e) => !e.startsWith('Jean')).map((e) => e.split(' (')[0]).join(' y ')}.`);
+  s.addNotes(`[1 min] Bienvenida. Objetivo de hoy: que cada quien salga con una tarea suya identificada para convertirla en workflow, y que lo que ya existe en la DJ se comparta. Duración: 60 minutos. Mesas con Leslie Espinoza, Ana Karen Salinas y Karla Stephanie Aparicio; Karime Sotelo de apoyo.`);
 }
 
 // 2. Donde estamos
@@ -126,7 +124,7 @@ const FUENTE = `Fuente: export de uso de Harvey del 10 sep al 9 oct 2026 y expor
   T(s, `Lo usan ${v.sd.length} Subdirecciones. Se hizo una vez y lo corre todo el que tiene el mismo problema.`, { x: 9.05, y: 4.2, w: 3.5, h: 1.1, fontSize: 14 });
   T(s, `Del otro lado: ${D.workflows_una_persona} workflows que hoy solo usa quien los hizo.`, { x: 9.05, y: 5.4, w: 3.5, h: 1.1, fontSize: 14, bold: true, color: C.acento });
   pie(s, 4, FUENTE);
-  s.addNotes(`[4 min] El Validador de Expedientes Legales es el modelo: ${v.personas} personas, ${v.acciones} usos en 30 días. Los otros que ya viajan: ${comp.slice(1).map((c) => c.nombre).join('; ')}. Contraste: entre los que usa una sola persona hay workflows con mucho uso, por ejemplo ${D.top_individuales.slice(0, 4).map((t) => `${t.nombre} (${t.acciones} usos)`).join(', ')}. Pregunta a la sala: ¿cuántos de ustedes harían esa misma tarea si supieran que existe?`);
+  s.addNotes(`[4 min] Lo presenta Isis Rodríguez (ENN), de las usuarias más frecuentes: qué resuelve, cómo lo usa y cómo le llegó. El Validador de Expedientes Legales es el modelo: ${v.personas} personas, ${v.acciones} usos en 30 días. Los otros que ya viajan: ${comp.slice(1).map((c) => c.nombre).join('; ')}. Contraste: entre los que usa una sola persona hay workflows con mucho uso, por ejemplo ${D.top_individuales.slice(0, 4).map((t) => `${t.nombre} (${t.acciones} usos)`).join(', ')}. Pregunta a la sala: ¿cuántos de ustedes harían esa misma tarea si supieran que existe?`);
 }
 
 // 5. Cuatro pasos
@@ -149,40 +147,13 @@ const FUENTE = `Fuente: export de uso de Harvey del 10 sep al 9 oct 2026 y expor
   });
   T(s, `El paso 4 es el que falta hoy en la DJ: ${cr.workflows_borrador} de ${cr.workflows} workflows siguen en borrador.`, { x: 0.6, y: 6.25, w: 12.1, h: 0.4, fontSize: 14, bold: true, color: C.acento });
   pie(s, 5, '');
-  s.addNotes('[6 min] Recorrer los 4 pasos con calma. Paso 2 es donde se gana o se pierde: lo fijo va en las instrucciones del workflow; lo variable es lo que el usuario sube cada vez. Paso 3: tres casos reales, no ejemplos inventados. Paso 4: insistir en nombre claro (10 de los workflows de la DJ siguen como "Nuevo Workflow") y en compartirlo con el equipo. Los expertos muestran en la demo dónde se hace cada paso en Harvey.');
+  s.addNotes('[6 min] Recorrer los 4 pasos con calma. Paso 2 es donde se gana o se pierde: lo fijo va en las instrucciones del workflow; lo variable es lo que el usuario sube cada vez. Paso 3: tres casos reales, no ejemplos inventados. Paso 4: insistir en nombre claro (10 de los workflows de la DJ siguen como "Nuevo Workflow") y en compartirlo con el equipo. Los expertos muestran en sus mesas dónde se hace cada paso en Harvey.');
 }
 
-// 6. Demo
+// 6. Plantilla
 {
   const s = pres.addSlide();
-  titulo(s, 'Demo en vivo', 'De un hilo de Assistant a un workflow publicado');
-  const exp = ses.expertos.filter((e) => !e.startsWith('Jean')).map((e) => {
-    const [n, rest] = e.split(' (');
-    return { n, sd: rest.split(',')[0] };
-  });
-  exp.forEach((e, i) => {
-    const x = 0.6 + i * 6.15;
-    card(s, x, 1.85, 5.95, 3.4);
-    circulo(s, x + 0.3, 2.1, 0.9, e.n.split(' ').filter((p) => p[0] === p[0].toUpperCase()).slice(0, 2).map((p) => p[0]).join(''), C.navy, C.blanco);
-    T(s, e.n, { x: x + 1.4, y: 2.1, w: 4.3, h: 0.55, fontSize: 18, bold: true, color: C.navy, valign: 'middle' });
-    T(s, e.sd, { x: x + 1.4, y: 2.65, w: 4.3, h: 0.4, fontSize: 14, color: C.gris });
-    const wf = wfDe(e.n);
-    const txt = wf.length
-      ? `Construye y usa sus propios workflows: ${wf.slice(0, 3).join(', ')}.`
-      : `Está construyendo y probando workflows nuevos en ${e.sd}.`;
-    T(s, txt, { x: x + 0.3, y: 3.3, w: 5.35, h: 1.0, fontSize: 14 });
-    T(s, `${pruebas(e.n)} pruebas de construcción en 30 días`, { x: x + 0.3, y: 4.4, w: 5.35, h: 0.5, fontSize: 14, bold: true, color: C.navy });
-  });
-  T(s, 'Qué vamos a ver', { x: 0.6, y: 5.55, w: 6, h: 0.4, fontSize: 18, bold: true, color: C.navy });
-  T(s, 'Dónde se crea el workflow, cómo se escriben las instrucciones fijas, cómo se prueba y cómo se publica y comparte.', { x: 0.6, y: 6.0, w: 12.1, h: 0.6, fontSize: 15 });
-  pie(s, 6, 'Expertos: las personas con más uso de Workflow por semana en las últimas 5 semanas, sin alertas de uso.');
-  s.addNotes(`[12 min] Dar la palabra a los expertos, 6 minutos cada uno. Pedirles que lleguen con un workflow suyo ya hecho y que muestren los 4 pasos, sobre todo cómo se publica y se comparte (paso 4). Jean Cub Nájera (RL) es experto de Workflow pero no puede esta semana. Si un experto no puede, la demo la hace el otro con dos workflows.`);
-}
-
-// 7. Ejercicio
-{
-  const s = pres.addSlide();
-  titulo(s, 'Ejercicio: tu primera tarea', '10 minutos. Llénalo con una tarea tuya real');
+  titulo(s, 'Tu tarea, en una hoja', '5 minutos. Llénala con una tarea tuya real antes de pasar a las mesas');
   const filas = [
     ['La tarea que repito', 'Ej.: extraer partes, montos y fechas de cada oficio que llega'],
     ['Cada cuánto', 'Ej.: 5 veces por semana'],
@@ -198,16 +169,42 @@ const FUENTE = `Fuente: export de uso de Harvey del 10 sep al 9 oct 2026 y expor
     card(s, 4.3, y, 8.45, 0.65);
     T(s, ej, { x: 4.5, y, w: 8.1, h: 0.65, fontSize: 14, italic: true, color: C.gris, valign: 'middle' });
   });
-  pie(s, 7, '');
-  s.addNotes('[10 min] Cada quien llena la plantilla en su cuaderno o en un chat consigo mismo. Al minuto 7, pedir 2 o 3 voluntarios que lean la suya; los expertos dicen en voz alta si ya existe un workflow parecido en la DJ (por ejemplo, extractores de datos de oficios y resoluciones). Si existe, la tarea es pedirlo, no construirlo de nuevo.');
+  pie(s, 6, '');
+  s.addNotes('[5 min] Cada quien llena la hoja con su tarea. Es lo que lleva a su mesa. Si alguien no encuentra una tarea, que piense en el prompt que más copia y pega.');
 }
 
-// 8. Compromiso
+// 7. Mesas
+{
+  const s = pres.addSlide();
+  titulo(s, 'Manos a la obra', '30 minutos en mesas. Cada mesa con alguien que ya construye workflows');
+  const EXP = [
+    ['Leslie Espinoza', 'CN', ['Escrito de Respuesta a Requerimiento de Información', 'Respuesta CNBV por Comparación de Contratos']],
+    ['Ana Karen Salinas', 'CN', ['Tracking diario de Términos y Condiciones de Campañas', 'Comparativa de ajustes en TyC']],
+    ['Karla Stephanie Aparicio González', 'PLD', ['Extractor de Requerimiento', 'Extractor de Denuncias']],
+  ];
+  const cw = 3.95, gap = 0.2;
+  EXP.forEach(([n, sd, wf], i) => {
+    const x = 0.6 + i * (cw + gap);
+    card(s, x, 1.75, cw, 3.55);
+    const ini = n.split(' ').slice(0, 2).map((p) => p[0]).join('');
+    circulo(s, x + 0.25, 1.95, 0.8, ini, C.navy, C.blanco);
+    T(s, n, { x: x + 1.2, y: 1.95, w: cw - 1.4, h: 0.55, fontSize: 16, bold: true, color: C.navy, valign: 'middle' });
+    T(s, sd, { x: x + 1.2, y: 2.5, w: cw - 1.4, h: 0.35, fontSize: 13, color: C.gris });
+    T(s, `${(D.workflows_por_persona[n] && Object.keys(D.workflows_por_persona[n]).length) || 0} workflows propios en uso`, { x: x + 0.25, y: 3.0, w: cw - 0.5, h: 0.4, fontSize: 14, bold: true, color: C.navy });
+    T(s, wf.map((t, j) => ({ text: t, options: { bullet: true, breakLine: j < wf.length - 1, paraSpaceAfter: 4 } })), { x: x + 0.25, y: 3.45, w: cw - 0.5, h: 1.7, fontSize: 13 });
+  });
+  T(s, 'En la mesa', { x: 0.6, y: 5.55, w: 6, h: 0.4, fontSize: 18, bold: true, color: C.navy });
+  T(s, 'Toma tu hoja, sigue los 4 pasos con tu tarea y deja tu workflow probado con un caso real.', { x: 0.6, y: 6.0, w: 12.1, h: 0.5, fontSize: 15 });
+  pie(s, 7, 'Workflows propios en uso: los que cada persona corrió en los últimos 30 días.');
+  s.addNotes('[30 min] Cada experto arranca su mesa mostrando uno de sus workflows en 3 minutos y luego acompaña a cada persona con su hoja. Tú y Karime recorren las mesas. Si una tarea ya existe como workflow de alguien más en la DJ, la persona lo pide en lugar de construirlo. Número de mesas y quién va a cuál: pendiente de logística.');
+}
+
+// 8. Publicar y compromiso
 {
   const s = pres.addSlide();
   s.background = { color: C.navy };
-  T(s, 'Compromiso', { x: 0.6, y: 0.4, w: W - 1.2, h: 0.7, fontSize: 30, bold: true, color: C.blanco, valign: 'middle' });
-  T(s, 'Antes del 30 de octubre: un workflow publicado y usado por al menos otra persona de tu equipo.', { x: 0.6, y: 1.4, w: 12.1, h: 1.0, fontSize: 24, color: C.blanco });
+  T(s, 'Antes de salir: publícalo y compártelo', { x: 0.6, y: 0.4, w: W - 1.2, h: 0.7, fontSize: 30, bold: true, color: C.blanco, valign: 'middle' });
+  T(s, 'Compromiso: antes del 30 de octubre, tu workflow publicado y usado por al menos otra persona de tu equipo.', { x: 0.6, y: 1.4, w: 12.1, h: 1.0, fontSize: 22, color: C.blanco });
   card(s, 0.6, 2.8, 5.9, 2.6, C.blanco);
   T(s, String(comp.length), { x: 0.9, y: 3.0, w: 2, h: 1.1, fontSize: 60, bold: true, color: C.navy });
   T(s, 'workflows usados por 2 o más personas hoy. Lo volvemos a medir en el corte del 30 de octubre.', { x: 0.9, y: 4.15, w: 5.3, h: 1.1, fontSize: 15 });
@@ -220,7 +217,7 @@ const FUENTE = `Fuente: export de uso de Harvey del 10 sep al 9 oct 2026 y expor
   ], { x: 7.15, y: 3.55, w: 5.4, h: 1.7, fontSize: 15 });
   T(s, '¿Dudas? Tu Champion o los expertos de hoy.', { x: 0.6, y: 5.9, w: 12.1, h: 0.5, fontSize: 16, color: C.ice2 });
   pie(s, 8, '');
-  s.addNotes(`[3 min] Cerrar con un solo compromiso, medible en el pipeline: workflows usados por 2 o más personas (hoy ${comp.length}). Recordar el calendario y que cada Champion da seguimiento en su equipo. Si se manda encuesta, avisar aquí que llega por correo.`);
+  s.addNotes(`[5 min] Antes de cerrar, quien ya tenga su workflow probado lo publica y lo comparte en vivo. Cerrar con un solo compromiso, medible en el pipeline: workflows usados por 2 o más personas (hoy ${comp.length}). Cada Champion da seguimiento en su equipo.`);
 }
 
 pres.writeFile({ fileName: OUT }).then(() => console.log('OK:', OUT));

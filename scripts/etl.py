@@ -757,10 +757,6 @@ def agrupar_gerencias(rows, roster, sd):
     sub = roster['subdirectores'][sd]
     etiqueta = roster.get('etiqueta_subdireccion', {}).get(sd, 'Subdirección')
 
-    # Gerente = tiene nombre de gerencia o esta en orden_gerencias. No toda gerencia tiene nombre
-    # (Tony 12 oct 2026): sin nombre, se identifica por su gerente ('Gerencia de <nombre>').
-    gerentes = set(roster.get('orden_gerencias', {}).get(sd, []))
-
     def cabeza(uid):
         c, seen = uid, set()
         while c and c not in seen:
@@ -769,7 +765,7 @@ def agrupar_gerencias(rows, roster, sd):
                 return sub
             jefe = P.get(c, {}).get('reporta_a')
             if jefe == sub:
-                return c if (P[c].get('gerencia') or c in gerentes) else sub
+                return c if P[c].get('gerencia') else sub
             c = jefe
         return sub
 
@@ -794,7 +790,7 @@ def agrupar_gerencias(rows, roster, sd):
         firma = '>'.join(t for t, _ in sorted(((t, v) for t, v in herr.items() if v > 0),
                                                key=lambda kv: (-kv[1], ORDEN_DESEMPATE.index(kv[0])))) or 'Sin actividad'
         out.append({
-            'gerencia': etiqueta if h == sub else (P[h].get('gerencia') or f"Gerencia de {P[h]['nombre']}"),
+            'gerencia': etiqueta if h == sub else P[h]['gerencia'],
             'responsable': P[h]['nombre'],
             'responsable_excluido': bool(P[h].get('excluido_metricas')),
             'personas': len(miembros),

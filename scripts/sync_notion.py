@@ -67,6 +67,9 @@ def organigrama(texto):
     """'zmanzur → kmendez → [alduarte → nsotelo, migjaimes] [rodosuna] [x directo a kmendez]'
     -> {usuario: jefe}."""
     texto = limpiar(texto)
+    # Etiquetas de gerencia entre parentesis ('hfalcon (KYC) -> ...', Tony 12 oct 2026): se ignoran aqui;
+    # el nombre de la gerencia vive en el campo 'gerencia' del repo.
+    texto = re.sub(r'\s*\([^)]*\)', '', texto)
     jefes = {}
     cabeza, _, grupos = texto.partition('[')
     cadena = [x.strip() for x in cabeza.split('→') if x.strip()]

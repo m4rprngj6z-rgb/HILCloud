@@ -552,7 +552,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "gcadena",
-   "gerencia": "Gerencia PLD (Martínez)"
+   "gerencia": "Gerencia Actividades Vulnerables"
   },
   "anlramirez": {
    "sd": "PLD",
@@ -564,7 +564,7 @@
    "champion": false,
    "reporta_a": "gcadena",
    "alta": "2026-08-22",
-   "gerencia": "Gerencia PLD (Ramírez)"
+   "gerencia": "Gerencia Monitoreo Transaccional"
   },
   "cjreyes": {
    "sd": "PLD",
@@ -575,7 +575,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "gcadena",
-   "gerencia": "Gerencia PLD (Reyes)"
+   "gerencia": "Gerencia Compliance"
   },
   "dammercado": {
    "sd": "PLD",
@@ -608,7 +608,7 @@
    "champion": false,
    "reporta_a": "gcadena",
    "alta": "2026-08-22",
-   "gerencia": "Gerencia PLD (Guerrero)"
+   "gerencia": "Gerencia Yastás PLD"
   },
   "gcadena": {
    "sd": "PLD",
@@ -628,7 +628,7 @@
    "rol_hai": "★ Champion",
    "f_esperada": "M (W>A)",
    "champion": true,
-   "reporta_a": "cjreyes"
+   "reporta_a": "anlramirez"
   },
   "hfalcon": {
    "sd": "PLD",
@@ -639,7 +639,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "gcadena",
-   "gerencia": "Gerencia PLD (Falcón)"
+   "gerencia": "Gerencia KYC"
   },
   "imbecerra": {
    "sd": "PLD",
@@ -660,7 +660,7 @@
    "rol_hai": "User",
    "f_esperada": "W>A",
    "champion": false,
-   "reporta_a": "anlramirez",
+   "reporta_a": "akamartinez",
    "alta": "2026-08-22"
   },
   "kaparicio": {
@@ -682,7 +682,7 @@
    "rol_hai": "User",
    "f_esperada": "W>A",
    "champion": false,
-   "reporta_a": "cjreyes"
+   "reporta_a": "anlramirez"
   },
   "mamanzano": {
    "sd": "PLD",
@@ -692,7 +692,7 @@
    "rol_hai": "User",
    "f_esperada": "W>A",
    "champion": false,
-   "reporta_a": "cjreyes"
+   "reporta_a": "anlramirez"
   },
   "msotomayor": {
    "sd": "PLD",
@@ -712,7 +712,7 @@
    "rol_hai": "User",
    "f_esperada": "W>A",
    "champion": false,
-   "reporta_a": "hfalcon"
+   "reporta_a": "gaguerrero"
   },
   "radimas": {
    "sd": "PLD",
@@ -859,11 +859,11 @@
    "adguillen"
   ],
   "PLD": [
-   "hfalcon",
-   "cjreyes",
-   "akamartinez",
    "anlramirez",
-   "gaguerrero"
+   "hfalcon",
+   "gaguerrero",
+   "cjreyes",
+   "akamartinez"
   ],
   "GC": [
    "gjuarez",

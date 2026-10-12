@@ -22,14 +22,16 @@
    "fecha_txt": "Semana 12-16 oct",
    "tema": "Workflow: de la tarea repetida al workflow",
    "herramienta": "W",
-   "coordina": "rotacion",
+   "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
    "expertos": "auto",
    "niveles": [
     "Coordinador",
     "Líder",
     "Gerente"
    ],
-   "estado": "Propuesta"
+   "estado": "Propuesta",
+   "coordina_uid": "jbueno",
+   "nota": "Jean Cub Nájera no puede esta semana; la da Tony (12 oct 2026). Jean conserva su lugar en la rotación."
   },
   {
    "fecha": "2026-10-19",

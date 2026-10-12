@@ -383,3 +383,6 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   "Antes del próximo corte". Ejecutivo: dos líneas (alerta agrupada por señal; 2 sesiones con 2 nombres),
   dentro del auto-compacto de una página.
 
+
+## 8l. Gerencias sin nombre oficial (Tony 12 oct 2026)
+No toda gerencia tiene nombre. No se inventa: si `gerencia` es null, el ETL la etiqueta "Gerencia de <gerente>". Quien es gerente lo marca `orden_gerencias`, no el nombre.

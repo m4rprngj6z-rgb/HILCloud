@@ -80,7 +80,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "farcos",
-   "gerencia": "Gerencia CN III"
+   "gerencia": null
   },
   "farcos": {
    "sd": "CN",
@@ -131,7 +131,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "farcos",
-   "gerencia": "Gerencia CN I"
+   "gerencia": null
   },
   "jixta": {
    "sd": "CN",
@@ -142,7 +142,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "farcos",
-   "gerencia": "Gerencia CN II"
+   "gerencia": null
   },
   "kiguerrero": {
    "sd": "CN",
@@ -416,7 +416,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "lrobert",
-   "gerencia": "Gerencia GC I"
+   "gerencia": null
   },
   "juagalvez": {
    "sd": "GC",
@@ -427,7 +427,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "lrobert",
-   "gerencia": "Gerencia GC II",
+   "gerencia": null,
    "nota_licencia": "En revisión: trabajo presencial; Alejandra Mireles lo resuelve. Fuera de la lista de candidatos hasta tener fechas (Tony, 2 oct 2026)"
   },
   "lrobert": {
@@ -490,7 +490,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "masmora",
-   "gerencia": "Gerencia Jurídico Contencioso I"
+   "gerencia": null
   },
   "crifernandez": {
    "sd": "JC",
@@ -531,7 +531,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "masmora",
-   "gerencia": "Gerencia Jurídico Contencioso II"
+   "gerencia": null
   },
   "acasillas": {
    "sd": "PLD",
@@ -784,7 +784,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "jcenteno",
-   "gerencia": "Gerencia RL"
+   "gerencia": null
   },
   "pgodinez": {
    "sd": "RL",

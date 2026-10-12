@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """organigrama_html.py: organigrama visual de las 6 SD desde data/roster.json (Tony, 12 oct 2026).
 Uso: python3 presentaciones/organigrama_html.py out/Organigrama_DJ.html
-Marca con 'Por confirmar' los nombres de gerencia genericos y los reportes directos a la cabeza que no son gerencias."""
+Gerencia sin nombre oficial: se identifica por su gerente (Tony 12 oct 2026)."""
 import json, os, sys, html
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 r = json.load(open(os.path.join(REPO, 'data', 'roster.json'))); R = r['personas']
@@ -19,8 +19,8 @@ for sd in SDS:
     gers = []
     for g in orden:
         miembros = sorted([u for u, p in R.items() if p.get('reporta_a') == g and not p.get('baja_ejecutada')], key=lambda u: R[u]['nombre'])
-        nombre = R[g].get('gerencia') or 'Gerencia sin nombre'
-        dudosa = sd not in CONFIRMADAS and (GENERICO(nombre) or not R[g].get('gerencia'))
+        nombre = R[g].get('gerencia') or f"Gerencia de {R[g]['nombre']}"
+        dudosa = False  # Tony 12 oct 2026: sin nombre se identifica por su gerente; directos y gerencias sin equipo confirmados
         pend += dudosa
         tag = '<span class="tag">Nombre por confirmar</span>' if dudosa else ''
         gers.append(f'<div class="ger"><div class="gh"><span class="gn">{e(nombre)}</span>{tag}</div>'
@@ -28,8 +28,7 @@ for sd in SDS:
                     f'<ul>{"".join(persona(u) for u in miembros) or "<li class=vacio>Sin equipo</li>"}</ul></div>')
     directos = [u for u, p in R.items() if p.get('reporta_a') == head and u not in orden and p['sd'] == sd and not p.get('baja_ejecutada')]
     if directos:
-        pend += len(directos)
-        gers.append('<div class="ger dir"><div class="gh"><span class="gn">Directo a la cabeza</span><span class="tag">Por confirmar</span></div>'
+        gers.append('<div class="ger dir"><div class="gh"><span class="gn">Directo a la cabeza</span></div>'
                     f'<ul>{"".join(persona(u) for u in directos)}</ul></div>')
     n = sum(1 for p in R.values() if p['sd'] == sd and not p.get('baja_ejecutada'))
     cards.append(f'<section class="sd"><header><span class="code">{sd}</span><div><h2>{e(r["sd_nombres"][sd])}</h2>'
@@ -51,7 +50,7 @@ doc = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name=
 .lv{{color:var(--mut);font-size:12px;font-weight:400;white-space:nowrap}}.star{{color:#c99700;margin-right:3px}}.vacio{{color:var(--mut)}}
 .foot{{color:var(--mut);font-size:12px;margin-top:8px}}</style></head><body><div class="wrap">
 <h1>Dirección Jurídica: organigrama Harvey</h1><p class="sub">Desde el roster del pipeline, sincronizado con el HIL de Notion &middot; 12 oct 2026</p>
-<div class="sum"><div class="k"><b>6</b>Subdirecciones</div><div class="k"><b>{sum(len(r["orden_gerencias"].get(s,[])) for s in SDS)}</b>Gerencias</div><div class="k"><b>{sum(1 for u,p in R.items() if p["sd"] in SDS and not p.get("baja_ejecutada") and not p.get("excluido_metricas"))}</b>Personas en reportes</div><div class="k"><b>{pend}</b>Por confirmar</div></div>
-{"".join(cards)}<p class="foot">★ Champion. "Nombre por confirmar": nombre de gerencia genérico en el roster (PLD ya tiene los oficiales). "Directo a la cabeza": personas que no pertenecen a una gerencia. Tony Bueno aparece en ENN por línea de reporte, pero no cuenta en las métricas.</p></div></body></html>'''
+<div class="sum"><div class="k"><b>6</b>Subdirecciones</div><div class="k"><b>{sum(len(r["orden_gerencias"].get(s,[])) for s in SDS)}</b>Gerencias</div><div class="k"><b>{sum(1 for u,p in R.items() if p["sd"] in SDS and not p.get("baja_ejecutada") and not p.get("excluido_metricas"))}</b>Personas en reportes</div></div>
+{"".join(cards)}<p class="foot">★ Champion. Gerencia sin nombre oficial: "Gerencia de" su gerente. "Directo a la cabeza": personas que no pertenecen a una gerencia. Tony Bueno aparece en ENN por línea de reporte, pero no cuenta en las métricas.</p></div></body></html>'''
 out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(REPO, 'out', 'Organigrama_DJ.html')
 open(out, 'w').write(doc); print('OK', out, 'pendientes', pend)

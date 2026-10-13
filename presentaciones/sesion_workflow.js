@@ -46,7 +46,7 @@ const FUENTE = `Fuente: export de uso de Harvey del 10 sep al 9 oct 2026 y expor
   s.background = { color: C.navy };
   T(s, 'Harvey AI × Gentera', { x: 0.8, y: 1.9, w: 11.5, h: 0.5, fontSize: 18, color: C.ice2 });
   T(s, 'De la tarea repetida al workflow', { x: 0.8, y: 2.4, w: 11.5, h: 1.0, fontSize: 44, bold: true, color: C.blanco });
-  T(s, 'Sesión abierta de Workflow  |  Semana del 12 al 16 de octubre de 2026', { x: 0.8, y: 3.5, w: 11.5, h: 0.5, fontSize: 20, color: C.ice2 });
+  T(s, 'Sesión abierta de Workflow  |  Jueves 15 de octubre de 2026', { x: 0.8, y: 3.5, w: 11.5, h: 0.5, fontSize: 20, color: C.ice2 });
   T(s, 'José Antonio Bueno Díaz  |  Gerente Contratos TI & AI', { x: 0.8, y: 6.3, w: 11.5, h: 0.4, fontSize: 13, color: C.blanco });
   s.addNotes(`[1 min] Bienvenida. Objetivo de hoy: que cada quien salga con una tarea suya identificada para convertirla en workflow, y que lo que ya existe en la DJ se comparta. Duración: 60 minutos. Mesas con Leslie Espinoza, Ana Karen Salinas y Karla Stephanie Aparicio; Karime Sotelo de apoyo.`);
 }

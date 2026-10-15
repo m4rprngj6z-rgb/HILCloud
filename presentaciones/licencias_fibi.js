@@ -29,8 +29,8 @@ const filas = cands.map((c, i) => {
   const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
   const prom = (c.total_8s / c.serie.filter((s) => s.con_datos).length).toFixed(1);
   const notas = [];
-  if (sepUids.has(c.usuario)) notas.push('También fue candidato en septiembre.');
-  if (c.serie.some((x) => x.excepcion)) notas.push('Puntos huecos: semanas con ausencia documentada, no cuentan.');
+  if (sepUids.has(c.usuario)) notas.push('También en septiembre.');
+  if (c.serie.some((x) => x.excepcion)) notas.push('Puntos grises: ausencia documentada.');
   if (NOTAS[c.usuario]) notas.push(NOTAS[c.usuario]);
   const p = R[c.usuario] || {};
   return new TableRow({
@@ -43,29 +43,36 @@ const filas = cands.map((c, i) => {
         children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ type: 'png', data: fs.readFileSync(c.grafica), transformation: { width: 180, height: 51 } })] }),
           new Paragraph({ alignment: AlignmentType.CENTER, children: [H.run(c.serie.map((s) => s.total).join(' · '), { size: 13, color: H.C.gris })] })] }),
       H.cell(prom, { width: W[4], size: S, fill, align: AlignmentType.CENTER, bold: true }),
-      H.cell(notas.join(' ') || 'Sin notas', { width: W[5], size: 14, fill }),
+      H.cell(notas.join(' ') || '', { width: W[5], size: 14, fill }),
     ],
   });
 });
 
+const ESPERA = process.argv[7] ? JSON.parse(fs.readFileSync(process.argv[7], 'utf8')) : [];
+const libres = cands.length - ESPERA.length;
+const WE = [4600, 5480];
+
 const children = [
   H.para(H.run('Harvey AI × Gentera', { size: 28, bold: true, color: H.C.navy }), { after: 40 }),
-  H.para(H.run('Gobierno de Licencias: candidatos a liberar licencia', { size: 24, bold: true }), { after: 40 }),
-  H.para(H.run(`Octubre 2026, al corte del ${G.corte}  |  Para aprobación de la Dirección Jurídica  |  15 de octubre de 2026`, { size: 18, color: H.C.gris }), { after: 140 }),
+  H.para(H.run('Licencias de Harvey: bajas y lista de espera', { size: 24, bold: true }), { after: 40 }),
+  H.para(H.run(`Octubre 2026  |  Para aprobación de la Dirección Jurídica  |  ${new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' })}`, { size: 18, color: H.C.gris }), { after: 140 }),
 
-  H.h2('Decisión que se solicita', 100),
-  H.para(H.run(`Aprobar la baja de ${cands.length} licencias de Harvey. Cada persona aparece en ${nCortes} de ${nCortes} cortes de octubre entre las 10 de menor uso de la Dirección Jurídica. Referencia: el promedio de la DJ es de ${promDJ} acciones por persona por semana.`, { size: 18 }), { after: 120 }),
+  H.para([H.run('Se solicita: ', { size: 20, bold: true, color: H.C.navy }),
+    H.run(`liberar ${cands.length} licencias de bajo uso y asignar ${ESPERA.length} a la lista de espera${libres > 0 ? `; ${libres} queda${libres > 1 ? 'n' : ''} disponible${libres > 1 ? 's' : ''}` : ''}.`, { size: 20 })], { after: 160 }),
 
-  H.table(W, [H.headerRow(['Persona', 'SD', 'Apariciones en octubre', 'Acciones por semana, últimas 8 semanas', 'Promedio semanal', 'Notas'], W, new Set([1, 2, 3, 4])), ...filas]),
-  H.para('', { after: 60 }),
+  H.h2('Bajas propuestas', 80),
+  H.table(W, [H.headerRow(['Persona', 'SD', 'Semanas en bajo uso (oct)', 'Acciones por semana, últimas 8', 'Promedio semanal', 'Nota'], W, new Set([1, 2, 3, 4])), ...filas]),
+  H.para(H.run(`Promedio de la DJ: ${promDJ} acciones por persona por semana. Bajo uso: entre las 10 personas de menor uso de la semana, 2 o más veces en el mes; las ausencias documentadas no cuentan.`, { size: 14, color: H.C.gris }), { before: 60, after: 160 }),
 
-  H.h2('Cómo se identifica a un candidato', 100),
-  bullet('Cada semana se ordena a las 65 personas de las 6 Subdirecciones de menor a mayor uso; se toman las 10 de menor uso.'),
-  bullet('Candidato: 2 o más apariciones en ese grupo dentro del mismo mes. Las semanas con ausencia documentada (vacaciones, incapacidad) no cuentan.'),
-  bullet(`Octubre lleva ${nCortes} cortes; la lista del mes se cierra el 30 de octubre y puede crecer.`),
+  H.h2('Lista de espera', 80),
+  H.table(WE, [H.headerRow(['Persona', 'Correo'], WE), ...ESPERA.map((e, i) => new TableRow({ children: [
+    H.cell(e.nombre, { width: WE[0], size: S, bold: true, fill: i % 2 ? H.C.filaAlterna : undefined }),
+    H.cell(e.correo, { width: WE[1], size: S, fill: i % 2 ? H.C.filaAlterna : undefined })] }))]),
+  H.para('', { after: 120 }),
 
-  H.h2('Aprobación', 100),
-  ...cands.map((c) => H.para(H.run(`${c.nombre} (${c.sd}):   ☐ Dar de baja     ☐ Mantener`, { size: 18 }), { after: 60 })),
+  H.h2('Aprobación', 80),
+  ...cands.map((c) => H.para(H.run(`Baja: ${c.nombre} (${c.sd})     ☐ Sí     ☐ No`, { size: 18 }), { after: 50 })),
+  ...ESPERA.map((e) => H.para(H.run(`Alta: ${e.nombre}     ☐ Sí     ☐ No`, { size: 18 }), { after: 50 })),
 
   H.para(H.run('Elaboró: José Antonio Bueno Díaz  |  Gerente Contratos TI & AI', { size: 16, color: H.C.gris }), { before: 200 }),
 ];

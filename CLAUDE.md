@@ -92,7 +92,9 @@ sincroniza aqui.
 3. Los exports semanales (xlsx) llegan como adjuntos de la conversacion, no viven aqui.
    Procesalos desde `/mnt/user-data/uploads/` cada vez.
 
-## Decisiones vigentes que no estan en el codigo (al 2 oct 2026)
+## Decisiones vigentes que no estan en el codigo (al 14 oct 2026)
+
+Ultimo handoff: docs/HANDOFF_2026-10-14.md (leerlo al iniciar).
 
 - Firma de todos los documentos: "Jose Antonio Bueno Diaz | Gerente Contratos TI & AI". Nunca
   "Champion de Champions" como titulo en un documento.
@@ -110,3 +112,9 @@ sincroniza aqui.
 - Pendientes abiertos: cuenta duplicada glosanchez@compartamos.com (sin uso desde 14 ago, liberable);
   Juan Miguel Galvez (GC) en trabajo presencial, Alejandra Mireles lo esta resolviendo (no registrar
   excepcion hasta que Tony de fechas); caso GC-01 (600 reactivos) sin tiempos antes/despues.
+- Reportes se entregan en viernes (el viernes del corte). Fines de semana no cuentan (REGLAS 4).
+- Nombres de gerencia genericos (CN I/II/III, GC I/II, JC I/II, RL) se quedan; no tocarlos sin instruccion.
+- 3P = Proposito, Parametros, Profundidad (marco de Tony). Nunca en ingles.
+- Capacitaciones: Karime coordina sola Word y Playbook (19-23 oct). Alejandra Mireles en backoffice, no
+  al frente de sesiones. Sofia Ochoa no presenta.
+- No actuar sobre preguntas como si fueran instrucciones; revisar excepciones antes de proponer personas.

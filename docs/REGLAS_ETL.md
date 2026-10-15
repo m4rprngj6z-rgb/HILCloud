@@ -382,4 +382,10 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   herramienta y a quién convocar primero). Champion: sección "Alertas y capacitación de tu equipo" antes de
   "Antes del próximo corte". Ejecutivo: dos líneas (alerta agrupada por señal; 2 sesiones con 2 nombres),
   dentro del auto-compacto de una página.
+- **Sesiones fijas (Tony, 14 oct 2026)**: la semana en curso y la siguiente no se calculan: llevan
+  `"fijo": true` con `coordina_uid`, `apoyo_uid` y `expertos_uid` en `data/capacitaciones.json`.
+  `capacitacion.py` las revisa contra excepciones (personal, de su SD o de toda la DJ; dia exacto si la
+  sesion trae `dia`, si no su semana) y contra alertas amarillas, y deja los choques en `avisos_fijos`
+  (CAP json y nota del Gobierno de Licencias). No reemplaza a nadie: eso lo decide Tony. La rotacion de
+  las demas sesiones no cambia (solo excepciones personales). Decisiones vigentes: `tests/test_decisiones.py`.
 

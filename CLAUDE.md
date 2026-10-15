@@ -1,4 +1,4 @@
-# HILCloud — Harvey AI x Gentera, pipeline de reportes DJ
+# HILCloud: Harvey AI x Gentera, pipeline de reportes DJ
 
 Repo privado. Contiene datos de personal de la Direccion Juridica (DJ) de Gentera/Banco
 Compartamos: roster, vacaciones, incapacidades. **Nunca lo hagas publico. Nunca subas los
@@ -29,38 +29,44 @@ sincroniza aqui.
 
 ## Estructura
 
-- `data/roster.json` — roster completo (SD, nombre, puesto, nivel, fortaleza esperada, a quien
+- `data/roster.json`: roster completo (SD, nombre, puesto, nivel, fortaleza esperada, a quien
   reporta, altas). Lo regenera `scripts/sync_notion.py` desde el HIL, no a mano. `data/roster.py`
   solo lo carga. `data/roster_correcciones.json`: diferencias deliberadas contra Notion.
-- `data/excepciones.json` — copia de la tabla "Excepciones activas" del HIL, con rangos de fecha.
-- `scripts/etl.py` — exports crudos -> JSON por SD. Todo el calculo vive aqui.
+- `data/excepciones.json`: copia de la tabla "Excepciones activas" del HIL, con rangos de fecha.
+- `scripts/etl.py`: exports crudos -> JSON por SD. Todo el calculo vive aqui.
 - `scripts/dj.py` (vista DJ para el Fibi), `scripts/licencias.py` (Gobierno de Licencias): calculo.
 - `scripts/fibi_mensual.py` + `generate_fibi_mensual.js`: Fibi mensual; el ultimo viernes del mes sustituye al
   semanal (REGLAS 8i). Narrativa en DJ.json -> fibi_mensual {destacados, decisiones}.
-- `scripts/generate_{champion,ejecutivo,fibi,licencias}.js` + `scripts/helpers.js` — JSON -> docx.
+- `scripts/generate_{champion,ejecutivo,fibi,licencias}.js` + `scripts/helpers.js`: JSON -> docx.
   No calculan.
-- `scripts/correr_corte.sh` — corre el corte completo (14 docx).
-- `narrativa/<fecha>/<SD>.json` — texto redactado por corte (Recomendacion, Accion...).
+- `scripts/correr_corte.sh`: corre el corte completo (14 docx) y al final el corte de caja.
+- `scripts/corte_de_caja.py`: cierre para Tony: decisiones y su estado, sus pendientes, la semana que
+  viene (capacitaciones, choques con ausencias y alertas, quien esta fuera) y cambios del HIL.
+- `tests/test_decisiones.py`: decisiones vigentes que viven en datos o codigo (ok / pendiente / falla).
+- `data/capacitaciones.json`: calendario; la semana en curso y la siguiente van fijas (`"fijo": true`).
+- `narrativa/<fecha>/<SD>.json`: texto redactado por corte (Recomendacion, Accion...).
   `scripts/validar_narrativa.py` lo revisa contra el ETL antes de generar.
-- `tests/test_regresion_26sep.py` — reproduce los reportes aprobados del 26 sep. Correrlo
+- `tests/test_regresion_26sep.py`: reproduce los reportes aprobados del 26 sep. Correrlo
   despues de cualquier cambio al ETL.
-- `docs/REGLAS_ETL.md` — TODAS las reglas de calculo y formato, con su origen. Leerlo antes de
+- `docs/REGLAS_ETL.md`: TODAS las reglas de calculo y formato, con su origen. Leerlo antes de
   tocar el ETL o el generador.
-- `out/` — salidas (ignorado por git).
+- `out/`: salidas (ignorado por git).
 
 ## Correr un corte
 
 0. Sincronizar con Notion: fetch del HIL (37df66a17162812a9f53e15cb031792d) con el conector,
    guardarlo FUERA del repo (scratchpad) y `python3 scripts/sync_notion.py <archivo>`; revisar
-   las diferencias y aplicar con `--escribir`. Si cambia algo, correr las pruebas del paso 5.
+   las diferencias y aplicar con `--escribir`. Si cambia algo, correr las pruebas del paso 6.
 1. Correr el ETL de las 6 SD para ver los datos: `python3 scripts/etl.py --corte-fin <viernes> --sd <SD>`
 2. Redactar la narrativa del corte en `narrativa/<viernes>/`: `<SD>.json` (ejecutivo: recomendacion,
    accion) y `DJ.json` (fibi: casos, puntos; licencias: notas opcionales). Usar las del corte
    anterior como modelo. El revisor rechaza cifras que no salen del ETL.
 3. `scripts/correr_corte.sh <viernes> "<fecha larga>"`: genera y valida los 14 docx en `out/`.
 4. Pasar a PDF y revisarlo visualmente (Estandar): al menos 1 Champion, 1 Ejecutivo, Fibi y Licencias.
-5. Si tocaste el ETL: `python3 tests/test_regresion_26sep.py`, `..._ejecutivo_25sep.py`,
-   `..._fibi_25sep.py`, `..._licencias_25sep.py`. Todas deben dar 0 fallas.
+5. El corte de caja sale al final de `correr_corte.sh` (`HIL=<fetch> scripts/correr_corte.sh ...` para
+   incluir el diff contra Notion); tambien en out/CorteDeCaja_<viernes>.md.
+6. Si tocaste el ETL: `python3 tests/test_regresion_26sep.py`, `..._ejecutivo_25sep.py`,
+   `..._fibi_25sep.py`, `..._licencias_25sep.py` y `tests/test_decisiones.py`. Todas deben dar 0 fallas.
 
 ## Lo que NO se hace
 
@@ -115,6 +121,6 @@ Ultimo handoff: docs/HANDOFF_2026-10-14.md (leerlo al iniciar).
 - Reportes se entregan en viernes (el viernes del corte). Fines de semana no cuentan (REGLAS 4).
 - Nombres de gerencia genericos (CN I/II/III, GC I/II, JC I/II, RL) se quedan; no tocarlos sin instruccion.
 - 3P = Proposito, Parametros, Profundidad (marco de Tony). Nunca en ingles.
-- Capacitaciones: Karime coordina sola Word y Playbook (19-23 oct). Alejandra Mireles en backoffice, no
+- Capacitaciones: la semana en curso y la siguiente con coordinador y expertos fijos (14 oct). Karime coordina sola Word y Playbook (19-23 oct). Alejandra Mireles en backoffice, no
   al frente de sesiones. Sofia Ochoa no presenta.
 - No actuar sobre preguntas como si fueran instrucciones; revisar excepciones antes de proponer personas.

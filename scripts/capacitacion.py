@@ -28,6 +28,10 @@ Reglas (docs/REGLAS_ETL.md seccion 8k):
   total (los mas activos sin la herramienta son los que mas ganan). Assistant: instrucciones minimas.
 - Expertos por sesion: las 3 personas con mas uso de la herramienta (power users); quien coordina lo
   decide Tony (habilidad para llevar una capacitacion, no solo uso).
+- Sesiones fijas (Tony, 14 oct 2026): la semana en curso y la siguiente llevan coordinador, apoyo y
+  expertos fijos ("fijo": true en data/capacitaciones.json). No se recalculan; se revisan contra
+  excepciones (personal, de su SD o de toda la DJ, en el dia de la sesion o en su semana) y contra
+  alertas amarillas. Los choques salen en avisos_fijos; no se cambia a nadie sin Tony.
 """
 import argparse
 import glob
@@ -97,6 +101,64 @@ def calidad_assistant(uploads, fin, roster_uids):
             out[u] = {'hilos': 0, 'hilos_repetidos': 0, 'plantilla': None, 'pal_inicial': None, 'tarea_repetida': False,
                       'instrucciones_minimas': False, 'workflow_escrito': 0, 'negativos': negativos[u]}
     return out
+
+
+def cargar(nombre):
+    return json.load(open(os.path.join(REPO, 'data', nombre)))
+
+
+def dias_sesion(s):
+    """Dia exacto si la sesion lo trae ('dia'); si no, lunes a viernes de su semana."""
+    if s.get('dia'):
+        d = date.fromisoformat(s['dia'])
+        return d, d
+    ini = date.fromisoformat(s['fecha'])
+    return ini, ini + timedelta(days=4)
+
+
+def ausencia(uid, ini, fin, excs, roster, solo_personal=False):
+    """Excepcion de data/excepciones.json que cruza [ini, fin] para la persona: personal, de su SD o de
+    toda la DJ (solo personal si solo_personal, como la rotacion). None si no hay."""
+    sd = roster.get(uid, {}).get('sd')
+    for e in excs:
+        if not (date.fromisoformat(e['desde']) <= fin and date.fromisoformat(e['hasta']) >= ini):
+            continue
+        if uid in e.get('personas', []) or (not solo_personal and e.get('sd') in (sd, 'TODA_DJ')):
+            return e
+    return None
+
+
+def roles_fijos(s):
+    return ([('coordina', s['coordina_uid'])] if s.get('coordina_uid') else []) + \
+        [('apoyo', u) for u in s.get('apoyo_uid', [])] + [('experto', u) for u in s.get('expertos_uid', [])]
+
+
+def revisar_fijos(cal, excs, roster, alertas=None, alertas_a=None):
+    """Sesiones fijas (Tony, 14 oct 2026): revisa a quien se fijo a mano. alertas = {uid: [senales]} y
+    alertas_a = {uids con senal de calidad de Assistant}; None cuando no hay datos de uso (solo se revisan
+    excepciones). Devuelve una lista de avisos; no cambia a nadie (eso lo decide Tony)."""
+    avisos = []
+    for s in cal:
+        if not s.get('fijo'):
+            continue
+        ini, fin = dias_sesion(s)
+        if not s.get('coordina_uid'):
+            avisos.append({'sesion': s['tema'], 'fecha_txt': s['fecha_txt'], 'uid': None, 'rol': 'coordina',
+                           'motivo': 'sesión fija sin coordinador'})
+        for rol, uid in roles_fijos(s):
+            nombre = roster.get(uid, {}).get('nombre', uid)
+            base = {'sesion': s['tema'], 'fecha_txt': s['fecha_txt'], 'uid': uid, 'nombre': nombre, 'rol': rol}
+            if uid not in roster:
+                avisos.append({**base, 'motivo': 'no está en el roster'})
+                continue
+            e = ausencia(uid, ini, fin, excs, roster)
+            if e:
+                avisos.append({**base, 'motivo': f"{e['tipo']} del {e['desde']} al {e['hasta']}"})
+            if alertas is not None and alertas.get(uid):
+                avisos.append({**base, 'motivo': 'alerta amarilla: ' + '; '.join(x['senal'] for x in alertas[uid])})
+            if alertas_a is not None and s['herramienta'] == 'A' and rol == 'experto' and uid in alertas_a:
+                avisos.append({**base, 'motivo': 'señal de calidad en Assistant (tarea repetida o instrucciones mínimas)'})
+    return avisos
 
 
 def mezcla(suma):
@@ -217,8 +279,7 @@ def main():
     por_uid = {p['usuario']: p for p in personas}
 
     def esta_fuera(uid, ini):
-        fin_s = ini + timedelta(days=4)
-        return any(uid in e.get('personas', []) and date.fromisoformat(e['desde']) <= fin_s and date.fromisoformat(e['hasta']) >= ini for e in excs)
+        return ausencia(uid, ini, ini + timedelta(days=4), excs, R, solo_personal=True) is not None
 
     i_rot, previo = 0, None
     for s in sorted(cal, key=lambda s: s['fecha']):
@@ -261,11 +322,17 @@ def main():
             urg += [fila(p, f"sin uso de {NOMBRE_T[t]}; {p['total_semana']:g} acciones por semana en otras herramientas")
                     for p in sorted(sin, key=lambda p: (-p['total_semana'], p['nombre'])) if p['nombre'] not in vistos]
             s['urgentes'] = urg[:3]
-        if s.get('expertos') == 'auto':
+        if s.get('fijo'):
+            pu = {p['usuario']: p for p in personas}
+            s['expertos'] = [f"{R[u]['nombre']} ({R[u]['sd']}" + (f", {pu[u]['por_semana'][t]:g} por semana)" if u in pu else ')')
+                             for u in s.get('expertos_uid', []) if u in R]
+        elif s.get('expertos') == 'auto':
             top = sorted([p for p in elegibles(t, personas) if p['por_semana'][t] > 0], key=lambda p: -p['por_semana'][t])[:3]
             s['expertos'] = [f"{p['nombre']} ({p['sd']}, {p['por_semana'][t]:g} por semana)" for p in top]
 
-    out = {'corte_viernes': a.corte_fin, 'semanas': N_SEM, 'personas': len(personas),
+    avisos = revisar_fijos(cal, excs, R, alertas={p['usuario']: p['senales'] for p in personas if p['senales']},
+                           alertas_a={p['usuario'] for p in personas if senal_a(p)})
+    out = {'corte_viernes': a.corte_fin, 'avisos_fijos': avisos, 'semanas': N_SEM, 'personas': len(personas),
            'equipos': equipos, 'champions': champions, 'herramientas': herramientas,
            'rangos': rangos, 'rangos_fuera': fuera,
            'sin_outlook': sum(1 for p in personas if p['suma']['O'] == 0),
@@ -330,7 +397,9 @@ def main():
     for x in out['alertas_personas']:
         print('  alerta', x['nombre'], x['sd'], [z['senal'] for z in x['senales']])
     for s in cal:
-        print('  coordina', s['fecha_txt'], s['tema'], s['coordina'], s.get('rotacion_saltados'))
+        print('  coordina', s['fecha_txt'], s['tema'], s['coordina'], s.get('rotacion_saltados'), 'FIJA' if s.get('fijo') else '')
+    for x in avisos:
+        print('  AVISO FIJA', x['fecha_txt'], x['sesion'], x['rol'], x.get('nombre'), '->', x['motivo'])
     ac = out['assistant_calidad']
     print('  Assistant evaluadas', ac['evaluadas'])
     for r in ac['tarea_repetida']:

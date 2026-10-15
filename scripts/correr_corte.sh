@@ -2,7 +2,7 @@
 # Corre el corte completo: 6 Champion + 6 Ejecutivo + Fibi + Gobierno de Licencias (14 docx).
 # El ultimo viernes del mes, el Fibi es el mensual (narrativa DJ.json -> fibi_mensual).
 #
-# Uso: scripts/correr_corte.sh 2026-09-25 "28 de septiembre de 2026"
+# Uso: [HIL=<fetch del HIL>] scripts/correr_corte.sh 2026-09-25 "28 de septiembre de 2026"
 #   $1 = viernes del corte (AAAA-MM-DD); $2 = fecha que aparece en los reportes (opcional).
 #
 # Requiere la narrativa del corte ya redactada en narrativa/<fecha>/{ENN,CN,PLD,GC,JC,RL,DJ}.json.
@@ -57,3 +57,9 @@ node scripts/generate_licencias.js "out/GL_$FIN.json" "$N/DJ.json" "out/Gobierno
 echo "== Validación docx"
 for f in out/*_"$TAG".docx; do python3 "$VAL" "$f" | tail -1 | grep -q PASSED || { echo "INVALIDO: $f"; exit 1; }; echo "  ok $f"; done
 echo "Listo: $(ls out/*_"$TAG".docx | wc -l) reportes. Falta la revisión visual (PDF) que pide el Estándar."
+
+echo "== Corte de caja"
+# Decisiones y su estado, pendientes de Tony, la semana que viene y cambios del HIL (14 oct 2026).
+# HIL=<fetch del HIL fuera del repo> para incluir el diff contra Notion.
+HARG=(); [ -n "${HIL:-}" ] && HARG=(--hil "$HIL")
+python3 scripts/corte_de_caja.py --corte-fin "$FIN" "${HARG[@]}"

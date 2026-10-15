@@ -1,5 +1,5 @@
 {
- "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla.",
+ "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla. Sesiones fijas (Tony, 14 oct 2026): con \"fijo\": true, coordina_uid, apoyo_uid y expertos_uid los decide Tony y no se recalculan; capacitacion.py solo los revisa contra excepciones y alertas amarillas (avisos_fijos). Aplica a la semana en curso y la siguiente; las demas siguen con rotacion/auto.",
  "sesiones": [
   {
    "fecha": "2026-10-08",
@@ -19,11 +19,10 @@
   },
   {
    "fecha": "2026-10-12",
-   "fecha_txt": "Semana 12-16 oct",
+   "fecha_txt": "Jue 15 oct",
    "tema": "Workflow: de la tarea repetida al workflow",
    "herramienta": "W",
-   "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
-   "expertos": "auto",
+   "coordina": "Tony Bueno (Gerente Contratos TI & AI), con Karime Sotelo (ENN) de apoyo",
    "niveles": [
     "Coordinador",
     "Líder",
@@ -31,15 +30,24 @@
    ],
    "estado": "Propuesta",
    "coordina_uid": "jbueno",
-   "nota": "Jean Cub Nájera no puede esta semana; la da Tony (12 oct 2026). Jean conserva su lugar en la rotación."
+   "nota": "Jean Cub Nájera no puede esta semana; la da Tony (12 oct 2026). Jean conserva su lugar en la rotación. Expertos = guías de mesa (handoff 14 oct).",
+   "dia": "2026-10-15",
+   "fijo": true,
+   "apoyo_uid": [
+    "nsotelo"
+   ],
+   "expertos_uid": [
+    "lesespinoza",
+    "aksalinas",
+    "kaparicio"
+   ]
   },
   {
    "fecha": "2026-10-19",
    "fecha_txt": "Semana 19-23 oct",
    "tema": "Assistant: instrucciones que sí funcionan",
    "herramienta": "A",
-   "coordina": "rotacion",
-   "expertos": "auto",
+   "coordina": "Amed Hernández (JC)",
    "niveles": [
     "Coordinador",
     "Gerente",
@@ -47,21 +55,38 @@
     "Subdirector",
     "Analista"
    ],
-   "estado": "Propuesta"
+   "estado": "Propuesta",
+   "fijo": true,
+   "coordina_uid": "amhernandez",
+   "expertos_uid": [
+    "jgsantillan",
+    "larrazola",
+    "aksalinas"
+   ],
+   "nota": "Coordinador y expertos tomados del mensaje a Champions del 13 oct 2026; por confirmar con Tony."
   },
   {
    "fecha": "2026-10-19",
    "fecha_txt": "Semana 19-23 oct",
    "tema": "Word y Playbook",
    "herramienta": "Wo",
-   "coordina": "rotacion",
-   "expertos": "auto",
+   "coordina": "Karime Sotelo (ENN), con Tony de respaldo",
    "niveles": [
     "Gerente",
     "Líder"
    ],
    "estado": "Propuesta",
-   "nota": "Karime Sotelo coordina sola, es su debut; Tony de respaldo (12 oct 2026)."
+   "nota": "Karime Sotelo coordina sola, es su debut; Tony de respaldo (12 oct 2026). Expertos tomados del mensaje a Champions del 13 oct 2026; por confirmar con Tony.",
+   "fijo": true,
+   "coordina_uid": "nsotelo",
+   "apoyo_uid": [
+    "jbueno"
+   ],
+   "expertos_uid": [
+    "arperez",
+    "hfalcon",
+    "aksalinas"
+   ]
   },
   {
    "fecha": "2026-10-26",

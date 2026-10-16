@@ -90,6 +90,16 @@ sincroniza aqui.
   O=Outlook. Precedencia cuando una accion trae varias superficies: W > V > Wo > O > A.
 - **Corte**: lunes a viernes, hora CDMX.
 
+## Continuidad entre chats (Tony, 15 oct 2026)
+
+- Un solo chat con datos a la vez: el que tiene los exports crudos. Los demas leen el repo.
+- Lo calculado de cada corte se versiona en `estado/<viernes>/` (copia de los JSON de out/: <SD>, DJ,
+  GL, CAP, FM; y retroactivos como GL_sep_retro). Los exports crudos NO se versionan.
+- Al cerrar cualquier trabajo: copiar a `estado/` lo calculado, escribir en el repo (roster via Notion,
+  handoff o tests/test_decisiones.py) cada decision o dato nuevo, y hacer commit y push el mismo dia.
+- Al arrancar: `git pull`, leer CLAUDE.md, el ultimo docs/HANDOFF_*.md y `estado/` del ultimo corte.
+  Si falta un dato, buscar en `estado/` y en el chat "Harvey AI y Gentera" antes de pedirselo a Tony.
+
 ## Al iniciar una sesion nueva sobre este repo
 
 1. Lee este archivo (ya lo hiciste si estas viendo esto).

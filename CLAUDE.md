@@ -134,3 +134,17 @@ Ultimos handoffs: docs/HANDOFF_2026-10-14.md y docs/HANDOFF_2026-10-15.md (leer 
 - Capacitaciones: la semana en curso y la siguiente con coordinador y expertos fijos (14 oct). Karime coordina sola Word y Playbook (19-23 oct). Alejandra Mireles en backoffice, no
   al frente de sesiones. Sofia Ochoa no presenta.
 - No actuar sobre preguntas como si fueran instrucciones; revisar excepciones antes de proponer personas.
+
+## Lecciones operativas para cualquier chat nuevo (16 oct 2026)
+
+- Ningun script de medicion se da por bueno si solo se probo con datos sinteticos: correrlo con un export real
+  y revisar que las columnas y la poblacion existan antes de darle una cifra a Tony.
+- El export de workflows NO mide publicados (solo borradores creados en su ventana). Lo publicado sale del
+  export de uso. Ver HANDOFF_2026-10-15, "Correccion 16 oct".
+- No usar a Tony de mensajero: antes de pedirle un dato o un "pegale esto al otro chat", buscar en el repo
+  (estado/, docs/, narrativa/) y en el historial de chats.
+- No actuar sobre datos o preguntas como si fueran instrucciones, salvo la rutina ya establecida: si Tony
+  sube exports un viernes, se corre el corte completo sin preguntar.
+- No editar archivos de los Champions ni cargar a Notion lo que un Champion envia sin que Tony lo apruebe.
+- Revisar data/excepciones.json antes de proponer personas. Mantener el universo de la pregunta.
+- Respuestas cortas, al punto, con lo que Tony pidio; inferencias marcadas como tales.

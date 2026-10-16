@@ -19,6 +19,9 @@ UPL="${UPLOADS:-/mnt/user-data/uploads}"   # carpeta con los exports; se puede c
 # Ultimo viernes del mes: el Fibi mensual sustituye al semanal (Tony, 2 oct 2026).
 MENSUAL=$(python3 -c "import datetime as d;x=d.date.fromisoformat('$FIN');print(1 if (x+d.timedelta(days=7)).month!=x.month else 0)")
 
+echo "== Historial semanal (estado/semanas.json): se suma el export de este corte"
+python3 scripts/semanas.py --uploads "$UPL" --corte-fin "$FIN"
+
 echo "== ETL por SD"
 for SD in ENN CN PLD GC JC RL; do python3 scripts/etl.py --corte-fin "$FIN" --sd "$SD" --uploads "$UPL" >/dev/null; done
 python3 scripts/dj.py --corte-fin "$FIN"
@@ -57,6 +60,9 @@ node scripts/generate_licencias.js "out/GL_$FIN.json" "$N/DJ.json" "out/Gobierno
 echo "== Validación docx"
 for f in out/*_"$TAG".docx; do python3 "$VAL" "$f" | tail -1 | grep -q PASSED || { echo "INVALIDO: $f"; exit 1; }; echo "  ok $f"; done
 echo "Listo: $(ls out/*_"$TAG".docx | wc -l) reportes. Falta la revisión visual (PDF) que pide el Estándar."
+
+echo "== Estado del corte (estado/$FIN/, se versiona; continuidad entre chats)"
+mkdir -p "estado/$FIN" && for f in out/{ENN,CN,PLD,GC,JC,RL,DJ,GL,CAP,FM}_"$FIN".json; do [ -f "$f" ] && cp "$f" "estado/$FIN/"; done; ls "estado/$FIN" | wc -l
 
 echo "== Corte de caja"
 # Decisiones y su estado, pendientes de Tony, la semana que viene y cambios del HIL (14 oct 2026).

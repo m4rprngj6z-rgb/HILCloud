@@ -91,13 +91,19 @@ def main():
     activos = set(ev[(ev['fecha'] >= wins[-1][0]) & (ev['fecha'] <= fin)]['user_id'])
     sin_mapear = sorted(activos - set(P))
 
+    import semanas as _sem
+    # Semanas guardadas en estado/semanas.json (Tony, 16 oct 2026); no se usa si los exports cubren todo.
+    store = _sem.cargar() if wins[0][0] < data_desde else {'cubiertas': [], 'personas': {}}
+
     def serie(uid, sd):
         out = []
         for mon, fri in wins:
-            m = ev[(ev['user_id'] == uid) & (ev['fecha'] >= mon) & (ev['fecha'] <= fri)]
             exc = etl.excepcion_semana(uid, sd, mon, excs)
-            out.append({'corte': etl.label(mon, fri), 'viernes': str(fri), 'total': int(len(m)),
-                        'con_datos': mon >= data_desde, 'excepcion': exc['es_excepcion'],
+            g = _sem.total(store, uid, fri)
+            if g is None:
+                g = int(len(ev[(ev['user_id'] == uid) & (ev['fecha'] >= mon) & (ev['fecha'] <= fri)]))
+            out.append({'corte': etl.label(mon, fri), 'viernes': str(fri), 'total': g,
+                        'con_datos': mon >= data_desde or _sem.semana(store, '_', fri) is not None, 'excepcion': exc['es_excepcion'],
                         'tipo_excepcion': exc['tipos'][0] if exc['tipos'] else None})
         return out
 

@@ -354,12 +354,25 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
     fuera = ev[(ev['user_id'].isin(personas)) & (ev['tool'] == 'OTRO')]
 
     # tabla semana x persona
+    # Semanas que el export ya no cubre: salen de estado/semanas.json (Tony, 16 oct 2026).
+    # Si los exports cargados cubren todas las semanas (pruebas de regresion) o se usan criterios viejos
+    # de clasificacion, no se usa: todo sale de los exports, como antes.
+    import semanas as _sem
+    usar = not (o_en_a or vault_solo_superficie) and pd.Timestamp(wins[0][0]) < data_desde
+    store = _sem.cargar() if usar else {'cubiertas': [], 'personas': {}}
     semanas = []
     for mon, fri in wins:
-        cubierta = pd.Timestamp(mon) >= data_desde
-        semanas.append({'lunes': mon, 'viernes': fri, 'label': label(mon, fri), 'con_datos': bool(cubierta)})
+        en_export = pd.Timestamp(mon) >= data_desde
+        guardada = _sem.semana(store, '_', fri) is not None
+        semanas.append({'lunes': mon, 'viernes': fri, 'label': label(mon, fri),
+                        'con_datos': bool(en_export or guardada), 'guardada': guardada})
+    guardadas = {s['viernes'] for s in semanas if s['guardada']}
 
     def week_stats(uid, mon, fri):
+        # Semana guardada en estado/semanas.json (ya combinada con el export de este corte por
+        # semanas.py, que corre antes del ETL en correr_corte.sh): esa es la fuente.
+        if fri in guardadas:
+            return _sem.semana(store, uid, fri)
         m = ev[(ev['user_id'] == uid) & (ev['fecha'] >= mon) & (ev['fecha'] <= fri) & (ev['tool'] != 'OTRO')]
         counts = {t: int((m['tool'] == t).sum()) for t in TOOLS}
         wf = m[m['tool'] == 'W']['workflow'].dropna()

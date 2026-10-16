@@ -103,6 +103,39 @@ def calidad_assistant(uploads, fin, roster_uids):
     return out
 
 
+def calidad_previa(corte):
+    """Sin exports harvey-queries en el corte: se reutilizan las senales de calidad de Assistant del
+    ultimo corte guardado en estado/ (Tony, 16 oct 2026). Se reconstruyen por persona desde el CAP."""
+    import re
+    base = os.path.join(REPO, 'estado')
+    caps = sorted(glob.glob(os.path.join(base, '*', 'CAP_*.json')))
+    caps = [c for c in caps if os.path.basename(c)[4:14] < corte]
+    if not caps:
+        return {}, 'sin datos de calidad de Assistant'
+    c = json.load(open(caps[-1]))
+    R = json.load(open(os.path.join(REPO, 'data', 'roster.json')))['personas']
+    por_nombre = {p['nombre']: u for u, p in R.items()}
+    vacio = {'hilos': 0, 'hilos_repetidos': 0, 'plantilla': None, 'pal_inicial': None, 'tarea_repetida': False,
+             'instrucciones_minimas': False, 'workflow_escrito': 0, 'negativos': 0}
+    out = {}
+    for x in c['assistant_calidad']['tarea_repetida'] + c['assistant_calidad']['instrucciones_minimas']:
+        u = por_nombre.get(x['nombre'])
+        if u:
+            out[u] = {k: x.get(k, v) for k, v in vacio.items()}
+    for x in c.get('alertas_personas', []):
+        u = por_nombre.get(x['nombre'])
+        if not u:
+            continue
+        d = out.setdefault(u, dict(vacio))
+        for z in x['senales']:
+            n = re.match(r'(\d+)', z.get('detalle', ''))
+            if z['senal'].startswith('Respuestas calificadas') and n:
+                d['negativos'] = int(n.group(1))
+            elif z['senal'].startswith('Escribe el nombre') and n:
+                d['workflow_escrito'] = int(n.group(1))
+    return out, f"señales del corte {c['corte_viernes']} (sin exports harvey-queries en este corte)"
+
+
 def cargar(nombre):
     return json.load(open(os.path.join(REPO, 'data', nombre)))
 
@@ -186,6 +219,9 @@ def main():
                              'total_semana': round(sum(suma.values()) / len(hh), 1), 'div_wf': r['diversidadWf']})
 
     cal_a = calidad_assistant(a.uploads, fin, {p['usuario'] for p in personas})
+    calidad_fuente = 'exports harvey-queries del corte'
+    if not cal_a:
+        cal_a, calidad_fuente = calidad_previa(a.corte_fin)
     for p in personas:
         p['calidad_a'] = cal_a.get(p['usuario'])
 
@@ -332,7 +368,7 @@ def main():
 
     avisos = revisar_fijos(cal, excs, R, alertas={p['usuario']: p['senales'] for p in personas if p['senales']},
                            alertas_a={p['usuario'] for p in personas if senal_a(p)})
-    out = {'corte_viernes': a.corte_fin, 'avisos_fijos': avisos, 'semanas': N_SEM, 'personas': len(personas),
+    out = {'corte_viernes': a.corte_fin, 'avisos_fijos': avisos, 'calidad_fuente': calidad_fuente, 'semanas': N_SEM, 'personas': len(personas),
            'equipos': equipos, 'champions': champions, 'herramientas': herramientas,
            'rangos': rangos, 'rangos_fuera': fuera,
            'sin_outlook': sum(1 for p in personas if p['suma']['O'] == 0),

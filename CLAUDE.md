@@ -110,7 +110,7 @@ sincroniza aqui.
 
 ## Decisiones vigentes que no estan en el codigo (al 14 oct 2026)
 
-Ultimo handoff: docs/HANDOFF_2026-10-14.md (leerlo al iniciar).
+Ultimos handoffs: docs/HANDOFF_2026-10-14.md y docs/HANDOFF_2026-10-15.md (leer ambos al iniciar).
 
 - Firma de todos los documentos: "Jose Antonio Bueno Diaz | Gerente Contratos TI & AI". Nunca
   "Champion de Champions" como titulo en un documento.

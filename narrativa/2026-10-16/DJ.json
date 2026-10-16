@@ -1,0 +1,29 @@
+{
+ "_corte": "12-16 oct 2026",
+ "_redacto": "Claude, sobre out/DJ_2026-10-16.json y out/GL_2026-10-16.json; validado con scripts/validar_narrativa.py",
+ "fibi": {
+  "casos": [
+   "La DJ registró 1484 acciones, 28% más que la semana anterior, con 61 de 65 personas activas, la semana de la sesión práctica de Workflow.",
+   "Workflow sumó 212 ejecuciones en la semana; ENN aportó 78, apoyada en el Validador de Expedientes Legales.",
+   "JC sube 41% y CN 36%, con 5 de 7 y 11 de 15 personas en verde frente a su propio ritmo."
+  ],
+  "puntos": [
+   "PLD concentra 7 de las 14 personas en atención alta de la DJ.",
+   "Los KPIs de octubre de PLD y JC no se enviaron y se reportan sin movimiento.",
+   "RL baja 8% en una semana de vacaciones escalonadas.",
+   "Siguientes capacitaciones: Assistant y Word y Playbook, semana del 19 de octubre."
+  ]
+ },
+ "licencias": {
+  "notas": [
+   {
+    "titulo": "Bryan Trujillo",
+    "texto": "regulador de Control Interno; no es candidato a liberar licencia por instrucción del 7 de agosto."
+   },
+   {
+    "titulo": "Diana Gabriela Castillo Luna",
+    "texto": "licencia de cortesía solicitada por Karla Méndez; su uso se reporta en el Ejecutivo de ENN."
+   }
+  ]
+ }
+}

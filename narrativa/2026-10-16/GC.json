@@ -1,0 +1,8 @@
+{
+ "_corte": "12-16 oct 2026",
+ "_redacto": "Claude, sobre out/GC_2026-10-16.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "GC registró 131 acciones, 27% más que la semana anterior (103), con las 7 personas activas y 4 en verde frente a su propio ritmo. Juan Miguel Gálvez, María Yesenia Álvarez y Diego Alvarado superaron su promedio. Zuleycka García quedó en 49% de su ritmo y es la única en atención alta.",
+  "accion": "Champion Alejandra Mireles: enviar los tiempos medidos de los KPIs 9 y 10 y buscar a Zuleycka García para entender su baja."
+ }
+}

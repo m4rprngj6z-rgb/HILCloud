@@ -1,0 +1,8 @@
+{
+ "_corte": "12-16 oct 2026",
+ "_redacto": "Claude, sobre out/RL_2026-10-16.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "RL registró 46 acciones, 8% menos que la semana anterior (50), con 6 de 8 personas activas en una semana de vacaciones escalonadas. Karla Zetina y Jean Cub Nájera superaron su promedio apoyados en Workflow. Christian Ramírez, de regreso de vacaciones, quedó en 41% de su ritmo.",
+  "accion": "Champion Jean Cub Nájera: retomar con Christian Ramírez y Patsy Godínez su uso de la semana y proponer a Alan García un primer workflow, como los que ya usan Karla Zetina y él mismo."
+ }
+}

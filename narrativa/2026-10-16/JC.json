@@ -1,0 +1,8 @@
+{
+ "_corte": "12-16 oct 2026",
+ "_redacto": "Claude, sobre out/JC_2026-10-16.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "JC registró 124 acciones, 41% más que la semana anterior (88), con las 7 personas activas y 5 en verde frente a su propio ritmo. Andrés Quintero y Gloria Sánchez superaron su promedio; Gloria usa ya un workflow de extracción de requerimientos SIARA/CNBV. Oscar Monteverde sigue con actividad mínima. Los KPIs de octubre de JC no se enviaron y se reportan sin movimiento.",
+  "accion": "Champion Amed Hernández: enviar los KPIs de octubre, buscar a Oscar Monteverde y pedirle a Gloria Sánchez que comparta su workflow con el equipo."
+ }
+}

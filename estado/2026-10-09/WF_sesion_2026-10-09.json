@@ -1,0 +1,340 @@
+{
+ "corte_fin": "2026-10-09",
+ "fuente_uso": "harvey-usage-start_2026-09-10_end_2026-10-09.xlsx",
+ "universo": 65,
+ "personas_con_workflow": 42,
+ "acciones_superficie_workflow": 579,
+ "construyen": {
+  "Karla Stephanie Aparicio González": 56,
+  "Mario Manzano": 37,
+  "Aaron Raya": 36,
+  "Janis Pérez": 33,
+  "Ana Karen Salinas": 27,
+  "Jorge Belloc": 21,
+  "Diana Laura Mendoza Osorio": 20,
+  "Leslie Espinoza": 20,
+  "Néstor Rangel": 15,
+  "Javier García": 14,
+  "Ricardo Centurión": 14,
+  "Martha Sotomayor": 6,
+  "Alejandra Casillas": 6,
+  "Isis Rodríguez": 5,
+  "Alfredo Duarte": 5,
+  "Gabriel Juárez": 5,
+  "Karla Guerrero": 2,
+  "Karime Sotelo": 2,
+  "Elisa Álvarez": 2,
+  "Lucía Arrazola": 1,
+  "Rocío Fernández": 1,
+  "Gustavo Bernal": 1,
+  "Heriberto Falcón": 1
+ },
+ "acciones_workflow": 413,
+ "workflows_en_uso": 48,
+ "workflows_una_persona": 42,
+ "compartidos": [
+  {
+   "nombre": "Validador de Expedientes Legales",
+   "acciones": 54,
+   "personas": 10,
+   "sd": [
+    "CN",
+    "ENN",
+    "PLD"
+   ]
+  },
+  {
+   "nombre": "Extraer Datos de Resoluciones Laborales",
+   "acciones": 20,
+   "personas": 3,
+   "sd": [
+    "RL"
+   ]
+  },
+  {
+   "nombre": "Minuta desde transcripción (ENN)",
+   "acciones": 15,
+   "personas": 3,
+   "sd": [
+    "ENN"
+   ]
+  },
+  {
+   "nombre": "Contrato de Donación",
+   "acciones": 5,
+   "personas": 2,
+   "sd": [
+    "ENN"
+   ]
+  },
+  {
+   "nombre": "Extraer Datos de Resoluciones Laborales CE",
+   "acciones": 4,
+   "personas": 2,
+   "sd": [
+    "RL"
+   ]
+  },
+  {
+   "nombre": "Minuta ejecutiva desde transcripción de Teams (Gentera)",
+   "acciones": 3,
+   "personas": 2,
+   "sd": [
+    "CN"
+   ]
+  }
+ ],
+ "top_individuales": [
+  {
+   "nombre": "Redactor de descripciones de operaciones",
+   "acciones": 37,
+   "quien": "Mario Manzano",
+   "sd": "PLD"
+  },
+  {
+   "nombre": "Notas Informativas Regulatorias (MX)",
+   "acciones": 33,
+   "quien": "Aaron Raya",
+   "sd": "CN"
+  },
+  {
+   "nombre": "Extraer Datos Laborales Banca",
+   "acciones": 25,
+   "quien": "Jean Cub Nájera",
+   "sd": "RL"
+  },
+  {
+   "nombre": "Clasificación de Productos y Servicios Niza",
+   "acciones": 24,
+   "quien": "Alejandra Mireles",
+   "sd": "GC"
+  },
+  {
+   "nombre": "Extractor de Requerimiento",
+   "acciones": 20,
+   "quien": "Karla Stephanie Aparicio González",
+   "sd": "PLD"
+  },
+  {
+   "nombre": "Extractor de Denuncias",
+   "acciones": 18,
+   "quien": "Karla Stephanie Aparicio González",
+   "sd": "PLD"
+  },
+  {
+   "nombre": "Resumen diario de publicaciones y correo (MX)",
+   "acciones": 14,
+   "quien": "Javier García",
+   "sd": "CN"
+  },
+  {
+   "nombre": "Revisión de Documentos por Vinculación Delictiva",
+   "acciones": 11,
+   "quien": "Néstor Rangel",
+   "sd": "PLD"
+  }
+ ],
+ "creados_dj": {
+  "workflows": 19,
+  "workflows_borrador": 19,
+  "workflows_sin_nombre": 10,
+  "agentes": 24,
+  "agentes_publicados": 5,
+  "fuente": [
+   "workflows_export_2026-09-09_to_2026-10-09.xlsx",
+   "agents_export_2026-09-09_to_2026-10-09.xlsx"
+  ]
+ },
+ "tarea_repetida": [
+  {
+   "nombre": "Cristian Fernández",
+   "sd": "JC",
+   "hilos": 69,
+   "repetidos": 55
+  },
+  {
+   "nombre": "Jesús Paúl Pallares",
+   "sd": "PLD",
+   "hilos": 45,
+   "repetidos": 40
+  },
+  {
+   "nombre": "Mario Manzano",
+   "sd": "PLD",
+   "hilos": 30,
+   "repetidos": 25
+  },
+  {
+   "nombre": "Gustavo Bernal",
+   "sd": "PLD",
+   "hilos": 38,
+   "repetidos": 22
+  }
+ ],
+ "sesion": {
+  "fecha": "2026-10-12",
+  "fecha_txt": "Semana 12-16 oct",
+  "tema": "Workflow: de la tarea repetida al workflow",
+  "herramienta": "W",
+  "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+  "expertos": [
+   "Karla Stephanie Aparicio González (PLD, 10.7 por semana)",
+   "Janis Pérez (CN, 7.9 por semana)",
+   "Jean Cub Nájera (RL, 7.9 por semana)"
+  ],
+  "niveles": [
+   "Coordinador",
+   "Líder",
+   "Gerente"
+  ],
+  "estado": "Propuesta",
+  "coordina_uid": "jbueno",
+  "nota": "Jean Cub Nájera no puede esta semana; la da Tony (12 oct 2026). Jean conserva su lugar en la rotación.",
+  "publico": 58,
+  "publico_sin_uso": 13,
+  "urgentes": [
+   {
+    "nombre": "Cristian Fernández",
+    "sd": "JC",
+    "nivel": "Coordinador",
+    "motivo": "repite la misma tarea en Assistant en 55 de 69 hilos"
+   },
+   {
+    "nombre": "Jesús Paúl Pallares",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "motivo": "repite la misma tarea en Assistant en 40 de 45 hilos"
+   },
+   {
+    "nombre": "Mario Manzano",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "motivo": "repite la misma tarea en Assistant en 25 de 30 hilos"
+   }
+  ]
+ },
+ "workflows_por_persona": {
+  "Alejandra Casillas": {
+   "ANÁLISIS PERSONAS EN REGISTROS WEB": 6
+  },
+  "Ana Karen Salinas": {
+   "Tracking diario- Términos y Condiciones de Campañas": 9,
+   "Comparativa de ajustes realizados en TyC – versión anterior vs. versión actual": 6,
+   "Primer revisión de T&C de Campañas": 3,
+   "Validación mensual-Actas Órganos de Gobierno": 3,
+   "Minuta ejecutiva desde transcripción de Teams (Gentera)": 2,
+   "Análisis Estructurado de Oficios": 2,
+   "Apoyo Informes Trimestrales - Cumplimiento": 2
+  },
+  "Alfredo Duarte": {
+   "Minuta desde transcripción (ENN)": 3,
+   "Validador de Expedientes Legales": 2,
+   "Convenio de Terminación - Grupo Gentera": 1
+  },
+  "Alejandra Mireles": {
+   "Clasificación de Productos y Servicios Niza": 24
+  },
+  "Aaron Raya": {
+   "Notas Informativas Regulatorias (MX)": 33,
+   "Comunicados | Proyectos - Correo y Distribución": 2
+  },
+  "César Berelleza": {
+   "Validador de Expedientes Legales": 1
+  },
+  "Diana Fuentes": {
+   "Minuta desde transcripción (ENN)": 5,
+   "Validador de Expedientes Legales": 1
+  },
+  "Diego Alvarado": {
+   "Redactor de Respuestas Legales a Correos": 2
+  },
+  "Diana Laura Mendoza Osorio": {
+   "Validador de Expedientes Legales": 1
+  },
+  "Elisa Álvarez": {
+   "Minuta ejecutiva desde transcripción de Teams (Gentera)": 1,
+   "Minutas ejecutivas desde transcripción de Teams": 1
+  },
+  "Gloria Sánchez": {
+   "Registro CNBPD": 5
+  },
+  "Isis Rodríguez": {
+   "Validador de Expedientes Legales": 10,
+   "Contrato de Donación": 4
+  },
+  "Jorge Belloc": {
+   "Generar Alegatos en Respuesta a Oficio": 7,
+   "Transcribe Audio to Text": 2
+  },
+  "Javier García": {
+   "Resumen diario de publicaciones y correo (MX)": 14
+  },
+  "Jean Cub Nájera": {
+   "Extraer Datos Laborales Banca": 25,
+   "Extraer Datos de Resoluciones Laborales": 9,
+   "Extraer Datos de Resoluciones Laborales CE": 1
+  },
+  "Karla Stephanie Aparicio González": {
+   "Extractor de Requerimiento": 20,
+   "Extractor de Denuncias": 18,
+   "Extractor de Registros (Oficio eliminar)": 9,
+   "Extracción de Datos proveedores": 8,
+   "Extractor de Datos Corporativos (3)": 1
+  },
+  "Karla Méndez": {
+   "Validador de Expedientes Legales": 4
+  },
+  "Karla Zetina": {
+   "Extraer Datos de Resoluciones Laborales": 5
+  },
+  "Leslie Espinoza": {
+   "Copy of Consultas 326 Y 328_ 140726": 6,
+   "Escrito de Respuesta a Requerimiento de Información.": 4,
+   "Carpetas 326/328 CNBV – Cumplimiento, análisis contractual, escrito y Resumen Ejecutivo": 3,
+   "Respuesta CNBV por Comparación de Contratos": 2,
+   "Validación de Acuerdos vs. Anexo Único — Cumplimiento Normativo": 1,
+   "Reporte Carpetas 326/328 CNBV": 1,
+   "Respuesta a Oficios Autoridades Financieras MX- Draft Leslie": 1,
+   "Revisión Contractual Normativa — Instituciones de Crédito": 1,
+   "Comité de Riesgos – Access Manager Document Editor": 1
+  },
+  "Mario Manzano": {
+   "Redactor de descripciones de operaciones": 37
+  },
+  "Miguel Jaimes": {
+   "Validador de Expedientes Legales": 7
+  },
+  "Martha Sotomayor": {
+   "Revisión de Personas Vinculadas con Delitos": 4,
+   "Debida Diligencia PLD/FT": 1
+  },
+  "Néstor Rangel": {
+   "Revisión de Documentos por Vinculación Delictiva": 11,
+   "Figuras de Relacion de Gentera": 4
+  },
+  "Karime Sotelo": {
+   "Validador de Expedientes Legales": 8,
+   "Completar Convenio de Colaboración": 8,
+   "Checklist de Documentos de Identificación": 2,
+   "Contrato de Donación": 1
+  },
+  "Ricardo Centurión": {
+   "Identificación de Personas Vinculadas a Delitos en Noticias": 11
+  },
+  "Rodolfo Osuna": {
+   "Summarize Interview Calls": 1
+  },
+  "Raquel Reyes Cubillo": {
+   "Validador de Expedientes Legales": 9
+  },
+  "Sofía Ochoa": {
+   "Validador de Expedientes Legales": 11,
+   "Validador de Propuestas Comerciales": 10,
+   "Minuta desde transcripción (ENN)": 7
+  },
+  "Valeria Cruz": {
+   "Extraer Datos de Resoluciones Laborales": 6,
+   "Extraer Datos de Resoluciones Laborales CE": 3
+  }
+ }
+}

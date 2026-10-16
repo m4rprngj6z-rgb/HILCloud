@@ -1,0 +1,428 @@
+{
+ "corte_fin": "2026-10-16",
+ "dia_sesion": "2026-10-15",
+ "publicados": "ver nuevos_en_uso (el export de workflows no mide publicados)",
+ "borradores_en_export": {
+  "fuente": "workflows_export_2026-09-16_to_2026-10-16.xlsx",
+  "dj": 33,
+  "nota": "solo borradores creados en los ultimos 30 dias; no comparable entre cortes"
+ },
+ "nuevos_en_uso": {
+  "fuente": "harvey-usage-start_2026-09-17_end_2026-10-16.xlsx",
+  "n": 14,
+  "linea_base_en_uso": 48,
+  "el_dia_de_la_sesion": 10,
+  "lista": [
+   {
+    "nombre": "Revisión de Matrices de Cumplimiento",
+    "primer_uso": "2026-10-12 18:59:13",
+    "personas": 1,
+    "quien": [
+     "Leslie Espinoza"
+    ]
+   },
+   {
+    "nombre": "Análisis de Cumplimiento Art. 318, Fracc. III, Inc. a) – Cartas de Subcontratados",
+    "primer_uso": "2026-10-13 11:29:06",
+    "personas": 1,
+    "quien": [
+     "Leslie Espinoza"
+    ]
+   },
+   {
+    "nombre": "CSG - Contratos de adhesión.",
+    "primer_uso": "2026-10-15 12:45:56",
+    "personas": 1,
+    "quien": [
+     "Alonso Ixta"
+    ]
+   },
+   {
+    "nombre": "Proofread for Spelling and Grammar",
+    "primer_uso": "2026-10-15 12:47:48",
+    "personas": 1,
+    "quien": [
+     "Israel Márquez Becerra"
+    ]
+   },
+   {
+    "nombre": "Translate into Another Language",
+    "primer_uso": "2026-10-15 12:51:37",
+    "personas": 1,
+    "quien": [
+     "Jesús Paúl Pallares"
+    ]
+   },
+   {
+    "nombre": "Ficha Técnica - Juicio Laboral",
+    "primer_uso": "2026-10-15 12:59:52",
+    "personas": 1,
+    "quien": [
+     "Patsy Godínez"
+    ]
+   },
+   {
+    "nombre": "Completar campos 40 y 41 del lay out",
+    "primer_uso": "2026-10-15 13:15:19",
+    "personas": 1,
+    "quien": [
+     "Damaris Mercado"
+    ]
+   },
+   {
+    "nombre": "Análisis Transaccional PLD/CFT",
+    "primer_uso": "2026-10-15 13:15:50",
+    "personas": 1,
+    "quien": [
+     "Mario Manzano"
+    ]
+   },
+   {
+    "nombre": "Análisis de oficios: personas requeridas y fundamentación CPF",
+    "primer_uso": "2026-10-15 13:16:11",
+    "personas": 1,
+    "quien": [
+     "Cristian Fernández"
+    ]
+   },
+   {
+    "nombre": "Extracción de personas y entidades",
+    "primer_uso": "2026-10-15 13:16:43",
+    "personas": 1,
+    "quien": [
+     "Karla Stephanie Aparicio González"
+    ]
+   },
+   {
+    "nombre": "Extracción de Datos Corporativos y Personas Relacionadas (PLD)",
+    "primer_uso": "2026-10-15 13:23:45",
+    "personas": 1,
+    "quien": [
+     "Diana Laura Mendoza Osorio"
+    ]
+   },
+   {
+    "nombre": "Análisis de Póliza de Seguro Global Bancario",
+    "primer_uso": "2026-10-15 13:44:37",
+    "personas": 1,
+    "quien": [
+     "Armando de la Rosa"
+    ]
+   },
+   {
+    "nombre": "Extracción de Datos y Montos – Requerimientos SIARA/CNBV",
+    "primer_uso": "2026-10-16 12:51:23",
+    "personas": 1,
+    "quien": [
+     "Gloria Sánchez"
+    ]
+   },
+   {
+    "nombre": "Validación de Materiales Publicitarios según Matriz de Autoservicio | Gentera y subs.",
+    "primer_uso": "2026-10-16 16:27:34",
+    "personas": 1,
+    "quien": [
+     "Ana Karen Salinas"
+    ]
+   }
+  ],
+  "nota": "puede incluir plantillas de Harvey (p. ej. Proofread, Translate); la aprobacion del Champion no viene en el export"
+ },
+ "compartidos": {
+  "fuente": "harvey-usage-start_2026-09-17_end_2026-10-16.xlsx",
+  "hoy": 6,
+  "linea_base": 6,
+  "lista": {
+   "Contrato de Donación": 2,
+   "Extraer Datos de Resoluciones Laborales": 3,
+   "Minuta desde transcripción (ENN)": 4,
+   "Minuta ejecutiva desde transcripción de Teams (Gentera)": 2,
+   "Validador de Expedientes Legales": 13,
+   "Validador de Propuestas Comerciales": 2
+  },
+  "nuevos_vs_base": [
+   "Validador de Propuestas Comerciales"
+  ]
+ },
+ "actividad_dia": {
+  "Aaron Raya": {
+   "acciones_workflow": 1,
+   "pruebas": 1,
+   "ejecuciones": 1,
+   "workflows": [
+    "Notas Informativas Regulatorias (MX)"
+   ],
+   "sd": "CN"
+  },
+  "Alonso Ixta": {
+   "acciones_workflow": 6,
+   "pruebas": 3,
+   "ejecuciones": 3,
+   "workflows": [
+    "Assist",
+    "CSG - Contratos de adhesión."
+   ],
+   "sd": "CN"
+  },
+  "Ana Karen Salinas": {
+   "acciones_workflow": 1,
+   "pruebas": 0,
+   "ejecuciones": 1,
+   "workflows": [
+    "Validador de Expedientes Legales"
+   ],
+   "sd": "CN"
+  },
+  "Armando de la Rosa": {
+   "acciones_workflow": 7,
+   "pruebas": 5,
+   "ejecuciones": 5,
+   "workflows": [
+    "Análisis de Póliza de Seguro Global Bancario",
+    "Assist"
+   ],
+   "sd": "CN"
+  },
+  "Elisa Álvarez": {
+   "acciones_workflow": 1,
+   "pruebas": 0,
+   "ejecuciones": 1,
+   "workflows": [
+    "Validador de Expedientes Legales"
+   ],
+   "sd": "CN"
+  },
+  "Janis Pérez": {
+   "acciones_workflow": 3,
+   "pruebas": 2,
+   "ejecuciones": 0,
+   "workflows": [
+    "Assist"
+   ],
+   "sd": "CN"
+  },
+  "Javier García": {
+   "acciones_workflow": 1,
+   "pruebas": 1,
+   "ejecuciones": 1,
+   "workflows": [
+    "Resumen diario de publicaciones y correo (MX)"
+   ],
+   "sd": "CN"
+  },
+  "Lucía Arrazola": {
+   "acciones_workflow": 2,
+   "pruebas": 0,
+   "ejecuciones": 0,
+   "workflows": [
+    "Assist"
+   ],
+   "sd": "CN"
+  },
+  "Isis Rodríguez": {
+   "acciones_workflow": 2,
+   "pruebas": 0,
+   "ejecuciones": 2,
+   "workflows": [
+    "Validador de Expedientes Legales"
+   ],
+   "sd": "ENN"
+  },
+  "Karime Sotelo": {
+   "acciones_workflow": 3,
+   "pruebas": 0,
+   "ejecuciones": 3,
+   "workflows": [
+    "Validador de Expedientes Legales"
+   ],
+   "sd": "ENN"
+  },
+  "Karla Méndez": {
+   "acciones_workflow": 1,
+   "pruebas": 0,
+   "ejecuciones": 1,
+   "workflows": [
+    "Validador de Propuestas Comerciales"
+   ],
+   "sd": "ENN"
+  },
+  "Miguel Jaimes": {
+   "acciones_workflow": 1,
+   "pruebas": 0,
+   "ejecuciones": 1,
+   "workflows": [
+    "Validador de Expedientes Legales"
+   ],
+   "sd": "ENN"
+  },
+  "Alejandra Mireles": {
+   "acciones_workflow": 3,
+   "pruebas": 2,
+   "ejecuciones": 0,
+   "workflows": [
+    "Assist"
+   ],
+   "sd": "GC"
+  },
+  "Cristian Fernández": {
+   "acciones_workflow": 4,
+   "pruebas": 3,
+   "ejecuciones": 3,
+   "workflows": [
+    "Análisis de oficios: personas requeridas y fundamentación CPF",
+    "Assist"
+   ],
+   "sd": "JC"
+  },
+  "Alejandra Casillas": {
+   "acciones_workflow": 2,
+   "pruebas": 2,
+   "ejecuciones": 2,
+   "workflows": [
+    "ANÁLISIS PERSONAS EN REGISTROS WEB"
+   ],
+   "sd": "PLD"
+  },
+  "Damaris Mercado": {
+   "acciones_workflow": 3,
+   "pruebas": 1,
+   "ejecuciones": 1,
+   "workflows": [
+    "Assist",
+    "Completar campos 40 y 41 del lay out"
+   ],
+   "sd": "PLD"
+  },
+  "Diana Laura Mendoza Osorio": {
+   "acciones_workflow": 4,
+   "pruebas": 2,
+   "ejecuciones": 2,
+   "workflows": [
+    "Assist",
+    "Extracción de Datos Corporativos y Personas Relacionadas (PLD)",
+    "Validador de Expedientes Legales"
+   ],
+   "sd": "PLD"
+  },
+  "Israel Márquez Becerra": {
+   "acciones_workflow": 3,
+   "pruebas": 0,
+   "ejecuciones": 1,
+   "workflows": [
+    "Assist",
+    "Proofread for Spelling and Grammar"
+   ],
+   "sd": "PLD"
+  },
+  "Jesús Paúl Pallares": {
+   "acciones_workflow": 4,
+   "pruebas": 0,
+   "ejecuciones": 1,
+   "workflows": [
+    "Assist",
+    "Translate into Another Language"
+   ],
+   "sd": "PLD"
+  },
+  "Karla Stephanie Aparicio González": {
+   "acciones_workflow": 4,
+   "pruebas": 1,
+   "ejecuciones": 2,
+   "workflows": [
+    "Assist",
+    "Extracción de personas y entidades",
+    "Validador de Expedientes Legales"
+   ],
+   "sd": "PLD"
+  },
+  "Kelly Hernández": {
+   "acciones_workflow": 2,
+   "pruebas": 0,
+   "ejecuciones": 0,
+   "workflows": [
+    "Assist"
+   ],
+   "sd": "PLD"
+  },
+  "Mario Manzano": {
+   "acciones_workflow": 2,
+   "pruebas": 1,
+   "ejecuciones": 1,
+   "workflows": [
+    "Análisis Transaccional PLD/CFT",
+    "Assist"
+   ],
+   "sd": "PLD"
+  },
+  "Martha Sotomayor": {
+   "acciones_workflow": 2,
+   "pruebas": 0,
+   "ejecuciones": 1,
+   "workflows": [
+    "Assist",
+    "Validador de Expedientes Legales"
+   ],
+   "sd": "PLD"
+  },
+  "Néstor Rangel": {
+   "acciones_workflow": 1,
+   "pruebas": 1,
+   "ejecuciones": 1,
+   "workflows": [
+    "Revisión de Documentos por Vinculación Delictiva"
+   ],
+   "sd": "PLD"
+  },
+  "Ricardo Centurión": {
+   "acciones_workflow": 1,
+   "pruebas": 0,
+   "ejecuciones": 0,
+   "workflows": [
+    "Assist"
+   ],
+   "sd": "PLD"
+  },
+  "Karla Zetina": {
+   "acciones_workflow": 2,
+   "pruebas": 0,
+   "ejecuciones": 1,
+   "workflows": [
+    "Assist",
+    "Extraer Datos de Resoluciones Laborales"
+   ],
+   "sd": "RL"
+  },
+  "Patsy Godínez": {
+   "acciones_workflow": 1,
+   "pruebas": 1,
+   "ejecuciones": 1,
+   "workflows": [
+    "Ficha Técnica - Juicio Laboral"
+   ],
+   "sd": "RL"
+  },
+  "Rocío Fernández": {
+   "acciones_workflow": 1,
+   "pruebas": 0,
+   "ejecuciones": 0,
+   "workflows": [
+    "Assist"
+   ],
+   "sd": "RL"
+  }
+ },
+ "obligatorios_pld": {
+  "Jesús Paúl Pallares": "con actividad el día",
+  "Mario Manzano": "con actividad el día",
+  "Gustavo Bernal": "sin actividad el día",
+  "Ricardo Centurión": "con actividad el día",
+  "Alejandra Casillas": "con actividad el día",
+  "Martha Sotomayor": "con actividad el día",
+  "Carlos Reyes": "sin actividad el día",
+  "Gabriela Mejía Guerrero": "sin actividad el día",
+  "Israel Márquez Becerra": "con actividad el día",
+  "Kelly Hernández": "con actividad el día",
+  "Damaris Mercado": "con actividad el día",
+  "Raúl Dimas": "sin actividad el día"
+ }
+}

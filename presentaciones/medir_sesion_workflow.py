@@ -1,10 +1,10 @@
 """Medicion de la sesion de Workflow del jue 15 oct 2026 (Tony, 15 oct 2026). Corre con los exports del
 corte 12-16 oct; no recalcula nada del ETL.
 
-1. Borrador -> publicado: workflows creados por las 65 personas en el export de workflows del corte,
-   contra la linea base del 9 oct (19 de 19 en borrador). Si existe la lista de esos 19
-   (estado/2026-10-09/WF_borradores_2026-10-09.json, con ID o Nombre+Creador), se compara uno por uno;
-   si no, solo por conteo y lo dice.
+1. Workflows nuevos en uso: corren en el export de uso del corte y no estaban en uso en la linea base
+   del 9 oct. (Corregido 16 oct: el export de workflows solo trae borradores creados en su ventana de
+   30 dias; no mide publicados. La cifra "19 de 19 en borrador" de la sesion salia de ahi y no prueba
+   que nada se publique.)
 2. Compartidos: workflows usados por 2 o mas personas en el export de uso de 30 dias que cierra en el
    corte (misma regla que datos_workflow.py). Linea base: 6. Meta al corte del 30 oct.
 3. Asistencia contra actividad del dia de la sesion: por persona, acciones en superficie WORKFLOW,
@@ -68,38 +68,19 @@ def main():
     base = json.load(open(os.path.join(BASE, 'WF_sesion_2026-10-09.json')))
     out = {'corte_fin': a.corte_fin, 'dia_sesion': a.dia}
 
-    # 1. Borrador -> publicado
-    wfx = ultimo(os.path.join(a.uploads, f'workflows_export_*_to_{a.corte_fin}.xlsx')) or ultimo(os.path.join(a.uploads, 'workflows_export_*.xlsx'))
+    # 1. Workflows nuevos en uso (corregido 16 oct 2026). El export de workflows NO sirve para medir
+    # publicados: solo trae workflows creados en su ventana de 30 dias y, en la practica, solo borradores
+    # (un publicado o uno creado antes de la ventana no aparece). Lo publicado se ve en el export de uso:
+    # 'Nombre del workflow' trae el workflow que corrio. Nuevo = corre en el corte y no estaba en uso en
+    # la linea base del 9 oct (workflows_por_persona de WF_sesion_2026-10-09.json). La aprobacion del
+    # Champion no viene en ningun export.
+    out['publicados'] = 'ver nuevos_en_uso (el export de workflows no mide publicados)'
+    wfx = ultimo(os.path.join(a.uploads, f'workflows_export_*_to_{a.corte_fin}.xlsx'))
     if wfx:
         wf = pd.read_excel(wfx)
-        c_cre, c_st, c_nm = col(wf, 'Creator', 'Creador'), col(wf, 'Status', 'Estado'), col(wf, 'Name', 'Nombre')
-        c_id, c_cr = col(wf, 'ID', 'Workflow ID'), col(wf, 'Created', 'Creado', 'Created At')
-        wf['u'] = wf[c_cre].astype(str).str.split('@').str[0].str.lower()
-        wf = wf[wf.u.isin(uni)].copy()
-        pub = wf[wf[c_st].astype(str).str.lower().str.startswith('publi')]
-        bl = os.path.join(BASE, 'WF_borradores_2026-10-09.json')
-        trans = None
-        if os.path.exists(bl):
-            b = json.load(open(bl))
-            clave = (lambda r: str(r.get('id'))) if c_id and all(x.get('id') for x in b) else (lambda r: f"{r['nombre']}|{r['creador']}")
-            claves_b = {clave(x) for x in b}
-            act = {(str(r[c_id]) if c_id and all(x.get('id') for x in b) else f"{r[c_nm]}|{r['u']}"): r for _, r in wf.iterrows()}
-            trans = [{'nombre': act[k][c_nm], 'quien': nom(act[k]['u'])} for k in claves_b
-                     if k in act and str(act[k][c_st]).lower().startswith('publi')]
-        nuevos = []
-        if c_cr:
-            f = pd.to_datetime(wf[c_cr], errors='coerce')
-            nuevos = wf[f.dt.date >= pd.Timestamp('2026-10-10').date()]
-        out['publicados'] = {
-            'fuente': os.path.basename(wfx), 'workflows_dj': int(len(wf)), 'publicados': int(len(pub)),
-            'borrador': int(len(wf) - len(pub)),
-            'linea_base': base['creados_dj'],
-            'paso_a_publicado': trans if trans is not None else 'sin lista base: comparación solo por conteo',
-            'publicados_lista': [{'nombre': r[c_nm], 'quien': nom(r['u'])} for _, r in pub.iterrows()],
-            'creados_desde_10oct': int(len(nuevos)) if c_cr else 'el export no trae fecha de creación',
-        }
-    else:
-        out['publicados'] = 'falta workflows_export del corte'
+        wf['u'] = wf[col(wf, 'Creator', 'Creador')].astype(str).str.split('@').str[0].str.lower()
+        out['borradores_en_export'] = {'fuente': os.path.basename(wfx), 'dj': int(wf.u.isin(uni).sum()),
+                                       'nota': 'solo borradores creados en los ultimos 30 dias; no comparable entre cortes'}
 
     # 2 y 3. Uso
     usage = ultimo(os.path.join(a.uploads, f'harvey-usage-*_end_{a.corte_fin}.xlsx'))
@@ -112,6 +93,17 @@ def main():
         w = d[d[c_wf].notna() & ~d[c_wf].isin(NO_WF)]
         g = w.groupby(c_wf)['u'].nunique()
         comp = g[g > 1].sort_index()
+        base_nombres = {n for v in base['workflows_por_persona'].values() for n in v}
+        c_t0 = col(d, 'Tiempo (Etc/GMT+6)', 'Time (Etc/GMT+6)')
+        pr = w.assign(t=pd.to_datetime(w[c_t0])).groupby(c_wf).agg(primera=('t', 'min'), personas=('u', 'nunique'),
+                                                                     quien=('u', lambda x: sorted({nom(u) for u in x})))
+        nv = pr[~pr.index.isin(base_nombres)].sort_values('primera')
+        out['nuevos_en_uso'] = {'fuente': os.path.basename(usage), 'n': int(len(nv)),
+                                'linea_base_en_uso': len(base_nombres),
+                                'el_dia_de_la_sesion': int((nv.primera.dt.date == pd.Timestamp(a.dia).date()).sum()),
+                                'lista': [{'nombre': k, 'primer_uso': str(r.primera), 'personas': int(r.personas), 'quien': r.quien}
+                                          for k, r in nv.iterrows()],
+                                'nota': 'puede incluir plantillas de Harvey (p. ej. Proofread, Translate); la aprobacion del Champion no viene en el export'}
         out['compartidos'] = {'fuente': os.path.basename(usage), 'hoy': int(len(comp)), 'linea_base': len(base['compartidos']),
                               'lista': {k: int(v) for k, v in comp.items()},
                               'nuevos_vs_base': sorted(set(comp.index) - {x['nombre'] for x in base['compartidos']})}

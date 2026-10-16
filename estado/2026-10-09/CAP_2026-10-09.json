@@ -1,0 +1,1301 @@
+{
+ "corte_viernes": "2026-10-09",
+ "semanas": 8,
+ "personas": 65,
+ "equipos": [
+  {
+   "sd": "ENN",
+   "personas": 9,
+   "acc_ppw": 32.0,
+   "mezcla": {
+    "A": 27,
+    "Wo": 32,
+    "V": 10,
+    "W": 7,
+    "O": 24
+   },
+   "fortaleza": "Wo",
+   "hueco": "W"
+  },
+  {
+   "sd": "CN",
+   "personas": 15,
+   "acc_ppw": 19.8,
+   "mezcla": {
+    "A": 48,
+    "Wo": 19,
+    "V": 14,
+    "W": 14,
+    "O": 5
+   },
+   "fortaleza": "A",
+   "hueco": "O"
+  },
+  {
+   "sd": "PLD",
+   "personas": 19,
+   "acc_ppw": 13.8,
+   "mezcla": {
+    "A": 55,
+    "Wo": 28,
+    "V": 2,
+    "W": 14,
+    "O": 1
+   },
+   "fortaleza": "A",
+   "hueco": "O"
+  },
+  {
+   "sd": "GC",
+   "personas": 7,
+   "acc_ppw": 15.3,
+   "mezcla": {
+    "A": 35,
+    "Wo": 43,
+    "V": 8,
+    "W": 12,
+    "O": 2
+   },
+   "fortaleza": "Wo",
+   "hueco": "O"
+  },
+  {
+   "sd": "JC",
+   "personas": 7,
+   "acc_ppw": 13.5,
+   "mezcla": {
+    "A": 30,
+    "Wo": 44,
+    "V": 18,
+    "W": 2,
+    "O": 6
+   },
+   "fortaleza": "Wo",
+   "hueco": "W"
+  },
+  {
+   "sd": "RL",
+   "personas": 8,
+   "acc_ppw": 8.5,
+   "mezcla": {
+    "A": 76,
+    "Wo": 4,
+    "V": 0,
+    "W": 19,
+    "O": 1
+   },
+   "fortaleza": "A",
+   "hueco": "V"
+  }
+ ],
+ "champions": [
+  {
+   "nombre": "Karime Sotelo",
+   "sd": "ENN",
+   "acc_semana": 30.2,
+   "mezcla": {
+    "A": 40,
+    "Wo": 26,
+    "V": 11,
+    "W": 12,
+    "O": 12
+   },
+   "fortaleza": "A",
+   "div_wf": 1.6
+  },
+  {
+   "nombre": "Jorge Belloc",
+   "sd": "CN",
+   "acc_semana": 26.0,
+   "mezcla": {
+    "A": 13,
+    "Wo": 13,
+    "V": 55,
+    "W": 15,
+    "O": 4
+   },
+   "fortaleza": "V",
+   "div_wf": 0.6
+  },
+  {
+   "nombre": "Gustavo Bernal",
+   "sd": "PLD",
+   "acc_semana": 34.2,
+   "mezcla": {
+    "A": 96,
+    "Wo": 0,
+    "V": 3,
+    "W": 1,
+    "O": 1
+   },
+   "fortaleza": "A",
+   "div_wf": 0.0
+  },
+  {
+   "nombre": "Alejandra Mireles",
+   "sd": "GC",
+   "acc_semana": 21.1,
+   "mezcla": {
+    "A": 36,
+    "Wo": 21,
+    "V": 7,
+    "W": 33,
+    "O": 4
+   },
+   "fortaleza": "A",
+   "div_wf": 0.6
+  },
+  {
+   "nombre": "Amed Hernández",
+   "sd": "JC",
+   "acc_semana": 10.1,
+   "mezcla": {
+    "A": 95,
+    "Wo": 0,
+    "V": 0,
+    "W": 0,
+    "O": 5
+   },
+   "fortaleza": "A",
+   "div_wf": 0.0
+  },
+  {
+   "nombre": "Jean Cub Nájera",
+   "sd": "RL",
+   "acc_semana": 11.0,
+   "mezcla": {
+    "A": 20,
+    "Wo": 3,
+    "V": 0,
+    "W": 72,
+    "O": 5
+   },
+   "fortaleza": "W",
+   "div_wf": 2.2
+  }
+ ],
+ "herramientas": [
+  {
+   "herramienta": "A",
+   "nombre": "Assistant",
+   "champion": {
+    "nombre": "Karime Sotelo",
+    "sd": "ENN",
+    "por_semana": 12.0
+   },
+   "referente": {
+    "nombre": "Javier García",
+    "sd": "CN",
+    "nivel": "Gerente",
+    "por_semana": 30.8,
+    "es_champion": false
+   },
+   "sin_uso": 2
+  },
+  {
+   "herramienta": "Wo",
+   "nombre": "Word",
+   "champion": {
+    "nombre": "Karime Sotelo",
+    "sd": "ENN",
+    "por_semana": 7.8
+   },
+   "referente": {
+    "nombre": "Adriana Rodríguez",
+    "sd": "JC",
+    "nivel": "Gerente",
+    "por_semana": 39.8,
+    "es_champion": false
+   },
+   "sin_uso": 20
+  },
+  {
+   "herramienta": "V",
+   "nombre": "Vault",
+   "champion": {
+    "nombre": "Jorge Belloc",
+    "sd": "CN",
+    "por_semana": 14.2
+   },
+   "referente": {
+    "nombre": "Javier García",
+    "sd": "CN",
+    "nivel": "Gerente",
+    "por_semana": 20.2,
+    "es_champion": false
+   },
+   "sin_uso": 28
+  },
+  {
+   "herramienta": "W",
+   "nombre": "Workflow",
+   "champion": {
+    "nombre": "Jean Cub Nájera",
+    "sd": "RL",
+    "por_semana": 7.9
+   },
+   "referente": {
+    "nombre": "Karla Stephanie Aparicio González",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "por_semana": 10.7,
+    "es_champion": false
+   },
+   "sin_uso": 18
+  },
+  {
+   "herramienta": "O",
+   "nombre": "Outlook",
+   "champion": {
+    "nombre": "Karime Sotelo",
+    "sd": "ENN",
+    "por_semana": 3.5
+   },
+   "referente": {
+    "nombre": "Karla Méndez",
+    "sd": "ENN",
+    "nivel": "Subdirector",
+    "por_semana": 31.6,
+    "es_champion": false
+   },
+   "sin_uso": 23
+  }
+ ],
+ "rangos": [
+  {
+   "nivel": "Subdirector",
+   "personas": 5,
+   "acc_ppw": 18.8,
+   "mezcla": {
+    "A": 33,
+    "Wo": 21,
+    "V": 8,
+    "W": 1,
+    "O": 37
+   },
+   "esperada": "A>V",
+   "sin_uso": {
+    "A": 0,
+    "Wo": 2,
+    "V": 2,
+    "W": 4,
+    "O": 3
+   },
+   "necesidad": "V",
+   "sin_necesidad": 2
+  },
+  {
+   "nivel": "Gerente",
+   "personas": 22,
+   "acc_ppw": 17.6,
+   "mezcla": {
+    "A": 43,
+    "Wo": 34,
+    "V": 11,
+    "W": 4,
+    "O": 8
+   },
+   "esperada": "A>W",
+   "sin_uso": {
+    "A": 1,
+    "Wo": 5,
+    "V": 8,
+    "W": 7,
+    "O": 8
+   },
+   "necesidad": "W",
+   "sin_necesidad": 7
+  },
+  {
+   "nivel": "Líder",
+   "personas": 14,
+   "acc_ppw": 15.4,
+   "mezcla": {
+    "A": 51,
+    "Wo": 14,
+    "V": 10,
+    "W": 21,
+    "O": 4
+   },
+   "esperada": "W>A",
+   "sin_uso": {
+    "A": 0,
+    "Wo": 7,
+    "V": 6,
+    "W": 2,
+    "O": 6
+   },
+   "necesidad": "W",
+   "sin_necesidad": 2
+  },
+  {
+   "nivel": "Coordinador",
+   "personas": 22,
+   "acc_ppw": 18.5,
+   "mezcla": {
+    "A": 39,
+    "Wo": 32,
+    "V": 7,
+    "W": 16,
+    "O": 6
+   },
+   "esperada": "W>A",
+   "sin_uso": {
+    "A": 0,
+    "Wo": 5,
+    "V": 10,
+    "W": 4,
+    "O": 4
+   },
+   "necesidad": "W",
+   "sin_necesidad": 4
+  }
+ ],
+ "rangos_fuera": 2,
+ "sin_outlook": 23,
+ "alertas_personas": [
+  {
+   "nombre": "Sofía Ochoa",
+   "sd": "ENN",
+   "nivel": "Coordinador",
+   "champion": false,
+   "senales": [
+    {
+     "senal": "Respuestas calificadas como negativas",
+     "detalle": "8 calificaciones negativas en 8 semanas",
+     "follow_up": "Revisar con la persona qué falló: la instrucción, el documento o la herramienta."
+    }
+   ]
+  },
+  {
+   "nombre": "Gustavo Bernal",
+   "sd": "PLD",
+   "nivel": "Líder",
+   "champion": true,
+   "senales": [
+    {
+     "senal": "Tarea repetida en Assistant",
+     "detalle": "22 de 38 hilos arrancan igual: \"Revisa el siguiente documento por favor, conforme a...\"",
+     "follow_up": "Convertir esa tarea en un Workflow con un experto de Workflow."
+    }
+   ]
+  },
+  {
+   "nombre": "Alejandra Casillas",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "champion": false,
+   "senales": [
+    {
+     "senal": "Instrucciones mínimas",
+     "detalle": "instrucción inicial de 14 palabras en promedio (17 hilos)",
+     "follow_up": "Sesión de Assistant: contexto, documento y resultado esperado en la instrucción."
+    }
+   ]
+  },
+  {
+   "nombre": "Diana Laura Mendoza Osorio",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "champion": false,
+   "senales": [
+    {
+     "senal": "Escribe el nombre del workflow en Assistant",
+     "detalle": "3 hilos arrancan solo con el nombre de un workflow",
+     "follow_up": "Mostrarle cómo ejecutar el workflow desde su sección (por confirmar si así no corre)."
+    }
+   ]
+  },
+  {
+   "nombre": "Gabriela Mejía Guerrero",
+   "sd": "PLD",
+   "nivel": "Gerente",
+   "champion": false,
+   "senales": [
+    {
+     "senal": "Instrucciones mínimas",
+     "detalle": "instrucción inicial de 8 palabras en promedio (35 hilos)",
+     "follow_up": "Sesión de Assistant: contexto, documento y resultado esperado en la instrucción."
+    }
+   ]
+  },
+  {
+   "nombre": "Jesús Paúl Pallares",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "champion": false,
+   "senales": [
+    {
+     "senal": "Tarea repetida en Assistant",
+     "detalle": "40 de 45 hilos arrancan igual: \"Dame: 1. Tipo de entidad, fecha de constitución,...\"",
+     "follow_up": "Convertir esa tarea en un Workflow con un experto de Workflow."
+    }
+   ]
+  },
+  {
+   "nombre": "Mario Manzano",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "champion": false,
+   "senales": [
+    {
+     "senal": "Tarea repetida en Assistant",
+     "detalle": "25 de 30 hilos arrancan igual: \"REDACTA EN FORMA DE FÁRRAFO LA SIGUIENTE TABLA,...\"",
+     "follow_up": "Convertir esa tarea en un Workflow con un experto de Workflow."
+    }
+   ]
+  },
+  {
+   "nombre": "Cristian Fernández",
+   "sd": "JC",
+   "nivel": "Coordinador",
+   "champion": false,
+   "senales": [
+    {
+     "senal": "Tarea repetida en Assistant",
+     "detalle": "55 de 69 hilos arrancan igual: \"Analiza los documentos adjuntos e identifica, con base...\"",
+     "follow_up": "Convertir esa tarea en un Workflow con un experto de Workflow."
+    }
+   ]
+  },
+  {
+   "nombre": "Valeria Cruz",
+   "sd": "RL",
+   "nivel": "Líder",
+   "champion": false,
+   "senales": [
+    {
+     "senal": "Instrucciones mínimas",
+     "detalle": "instrucción inicial de 7.5 palabras en promedio (14 hilos)",
+     "follow_up": "Sesión de Assistant: contexto, documento y resultado esperado en la instrucción."
+    }
+   ]
+  }
+ ],
+ "alertas_sd": [
+  {
+   "sd": "PLD",
+   "personas": 6,
+   "de": 19,
+   "champion": "Gustavo Bernal"
+  }
+ ],
+ "assistant_calidad": {
+  "evaluadas": 64,
+  "tarea_repetida": [
+   {
+    "nombre": "Cristian Fernández",
+    "sd": "JC",
+    "nivel": "Coordinador",
+    "hilos": 69,
+    "hilos_repetidos": 55,
+    "plantilla": "Analiza los documentos adjuntos e identifica, con base",
+    "pal_inicial": 186.0,
+    "tarea_repetida": true,
+    "instrucciones_minimas": false,
+    "workflow_escrito": 0,
+    "negativos": 0
+   },
+   {
+    "nombre": "Jesús Paúl Pallares",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "hilos": 45,
+    "hilos_repetidos": 40,
+    "plantilla": "Dame: 1. Tipo de entidad, fecha de constitución,",
+    "pal_inicial": 75.0,
+    "tarea_repetida": true,
+    "instrucciones_minimas": false,
+    "workflow_escrito": 0,
+    "negativos": 0
+   },
+   {
+    "nombre": "Mario Manzano",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "hilos": 30,
+    "hilos_repetidos": 25,
+    "plantilla": "REDACTA EN FORMA DE FÁRRAFO LA SIGUIENTE TABLA,",
+    "pal_inicial": 52.0,
+    "tarea_repetida": true,
+    "instrucciones_minimas": false,
+    "workflow_escrito": 0,
+    "negativos": 0
+   },
+   {
+    "nombre": "Gustavo Bernal",
+    "sd": "PLD",
+    "nivel": "Líder",
+    "hilos": 38,
+    "hilos_repetidos": 22,
+    "plantilla": "Revisa el siguiente documento por favor, conforme a",
+    "pal_inicial": 67.0,
+    "tarea_repetida": true,
+    "instrucciones_minimas": false,
+    "workflow_escrito": 0,
+    "negativos": 0
+   }
+  ],
+  "instrucciones_minimas": [
+   {
+    "nombre": "Alejandra Casillas",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "hilos": 17,
+    "hilos_repetidos": 0,
+    "plantilla": null,
+    "pal_inicial": 14.0,
+    "tarea_repetida": false,
+    "instrucciones_minimas": true,
+    "workflow_escrito": 0,
+    "negativos": 0
+   },
+   {
+    "nombre": "Gabriela Mejía Guerrero",
+    "sd": "PLD",
+    "nivel": "Gerente",
+    "hilos": 35,
+    "hilos_repetidos": 0,
+    "plantilla": null,
+    "pal_inicial": 8.0,
+    "tarea_repetida": false,
+    "instrucciones_minimas": true,
+    "workflow_escrito": 0,
+    "negativos": 0
+   },
+   {
+    "nombre": "Valeria Cruz",
+    "sd": "RL",
+    "nivel": "Líder",
+    "hilos": 14,
+    "hilos_repetidos": 3,
+    "plantilla": "me ayudas con tus comentarios por favor",
+    "pal_inicial": 7.5,
+    "tarea_repetida": false,
+    "instrucciones_minimas": true,
+    "workflow_escrito": 0,
+    "negativos": 0
+   }
+  ]
+ },
+ "calendario": [
+  {
+   "fecha": "2026-10-08",
+   "fecha_txt": "Jue 8 oct",
+   "tema": "Harvey en Outlook",
+   "herramienta": "O",
+   "coordina": "Alejandra Mireles (GC)",
+   "expertos": [
+    "Karla Méndez (ENN, 31.6 por semana)",
+    "Alfredo Duarte (ENN, 10.6 por semana)",
+    "Isis Rodríguez (ENN, 8.1 por semana)"
+   ],
+   "niveles": [
+    "Coordinador",
+    "Gerente",
+    "Líder",
+    "Subdirector"
+   ],
+   "estado": "Confirmada",
+   "coordina_uid": "amireles",
+   "publico": 63,
+   "publico_sin_uso": 21,
+   "urgentes": [
+    {
+     "nombre": "Javier García",
+     "sd": "CN",
+     "nivel": "Gerente",
+     "motivo": "sin uso de Outlook; 53.6 acciones por semana en otras herramientas"
+    },
+    {
+     "nombre": "Christian Ramírez",
+     "sd": "RL",
+     "nivel": "Gerente",
+     "motivo": "sin uso de Outlook; 18.2 acciones por semana en otras herramientas"
+    },
+    {
+     "nombre": "Ana Karen Martínez",
+     "sd": "PLD",
+     "nivel": "Gerente",
+     "motivo": "sin uso de Outlook; 12.4 acciones por semana en otras herramientas"
+    }
+   ]
+  },
+  {
+   "fecha": "2026-10-12",
+   "fecha_txt": "Semana 12-16 oct",
+   "tema": "Workflow: de la tarea repetida al workflow",
+   "herramienta": "W",
+   "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+   "expertos": [
+    "Karla Stephanie Aparicio González (PLD, 10.7 por semana)",
+    "Janis Pérez (CN, 7.9 por semana)",
+    "Jean Cub Nájera (RL, 7.9 por semana)"
+   ],
+   "niveles": [
+    "Coordinador",
+    "Líder",
+    "Gerente"
+   ],
+   "estado": "Propuesta",
+   "coordina_uid": "jbueno",
+   "nota": "Jean Cub Nájera no puede esta semana; la da Tony (12 oct 2026). Jean conserva su lugar en la rotación.",
+   "publico": 58,
+   "publico_sin_uso": 13,
+   "urgentes": [
+    {
+     "nombre": "Cristian Fernández",
+     "sd": "JC",
+     "nivel": "Coordinador",
+     "motivo": "repite la misma tarea en Assistant en 55 de 69 hilos"
+    },
+    {
+     "nombre": "Jesús Paúl Pallares",
+     "sd": "PLD",
+     "nivel": "Coordinador",
+     "motivo": "repite la misma tarea en Assistant en 40 de 45 hilos"
+    },
+    {
+     "nombre": "Mario Manzano",
+     "sd": "PLD",
+     "nivel": "Coordinador",
+     "motivo": "repite la misma tarea en Assistant en 25 de 30 hilos"
+    }
+   ]
+  },
+  {
+   "fecha": "2026-10-19",
+   "fecha_txt": "Semana 19-23 oct",
+   "tema": "Assistant: instrucciones que sí funcionan",
+   "herramienta": "A",
+   "coordina": "Amed Hernández (JC)",
+   "expertos": [
+    "Javier García (CN, 30.8 por semana)",
+    "Lucía Arrazola (CN, 27.4 por semana)",
+    "Ana Karen Salinas (CN, 18.2 por semana)"
+   ],
+   "niveles": [
+    "Coordinador",
+    "Gerente",
+    "Líder",
+    "Subdirector",
+    "Analista"
+   ],
+   "estado": "Propuesta",
+   "coordina_uid": "amhernandez",
+   "rotacion_saltados": [
+    "Jean Cub Nájera (fuera esa semana)"
+   ],
+   "publico": 64,
+   "publico_sin_uso": 3,
+   "urgentes": [
+    {
+     "nombre": "Gabriela Mejía Guerrero",
+     "sd": "PLD",
+     "nivel": "Gerente",
+     "motivo": "instrucción inicial de 8 palabras en promedio (35 hilos)"
+    },
+    {
+     "nombre": "Alejandra Casillas",
+     "sd": "PLD",
+     "nivel": "Coordinador",
+     "motivo": "instrucción inicial de 14 palabras en promedio (17 hilos)"
+    },
+    {
+     "nombre": "Valeria Cruz",
+     "sd": "RL",
+     "nivel": "Líder",
+     "motivo": "instrucción inicial de 7.5 palabras en promedio (14 hilos)"
+    }
+   ]
+  },
+  {
+   "fecha": "2026-10-19",
+   "fecha_txt": "Semana 19-23 oct",
+   "tema": "Word y Playbook",
+   "herramienta": "Wo",
+   "coordina": "Karime Sotelo (ENN)",
+   "expertos": [
+    "Adriana Rodríguez (JC, 39.8 por semana)",
+    "Heriberto Falcón (PLD, 33.6 por semana)",
+    "Ana Karen Salinas (CN, 30.8 por semana)"
+   ],
+   "niveles": [
+    "Gerente",
+    "Líder"
+   ],
+   "estado": "Propuesta",
+   "mentor": "Alejandra Mireles (GC): acompaña a Karime Sotelo en su primera coordinación (programa de desarrollo, Tony 7 oct 2026)",
+   "coordina_uid": "nsotelo",
+   "rotacion_saltados": [
+    "Gustavo Bernal (alerta amarilla activa)"
+   ],
+   "publico": 36,
+   "publico_sin_uso": 12,
+   "urgentes": [
+    {
+     "nombre": "Gustavo Bernal",
+     "sd": "PLD",
+     "nivel": "Líder",
+     "motivo": "sin uso de Word; 34.2 acciones por semana en otras herramientas"
+    },
+    {
+     "nombre": "Christian Ramírez",
+     "sd": "RL",
+     "nivel": "Gerente",
+     "motivo": "sin uso de Word; 18.2 acciones por semana en otras herramientas"
+    },
+    {
+     "nombre": "Alonso Ixta",
+     "sd": "CN",
+     "nivel": "Gerente",
+     "motivo": "sin uso de Word; 12.2 acciones por semana en otras herramientas"
+    }
+   ]
+  },
+  {
+   "fecha": "2026-10-26",
+   "fecha_txt": "Semana 26-30 oct",
+   "tema": "Vault: repositorios y bases compartidas",
+   "herramienta": "V",
+   "coordina": "Jorge Belloc (CN)",
+   "expertos": [
+    "Javier García (CN, 20.2 por semana)",
+    "Jorge Belloc (CN, 14.2 por semana)",
+    "Isis Rodríguez (ENN, 4.6 por semana)"
+   ],
+   "niveles": [
+    "Gerente",
+    "Subdirector"
+   ],
+   "estado": "Propuesta",
+   "coordina_uid": "jbelloc",
+   "rotacion_saltados": [],
+   "publico": 27,
+   "publico_sin_uso": 10,
+   "urgentes": [
+    {
+     "nombre": "Christian Ramírez",
+     "sd": "RL",
+     "nivel": "Gerente",
+     "motivo": "sin uso de Vault; 18.2 acciones por semana en otras herramientas"
+    },
+    {
+     "nombre": "Alonso Ixta",
+     "sd": "CN",
+     "nivel": "Gerente",
+     "motivo": "sin uso de Vault; 12.2 acciones por semana en otras herramientas"
+    },
+    {
+     "nombre": "Gabriela Cadena",
+     "sd": "PLD",
+     "nivel": "Subdirector",
+     "motivo": "sin uso de Vault; 12 acciones por semana en otras herramientas"
+    }
+   ]
+  }
+ ],
+ "por_sd": {
+  "ENN": {
+   "alerta_sd": null,
+   "alertas": [
+    {
+     "nombre": "Sofía Ochoa",
+     "sd": "ENN",
+     "nivel": "Coordinador",
+     "champion": false,
+     "senales": [
+      {
+       "senal": "Respuestas calificadas como negativas",
+       "detalle": "8 calificaciones negativas en 8 semanas",
+       "follow_up": "Revisar con la persona qué falló: la instrucción, el documento o la herramienta."
+      }
+     ]
+    }
+   ],
+   "sesiones": [
+    {
+     "fecha_txt": "Jue 8 oct",
+     "tema": "Harvey en Outlook",
+     "coordina": "Alejandra Mireles (GC)",
+     "estado": "Confirmada",
+     "sin_uso": 0,
+     "publico": 9,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 12-16 oct",
+     "tema": "Workflow: de la tarea repetida al workflow",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 8,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Assistant: instrucciones que sí funcionan",
+     "coordina": "Amed Hernández (JC)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 9,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Word y Playbook",
+     "coordina": "Karime Sotelo (ENN)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 5,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 26-30 oct",
+     "tema": "Vault: repositorios y bases compartidas",
+     "coordina": "Jorge Belloc (CN)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 5,
+     "prioridad": []
+    }
+   ],
+   "personas": 9
+  },
+  "CN": {
+   "alerta_sd": null,
+   "alertas": [],
+   "sesiones": [
+    {
+     "fecha_txt": "Jue 8 oct",
+     "tema": "Harvey en Outlook",
+     "coordina": "Alejandra Mireles (GC)",
+     "estado": "Confirmada",
+     "sin_uso": 5,
+     "publico": 15,
+     "prioridad": [
+      "Javier García",
+      "Janis Pérez",
+      "César Berelleza"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 12-16 oct",
+     "tema": "Workflow: de la tarea repetida al workflow",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Propuesta",
+     "sin_uso": 2,
+     "publico": 14,
+     "prioridad": [
+      "Fernando Yhibran Medina",
+      "Armando de la Rosa"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Assistant: instrucciones que sí funcionan",
+     "coordina": "Amed Hernández (JC)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 15,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Word y Playbook",
+     "coordina": "Karime Sotelo (ENN)",
+     "estado": "Propuesta",
+     "sin_uso": 4,
+     "publico": 11,
+     "prioridad": [
+      "Alonso Ixta",
+      "Janis Pérez",
+      "Fernando Yhibran Medina"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 26-30 oct",
+     "tema": "Vault: repositorios y bases compartidas",
+     "coordina": "Jorge Belloc (CN)",
+     "estado": "Propuesta",
+     "sin_uso": 1,
+     "publico": 7,
+     "prioridad": [
+      "Alonso Ixta"
+     ]
+    }
+   ],
+   "personas": 15
+  },
+  "PLD": {
+   "alerta_sd": {
+    "sd": "PLD",
+    "personas": 6,
+    "de": 19,
+    "champion": "Gustavo Bernal"
+   },
+   "alertas": [
+    {
+     "nombre": "Gustavo Bernal",
+     "sd": "PLD",
+     "nivel": "Líder",
+     "champion": true,
+     "senales": [
+      {
+       "senal": "Tarea repetida en Assistant",
+       "detalle": "22 de 38 hilos arrancan igual: \"Revisa el siguiente documento por favor, conforme a...\"",
+       "follow_up": "Convertir esa tarea en un Workflow con un experto de Workflow."
+      }
+     ]
+    },
+    {
+     "nombre": "Alejandra Casillas",
+     "sd": "PLD",
+     "nivel": "Coordinador",
+     "champion": false,
+     "senales": [
+      {
+       "senal": "Instrucciones mínimas",
+       "detalle": "instrucción inicial de 14 palabras en promedio (17 hilos)",
+       "follow_up": "Sesión de Assistant: contexto, documento y resultado esperado en la instrucción."
+      }
+     ]
+    },
+    {
+     "nombre": "Diana Laura Mendoza Osorio",
+     "sd": "PLD",
+     "nivel": "Coordinador",
+     "champion": false,
+     "senales": [
+      {
+       "senal": "Escribe el nombre del workflow en Assistant",
+       "detalle": "3 hilos arrancan solo con el nombre de un workflow",
+       "follow_up": "Mostrarle cómo ejecutar el workflow desde su sección (por confirmar si así no corre)."
+      }
+     ]
+    },
+    {
+     "nombre": "Gabriela Mejía Guerrero",
+     "sd": "PLD",
+     "nivel": "Gerente",
+     "champion": false,
+     "senales": [
+      {
+       "senal": "Instrucciones mínimas",
+       "detalle": "instrucción inicial de 8 palabras en promedio (35 hilos)",
+       "follow_up": "Sesión de Assistant: contexto, documento y resultado esperado en la instrucción."
+      }
+     ]
+    },
+    {
+     "nombre": "Jesús Paúl Pallares",
+     "sd": "PLD",
+     "nivel": "Coordinador",
+     "champion": false,
+     "senales": [
+      {
+       "senal": "Tarea repetida en Assistant",
+       "detalle": "40 de 45 hilos arrancan igual: \"Dame: 1. Tipo de entidad, fecha de constitución,...\"",
+       "follow_up": "Convertir esa tarea en un Workflow con un experto de Workflow."
+      }
+     ]
+    },
+    {
+     "nombre": "Mario Manzano",
+     "sd": "PLD",
+     "nivel": "Coordinador",
+     "champion": false,
+     "senales": [
+      {
+       "senal": "Tarea repetida en Assistant",
+       "detalle": "25 de 30 hilos arrancan igual: \"REDACTA EN FORMA DE FÁRRAFO LA SIGUIENTE TABLA,...\"",
+       "follow_up": "Convertir esa tarea en un Workflow con un experto de Workflow."
+      }
+     ]
+    }
+   ],
+   "sesiones": [
+    {
+     "fecha_txt": "Jue 8 oct",
+     "tema": "Harvey en Outlook",
+     "coordina": "Alejandra Mireles (GC)",
+     "estado": "Confirmada",
+     "sin_uso": 8,
+     "publico": 19,
+     "prioridad": [
+      "Ana Karen Martínez",
+      "Gabriela Cadena",
+      "Mario Manzano"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 12-16 oct",
+     "tema": "Workflow: de la tarea repetida al workflow",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Propuesta",
+     "sin_uso": 5,
+     "publico": 18,
+     "prioridad": [
+      "Jesús Paúl Pallares",
+      "Mario Manzano",
+      "Gustavo Bernal"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Assistant: instrucciones que sí funcionan",
+     "coordina": "Amed Hernández (JC)",
+     "estado": "Propuesta",
+     "sin_uso": 2,
+     "publico": 19,
+     "prioridad": [
+      "Gabriela Mejía Guerrero",
+      "Alejandra Casillas"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Word y Playbook",
+     "coordina": "Karime Sotelo (ENN)",
+     "estado": "Propuesta",
+     "sin_uso": 2,
+     "publico": 7,
+     "prioridad": [
+      "Gustavo Bernal",
+      "Gabriela Mejía Guerrero"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 26-30 oct",
+     "tema": "Vault: repositorios y bases compartidas",
+     "coordina": "Jorge Belloc (CN)",
+     "estado": "Propuesta",
+     "sin_uso": 4,
+     "publico": 6,
+     "prioridad": [
+      "Gabriela Cadena",
+      "Carlos Reyes",
+      "Ana Lilia Ramírez Barranco"
+     ]
+    }
+   ],
+   "personas": 19
+  },
+  "GC": {
+   "alerta_sd": null,
+   "alertas": [],
+   "sesiones": [
+    {
+     "fecha_txt": "Jue 8 oct",
+     "tema": "Harvey en Outlook",
+     "coordina": "Alejandra Mireles (GC)",
+     "estado": "Confirmada",
+     "sin_uso": 2,
+     "publico": 6,
+     "prioridad": [
+      "Luis Ricardo Robert",
+      "Juan Miguel Gálvez"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 12-16 oct",
+     "tema": "Workflow: de la tarea repetida al workflow",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 5,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Assistant: instrucciones que sí funcionan",
+     "coordina": "Amed Hernández (JC)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 7,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Word y Playbook",
+     "coordina": "Karime Sotelo (ENN)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 2,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 26-30 oct",
+     "tema": "Vault: repositorios y bases compartidas",
+     "coordina": "Jorge Belloc (CN)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 3,
+     "prioridad": []
+    }
+   ],
+   "personas": 7
+  },
+  "JC": {
+   "alerta_sd": null,
+   "alertas": [
+    {
+     "nombre": "Cristian Fernández",
+     "sd": "JC",
+     "nivel": "Coordinador",
+     "champion": false,
+     "senales": [
+      {
+       "senal": "Tarea repetida en Assistant",
+       "detalle": "55 de 69 hilos arrancan igual: \"Analiza los documentos adjuntos e identifica, con base...\"",
+       "follow_up": "Convertir esa tarea en un Workflow con un experto de Workflow."
+      }
+     ]
+    }
+   ],
+   "sesiones": [
+    {
+     "fecha_txt": "Jue 8 oct",
+     "tema": "Harvey en Outlook",
+     "coordina": "Alejandra Mireles (GC)",
+     "estado": "Confirmada",
+     "sin_uso": 1,
+     "publico": 7,
+     "prioridad": [
+      "Oscar Monteverde"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 12-16 oct",
+     "tema": "Workflow: de la tarea repetida al workflow",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Propuesta",
+     "sin_uso": 4,
+     "publico": 6,
+     "prioridad": [
+      "Cristian Fernández",
+      "Adriana Rodríguez",
+      "Amed Hernández"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Assistant: instrucciones que sí funcionan",
+     "coordina": "Amed Hernández (JC)",
+     "estado": "Propuesta",
+     "sin_uso": 0,
+     "publico": 7,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Word y Playbook",
+     "coordina": "Karime Sotelo (ENN)",
+     "estado": "Propuesta",
+     "sin_uso": 2,
+     "publico": 4,
+     "prioridad": [
+      "Andrés Quintero",
+      "Amed Hernández"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 26-30 oct",
+     "tema": "Vault: repositorios y bases compartidas",
+     "coordina": "Jorge Belloc (CN)",
+     "estado": "Propuesta",
+     "sin_uso": 3,
+     "publico": 4,
+     "prioridad": [
+      "Amed Hernández",
+      "Marcia Mora",
+      "Oscar Monteverde"
+     ]
+    }
+   ],
+   "personas": 7
+  },
+  "RL": {
+   "alerta_sd": null,
+   "alertas": [
+    {
+     "nombre": "Valeria Cruz",
+     "sd": "RL",
+     "nivel": "Líder",
+     "champion": false,
+     "senales": [
+      {
+       "senal": "Instrucciones mínimas",
+       "detalle": "instrucción inicial de 7.5 palabras en promedio (14 hilos)",
+       "follow_up": "Sesión de Assistant: contexto, documento y resultado esperado en la instrucción."
+      }
+     ]
+    }
+   ],
+   "sesiones": [
+    {
+     "fecha_txt": "Jue 8 oct",
+     "tema": "Harvey en Outlook",
+     "coordina": "Alejandra Mireles (GC)",
+     "estado": "Confirmada",
+     "sin_uso": 5,
+     "publico": 7,
+     "prioridad": [
+      "Christian Ramírez",
+      "Alan García",
+      "Valeria Cruz"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 12-16 oct",
+     "tema": "Workflow: de la tarea repetida al workflow",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Propuesta",
+     "sin_uso": 2,
+     "publico": 7,
+     "prioridad": [
+      "Christian Ramírez",
+      "Alan García"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Assistant: instrucciones que sí funcionan",
+     "coordina": "Amed Hernández (JC)",
+     "estado": "Propuesta",
+     "sin_uso": 1,
+     "publico": 7,
+     "prioridad": [
+      "Valeria Cruz"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 19-23 oct",
+     "tema": "Word y Playbook",
+     "coordina": "Karime Sotelo (ENN)",
+     "estado": "Propuesta",
+     "sin_uso": 4,
+     "publico": 7,
+     "prioridad": [
+      "Christian Ramírez",
+      "Alan García",
+      "Patsy Godínez"
+     ]
+    },
+    {
+     "fecha_txt": "Semana 26-30 oct",
+     "tema": "Vault: repositorios y bases compartidas",
+     "coordina": "Jorge Belloc (CN)",
+     "estado": "Propuesta",
+     "sin_uso": 2,
+     "publico": 2,
+     "prioridad": [
+      "Christian Ramírez",
+      "Karla Zetina"
+     ]
+    }
+   ],
+   "personas": 8
+  }
+ }
+}

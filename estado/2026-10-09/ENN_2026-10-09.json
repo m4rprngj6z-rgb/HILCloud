@@ -1,0 +1,2979 @@
+{
+ "sd": "ENN",
+ "sdNombre": "Expansión Nuevos Negocios",
+ "champion": "Karime Sotelo",
+ "subdirector": "Karla Méndez",
+ "corte": "5-9 oct 2026",
+ "corte_lunes": "2026-10-05",
+ "corte_viernes": "2026-10-09",
+ "o_en_a": false,
+ "vault_solo_superficie": false,
+ "totales": {
+  "acciones": 294,
+  "acciones_anterior": 275,
+  "personas": 9,
+  "personas_activas": 9,
+  "workflows": 26,
+  "atencion_alta": 0,
+  "evaluadas": 8
+ },
+ "calidad_datos": {
+  "archivos": [
+   "harvey-usage-start_2026-06-10_end_2026-07-10.xlsx",
+   "harvey-usage-start_2026-06-28_end_2026-07-28.xlsx",
+   "harvey-usage-start_2026-06-30_end_2026-07-31.xlsx",
+   "harvey-usage-start_2026-07-07_end_2026-08-07.xlsx",
+   "harvey-usage-start_2026-07-14_end_2026-08-14.xlsx",
+   "harvey-usage-start_2026-07-21_end_2026-08-21.xlsx",
+   "harvey-usage-start_2026-07-28_end_2026-08-28.xlsx",
+   "harvey-usage-start_2026-08-04_end_2026-09-04.xlsx",
+   "harvey-usage-start_2026-08-14_end_2026-09-14.xlsx",
+   "harvey-usage-start_2026-08-18_end_2026-09-18.xlsx",
+   "harvey-usage-start_2026-08-25_end_2026-09-25.xlsx",
+   "harvey-usage-start_2026-09-02_end_2026-10-02.xlsx",
+   "harvey-usage-start_2026-09-10_end_2026-10-09.xlsx"
+  ],
+  "filas_crudas": 64342,
+  "eventos_unicos": 18957,
+  "filas_sin_id": 0,
+  "datos_desde": "2026-06-10 07:40:56",
+  "datos_hasta": "2026-10-09 17:16:32",
+  "eventos_fin_de_semana_excluidos": 148,
+  "eventos_superficie_no_clasificada": {},
+  "usuarios_activos_fuera_de_roster": []
+ },
+ "etiqueta_subdireccion": "Subdirección",
+ "gerencias": [
+  {
+   "gerencia": "Subdirección",
+   "responsable": "Karla Méndez",
+   "responsable_excluido": false,
+   "personas": 1,
+   "integrantes": [
+    "Karla Méndez"
+   ],
+   "acciones": 20,
+   "w": 0,
+   "firma": "O>A>Wo",
+   "semaforo": "excepcion",
+   "que_pedir": [
+    "Sin acción: toda la gerencia en excepción."
+   ],
+   "en_transicion": false
+  },
+  {
+   "gerencia": "Gerencia Corporativa",
+   "responsable": "Alfredo Duarte",
+   "responsable_excluido": false,
+   "personas": 3,
+   "integrantes": [
+    "Alfredo Duarte",
+    "Miguel Jaimes",
+    "Karime Sotelo"
+   ],
+   "acciones": 128,
+   "w": 5,
+   "firma": "A>O>Wo>W>V",
+   "semaforo": "verde",
+   "que_pedir": [
+    "Sin pendiente: sostener el ritmo."
+   ],
+   "en_transicion": false
+  },
+  {
+   "gerencia": "Gerencia Contratos",
+   "responsable": "Rodolfo Osuna",
+   "responsable_excluido": false,
+   "personas": 1,
+   "integrantes": [
+    "Rodolfo Osuna"
+   ],
+   "acciones": 17,
+   "w": 0,
+   "firma": "O>A>V>Wo",
+   "semaforo": "verde",
+   "que_pedir": [
+    "Sin pendiente: sostener el ritmo."
+   ],
+   "en_transicion": false
+  },
+  {
+   "gerencia": "Gerencia Contratos TI",
+   "responsable": "Diana Fuentes",
+   "responsable_excluido": false,
+   "personas": 2,
+   "integrantes": [
+    "Diana Fuentes",
+    "Sofía Ochoa"
+   ],
+   "acciones": 82,
+   "w": 11,
+   "firma": "A>O>Wo>W>V",
+   "semaforo": "verde",
+   "que_pedir": [
+    "Sin pendiente: sostener el ritmo."
+   ],
+   "en_transicion": false
+  },
+  {
+   "gerencia": "Gerencia Arrendamientos",
+   "responsable": "Raquel Reyes Cubillo",
+   "responsable_excluido": false,
+   "personas": 1,
+   "integrantes": [
+    "Raquel Reyes Cubillo"
+   ],
+   "acciones": 11,
+   "w": 1,
+   "firma": "V>A>Wo>O>W",
+   "semaforo": "amarillo",
+   "que_pedir": [
+    "Sin pendiente: sostener el ritmo."
+   ],
+   "en_transicion": false
+  },
+  {
+   "gerencia": "Gerencia Contratos TI & AI",
+   "responsable": "Tony Bueno",
+   "responsable_excluido": true,
+   "personas": 1,
+   "integrantes": [
+    "Isis Rodríguez"
+   ],
+   "acciones": 36,
+   "w": 9,
+   "firma": "V>W>O>Wo",
+   "semaforo": "amarillo",
+   "que_pedir": [
+    "Sin pendiente: sostener el ritmo."
+   ],
+   "en_transicion": false
+  }
+ ],
+ "transicion_info": null,
+ "base_previa_info": null,
+ "usos_clave": [
+  {
+   "persona": "Diana Fuentes",
+   "uso": "Minuta desde transcripción (ENN)",
+   "veces": 5
+  },
+  {
+   "persona": "Sofía Ochoa",
+   "uso": "Validador de Expedientes Legales",
+   "veces": 5
+  },
+  {
+   "persona": "Isis Rodríguez",
+   "uso": "Validador de Expedientes Legales",
+   "veces": 4
+  },
+  {
+   "persona": "Karime Sotelo",
+   "uso": "Validador de Expedientes Legales",
+   "veces": 2
+  },
+  {
+   "persona": "Alfredo Duarte",
+   "uso": "Minuta desde transcripción (ENN)",
+   "veces": 1
+  },
+  {
+   "persona": "Miguel Jaimes",
+   "uso": "Validador de Expedientes Legales",
+   "veces": 1
+  },
+  {
+   "persona": "Raquel Reyes Cubillo",
+   "uso": "Validador de Expedientes Legales",
+   "veces": 1
+  }
+ ],
+ "cortesias": [
+  {
+   "usuario": "gchirinos",
+   "nombre": "George Chirinos",
+   "area": "Control Interno",
+   "solicito": "Karla Méndez",
+   "alta": null,
+   "total": 20,
+   "firma": "V>W>A",
+   "ultimas": [
+    38,
+    119,
+    150,
+    98,
+    20
+   ],
+   "semanas_con_cuenta": 5
+  },
+  {
+   "usuario": "digcastillo",
+   "nombre": "Diana Gabriela Castillo Luna",
+   "area": "Compras",
+   "solicito": "Karla Méndez",
+   "alta": "2026-09-30",
+   "total": 6,
+   "firma": "W>A",
+   "ultimas": [
+    0,
+    6
+   ],
+   "semanas_con_cuenta": 2
+  }
+ ],
+ "rows": [
+  {
+   "usuario": "alduarte",
+   "nombre": "Alfredo Duarte",
+   "nivel": "Gerente",
+   "puesto": "Gerente Corporativo",
+   "champion": false,
+   "f_esperada": "A>W",
+   "reporta_a": "kmendez",
+   "a": 17,
+   "wo": 3,
+   "v": 0,
+   "w": 1,
+   "o": 33,
+   "total": 54,
+   "dias_activos": 5,
+   "ultima_actividad": "2026-10-09 17:08:40",
+   "semaforo": "verde",
+   "en_excepcion": false,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 2,
+    "usadas": 3,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 23.3,
+   "baseline_semanas": 3,
+   "ratio": 2.314,
+   "baseline_tool": {
+    "A": 2.3,
+    "Wo": 2.3,
+    "V": 0.7,
+    "W": 3.7,
+    "O": 14.3
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 0,
+    "tipos": [],
+    "por_tipo": {},
+    "feriados": [],
+    "es_excepcion": false,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 16,
+   "racha": 3,
+   "naCiclo": false,
+   "diversidadWf": 1.3,
+   "firma": "O>A>Wo>W",
+   "urgencia": "Baja",
+   "motivo": [
+    {
+     "text": "Aumento parejo entre "
+    },
+    {
+     "text": "O",
+     "tool": "O"
+    },
+    {
+     "text": " y "
+    },
+    {
+     "text": "A",
+     "tool": "A"
+    },
+    {
+     "text": "."
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Minuta desde transcripción (ENN) (su workflow más usado, 1x)"
+    }
+   ],
+   "fortaleza_tool": "O",
+   "workflow_top": {
+    "nombre": "Minuta desde transcripción (ENN)",
+    "veces": 1
+   },
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 37,
+     "semaforo": "sin_historial",
+     "A": 19,
+     "Wo": 13,
+     "V": 0,
+     "W": 5,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 18,
+     "semaforo": "amarillo",
+     "A": 10,
+     "Wo": 6,
+     "V": 0,
+     "W": 2,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 13,
+     "semaforo": "amarillo",
+     "A": 4,
+     "Wo": 3,
+     "V": 6,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 26,
+     "semaforo": "verde",
+     "A": 5,
+     "Wo": 1,
+     "V": 13,
+     "W": 4,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 16,
+     "semaforo": "amarillo",
+     "A": 6,
+     "Wo": 3,
+     "V": 3,
+     "W": 1,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 1,
+     "semaforo": "rojo",
+     "A": 1,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 7,
+     "semaforo": "amarillo",
+     "A": 7,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 3,
+     "semaforo": "rojo",
+     "A": 2,
+     "Wo": 0,
+     "V": 0,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 4,
+     "semaforo": "rojo",
+     "A": 1,
+     "Wo": 2,
+     "V": 1,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 24,
+     "semaforo": "verde",
+     "A": 3,
+     "Wo": 2,
+     "V": 5,
+     "W": 5,
+     "O": 9,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 9,
+     "semaforo": "verde",
+     "A": 0,
+     "Wo": 7,
+     "V": 0,
+     "W": 2,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 45,
+     "semaforo": "verde",
+     "A": 4,
+     "Wo": 0,
+     "V": 1,
+     "W": 7,
+     "O": 33,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 16,
+     "semaforo": "amarillo",
+     "A": 3,
+     "Wo": 0,
+     "V": 1,
+     "W": 2,
+     "O": 10,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 54,
+     "semaforo": "verde",
+     "A": 17,
+     "Wo": 3,
+     "V": 0,
+     "W": 1,
+     "O": 33,
+     "excepcion": false,
+     "cuenta_en_base": false
+    }
+   ]
+  },
+  {
+   "usuario": "dfuentes",
+   "nombre": "Diana Fuentes",
+   "nivel": "Gerente",
+   "puesto": "Gerente Contratos TI",
+   "champion": false,
+   "f_esperada": "A>W",
+   "reporta_a": "kmendez",
+   "a": 18,
+   "wo": 6,
+   "v": 0,
+   "w": 6,
+   "o": 2,
+   "total": 32,
+   "dias_activos": 5,
+   "ultima_actividad": "2026-10-09 17:10:24",
+   "semaforo": "amarillo",
+   "en_excepcion": false,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 1,
+    "usadas": 4,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 33.5,
+   "baseline_semanas": 4,
+   "ratio": 0.955,
+   "baseline_tool": {
+    "A": 6.8,
+    "Wo": 21.8,
+    "V": 1.8,
+    "W": 0.5,
+    "O": 2.8
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 0,
+    "tipos": [],
+    "por_tipo": {},
+    "feriados": [],
+    "es_excepcion": false,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 15,
+   "racha": 1,
+   "naCiclo": false,
+   "diversidadWf": 0.5,
+   "firma": "A>W>Wo>O",
+   "urgencia": "Media",
+   "motivo": [
+    {
+     "text": "Caída concentrada en "
+    },
+    {
+     "text": "Wo",
+     "tool": "Wo"
+    },
+    {
+     "text": "."
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Minuta desde transcripción (ENN) (su workflow más usado, 5x)"
+    }
+   ],
+   "fortaleza_tool": "Wo",
+   "workflow_top": {
+    "nombre": "Minuta desde transcripción (ENN)",
+    "veces": 5
+   },
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 28,
+     "semaforo": "sin_historial",
+     "A": 2,
+     "Wo": 0,
+     "V": 17,
+     "W": 9,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 10,
+     "semaforo": "rojo",
+     "A": 0,
+     "Wo": 1,
+     "V": 5,
+     "W": 4,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 22,
+     "semaforo": "verde",
+     "A": 4,
+     "Wo": 12,
+     "V": 5,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 9,
+     "semaforo": "amarillo",
+     "A": 2,
+     "Wo": 0,
+     "V": 7,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 21,
+     "semaforo": "verde",
+     "A": 5,
+     "Wo": 9,
+     "V": 4,
+     "W": 3,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 10,
+     "semaforo": "amarillo",
+     "A": 0,
+     "Wo": 1,
+     "V": 6,
+     "W": 1,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 26,
+     "semaforo": "verde",
+     "A": 0,
+     "Wo": 0,
+     "V": 14,
+     "W": 3,
+     "O": 9,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 20,
+     "semaforo": "verde",
+     "A": 3,
+     "Wo": 10,
+     "V": 6,
+     "W": 0,
+     "O": 1,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 33,
+     "semaforo": "verde",
+     "A": 0,
+     "Wo": 10,
+     "V": 15,
+     "W": 0,
+     "O": 8,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 44,
+     "semaforo": "verde",
+     "A": 12,
+     "Wo": 10,
+     "V": 7,
+     "W": 6,
+     "O": 9,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 87,
+     "semaforo": "verde",
+     "A": 6,
+     "Wo": 71,
+     "V": 2,
+     "W": 2,
+     "O": 6,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 42,
+     "semaforo": "excepcion",
+     "A": 1,
+     "Wo": 28,
+     "V": 5,
+     "W": 0,
+     "O": 8,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 5,
+     "semaforo": "rojo",
+     "A": 1,
+     "Wo": 0,
+     "V": 1,
+     "W": 0,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 27,
+     "semaforo": "amarillo",
+     "A": 7,
+     "Wo": 16,
+     "V": 4,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 15,
+     "semaforo": "rojo",
+     "A": 13,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 32,
+     "semaforo": "amarillo",
+     "A": 18,
+     "Wo": 6,
+     "V": 0,
+     "W": 6,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    }
+   ]
+  },
+  {
+   "usuario": "isrodriguez",
+   "nombre": "Isis Rodríguez",
+   "nivel": "Coordinador",
+   "puesto": "Coordinadora Contratos",
+   "champion": false,
+   "f_esperada": "W>A",
+   "reporta_a": "jbueno",
+   "a": 0,
+   "wo": 4,
+   "v": 15,
+   "w": 9,
+   "o": 8,
+   "total": 36,
+   "dias_activos": 4,
+   "ultima_actividad": "2026-10-08 13:44:19",
+   "semaforo": "amarillo",
+   "en_excepcion": false,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 0,
+    "usadas": 5,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 37.4,
+   "baseline_semanas": 5,
+   "ratio": 0.963,
+   "baseline_tool": {
+    "A": 9.2,
+    "Wo": 14.8,
+    "V": 4.2,
+    "W": 2.8,
+    "O": 6.4
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 0,
+    "tipos": [],
+    "por_tipo": {},
+    "feriados": [],
+    "es_excepcion": false,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 40,
+   "racha": 3,
+   "naCiclo": false,
+   "diversidadWf": 1.4,
+   "firma": "V>W>O>Wo",
+   "urgencia": "Media",
+   "motivo": [
+    {
+     "text": "Caída pareja entre "
+    },
+    {
+     "text": "Wo",
+     "tool": "Wo"
+    },
+    {
+     "text": " y "
+    },
+    {
+     "text": "A",
+     "tool": "A"
+    },
+    {
+     "text": "."
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Validador de Expedientes Legales (su workflow más usado, 4x)"
+    }
+   ],
+   "fortaleza_tool": "Wo",
+   "workflow_top": {
+    "nombre": "Validador de Expedientes Legales",
+    "veces": 4
+   },
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 19,
+     "semaforo": "excepcion",
+     "A": 17,
+     "Wo": 1,
+     "V": 1,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 18,
+     "semaforo": "sin_historial",
+     "A": 9,
+     "Wo": 4,
+     "V": 1,
+     "W": 4,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 72,
+     "semaforo": "verde",
+     "A": 15,
+     "Wo": 25,
+     "V": 20,
+     "W": 12,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 59,
+     "semaforo": "verde",
+     "A": 17,
+     "Wo": 33,
+     "V": 8,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 69,
+     "semaforo": "verde",
+     "A": 1,
+     "Wo": 64,
+     "V": 0,
+     "W": 4,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 160,
+     "semaforo": "verde",
+     "A": 1,
+     "Wo": 120,
+     "V": 26,
+     "W": 8,
+     "O": 5,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 127,
+     "semaforo": "verde",
+     "A": 10,
+     "Wo": 95,
+     "V": 7,
+     "W": 6,
+     "O": 9,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 34,
+     "semaforo": "rojo",
+     "A": 3,
+     "Wo": 13,
+     "V": 1,
+     "W": 5,
+     "O": 12,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 19,
+     "semaforo": "rojo",
+     "A": 1,
+     "Wo": 4,
+     "V": 0,
+     "W": 1,
+     "O": 13,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 38,
+     "semaforo": "amarillo",
+     "A": 4,
+     "Wo": 21,
+     "V": 2,
+     "W": 4,
+     "O": 7,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 38,
+     "semaforo": "amarillo",
+     "A": 14,
+     "Wo": 12,
+     "V": 0,
+     "W": 1,
+     "O": 11,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 13,
+     "semaforo": "rojo",
+     "A": 0,
+     "Wo": 7,
+     "V": 2,
+     "W": 1,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 58,
+     "semaforo": "verde",
+     "A": 26,
+     "Wo": 25,
+     "V": 4,
+     "W": 1,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 40,
+     "semaforo": "verde",
+     "A": 2,
+     "Wo": 9,
+     "V": 13,
+     "W": 7,
+     "O": 9,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 36,
+     "semaforo": "amarillo",
+     "A": 0,
+     "Wo": 4,
+     "V": 15,
+     "W": 9,
+     "O": 8,
+     "excepcion": false,
+     "cuenta_en_base": false
+    }
+   ]
+  },
+  {
+   "usuario": "kmendez",
+   "nombre": "Karla Méndez",
+   "nivel": "Subdirector",
+   "puesto": "Subdirectora ENN",
+   "champion": false,
+   "f_esperada": "A>V",
+   "reporta_a": "zmanzur",
+   "a": 8,
+   "wo": 1,
+   "v": 0,
+   "w": 0,
+   "o": 11,
+   "total": 20,
+   "dias_activos": 3,
+   "ultima_actividad": "2026-10-09 15:17:42",
+   "semaforo": "excepcion",
+   "en_excepcion": true,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 0,
+    "usadas": 5,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 56.2,
+   "baseline_semanas": 5,
+   "ratio": 0.356,
+   "baseline_tool": {
+    "A": 9.6,
+    "Wo": 9.6,
+    "V": 3.6,
+    "W": 1.4,
+    "O": 32.0
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 3,
+    "tipos": [
+     "Juntas presenciales y fuera de oficina"
+    ],
+    "por_tipo": {
+     "Juntas presenciales y fuera de oficina": [
+      "2026-10-05",
+      "2026-10-06",
+      "2026-10-07"
+     ]
+    },
+    "feriados": [],
+    "es_excepcion": true,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 34,
+   "racha": 4,
+   "naCiclo": false,
+   "diversidadWf": 0.5,
+   "firma": "O>A>Wo",
+   "urgencia": "Sin acción",
+   "motivo": [
+    {
+     "text": "Juntas presenciales y fuera de oficina (5 oct-7 oct 2026)"
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Sin datos esta semana (excepción)."
+    }
+   ],
+   "fortaleza_tool": "O",
+   "workflow_top": null,
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 16,
+     "semaforo": "sin_historial",
+     "A": 3,
+     "Wo": 3,
+     "V": 4,
+     "W": 3,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 7,
+     "semaforo": "amarillo",
+     "A": 2,
+     "Wo": 0,
+     "V": 4,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 27,
+     "semaforo": "verde",
+     "A": 11,
+     "Wo": 4,
+     "V": 8,
+     "W": 0,
+     "O": 4,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 5,
+     "semaforo": "rojo",
+     "A": 0,
+     "Wo": 2,
+     "V": 1,
+     "W": 0,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 6,
+     "semaforo": "amarillo",
+     "A": 0,
+     "Wo": 0,
+     "V": 6,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 31,
+     "semaforo": "verde",
+     "A": 9,
+     "Wo": 0,
+     "V": 14,
+     "W": 0,
+     "O": 8,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 45,
+     "semaforo": "verde",
+     "A": 6,
+     "Wo": 2,
+     "V": 0,
+     "W": 0,
+     "O": 37,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 40,
+     "semaforo": "verde",
+     "A": 13,
+     "Wo": 3,
+     "V": 8,
+     "W": 2,
+     "O": 14,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 51,
+     "semaforo": "verde",
+     "A": 6,
+     "Wo": 17,
+     "V": 0,
+     "W": 0,
+     "O": 28,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 141,
+     "semaforo": "verde",
+     "A": 14,
+     "Wo": 71,
+     "V": 3,
+     "W": 2,
+     "O": 51,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 42,
+     "semaforo": "amarillo",
+     "A": 9,
+     "Wo": 1,
+     "V": 7,
+     "W": 1,
+     "O": 24,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 84,
+     "semaforo": "verde",
+     "A": 14,
+     "Wo": 32,
+     "V": 5,
+     "W": 1,
+     "O": 32,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 49,
+     "semaforo": "amarillo",
+     "A": 0,
+     "Wo": 3,
+     "V": 4,
+     "W": 1,
+     "O": 41,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 72,
+     "semaforo": "amarillo",
+     "A": 22,
+     "Wo": 10,
+     "V": 2,
+     "W": 4,
+     "O": 34,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 34,
+     "semaforo": "amarillo",
+     "A": 3,
+     "Wo": 2,
+     "V": 0,
+     "W": 0,
+     "O": 29,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 20,
+     "semaforo": "excepcion",
+     "A": 8,
+     "Wo": 1,
+     "V": 0,
+     "W": 0,
+     "O": 11,
+     "excepcion": true,
+     "cuenta_en_base": false
+    }
+   ]
+  },
+  {
+   "usuario": "migjaimes",
+   "nombre": "Miguel Jaimes",
+   "nivel": "Coordinador",
+   "puesto": "Coordinador Contratos",
+   "champion": false,
+   "f_esperada": "W>A",
+   "reporta_a": "alduarte",
+   "a": 20,
+   "wo": 17,
+   "v": 0,
+   "w": 1,
+   "o": 2,
+   "total": 40,
+   "dias_activos": 4,
+   "ultima_actividad": "2026-10-08 15:54:33",
+   "semaforo": "verde",
+   "en_excepcion": false,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 0,
+    "usadas": 5,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 32.2,
+   "baseline_semanas": 5,
+   "ratio": 1.242,
+   "baseline_tool": {
+    "A": 12.2,
+    "Wo": 12.4,
+    "V": 0.6,
+    "W": 1.6,
+    "O": 5.4
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 0,
+    "tipos": [],
+    "por_tipo": {},
+    "feriados": [],
+    "es_excepcion": false,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 27,
+   "racha": 5,
+   "naCiclo": false,
+   "diversidadWf": 0.8,
+   "firma": "A>Wo>O>W",
+   "urgencia": "Baja",
+   "motivo": [
+    {
+     "text": "Aumento parejo entre "
+    },
+    {
+     "text": "A",
+     "tool": "A"
+    },
+    {
+     "text": " y "
+    },
+    {
+     "text": "Wo",
+     "tool": "Wo"
+    },
+    {
+     "text": "."
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Validador de Expedientes Legales (su workflow más usado, 1x)"
+    }
+   ],
+   "fortaleza_tool": "Wo",
+   "workflow_top": {
+    "nombre": "Validador de Expedientes Legales",
+    "veces": 1
+   },
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 33,
+     "semaforo": "sin_historial",
+     "A": 20,
+     "Wo": 0,
+     "V": 6,
+     "W": 5,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 3,
+     "semaforo": "rojo",
+     "A": 1,
+     "Wo": 0,
+     "V": 0,
+     "W": 2,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 13,
+     "semaforo": "amarillo",
+     "A": 4,
+     "Wo": 2,
+     "V": 1,
+     "W": 4,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 7,
+     "semaforo": "amarillo",
+     "A": 4,
+     "Wo": 0,
+     "V": 3,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 18,
+     "semaforo": "verde",
+     "A": 17,
+     "Wo": 0,
+     "V": 0,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 23,
+     "semaforo": "verde",
+     "A": 13,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 10,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 17,
+     "semaforo": "verde",
+     "A": 8,
+     "Wo": 2,
+     "V": 0,
+     "W": 2,
+     "O": 5,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 23,
+     "semaforo": "verde",
+     "A": 10,
+     "Wo": 2,
+     "V": 0,
+     "W": 6,
+     "O": 5,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 21,
+     "semaforo": "verde",
+     "A": 7,
+     "Wo": 6,
+     "V": 0,
+     "W": 5,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 13,
+     "semaforo": "amarillo",
+     "A": 9,
+     "Wo": 0,
+     "V": 1,
+     "W": 2,
+     "O": 1,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 12,
+     "semaforo": "amarillo",
+     "A": 2,
+     "Wo": 8,
+     "V": 0,
+     "W": 2,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 14,
+     "semaforo": "amarillo",
+     "A": 6,
+     "Wo": 2,
+     "V": 0,
+     "W": 2,
+     "O": 4,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 31,
+     "semaforo": "verde",
+     "A": 4,
+     "Wo": 17,
+     "V": 2,
+     "W": 2,
+     "O": 6,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 77,
+     "semaforo": "verde",
+     "A": 43,
+     "Wo": 31,
+     "V": 0,
+     "W": 2,
+     "O": 1,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 27,
+     "semaforo": "amarillo",
+     "A": 6,
+     "Wo": 4,
+     "V": 1,
+     "W": 0,
+     "O": 16,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 40,
+     "semaforo": "verde",
+     "A": 20,
+     "Wo": 17,
+     "V": 0,
+     "W": 1,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    }
+   ]
+  },
+  {
+   "usuario": "nsotelo",
+   "nombre": "Karime Sotelo",
+   "nivel": "Líder",
+   "puesto": "Líder Contratos",
+   "champion": true,
+   "f_esperada": "W>A",
+   "reporta_a": "alduarte",
+   "a": 15,
+   "wo": 7,
+   "v": 5,
+   "w": 3,
+   "o": 4,
+   "total": 34,
+   "dias_activos": 5,
+   "ultima_actividad": "2026-10-09 16:36:37",
+   "semaforo": "verde",
+   "en_excepcion": false,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 0,
+    "usadas": 5,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 31.2,
+   "baseline_semanas": 5,
+   "ratio": 1.09,
+   "baseline_tool": {
+    "A": 12.2,
+    "Wo": 8.2,
+    "V": 3.2,
+    "W": 3.8,
+    "O": 3.8
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 0,
+    "tipos": [],
+    "por_tipo": {},
+    "feriados": [],
+    "es_excepcion": false,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 25,
+   "racha": 5,
+   "naCiclo": false,
+   "diversidadWf": 1.6,
+   "firma": "A>Wo>V>O>W",
+   "urgencia": "Media",
+   "motivo": [
+    {
+     "text": "Aumento parejo entre "
+    },
+    {
+     "text": "A",
+     "tool": "A"
+    },
+    {
+     "text": " y "
+    },
+    {
+     "text": "V",
+     "tool": "V"
+    },
+    {
+     "text": "."
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Validador de Expedientes Legales (su workflow más usado, 2x)"
+    }
+   ],
+   "fortaleza_tool": "A",
+   "workflow_top": {
+    "nombre": "Validador de Expedientes Legales",
+    "veces": 2
+   },
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 32,
+     "semaforo": "sin_historial",
+     "A": 7,
+     "Wo": 7,
+     "V": 8,
+     "W": 10,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 28,
+     "semaforo": "amarillo",
+     "A": 13,
+     "Wo": 11,
+     "V": 1,
+     "W": 3,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 22,
+     "semaforo": "amarillo",
+     "A": 10,
+     "Wo": 12,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 47,
+     "semaforo": "verde",
+     "A": 25,
+     "Wo": 15,
+     "V": 1,
+     "W": 0,
+     "O": 6,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 23,
+     "semaforo": "amarillo",
+     "A": 9,
+     "Wo": 10,
+     "V": 1,
+     "W": 1,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 18,
+     "semaforo": "amarillo",
+     "A": 7,
+     "Wo": 1,
+     "V": 0,
+     "W": 5,
+     "O": 5,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 55,
+     "semaforo": "verde",
+     "A": 10,
+     "Wo": 15,
+     "V": 19,
+     "W": 5,
+     "O": 6,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 8,
+     "semaforo": "rojo",
+     "A": 1,
+     "Wo": 4,
+     "V": 0,
+     "W": 1,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 42,
+     "semaforo": "excepcion",
+     "A": 15,
+     "Wo": 3,
+     "V": 22,
+     "W": 2,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 44,
+     "semaforo": "verde",
+     "A": 19,
+     "Wo": 10,
+     "V": 6,
+     "W": 6,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 45,
+     "semaforo": "verde",
+     "A": 15,
+     "Wo": 14,
+     "V": 9,
+     "W": 3,
+     "O": 4,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 29,
+     "semaforo": "amarillo",
+     "A": 12,
+     "Wo": 10,
+     "V": 0,
+     "W": 2,
+     "O": 5,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 27,
+     "semaforo": "amarillo",
+     "A": 6,
+     "Wo": 9,
+     "V": 5,
+     "W": 3,
+     "O": 4,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 30,
+     "semaforo": "amarillo",
+     "A": 19,
+     "Wo": 8,
+     "V": 1,
+     "W": 2,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 25,
+     "semaforo": "amarillo",
+     "A": 9,
+     "Wo": 0,
+     "V": 1,
+     "W": 9,
+     "O": 6,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 34,
+     "semaforo": "verde",
+     "A": 15,
+     "Wo": 7,
+     "V": 5,
+     "W": 3,
+     "O": 4,
+     "excepcion": false,
+     "cuenta_en_base": false
+    }
+   ]
+  },
+  {
+   "usuario": "rodosuna",
+   "nombre": "Rodolfo Osuna",
+   "nivel": "Gerente",
+   "puesto": "Gerente Contratos",
+   "champion": false,
+   "f_esperada": "A>W>V",
+   "reporta_a": "kmendez",
+   "a": 4,
+   "wo": 3,
+   "v": 4,
+   "w": 0,
+   "o": 6,
+   "total": 17,
+   "dias_activos": 4,
+   "ultima_actividad": "2026-10-08 14:03:23",
+   "semaforo": "verde",
+   "en_excepcion": false,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 0,
+    "usadas": 5,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 16.2,
+   "baseline_semanas": 5,
+   "ratio": 1.049,
+   "baseline_tool": {
+    "A": 5.6,
+    "Wo": 7.0,
+    "V": 2.0,
+    "W": 0.2,
+    "O": 1.4
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 0,
+    "tipos": [],
+    "por_tipo": {},
+    "feriados": [],
+    "es_excepcion": false,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 20,
+   "racha": 5,
+   "naCiclo": false,
+   "diversidadWf": 0.2,
+   "firma": "O>A>V>Wo",
+   "urgencia": "Media",
+   "motivo": [
+    {
+     "text": "Aumento concentrado en "
+    },
+    {
+     "text": "O",
+     "tool": "O"
+    },
+    {
+     "text": "."
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Wo",
+     "tool": "Wo"
+    },
+    {
+     "text": " es su herramienta más consistente históricamente."
+    }
+   ],
+   "fortaleza_tool": "Wo",
+   "workflow_top": null,
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 12,
+     "semaforo": "sin_historial",
+     "A": 7,
+     "Wo": 0,
+     "V": 5,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 10,
+     "semaforo": "amarillo",
+     "A": 4,
+     "Wo": 4,
+     "V": 2,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 13,
+     "semaforo": "verde",
+     "A": 5,
+     "Wo": 2,
+     "V": 6,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 19,
+     "semaforo": "verde",
+     "A": 1,
+     "Wo": 11,
+     "V": 4,
+     "W": 1,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 19,
+     "semaforo": "verde",
+     "A": 0,
+     "Wo": 17,
+     "V": 2,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 45,
+     "semaforo": "verde",
+     "A": 2,
+     "Wo": 36,
+     "V": 2,
+     "W": 0,
+     "O": 5,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 27,
+     "semaforo": "verde",
+     "A": 4,
+     "Wo": 7,
+     "V": 14,
+     "W": 0,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 20,
+     "semaforo": "amarillo",
+     "A": 13,
+     "Wo": 3,
+     "V": 2,
+     "W": 0,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 33,
+     "semaforo": "verde",
+     "A": 6,
+     "Wo": 21,
+     "V": 3,
+     "W": 0,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 38,
+     "semaforo": "verde",
+     "A": 8,
+     "Wo": 15,
+     "V": 5,
+     "W": 0,
+     "O": 10,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 23,
+     "semaforo": "amarillo",
+     "A": 8,
+     "Wo": 14,
+     "V": 0,
+     "W": 0,
+     "O": 1,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 13,
+     "semaforo": "amarillo",
+     "A": 2,
+     "Wo": 5,
+     "V": 3,
+     "W": 0,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 15,
+     "semaforo": "amarillo",
+     "A": 8,
+     "Wo": 5,
+     "V": 1,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 10,
+     "semaforo": "amarillo",
+     "A": 5,
+     "Wo": 2,
+     "V": 3,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 20,
+     "semaforo": "verde",
+     "A": 5,
+     "Wo": 9,
+     "V": 3,
+     "W": 0,
+     "O": 3,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 17,
+     "semaforo": "verde",
+     "A": 4,
+     "Wo": 3,
+     "V": 4,
+     "W": 0,
+     "O": 6,
+     "excepcion": false,
+     "cuenta_en_base": false
+    }
+   ]
+  },
+  {
+   "usuario": "rrcubillo",
+   "nombre": "Raquel Reyes Cubillo",
+   "nivel": "Gerente",
+   "puesto": "Gerente Arrendamientos (Inmuebles)",
+   "champion": false,
+   "f_esperada": "A>W",
+   "reporta_a": "kmendez",
+   "a": 2,
+   "wo": 2,
+   "v": 4,
+   "w": 1,
+   "o": 2,
+   "total": 11,
+   "dias_activos": 4,
+   "ultima_actividad": "2026-10-09 15:43:05",
+   "semaforo": "amarillo",
+   "en_excepcion": false,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 0,
+    "usadas": 5,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 14.4,
+   "baseline_semanas": 5,
+   "ratio": 0.764,
+   "baseline_tool": {
+    "A": 4.2,
+    "Wo": 5.0,
+    "V": 3.0,
+    "W": 2.0,
+    "O": 0.2
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 0,
+    "tipos": [],
+    "por_tipo": {},
+    "feriados": [],
+    "es_excepcion": false,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 21,
+   "racha": 3,
+   "naCiclo": false,
+   "diversidadWf": 1.0,
+   "firma": "V>A>Wo>O>W",
+   "urgencia": "Media",
+   "motivo": [
+    {
+     "text": "Caída pareja entre "
+    },
+    {
+     "text": "Wo",
+     "tool": "Wo"
+    },
+    {
+     "text": " y "
+    },
+    {
+     "text": "A",
+     "tool": "A"
+    },
+    {
+     "text": "."
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Validador de Expedientes Legales (su workflow más usado, 1x)"
+    }
+   ],
+   "fortaleza_tool": "Wo",
+   "workflow_top": {
+    "nombre": "Validador de Expedientes Legales",
+    "veces": 1
+   },
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 21,
+     "semaforo": "sin_historial",
+     "A": 17,
+     "Wo": 0,
+     "V": 1,
+     "W": 3,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 2,
+     "semaforo": "rojo",
+     "A": 0,
+     "Wo": 2,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 15,
+     "semaforo": "verde",
+     "A": 10,
+     "Wo": 4,
+     "V": 1,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 15,
+     "semaforo": "verde",
+     "A": 9,
+     "Wo": 4,
+     "V": 1,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "rojo",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 32,
+     "semaforo": "verde",
+     "A": 7,
+     "Wo": 21,
+     "V": 2,
+     "W": 2,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 17,
+     "semaforo": "verde",
+     "A": 6,
+     "Wo": 7,
+     "V": 2,
+     "W": 2,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 22,
+     "semaforo": "verde",
+     "A": 7,
+     "Wo": 11,
+     "V": 2,
+     "W": 1,
+     "O": 1,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 10,
+     "semaforo": "amarillo",
+     "A": 4,
+     "Wo": 4,
+     "V": 1,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 35,
+     "semaforo": "verde",
+     "A": 8,
+     "Wo": 20,
+     "V": 7,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 17,
+     "semaforo": "amarillo",
+     "A": 4,
+     "Wo": 8,
+     "V": 2,
+     "W": 2,
+     "O": 1,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 14,
+     "semaforo": "amarillo",
+     "A": 6,
+     "Wo": 4,
+     "V": 3,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 7,
+     "semaforo": "rojo",
+     "A": 4,
+     "Wo": 0,
+     "V": 2,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 13,
+     "semaforo": "amarillo",
+     "A": 5,
+     "Wo": 5,
+     "V": 2,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 21,
+     "semaforo": "verde",
+     "A": 2,
+     "Wo": 8,
+     "V": 6,
+     "W": 5,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 11,
+     "semaforo": "amarillo",
+     "A": 2,
+     "Wo": 2,
+     "V": 4,
+     "W": 1,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    }
+   ]
+  },
+  {
+   "usuario": "soochoa",
+   "nombre": "Sofía Ochoa",
+   "nivel": "Coordinador",
+   "puesto": "Coordinadora Jurídico Corporativo",
+   "champion": false,
+   "f_esperada": "W>A",
+   "reporta_a": "dfuentes",
+   "a": 11,
+   "wo": 10,
+   "v": 9,
+   "w": 5,
+   "o": 15,
+   "total": 50,
+   "dias_activos": 5,
+   "ultima_actividad": "2026-10-09 16:57:40",
+   "semaforo": "verde",
+   "en_excepcion": false,
+   "transicion": false,
+   "baseline_previa": false,
+   "base_detalle": {
+    "sin_conteo": 0,
+    "usadas": 5,
+    "rango_usado": "31 ago-2 oct",
+    "nuevas": null
+   },
+   "baseline": 43.4,
+   "baseline_semanas": 5,
+   "ratio": 1.152,
+   "baseline_tool": {
+    "A": 18.6,
+    "Wo": 11.0,
+    "V": 5.4,
+    "W": 5.0,
+    "O": 3.4
+   },
+   "excepcion_actual": {
+    "dias_habiles": 5,
+    "dias_ausente": 0,
+    "tipos": [],
+    "por_tipo": {},
+    "feriados": [],
+    "es_excepcion": false,
+    "transicion": false,
+    "de_sd": false
+   },
+   "post_excepcion": false,
+   "total_anterior": 77,
+   "racha": 2,
+   "naCiclo": false,
+   "diversidadWf": 1.4,
+   "firma": "O>A>Wo>V>W",
+   "urgencia": "Media",
+   "motivo": [
+    {
+     "text": "Aumento concentrado en "
+    },
+    {
+     "text": "O",
+     "tool": "O"
+    },
+    {
+     "text": "."
+    }
+   ],
+   "fortaleza": [
+    {
+     "text": "Validador de Expedientes Legales (su workflow más usado, 5x)"
+    }
+   ],
+   "fortaleza_tool": "A",
+   "workflow_top": {
+    "nombre": "Validador de Expedientes Legales",
+    "veces": 5
+   },
+   "historial": [
+    {
+     "corte": "22-26 jun 2026",
+     "viernes": "2026-06-26",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "sin_historial",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "29 jun-3 jul 2026",
+     "viernes": "2026-07-03",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "rojo",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "6-10 jul 2026",
+     "viernes": "2026-07-10",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "13-17 jul 2026",
+     "viernes": "2026-07-17",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "20-24 jul 2026",
+     "viernes": "2026-07-24",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "27-31 jul 2026",
+     "viernes": "2026-07-31",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "3-7 ago 2026",
+     "viernes": "2026-08-07",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "10-14 ago 2026",
+     "viernes": "2026-08-14",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "17-21 ago 2026",
+     "viernes": "2026-08-21",
+     "con_datos": true,
+     "total": 0,
+     "semaforo": "excepcion",
+     "A": 0,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": true,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "24-28 ago 2026",
+     "viernes": "2026-08-28",
+     "con_datos": true,
+     "total": 51,
+     "semaforo": "verde",
+     "A": 17,
+     "Wo": 24,
+     "V": 0,
+     "W": 10,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "31 ago-4 sep 2026",
+     "viernes": "2026-09-04",
+     "con_datos": true,
+     "total": 57,
+     "semaforo": "verde",
+     "A": 49,
+     "Wo": 3,
+     "V": 4,
+     "W": 1,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "con_datos": true,
+     "total": 51,
+     "semaforo": "amarillo",
+     "A": 25,
+     "Wo": 19,
+     "V": 0,
+     "W": 6,
+     "O": 1,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "con_datos": true,
+     "total": 21,
+     "semaforo": "rojo",
+     "A": 5,
+     "Wo": 13,
+     "V": 1,
+     "W": 0,
+     "O": 2,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "con_datos": true,
+     "total": 11,
+     "semaforo": "rojo",
+     "A": 11,
+     "Wo": 0,
+     "V": 0,
+     "W": 0,
+     "O": 0,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "con_datos": true,
+     "total": 77,
+     "semaforo": "verde",
+     "A": 3,
+     "Wo": 20,
+     "V": 22,
+     "W": 18,
+     "O": 14,
+     "excepcion": false,
+     "cuenta_en_base": false
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "con_datos": true,
+     "total": 50,
+     "semaforo": "verde",
+     "A": 11,
+     "Wo": 10,
+     "V": 9,
+     "W": 5,
+     "O": 15,
+     "excepcion": false,
+     "cuenta_en_base": false
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,102 @@
+{
+ "_fuente": "workflows_export_2026-09-09_to_2026-10-09.xlsx",
+ "_nota": "Borradores creados por las 65 personas de las 6 SD (sin cortesias ni excluidos). El export no trae id de workflow.",
+ "total": 19,
+ "borradores": [
+  {
+   "id": null,
+   "nombre": "Extractor de Requerimiento",
+   "creador": "kaparicio"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow",
+   "creador": "kaparicio"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow 1",
+   "creador": "kaparicio"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow 2",
+   "creador": "kaparicio"
+  },
+  {
+   "id": null,
+   "nombre": "Debida Diligencia PLD/FT",
+   "creador": "msotomayor"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow 3",
+   "creador": "msotomayor"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow 4",
+   "creador": "msotomayor"
+  },
+  {
+   "id": null,
+   "nombre": "Revisión Contractual Normativa — Instituciones de Crédito",
+   "creador": "lesespinoza"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow (1)",
+   "creador": "kaparicio"
+  },
+  {
+   "id": null,
+   "nombre": "Extractor de Registros (Oficio eliminar)",
+   "creador": "kaparicio"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow (2)",
+   "creador": "msotomayor"
+  },
+  {
+   "id": null,
+   "nombre": "Análisis PLD/FT",
+   "creador": "msotomayor"
+  },
+  {
+   "id": null,
+   "nombre": "Extracción de Datos proveedores",
+   "creador": "kaparicio"
+  },
+  {
+   "id": null,
+   "nombre": "New Workflow (1)",
+   "creador": "jnajera"
+  },
+  {
+   "id": null,
+   "nombre": "Convenio de Terminación - Grupo Gentera",
+   "creador": "alduarte"
+  },
+  {
+   "id": null,
+   "nombre": "Revisión de Personas Vinculadas con Delitos",
+   "creador": "msotomayor"
+  },
+  {
+   "id": null,
+   "nombre": "Document Analysis & Key Data Extraction (1)",
+   "creador": "aqsordo"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow (3)",
+   "creador": "msotomayor"
+  },
+  {
+   "id": null,
+   "nombre": "Nuevo Workflow (4)",
+   "creador": "msotomayor"
+  }
+ ]
+}

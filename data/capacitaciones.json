@@ -45,29 +45,6 @@
   {
    "fecha": "2026-10-19",
    "fecha_txt": "Semana 19-23 oct",
-   "tema": "Assistant: instrucciones que sí funcionan",
-   "herramienta": "A",
-   "coordina": "Karime Sotelo (ENN)",
-   "niveles": [
-    "Coordinador",
-    "Gerente",
-    "Líder",
-    "Subdirector",
-    "Analista"
-   ],
-   "estado": "Propuesta",
-   "fijo": true,
-   "coordina_uid": "nsotelo",
-   "expertos_uid": [
-    "jgsantillan",
-    "larrazola",
-    "aksalinas"
-   ],
-   "nota": "Amed Hernández la cancela a petición suya; la toma Karime Sotelo (Tony, 20 oct 2026). Expertos tomados del mensaje a Champions del 13 oct 2026; por confirmar con Tony."
-  },
-  {
-   "fecha": "2026-10-19",
-   "fecha_txt": "Semana 19-23 oct",
    "tema": "Word",
    "herramienta": "Wo",
    "coordina": "Karime Sotelo (ENN), con Tony de respaldo",
@@ -76,7 +53,7 @@
     "Líder"
    ],
    "estado": "Confirmada",
-   "nota": "La da Karime Sotelo, es su debut; Tony de respaldo. Jue 22 oct, 13:00. Solo Word: Playbook quiza no, por ser mas de Contratos (Tony, 20 oct 2026). Expertos tomados del mensaje a Champions del 13 oct 2026; por confirmar con Tony.",
+   "nota": "La da Karime Sotelo sola, Tony de respaldo. Jue 22 oct, 13:00. Solo Word. Expertos: Adriana Rodríguez y Heriberto Falcón (Tony, 20 oct 2026); tercero por confirmar, no Ana Karen Salinas (ya participó). Es la única sesión de la semana 19-23 oct.",
    "fijo": true,
    "coordina_uid": "nsotelo",
    "apoyo_uid": [
@@ -84,8 +61,7 @@
    ],
    "expertos_uid": [
     "arperez",
-    "hfalcon",
-    "aksalinas"
+    "hfalcon"
    ],
    "dia": "2026-10-22",
    "hora": "13:00"

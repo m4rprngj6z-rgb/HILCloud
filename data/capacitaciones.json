@@ -68,15 +68,15 @@
   {
    "fecha": "2026-10-19",
    "fecha_txt": "Semana 19-23 oct",
-   "tema": "Word y Playbook",
+   "tema": "Word",
    "herramienta": "Wo",
    "coordina": "Karime Sotelo (ENN), con Tony de respaldo",
    "niveles": [
     "Gerente",
     "Líder"
    ],
-   "estado": "Propuesta",
-   "nota": "Karime Sotelo coordina sola, es su debut; Tony de respaldo (12 oct 2026). Expertos tomados del mensaje a Champions del 13 oct 2026; por confirmar con Tony.",
+   "estado": "Confirmada",
+   "nota": "La da Karime Sotelo, es su debut; Tony de respaldo. Jue 22 oct, 13:00. Solo Word: Playbook quiza no, por ser mas de Contratos (Tony, 20 oct 2026). Expertos tomados del mensaje a Champions del 13 oct 2026; por confirmar con Tony.",
    "fijo": true,
    "coordina_uid": "nsotelo",
    "apoyo_uid": [
@@ -86,7 +86,9 @@
     "arperez",
     "hfalcon",
     "aksalinas"
-   ]
+   ],
+   "dia": "2026-10-22",
+   "hora": "13:00"
   },
   {
    "fecha": "2026-10-26",

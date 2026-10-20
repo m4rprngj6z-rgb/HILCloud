@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1200px;background:#fff;font-family:Inter,Arial,sans-serif;color:#1A1A1A}
+.top{background:#1F3864;color:#fff;padding:48px 64px 40px}
+.top .k{font-size:22px;color:#D6E4F0;letter-spacing:.5px}
+.top h1{font-size:60px;font-weight:800;margin-top:8px;line-height:1.05}
+.top p{font-size:24px;color:#D6E4F0;margin-top:14px}
+.sec{padding:36px 64px 0}
+h2{font-size:30px;color:#1F3864;font-weight:800;margin-bottom:18px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.st{background:#EBF3FB;border-radius:14px;padding:22px 20px;min-height:230px}
+.n{width:54px;height:54px;border-radius:50%;background:#1F3864;color:#fff;font-size:28px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.st b{display:block;font-size:22px;margin-bottom:8px}
+.st span{font-size:18px;line-height:1.35;color:#333}
+.lbl{font-weight:700;color:#C55A11}
+.p3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.p3 div{border:3px solid #1F3864;border-radius:14px;padding:16px 18px;font-size:18px;line-height:1.35}
+.p3 div b{display:block;font-size:22px;color:#1F3864;margin-bottom:4px}
+.pr{background:#FBE5D6;border-radius:14px;padding:16px 22px;margin-bottom:12px;display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:center}
+.pr .t{font-weight:800;font-size:20px;color:#C55A11}
+.pr .q{font-size:19px;line-height:1.4;font-family:Inter,Arial,sans-serif}
+.fx{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fx div{background:#EBF3FB;border-radius:14px;padding:20px;font-size:18px;line-height:1.4}
+.fx div b{display:block;font-size:21px;color:#1F3864;margin-bottom:6px}
+.note{margin:26px 64px 0;border-left:8px solid #C55A11;padding:12px 20px;font-size:19px;line-height:1.4;background:#F6F6F6}
+.warn{margin-top:18px;background:#FBE5D6;border:3px solid #C55A11;border-radius:14px;padding:24px;display:grid;grid-template-columns:1fr 300px;gap:28px;align-items:center}
+.warn h3{font-size:26px;color:#C55A11;margin-bottom:10px}
+.warn p{font-size:20px;line-height:1.45;margin-bottom:10px}
+.warn img{width:300px;border-radius:10px;border:1px solid #BFBFBF;background:#fff}
+.foot{margin-top:34px;padding:22px 64px;border-top:2px solid #D6E4F0;font-size:16px;color:#595959;display:flex;justify-content:space-between}
+</style></head><body>
+<div class="top">
+  <div class="k">Harvey AI × Gentera</div>
+  <h1>Harvey en Outlook, paso a paso</h1>
+  <p>Para repetirlo cuando lo necesites, a partir de lo que nos pidieron en la encuesta de la sesión del 8 de octubre</p>
+</div>
+
+<div class="sec">
+  <h2>Los 4 pasos</h2>
+  <div class="steps">
+    <div class="st"><div class="n">1</div><b>Abre el correo</b><span>Harvey solo trabaja sobre el hilo que tienes abierto. Sin hilo abierto, no responde.</span></div>
+    <div class="st"><div class="n">2</div><b>Abre Harvey</b><span>En la barra de Outlook: <span class="lbl">Aplicaciones</span> y elige <span class="lbl">Harvey for Outlook</span>. La primera vez, inicia sesión con tu cuenta de Harvey.</span></div>
+    <div class="st"><div class="n">3</div><b>Pide con 3P</b><span>Escribe tu instrucción o usa una de las de abajo. Harvey lee el hilo y sus adjuntos.</span></div>
+    <div class="st"><div class="n">4</div><b>Revisa y envía</b><span>Ajusta el borrador con tu criterio antes de mandarlo. La respuesta es tuya.</span></div>
+  </div>
+  <div class="warn">
+    <div>
+      <h3>Importante entre el paso 3 y el 4</h3>
+      <p>Harvey te va a mostrar la pantalla <b>“Conecte toda su bandeja de entrada”</b>. En Gentera ese acceso todavía no está activado.</p>
+      <p>Da clic en el botón de abajo: <b class="lbl">Continuar sin acceso completo a la bandeja de entrada</b>.</p>
+    </div>
+    <img src="conectar_crop.png">
+  </div>
+</div>
+
+<div class="sec">
+  <h2>La fórmula 3P</h2>
+  <div class="p3">
+    <div><b>Propósito</b>Qué quieres obtener: un resumen, una respuesta, una lista de pendientes.</div>
+    <div><b>Parámetros</b>Todo lo que Harvey necesita en el primer mensaje: datos, tono, destinatario, fecha.</div>
+    <div><b>Profundidad</b>Qué tan largo o detallado: 5 puntos, 6 líneas, una tabla.</div>
+  </div>
+  <h2 style="margin-top:28px">Instrucciones listas para copiar</h2>
+  <div class="pr"><div class="t">Resumir</div><div class="q">“Resume este hilo en 5 puntos: qué se pide, quién lo pide, fecha límite y qué me toca hacer a mí.”</div></div>
+  <div class="pr"><div class="t">Pendientes</div><div class="q">“Extrae los pendientes de este hilo en una tabla con tres columnas: acción, responsable y fecha.”</div></div>
+  <div class="pr"><div class="t">Responder</div><div class="q">“Redacta una respuesta formal que confirme la recepción, pida el documento firmado antes del viernes y no pase de 6 líneas.”</div></div>
+  <div class="pr"><div class="t">Revisar adjunto</div><div class="q">“Revisa el adjunto y dime qué obligaciones y plazos implica para Banco Compartamos, con la cláusula de cada uno.”</div></div>
+  <div class="pr"><div class="t">Guardar en Vault</div><div class="q">Usa la acción rápida <b>Send to vault</b> para guardar el hilo y sus adjuntos en un Vault y consultarlos después desde Harvey.</div></div>
+</div>
+
+<div class="sec">
+  <h2>¿No te funcionó?</h2>
+  <div class="fx">
+    <div><b>No veo Harvey</b>En Outlook: <span class="lbl">Aplicaciones</span> o <span class="lbl">Obtener complementos</span>, busca “Harvey” y da clic en <span class="lbl">Agregar</span>. Si no aparece, revisa <span class="lbl">Complementos administrados por el administrador</span>.</div>
+    <div><b>No arroja resultado</b>Confirma que el hilo esté abierto y que elegiste <span class="lbl">Continuar sin acceso completo a la bandeja de entrada</span>. Cierra y vuelve a abrir el panel, y repite la instrucción completa en un solo mensaje.</div>
+    <div><b>Sigue sin funcionar</b>Escríbele a tu Champion con una captura de pantalla. Lo resolvemos contigo.</div>
+  </div>
+</div>
+
+<div class="note"><b>Para tenerlo presente:</b> Harvey en Outlook trabaja con el hilo abierto y sus adjuntos; no busca en todo tu buzón. Para consultar muchos correos juntos, guárdalos en un Vault.</div>
+
+<div class="foot"><span>José Antonio Bueno Díaz | Gerente Contratos TI &amp; AI</span><span>Fuente: Harvey Help Center, “Harvey for Outlook: How to Set Up and Use”</span></div>
+</body></html>

@@ -1,5 +1,5 @@
 {
- "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla. Sesiones fijas (Tony, 14 oct 2026): con \"fijo\": true, coordina_uid, apoyo_uid y expertos_uid los decide Tony y no se recalculan; capacitacion.py solo los revisa contra excepciones y alertas amarillas (avisos_fijos). Aplica a la semana en curso y la siguiente; las demas siguen con rotacion/auto. Alejandra Mireles fuera de la rotacion de coordinacion: vetada de sostener el foro (Tony, 20 oct 2026).",
+ "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla. Sesiones fijas (Tony, 14 oct 2026): con \"fijo\": true, coordina_uid, apoyo_uid y expertos_uid los decide Tony y no se recalculan; capacitacion.py solo los revisa contra excepciones y alertas amarillas (avisos_fijos). Aplica a la semana en curso y la siguiente; las demas siguen con rotacion/auto. Alejandra Mireles fuera de la rotacion de coordinacion: vetada de sostener el foro (Tony, 20 oct 2026). Sin rotacion desde el 20 oct 2026 (Tony): el coordinador se elige por hechos, dominio de la herramienta, disponibilidad y carga, y lo confirma Tony.",
  "sesiones": [
   {
    "fecha": "2026-10-08",
@@ -95,20 +95,21 @@
    "fecha_txt": "Semana 26-30 oct",
    "tema": "Vault: repositorios y bases compartidas",
    "herramienta": "V",
-   "coordina": "rotacion",
-   "expertos": "auto",
+   "coordina": "Jorge Belloc (CN)",
    "niveles": [
     "Gerente",
     "Subdirector"
    ],
-   "estado": "Propuesta"
+   "estado": "Confirmada",
+   "coordina_uid": "jbelloc",
+   "expertos_uid": [
+    "jgsantillan"
+   ],
+   "dia": "2026-10-29",
+   "hora": "13:00",
+   "fijo": true,
+   "nota": "Coordina Jorge Belloc (55% de su uso es Vault), experto Javier García, su Gerente; Tony lo acordó con Javier (20 oct 2026). Borrador: presentaciones/sesion_vault.js."
   }
  ],
- "rotacion": [
-  "jnajera",
-  "amhernandez",
-  "gubernal",
-  "nsotelo",
-  "jbelloc"
- ]
+ "rotacion": []
 }

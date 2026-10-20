@@ -54,9 +54,9 @@ def workflow_15oct(ref):
 
 
 def word_playbook_karime(ref):
-    s = _sesion('Word y Playbook')
+    s = _sesion('Word')
     if not s:
-        return 'falla', 'no está la sesión de Word y Playbook'
+        return 'falla', 'no está la sesión de Word'
     if s.get('coordina_uid') != 'nsotelo' or not s.get('fijo'):
         return 'falla', f"coordina_uid = {s.get('coordina_uid')!r}, fijo = {s.get('fijo')!r}"
     if s.get('apoyo_uid') != ['jbueno']:
@@ -150,7 +150,7 @@ def tres_p_en_espanol(ref):
 
 DECISIONES = [
     ('Workflow 15 oct: Tony coordina, Karime apoya, 3 guías de mesa fijas', workflow_15oct),
-    ('Word y Playbook: Karime coordina sola, Tony de respaldo', word_playbook_karime),
+    ('Word: Karime coordina sola, Tony de respaldo', word_playbook_karime),
     ('Semana del corte y la siguiente con coordinador y expertos fijos', semanas_fijas),
     ('Alejandra Mireles en backoffice, no al frente de sesiones', alejandra_backoffice),
     ('Sofía Ochoa no presenta', sofia_no_presenta),

@@ -427,8 +427,7 @@
    "f_esperada": "A>W",
    "champion": false,
    "reporta_a": "lrobert",
-   "gerencia": "Gerencia GC II",
-   "nota_licencia": "En revisión: trabajo presencial; Alejandra Mireles lo resuelve. Fuera de la lista de candidatos hasta tener fechas (Tony, 2 oct 2026)"
+   "gerencia": "Gerencia GC II"
   },
   "lrobert": {
    "sd": "GC",
@@ -846,7 +845,7 @@
    "baja_ejecutada": false,
    "area": "Control Interno, Gestión GRC",
    "alta": "2026-10-15",
-   "nota_licencia": "Oscar Alejandro Martínez Contreras. Licencia decidida por Tony (15 oct 2026); área confirmada por Tony (20 oct 2026). Sin uso previo en Harvey"
+   "nota": "Oscar Alejandro Martínez Contreras. Licencia decidida por Tony (15 oct 2026); recibe la de César Berelleza (20 oct 2026). Sin uso previo en Harvey"
   }
  },
  "etiqueta_subdireccion": {

@@ -53,7 +53,7 @@
     "Líder"
    ],
    "estado": "Confirmada",
-   "nota": "La da Karime Sotelo sola, Tony de respaldo. Jue 22 oct, 13:00. Solo Word. Expertos: Adriana Rodríguez y Heriberto Falcón (Tony, 20 oct 2026); tercero por confirmar, no Ana Karen Salinas (ya participó). Es la única sesión de la semana 19-23 oct.",
+   "nota": "La da Karime Sotelo sola, Tony de respaldo. Jue 22 oct, 13:00, enteramente remota. Expertos: Adriana Rodríguez, Heriberto Falcón y María Yesenia Álvarez (ConCrédito, remota desde Culiacán; guía un equipo en línea) (Tony, 20 oct 2026).",
    "fijo": true,
    "coordina_uid": "nsotelo",
    "apoyo_uid": [
@@ -61,10 +61,12 @@
    ],
    "expertos_uid": [
     "arperez",
-    "hfalcon"
+    "hfalcon",
+    "myalvarezf"
    ],
    "dia": "2026-10-22",
-   "hora": "13:00"
+   "hora": "13:00",
+   "modalidad": "Remota"
   },
   {
    "fecha": "2026-10-26",
@@ -85,6 +87,51 @@
    "hora": "13:00",
    "fijo": true,
    "nota": "Coordina Jorge Belloc (55% de su uso es Vault), experto Javier García, su Gerente; Tony lo acordó con Javier (20 oct 2026). Borrador: presentaciones/sesion_vault.js."
+  },
+  {
+   "fecha": "2026-11-02",
+   "fecha_txt": "Jue 5 nov",
+   "dia": "2026-11-05",
+   "hora": "13:00",
+   "tema": "Assistant: instrucciones que sí funcionan (3P)",
+   "herramienta": "A",
+   "coordina": "Karime Sotelo (ENN)",
+   "coordina_uid": "nsotelo",
+   "expertos_uid": [
+    "radimas",
+    "imbecerra",
+    "larrazola"
+   ],
+   "niveles": [
+    "Coordinador",
+    "Gerente",
+    "Líder",
+    "Subdirector",
+    "Analista"
+   ],
+   "estado": "Propuesta",
+   "nota": "Replaneación 20 oct (propuesta de Claude, espera a Tony). Reemplaza la que canceló Amed. Karime: fase 3 de su programa y la Champion con más Assistant según CAP; condicionado a cómo salga Word el 22. Expertos: más Assistant en los cortes del 2, 9 y 16 oct sin alerta de uso (Raúl Dimas 87, Israel Márquez 84, Lucía Arrazola 65). Fuera a propósito: Jesús Paúl Pallares (alerta de tarea repetida), Javier García (ya va en Vault), Ana Karen Salinas (ya participó)."
+  },
+  {
+   "fecha": "2026-11-09",
+   "fecha_txt": "Jue 12 nov",
+   "dia": "2026-11-12",
+   "hora": "13:00",
+   "tema": "Workflow: publicar y compartir",
+   "herramienta": "W",
+   "coordina": "Jean Cub Nájera (RL)",
+   "coordina_uid": "jnajera",
+   "expertos_uid": [
+    "anraya",
+    "lesespinoza"
+   ],
+   "niveles": [
+    "Coordinador",
+    "Líder",
+    "Gerente"
+   ],
+   "estado": "Propuesta",
+   "nota": "Replaneación 20 oct (propuesta de Claude, espera a Tony). Jean: 68% de su uso es Workflow, el Champion con más Workflow; cedió su turno el 15 oct. Seguimiento de la sesión del 15 oct y de la meta de workflows compartidos del 30 oct. Expertos: Aaron Raya (30 en 3 cortes) y Leslie Espinoza (caso estrella CN, regresa el 4 nov)."
   }
  ],
  "rotacion": []

@@ -110,7 +110,7 @@ sincroniza aqui.
 
 ## Decisiones vigentes que no estan en el codigo (al 14 oct 2026)
 
-Ultimos handoffs: docs/HANDOFF_2026-10-14.md y docs/HANDOFF_2026-10-15.md (leer ambos al iniciar).
+Ultimos handoffs: docs/HANDOFF_2026-10-14.md, docs/HANDOFF_2026-10-15.md y docs/HANDOFF_2026-10-20.md (leer los tres al iniciar).
 
 - Firma de todos los documentos: "Jose Antonio Bueno Diaz | Gerente Contratos TI & AI". Nunca
   "Champion de Champions" como titulo en un documento.
@@ -125,14 +125,13 @@ Ultimos handoffs: docs/HANDOFF_2026-10-14.md y docs/HANDOFF_2026-10-15.md (leer 
   Compras): una linea informativa en el Ejecutivo de ENN, sin sumar a nada (REGLAS 8g).
 - Licencias: candidato = 2+ apariciones en el top 10 de menor uso del mismo mes calendario. Octubre
   es el primer mes completo; primera lista real para la sesion de KPIs de noviembre.
-- Pendientes abiertos: cuenta duplicada glosanchez@compartamos.com (sin uso desde 14 ago, liberable);
-  Juan Miguel Galvez (GC) en trabajo presencial, Alejandra Mireles lo esta resolviendo (no registrar
+- Pendientes abiertos: Juan Miguel Galvez (GC) en trabajo presencial, Alejandra Mireles lo esta resolviendo (no registrar
   excepcion hasta que Tony de fechas); caso GC-01 (600 reactivos) sin tiempos antes/despues.
 - Reportes se entregan en viernes (el viernes del corte). Fines de semana no cuentan (REGLAS 4).
 - Nombres de gerencia genericos (CN I/II/III, GC I/II, JC I/II, RL) se quedan; no tocarlos sin instruccion.
 - 3P = Proposito, Parametros, Profundidad (marco de Tony). Nunca en ingles.
-- Capacitaciones: la semana en curso y la siguiente con coordinador y expertos fijos (14 oct). Karime coordina sola Word y Playbook (19-23 oct). Alejandra Mireles en backoffice, no
-  al frente de sesiones. Sofia Ochoa no presenta.
+- Capacitaciones: la semana en curso y la siguiente con coordinador y expertos fijos (14 oct). Karime coordina sola Word (jue 22 oct 13:00, sin Playbook) y la de Assistant que cancelo Amed (19-23 oct). Alejandra Mireles en backoffice, no
+  al frente de sesiones y fuera de la rotacion de coordinacion (20 oct). Sofia Ochoa no presenta.
 - No actuar sobre preguntas como si fueran instrucciones; revisar excepciones antes de proponer personas.
 
 ## Lecciones operativas para cualquier chat nuevo (16 oct 2026)

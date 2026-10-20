@@ -1,5 +1,5 @@
 {
- "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla. Sesiones fijas (Tony, 14 oct 2026): con \"fijo\": true, coordina_uid, apoyo_uid y expertos_uid los decide Tony y no se recalculan; capacitacion.py solo los revisa contra excepciones y alertas amarillas (avisos_fijos). Aplica a la semana en curso y la siguiente; las demas siguen con rotacion/auto.",
+ "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla. Sesiones fijas (Tony, 14 oct 2026): con \"fijo\": true, coordina_uid, apoyo_uid y expertos_uid los decide Tony y no se recalculan; capacitacion.py solo los revisa contra excepciones y alertas amarillas (avisos_fijos). Aplica a la semana en curso y la siguiente; las demas siguen con rotacion/auto. Alejandra Mireles fuera de la rotacion de coordinacion: vetada de sostener el foro (Tony, 20 oct 2026).",
  "sesiones": [
   {
    "fecha": "2026-10-08",
@@ -47,7 +47,7 @@
    "fecha_txt": "Semana 19-23 oct",
    "tema": "Assistant: instrucciones que sí funcionan",
    "herramienta": "A",
-   "coordina": "Amed Hernández (JC)",
+   "coordina": "Karime Sotelo (ENN)",
    "niveles": [
     "Coordinador",
     "Gerente",
@@ -57,13 +57,13 @@
    ],
    "estado": "Propuesta",
    "fijo": true,
-   "coordina_uid": "amhernandez",
+   "coordina_uid": "nsotelo",
    "expertos_uid": [
     "jgsantillan",
     "larrazola",
     "aksalinas"
    ],
-   "nota": "Coordinador y expertos tomados del mensaje a Champions del 13 oct 2026; por confirmar con Tony."
+   "nota": "Amed Hernández la cancela a petición suya; la toma Karime Sotelo (Tony, 20 oct 2026). Expertos tomados del mensaje a Champions del 13 oct 2026; por confirmar con Tony."
   },
   {
    "fecha": "2026-10-19",
@@ -109,7 +109,6 @@
   "amhernandez",
   "gubernal",
   "nsotelo",
-  "jbelloc",
-  "amireles"
+  "jbelloc"
  ]
 }

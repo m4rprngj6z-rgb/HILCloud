@@ -832,6 +832,21 @@
    "seguimiento_sd": "ENN",
    "solicito": "Karla Méndez",
    "nota_licencia": "Cortesía solicitada por Karla Méndez (30 sep 2026); su uso aparece en el Ejecutivo de ENN"
+  },
+  "omartinez": {
+   "sd": "EXTERNO",
+   "nombre": "Oscar Martínez",
+   "puesto": "Cortesía / externo a la DJ",
+   "nivel": "-",
+   "rol_hai": "Cortesía",
+   "f_esperada": "-",
+   "champion": false,
+   "reporta_a": null,
+   "fuera_de_semaforo": true,
+   "baja_ejecutada": false,
+   "area": "Control Interno, Gestión GRC",
+   "alta": "2026-10-15",
+   "nota_licencia": "Oscar Alejandro Martínez Contreras. Licencia decidida por Tony (15 oct 2026); área confirmada por Tony (20 oct 2026). Sin uso previo en Harvey"
   }
  },
  "etiqueta_subdireccion": {

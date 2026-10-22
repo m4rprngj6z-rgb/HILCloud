@@ -53,16 +53,16 @@
     "Líder"
    ],
    "estado": "Confirmada",
-   "nota": "La da Karime Sotelo sola, Tony de respaldo. Jue 22 oct, 13:00, enteramente remota. Expertos: Adriana Rodríguez, Heriberto Falcón y María Yesenia Álvarez (ConCrédito, remota desde Culiacán; guía un equipo en línea) (Tony, 20 oct 2026).",
+   "nota": "La da Karime Sotelo sola, Tony de respaldo. Jue 22 oct, 13:00, enteramente remota. Expertos: Heriberto Falcón, María Yesenia Álvarez y Miguel Jaimes (entra por Adriana Rodríguez, ocupada en el horario; Tony, 22 oct) (ConCrédito, remota desde Culiacán; guía un equipo en línea) (Tony, 20 oct 2026).",
    "fijo": true,
    "coordina_uid": "nsotelo",
    "apoyo_uid": [
     "jbueno"
    ],
    "expertos_uid": [
-    "arperez",
     "hfalcon",
-    "myalvarezf"
+    "myalvarezf",
+    "migjaimes"
    ],
    "dia": "2026-10-22",
    "hora": "13:00",

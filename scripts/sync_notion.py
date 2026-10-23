@@ -52,6 +52,18 @@ def tablas(md):
         filas = [[limpiar(c) for c in re.findall(r'<td>(.*?)</td>', tr, re.S)]
                  for tr in re.findall(r'<tr>(.*?)</tr>', m.group(1), re.S)]
         out.append((m.start(), [f for f in filas if f]))
+    # El HIL tambien puede venir con tablas Markdown (| a | b |), formato del fetch de Notion desde oct 2026.
+    for m in re.finditer(r'(?:^\|.*\|[ \t]*\n?)+', md, re.M):
+        filas = []
+        for ln in m.group(0).strip('\n').split('\n'):
+            ln = ln.strip()
+            if re.fullmatch(r'\|[\s:|-]+\|', ln):
+                continue   # separador | --- |
+            celdas = re.split(r'(?<!\\)\|', ln.strip('|'))
+            filas.append([limpiar(c.replace('\\|', '|')) for c in celdas])
+        if filas:
+            out.append((m.start(), filas))
+    out.sort(key=lambda x: x[0])
     return out
 
 
@@ -113,7 +125,7 @@ def roster_notion(md):
             personas[u] = {'sd': sd, 'nombre': f[ix['Nombre']], 'puesto': f[ix['Puesto']],
                            'nivel': f[ix['Nivel']], 'rol_hai': rol, 'f_esperada': f[ix['F. esperada']],
                            'champion': rol.startswith('★'), 'alta': fecha_alta(f[ix['Flags']])}
-        m = re.search(r'\*\*Organigrama:\*\*(.*)', cuerpo)
+        m = re.search(r'(?:\*\*|<b>)Organigrama:(?:\*\*|</b>)(.*)', cuerpo)
         if not m:
             sys.exit(f'Sin organigrama en {sd}')
         jefes.update(organigrama(m.group(1)))
@@ -122,7 +134,7 @@ def roster_notion(md):
     # Cuentas fuera de las tablas maestras: "DJ y cortesias" y "Cuentas especiales" (JC)
     a, b = seccion(md, r'^### .*DJ y cortes')
     otras = [f[0] for pos, t in todas if a <= pos < b for f in t[1:]]
-    for m in re.finditer(r'\*\*Cuentas especiales[^*]*\*\*', md):
+    for m in re.finditer(r'(?:\*\*|<b>)Cuentas especiales[^*<]*(?:\*\*|</b>)', md):
         t = next(t for pos, t in todas if pos > m.end())
         otras += [f[0] for f in t[1:]]
     return personas, otras

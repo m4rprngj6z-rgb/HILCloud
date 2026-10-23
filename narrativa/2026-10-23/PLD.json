@@ -1,0 +1,8 @@
+{
+ "_corte": "19-23 oct 2026",
+ "_redacto": "Claude, sobre out/PLD_2026-10-23.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "PLD registró 251 acciones, 14% menos que la semana anterior (293), con 18 de 19 personas activas y 9 en verde frente a su propio ritmo. Seis personas requieren atención alta, entre ellas Gustavo Bernal (20% de su ritmo) y Raúl Dimas. Ricardo Centurión y Mario Manzano usaron sus workflows de vinculación delictiva y descripción de operaciones. Los KPIs 7 y 8 de octubre se cargaron a Wave sin movimiento porque no se envió la medición.",
+  "accion": "Subdirección, a través de Gustavo Bernal: enviar la medición de los KPIs 7 y 8 antes de la próxima carga de reales a Wave, en noviembre, y aprobar o regresar con comentarios los workflows del equipo que siguen en espera; Gustavo se comprometió a tener avance el 26 o 27 de octubre."
+ }
+}

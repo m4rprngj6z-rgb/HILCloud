@@ -19,6 +19,9 @@ from datetime import date, datetime, timedelta
 
 import pandas as pd
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import semilla  # noqa: E402
+
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UPLOADS_DEFAULT = '/mnt/user-data/uploads'
 
@@ -373,6 +376,10 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             'ultima': str(m['ts'].max()) if len(m) else None,
         }
 
+    # Semanas que el export crudo no cubre completas: historial guardado en estado/ (semilla.py).
+    SEM, sem_dir = semilla.cargar(corte_fin) if not os.environ.get('SIN_SEMILLA') else ({}, None)
+    semanas_semilla = set()
+
     cur_mon_, cur_fri_ = wins[-1]
     excs_base = [e for e in excs if e.get('cuenta_en_base_desde') and e.get('sd') == sd]
     rows = []
@@ -380,7 +387,15 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         alta = date.fromisoformat(p['alta']) if p.get('alta') else None
         hist = []
         for s in semanas:
-            st = week_stats(uid, s['lunes'], s['viernes'])
+            sd_key = (uid, str(s['viernes']))
+            if not s['con_datos'] and sd_key in SEM and 'A' in SEM[sd_key]:
+                c = SEM[sd_key]
+                st = {**{t: c[t] for t in TOOLS}, 'total': c['total'], 'dias_activos': 0,
+                      'wf_distintos': None, 'wf_conteo': {}, 'ultima': None, 'semilla': True}
+                semanas_semilla.add(s['label'])
+            else:
+                st = week_stats(uid, s['lunes'], s['viernes'])
+                st['semilla'] = False
             st['excepcion'] = excepcion_semana(uid, sd, s['lunes'], excs)
             # Excepciones marcadas "cuenta_en_base_desde" (la SD si trabajo durante ella; decision Tony
             # 2 oct 2026, PLD): desde esa fecha sus semanas entran a la linea base. Siguen en gris.
@@ -390,7 +405,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                 if not sin['es_excepcion']:
                     st['base_desde'] = max(date.fromisoformat(e['cuenta_en_base_desde']) for e in excs_base)
             # Semanas anteriores a su alta no son historial (no son ceros reales).
-            st['con_datos'] = s['con_datos'] and (alta is None or s['viernes'] >= alta)
+            st['con_datos'] = (s['con_datos'] or st['semilla']) and (alta is None or s['viernes'] >= alta)
             st['label'] = s['label']
             hist.append(st)
 
@@ -490,7 +505,8 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             else:
                 rota = True
         na_ciclo = all(h['semaforo'] == 'excepcion' for h in ciclo)
-        evaluables = [h for h in ciclo if h['semaforo'] != 'excepcion']
+        # Semanas de semilla no traen workflows distintos: la diversidad promedia las semanas con detalle.
+        evaluables = [h for h in ciclo if h['semaforo'] != 'excepcion' and h['wf_distintos'] is not None]
         div = round(sum(h['wf_distintos'] for h in evaluables) / len(evaluables), 1) if evaluables else None
 
         cur = hist[-1]
@@ -575,7 +591,7 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
                            'total': h['total'], 'semaforo': h['semaforo'],
                            **{t: h[t] for t in TOOLS},
                            'excepcion': h['excepcion']['es_excepcion'],
-                           'cuenta_en_base': bool(h['base_desde'])} for h, sem in zip(hist, semanas)],
+                           'cuenta_en_base': bool(h['base_desde']), 'semilla': h['semilla']} for h, sem in zip(hist, semanas)],
         })
 
     # Resumen de la referencia pre-excepcion para la semana de transicion (Tony, 28 sep 2026)
@@ -671,6 +687,8 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
             **meta,
             'eventos_fin_de_semana_excluidos': int(len(fds)),
             'eventos_superficie_no_clasificada': fuera['superficie'].value_counts().to_dict(),
+            'semilla': os.path.relpath(sem_dir, REPO) if sem_dir and semanas_semilla else None,
+            'semanas_semilla': [s['label'] for s in semanas if s['label'] in semanas_semilla],
             'usuarios_activos_fuera_de_roster': sorted(
                 set(ev[(ev['fecha'] >= cur_mon) & (ev['fecha'] <= cur_fri)]['user_id'])
                 - set(roster['personas'])),

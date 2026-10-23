@@ -1,0 +1,8 @@
+{
+ "_corte": "19-23 oct 2026",
+ "_redacto": "Claude, sobre out/GC_2026-10-23.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "GC registró 119 acciones, 9% menos que la semana anterior (131), con las 7 personas activas, 3 en verde frente a su propio ritmo y nadie en atención alta. Juan Miguel Gálvez, ya de vuelta en su operación, multiplicó su ritmo, y Zuleycka García lo recuperó. Alejandra Mireles usó su workflow de Clasificación de Productos y Servicios Niza.",
+  "accion": "Champion Alejandra Mireles: buscar a Gabriel Juárez y María Yesenia Álvarez, que quedaron debajo de su ritmo, y proponer al equipo un caso de uso de Workflow para la sesión del 12 de noviembre."
+ }
+}

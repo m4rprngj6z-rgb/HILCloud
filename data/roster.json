@@ -328,9 +328,9 @@
    "champion": false,
    "reporta_a": null,
    "fuera_de_semaforo": true,
-   "baja_ejecutada": false,
+   "baja_ejecutada": true,
    "area": "Control Interno",
-   "nota_licencia": "Baja aprobada: Fibi y Tony (22 oct 2026) deciden liberar la licencia del regulador; pasa a Oscar Martínez. Pendiente ejecutar en Harvey"
+   "nota_licencia": "Baja ejecutada: ya no aparece en la lista de usuarios de Harvey del 23 oct 2026 (Tony y Fibi la aprobaron el 22 oct); su licencia pasa a Oscar Martínez"
   },
   "gchirinos": {
    "sd": "EXTERNO",
@@ -845,7 +845,8 @@
    "baja_ejecutada": false,
    "area": "Control Interno, Gestión GRC",
    "alta": "2026-10-15",
-   "nota": "Oscar Alejandro Martínez Contreras. Licencia decidida por Tony (15 oct 2026); recibe la de Bryan Trujillo (Tony con Fibi, 22 oct 2026; antes se había previsto la de César Berelleza). Sin uso previo en Harvey"
+   "nota": "Oscar Alejandro Martínez Contreras. Licencia decidida por Tony (15 oct 2026); recibe la de Bryan Trujillo (Tony con Fibi, 22 oct 2026; antes se había previsto la de César Berelleza). Sin uso previo en Harvey",
+   "sin_cuenta": true
   }
  },
  "etiqueta_subdireccion": {

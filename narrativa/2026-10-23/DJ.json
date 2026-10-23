@@ -1,0 +1,28 @@
+{
+ "_corte": "19-23 oct 2026",
+ "_redacto": "Claude, sobre out/DJ_2026-10-23.json y out/GL_2026-10-23.json; validado con scripts/validar_narrativa.py",
+ "fibi": {
+  "casos": [
+   "La DJ registró 1321 acciones, 13% menos que la semana anterior, con 60 de 65 personas activas, en una semana con vacaciones en CN, JC y RL.",
+   "CN se sostuvo con 464 acciones y nadie en atención alta; los workflows de su proceso de carpetas de los arts. 326 y 328 de la CUB ya están aprobados y publicados, y el proceso queda como Caso Estrella.",
+   "Workflow sumó 165 ejecuciones en la semana; ENN y CN siguen usando sus workflows propios de forma constante."
+  ],
+  "puntos": [
+   "PLD concentra 6 de las 11 personas en atención alta de la DJ.",
+   "Los KPIs de octubre de PLD y JC quedaron cargados en Wave sin movimiento; la siguiente carga de reales es en noviembre.",
+   "Capacitaciones: la sesión abierta de Word se dio esta semana; la de Vault es la próxima."
+  ]
+ },
+ "licencias": {
+  "notas": [
+   {
+    "titulo": "Bryan Trujillo",
+    "texto": "baja ejecutada con aprobación de la Dirección; su licencia pasa a una nueva alta de Control Interno, pendiente en Accesos."
+   },
+   {
+    "titulo": "Diana Gabriela Castillo Luna",
+    "texto": "licencia de cortesía solicitada por Karla Méndez; su uso se reporta en el Ejecutivo de ENN."
+   }
+  ]
+ }
+}

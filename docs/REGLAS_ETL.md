@@ -389,3 +389,16 @@ jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
   (CAP json y nota del Gobierno de Licencias). No reemplaza a nadie: eso lo decide Tony. La rotacion de
   las demas sesiones no cambia (solo excepciones personales). Decisiones vigentes: `tests/test_decisiones.py`.
 
+
+## Semilla de historial desde estado/ (23 oct 2026)
+
+- Tony (16 y 23 oct 2026): cada corte debe correr con el export de la semana, sin volver a subir los de junio.
+- `scripts/semilla.py`: para las semanas que el export crudo no cubre completas (lunes anterior al primer dato),
+  `etl.py` y `licencias.py` toman las acciones por herramienta de cada persona del corte más reciente en
+  `estado/<viernes>/` (rows[].historial y las series de GL). Lo crudo siempre gana.
+- La semilla no trae días activos ni workflows distintos: Diversidad de Workflows promedia solo las semanas
+  con detalle; el JSON lo dice en `calidad_datos.semanas_semilla`.
+- Prueba: el corte del 16 oct reproducido con semilla del 9 oct coincide en semáforo y línea base salvo por
+  eventos que Harvey agregó tarde a semanas ya cerradas (el export nuevo trae más acciones que el anterior
+  para la misma semana) y por la diversidad.
+- `SEMILLA=<carpeta>` fuerza otra carpeta; `SIN_SEMILLA=1` la apaga.

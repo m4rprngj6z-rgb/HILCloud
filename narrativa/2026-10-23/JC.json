@@ -1,0 +1,8 @@
+{
+ "_corte": "19-23 oct 2026",
+ "_redacto": "Claude, sobre out/JC_2026-10-23.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "JC registró 89 acciones, 28% menos que la semana anterior (124), con 5 de 7 personas activas en una semana con Cristian Fernández de vacaciones. Gloria Sánchez casi duplicó su ritmo con su workflow de extracción de requerimientos SIARA/CNBV, y Oscar Monteverde retomó su uso. El KPI 11 de octubre se cargó a Wave sin movimiento porque no se envió la medición.",
+  "accion": "Subdirección, a través de Amed Hernández: enviar la medición del KPI 11 antes de la próxima carga de reales a Wave, en noviembre, y buscar a Adriana Rodríguez, que quedó en 61% de su ritmo."
+ }
+}

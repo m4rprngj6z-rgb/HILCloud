@@ -16,6 +16,7 @@ from datetime import date, timedelta
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import etl  # noqa: E402
+import semilla  # noqa: E402
 
 REPO = etl.REPO
 N_SEMANAS = 8                  # ventana de tendencia (regla 6: 8-10 semanas)
@@ -85,19 +86,27 @@ def main():
 
     # Universos (regla 1 y 7). Sin filtros de exclusion: Tony decide.
     juridico = [u for u, p in P.items() if p['sd'] in SDS and not p.get('excluido_metricas')]
-    no_juridico = [u for u, p in P.items() if p['sd'] == 'EXTERNO' and not p.get('baja_ejecutada')
+    no_juridico = [u for u, p in P.items() if p['sd'] == 'EXTERNO' and not p.get('baja_ejecutada') and not p.get('sin_cuenta')
                    and not (p.get('alta') and date.fromisoformat(p['alta']) > fin)]   # sin cuenta antes de su alta
     aparte = [u for u, p in P.items() if p.get('excluido_metricas')]
     activos = set(ev[(ev['fecha'] >= wins[-1][0]) & (ev['fecha'] <= fin)]['user_id'])
     sin_mapear = sorted(activos - set(P))
+
+    # Semanas que el export crudo no cubre completas: historial de estado/ (semilla.py, 23 oct 2026).
+    SEM, sem_dir = semilla.cargar(fin) if not os.environ.get('SIN_SEMILLA') else ({}, None)
+    usadas_semilla = set()
 
     def serie(uid, sd):
         out = []
         for mon, fri in wins:
             m = ev[(ev['user_id'] == uid) & (ev['fecha'] >= mon) & (ev['fecha'] <= fri)]
             exc = etl.excepcion_semana(uid, sd, mon, excs)
-            out.append({'corte': etl.label(mon, fri), 'viernes': str(fri), 'total': int(len(m)),
-                        'con_datos': mon >= data_desde, 'excepcion': exc['es_excepcion'],
+            cubierta, total = mon >= data_desde, int(len(m))
+            if not cubierta and (uid, str(fri)) in SEM:
+                cubierta, total = True, SEM[(uid, str(fri))]['total']
+                usadas_semilla.add(etl.label(mon, fri))
+            out.append({'corte': etl.label(mon, fri), 'viernes': str(fri), 'total': total,
+                        'con_datos': cubierta, 'excepcion': exc['es_excepcion'],
                         'tipo_excepcion': exc['tipos'][0] if exc['tipos'] else None})
         return out
 
@@ -178,7 +187,8 @@ def main():
         'radar': radar,
         'aparte': A,
         'sin_mapear': sin_mapear,
-        'calidad_datos': meta,
+        'calidad_datos': {**meta, 'semilla': os.path.relpath(sem_dir, REPO) if sem_dir and usadas_semilla else None,
+                          'semanas_semilla': sorted(usadas_semilla)},
     }
     carpeta = os.path.join(REPO, 'out', f'gl_graficas_{a.corte_fin}')
     os.makedirs(carpeta, exist_ok=True)

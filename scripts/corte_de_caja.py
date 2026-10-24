@@ -10,6 +10,10 @@ Cuatro bloques, en texto plano (consola y out/CorteDeCaja_<fecha>.md):
   3. La semana que viene: sesiones de capacitacion con su gente, choques con ausencias (y con alertas
      amarillas si ya corrio capacitacion.py), personas con dos roles y quien esta fuera por SD.
   4. Cambios del HIL: sync_notion.py sin escribir, si se pasa --hil (markdown o el JSON del conector).
+  5. Cambios de Firma (Tony, 23 oct 2026: monitorear activamente la Firma de cada persona), desde
+     out/<SD>_<viernes>.json: herramienta nueva (3+ acciones esta semana, 0 en sus 5 semanas utiles
+     previas), cambio sostenido (misma herramienta principal 2 semanas seguidas, distinta de su
+     fortaleza historica) y fortaleza que se deja (0 acciones en ella 2 semanas seguidas estando activa).
 No calcula metricas ni cambia datos: solo lee y reporta.
 """
 import argparse
@@ -156,6 +160,36 @@ def main():
     else:
         L.append(f"   Sin fetch del HIL en esta corrida. Última sincronización: roster {j('data/roster.json').get('_sincronizado', '?')}, "
                  f"excepciones {j('data/excepciones.json').get('_sincronizado', '?')}. Pasar --hil (o HIL=... en correr_corte.sh).")
+
+    # 5. Firma
+    L.append('')
+    L.append('5. CAMBIOS DE FIRMA')
+    NOM = {'A': 'Assistant', 'Wo': 'Word', 'V': 'Vault', 'W': 'Workflow', 'O': 'Outlook'}
+    nuevas, sostenidos, dejadas = [], [], []
+    for sd in SDS:
+        f = os.path.join(REPO, 'out', f'{sd}_{a.corte_fin}.json')
+        if not os.path.exists(f):
+            continue
+        for r in json.load(open(f, encoding='utf-8'))['rows']:
+            if r['en_excepcion']:
+                continue
+            h = [x for x in r['historial'] if x['con_datos'] and not x['excepcion']]
+            if len(h) < 3:
+                continue
+            cur, prev, base = h[-1], h[-2], h[-7:-1][-5:]
+            principal = lambda x: max(NOM, key=lambda t: (x[t], -list(NOM).index(t))) if x['total'] >= 5 else None
+            for t in NOM:
+                if cur[t] >= 3 and all(x[t] == 0 for x in base):
+                    nuevas.append(f"{r['nombre']} ({sd}): empezó a usar {NOM[t]} ({cur[t]} acciones)")
+            p0, p1, fz = principal(prev), principal(cur), r.get('fortaleza_tool')
+            if p1 and p0 == p1 and fz and p1 != fz:
+                sostenidos.append(f"{r['nombre']} ({sd}): {NOM[p1]} es su principal 2 semanas seguidas; su fortaleza era {NOM.get(fz, fz)}")
+            if fz and cur['total'] >= 5 and prev['total'] >= 5 and cur[fz] == 0 and prev[fz] == 0:
+                dejadas.append(f"{r['nombre']} ({sd}): 2 semanas sin {NOM.get(fz, fz)}, que era su fortaleza")
+    for titulo, lst in (('Herramienta nueva', nuevas), ('Cambio sostenido', sostenidos), ('Deja su fortaleza', dejadas)):
+        L.append(f'   {titulo}: ' + ('ninguno' if not lst else ''))
+        for x in lst:
+            L.append(f'      {x}')
 
     texto = '\n'.join(L)
     print(texto)

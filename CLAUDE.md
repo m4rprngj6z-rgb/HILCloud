@@ -134,6 +134,13 @@ Ultimos handoffs: docs/HANDOFF_2026-10-14.md, docs/HANDOFF_2026-10-15.md y docs/
   al frente de sesiones y fuera de la rotacion de coordinacion (20 oct). Sofia Ochoa no presenta.
 - No actuar sobre preguntas como si fueran instrucciones; revisar excepciones antes de proponer personas.
 
+## Bitacora y Firma (Tony, 23 oct 2026)
+
+- Cada sesion, junta o correo relevante que se trabaje en un chat se registra el mismo dia en docs/BITACORA.md
+  (fecha, con quien, canal, que se acordo, que queda pendiente).
+- Los cambios de Firma de cada persona se monitorean cada corte: seccion 5 del corte de caja (herramienta nueva,
+  cambio sostenido de herramienta principal, fortaleza que se deja). Mencionarlos a Tony al entregar el corte.
+
 ## Lecciones operativas para cualquier chat nuevo (16 oct 2026)
 
 - Ningun script de medicion se da por bueno si solo se probo con datos sinteticos: correrlo con un export real

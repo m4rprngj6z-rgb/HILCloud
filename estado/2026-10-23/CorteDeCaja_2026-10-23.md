@@ -27,8 +27,15 @@ CORTE DE CAJA | corte al 23/10/2026
       RL: Karla Zetina, vacaciones 20/10-30/10
 
 4. CAMBIOS DEL HIL
-   HIL editado por última vez: 2026-10-22
-   Roster: 64 personas en las tablas maestras, 76 en total
-     sin cambios
-   Excepciones: 35 filas
-     sin cambios
+   Sin fetch del HIL en esta corrida. Última sincronización: roster 2026-10-20, excepciones 2026-10-20. Pasar --hil (o HIL=... en correr_corte.sh).
+
+5. CAMBIOS DE FIRMA
+   Herramienta nueva: 
+      Heriberto Falcón (PLD): empezó a usar Vault (5 acciones)
+      Jesús Paúl Pallares (PLD): empezó a usar Word (4 acciones)
+      Juan Miguel Gálvez (GC): empezó a usar Assistant (10 acciones)
+   Cambio sostenido: 
+      Lucía Arrazola (CN): Vault es su principal 2 semanas seguidas; su fortaleza era Assistant
+      Damaris Mercado (PLD): Outlook es su principal 2 semanas seguidas; su fortaleza era Assistant
+      Israel Márquez Becerra (PLD): Word es su principal 2 semanas seguidas; su fortaleza era Assistant
+   Deja su fortaleza: ninguno

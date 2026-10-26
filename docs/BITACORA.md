@@ -6,6 +6,8 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 26 oct | Oscar Martínez | Seguimiento | Alta solicitada; falta que Oscar confirme su acceso (Tony se lo pidió el 23 oct). | Confirmación de Oscar |
+| 26 oct | Gustavo Bernal (PLD) | Seguimiento | Los workflows del equipo que estaban en espera ya quedaron aprobados, todos, sin la revisión que se pidió (Tony: los aprobó alguien sin control). | Ver en el próximo corte qué workflows de PLD entran en uso |
 | 23 oct | Corte 19-23 oct | Reportes | 14 docx entregados con un solo export de uso (semilla de historial). Bryan Trujillo ya no está en la lista de usuarios. | Alta de Oscar Martínez en Accesos |
 | 22 oct | Leslie Espinoza (CN), cc Fehebell, Elisa, Karla, Jorge | Correo | Aprobados los workflows de carpetas 326 y 328. Leslie confirma minutos por revisión; pide la nota aclaratoria (sesiones no incluidas). Tony responde con la reducción (77%, techo 81%) y la explicación de acceso de ejecución. | Leslie manda el resto a aprobación (22-23 oct) |
 | 22 oct | Karime Sotelo | Sesión Word (remota, 13:00) | Debut de Karime coordinando sola; expertos Heriberto Falcón, María Yesenia Álvarez y Miguel Jaimes (por Adriana). | Ver adopción de Word en el corte del 30 oct |

@@ -6,6 +6,7 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 27 oct | SDCN | Semanal HAI | Avisos: corte 19-23 oct (464 acciones, 13 de 14 en verde), Caso Estrella 326/328 (77%, ~26.7 h/mes), acceso de ejecución para el equipo de Elisa en vacaciones de Leslie, Vault jue 29 con Jorge y Javier, KPIs 3 y 4 de noviembre. | Medición de KPIs 3 y 4 de Jorge para noviembre |
 | 27 oct | Karla Méndez | Escalamiento | Tony escala con Karla que Oscar Martínez no ha confirmado su acceso pese a lo que costó conseguirle licencia. | Respuesta de Karla / Oscar |
 | 27 oct | Asistentes de Word (22 oct) | Encuesta | Pendiente: nadie la había levantado; se diseña el 27 oct. Regla nueva: cada sesión lleva encuesta y el corte de caja avisa si falta. | Enviar encuesta |
 | 26 oct | Oscar Martínez | Seguimiento | Alta solicitada; falta que Oscar confirme su acceso (Tony se lo pidió el 23 oct). | Confirmación de Oscar |

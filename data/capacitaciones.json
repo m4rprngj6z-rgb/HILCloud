@@ -1,5 +1,5 @@
 {
- "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla. Sesiones fijas (Tony, 14 oct 2026): con \"fijo\": true, coordina_uid, apoyo_uid y expertos_uid los decide Tony y no se recalculan; capacitacion.py solo los revisa contra excepciones y alertas amarillas (avisos_fijos). Aplica a la semana en curso y la siguiente; las demas siguen con rotacion/auto. Alejandra Mireles fuera de la rotacion de coordinacion: vetada de sostener el foro (Tony, 20 oct 2026). Sin rotacion desde el 20 oct 2026 (Tony): el coordinador se elige por hechos, dominio de la herramienta, disponibilidad y carga, y lo confirma Tony.",
+ "_nota": "Calendario de capacitaciones por necesidad y rango (Tony, 7 oct 2026). Cada sesion tiene quien COORDINA (sabe llevar una capacitacion; lo decide Tony) y EXPERTOS (power users de la herramienta; 'auto' = las 3 personas con mas uso, calculado cada semana). capacitacion.py agrega publico, cuantos no usan la herramienta y el top 3 de urgencia. Coordinacion rotativa entre Champions (Tony, 7 oct 2026): 'rotacion' = siguiente de la lista, saltando a quien coordino la anterior, a quien este fuera y a quien tenga alerta amarilla. Sesiones fijas (Tony, 14 oct 2026): con \"fijo\": true, coordina_uid, apoyo_uid y expertos_uid los decide Tony y no se recalculan; capacitacion.py solo los revisa contra excepciones y alertas amarillas (avisos_fijos). Aplica a la semana en curso y la siguiente; las demas siguen con rotacion/auto. Alejandra Mireles fuera de la rotacion de coordinacion: vetada de sostener el foro (Tony, 20 oct 2026). Sin rotacion desde el 20 oct 2026 (Tony): el coordinador se elige por hechos, dominio de la herramienta, disponibilidad y carga, y lo confirma Tony. Cada sesion lleva encuesta al dia siguiente (Tony, 27 oct 2026): campo \"encuesta\" {estado: por enviar | pendiente | enviada | cerrada}; el corte de caja avisa las sesiones pasadas sin encuesta enviada.",
  "sesiones": [
   {
    "fecha": "2026-10-08",
@@ -15,7 +15,11 @@
     "Subdirector"
    ],
    "estado": "Confirmada",
-   "coordina_uid": "amireles"
+   "coordina_uid": "amireles",
+   "encuesta": {
+    "estado": "cerrada",
+    "nota": "22 respuestas; infografía enviada 20 oct"
+   }
   },
   {
    "fecha": "2026-10-12",
@@ -40,7 +44,11 @@
     "lesespinoza",
     "aksalinas",
     "kaparicio"
-   ]
+   ],
+   "encuesta": {
+    "estado": "cerrada",
+    "nota": "Enviada; cerró 23 oct"
+   }
   },
   {
    "fecha": "2026-10-19",
@@ -66,7 +74,11 @@
    ],
    "dia": "2026-10-22",
    "hora": "13:00",
-   "modalidad": "Remota"
+   "modalidad": "Remota",
+   "encuesta": {
+    "estado": "pendiente",
+    "nota": "Tony la recordó el 27 oct; nadie la había levantado"
+   }
   },
   {
    "fecha": "2026-10-26",
@@ -86,7 +98,10 @@
    "dia": "2026-10-29",
    "hora": "13:00",
    "fijo": true,
-   "nota": "Coordina Jorge Belloc (55% de su uso es Vault), experto Javier García, su Gerente; Tony lo acordó con Javier (20 oct 2026). Borrador: presentaciones/sesion_vault.js."
+   "nota": "Coordina Jorge Belloc (55% de su uso es Vault), experto Javier García, su Gerente; Tony lo acordó con Javier (20 oct 2026). Borrador: presentaciones/sesion_vault.js.",
+   "encuesta": {
+    "estado": "por enviar"
+   }
   },
   {
    "fecha": "2026-11-02",
@@ -110,7 +125,10 @@
     "Analista"
    ],
    "estado": "Propuesta",
-   "nota": "Replaneación 20 oct (propuesta de Claude, espera a Tony). Reemplaza la que canceló Amed. Karime: fase 3 de su programa y la Champion con más Assistant según CAP; condicionado a cómo salga Word el 22. Expertos: más Assistant en los cortes del 2, 9 y 16 oct sin alerta de uso (Raúl Dimas 87, Israel Márquez 84, Lucía Arrazola 65). Fuera a propósito: Jesús Paúl Pallares (alerta de tarea repetida), Javier García (ya va en Vault), Ana Karen Salinas (ya participó)."
+   "nota": "Replaneación 20 oct (propuesta de Claude, espera a Tony). Reemplaza la que canceló Amed. Karime: fase 3 de su programa y la Champion con más Assistant según CAP; condicionado a cómo salga Word el 22. Expertos: más Assistant en los cortes del 2, 9 y 16 oct sin alerta de uso (Raúl Dimas 87, Israel Márquez 84, Lucía Arrazola 65). Fuera a propósito: Jesús Paúl Pallares (alerta de tarea repetida), Javier García (ya va en Vault), Ana Karen Salinas (ya participó).",
+   "encuesta": {
+    "estado": "por enviar"
+   }
   },
   {
    "fecha": "2026-11-09",
@@ -131,7 +149,10 @@
     "Gerente"
    ],
    "estado": "Propuesta",
-   "nota": "Replaneación 20 oct (propuesta de Claude, espera a Tony). Jean: 68% de su uso es Workflow, el Champion con más Workflow; cedió su turno el 15 oct. Seguimiento de la sesión del 15 oct y de la meta de workflows compartidos del 30 oct. Expertos: Aaron Raya (30 en 3 cortes) y Leslie Espinoza (caso estrella CN, regresa el 4 nov)."
+   "nota": "Replaneación 20 oct (propuesta de Claude, espera a Tony). Jean: 68% de su uso es Workflow, el Champion con más Workflow; cedió su turno el 15 oct. Seguimiento de la sesión del 15 oct y de la meta de workflows compartidos del 30 oct. Expertos: Aaron Raya (30 en 3 cortes) y Leslie Espinoza (caso estrella CN, regresa el 4 nov).",
+   "encuesta": {
+    "estado": "por enviar"
+   }
   }
  ],
  "rotacion": []

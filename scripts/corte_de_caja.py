@@ -161,9 +161,18 @@ def main():
         L.append(f"   Sin fetch del HIL en esta corrida. Última sincronización: roster {j('data/roster.json').get('_sincronizado', '?')}, "
                  f"excepciones {j('data/excepciones.json').get('_sincronizado', '?')}. Pasar --hil (o HIL=... en correr_corte.sh).")
 
+    # 3b. Encuestas de sesiones ya dadas (Tony, 27 oct 2026: nadie la recordaba salvo el)
+    sin = [x for x in j('data/capacitaciones.json')['sesiones']
+           if date.fromisoformat(x.get('dia') or x['fecha']) <= fin
+           and (x.get('encuesta') or {}).get('estado') not in ('enviada', 'cerrada')]
+    L.append('')
+    L.append('5. ENCUESTAS PENDIENTES DE SESIONES YA DADAS: ' + ('ninguna' if not sin else ''))
+    for x in sin:
+        L.append(f"   {x['fecha_txt']} | {x['tema']}: {(x.get('encuesta') or {}).get('estado', 'sin registro')}")
+
     # 5. Firma
     L.append('')
-    L.append('5. CAMBIOS DE FIRMA')
+    L.append('6. CAMBIOS DE FIRMA')
     NOM = {'A': 'Assistant', 'Wo': 'Word', 'V': 'Vault', 'W': 'Workflow', 'O': 'Outlook'}
     nuevas, sostenidos, dejadas = [], [], []
     for sd in SDS:

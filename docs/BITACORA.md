@@ -6,6 +6,8 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 27 oct | Karla Méndez | Escalamiento | Tony escala con Karla que Oscar Martínez no ha confirmado su acceso pese a lo que costó conseguirle licencia. | Respuesta de Karla / Oscar |
+| 27 oct | Asistentes de Word (22 oct) | Encuesta | Pendiente: nadie la había levantado; se diseña el 27 oct. Regla nueva: cada sesión lleva encuesta y el corte de caja avisa si falta. | Enviar encuesta |
 | 26 oct | Oscar Martínez | Seguimiento | Alta solicitada; falta que Oscar confirme su acceso (Tony se lo pidió el 23 oct). | Confirmación de Oscar |
 | 26 oct | Gustavo Bernal (PLD) | Seguimiento | Los workflows del equipo que estaban en espera ya quedaron aprobados, todos, sin la revisión que se pidió (Tony: los aprobó alguien sin control). | Ver en el próximo corte qué workflows de PLD entran en uso |
 | 23 oct | Corte 19-23 oct | Reportes | 14 docx entregados con un solo export de uso (semilla de historial). Bryan Trujillo ya no está en la lista de usuarios. | Alta de Oscar Martínez en Accesos |

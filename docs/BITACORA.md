@@ -6,6 +6,7 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 29 oct | Oscar Martínez | Seguimiento | Confirmó su acceso a Harvey (Tony). Se suma hoy a la sesión de Vault. Pendiente cerrado. | |
 | 27 oct | Jorge Belloc | Junta con Tony | Material para la sesión de Vault del 29 oct: casos de la DJ, 4 salas con experto (Javier confirmado; Gabriel Juárez, Jean Cub Nájera y Raquel Reyes Cubillo propuestos) y ejercicio. presentaciones/material_vault.js. | Invitar expertos; tarea previa; salas en Teams |
 | 27 oct | SDCN | Semanal HAI | Avisos: corte 19-23 oct (464 acciones, 13 de 14 en verde), Caso Estrella 326/328 (77%, ~26.7 h/mes), acceso de ejecución para el equipo de Elisa en vacaciones de Leslie, Vault jue 29 con Jorge y Javier, KPIs 3 y 4 de noviembre. | Medición de KPIs 3 y 4 de Jorge para noviembre |
 | 27 oct | Karla Méndez | Escalamiento | Tony escala con Karla que Oscar Martínez no ha confirmado su acceso pese a lo que costó conseguirle licencia. | Respuesta de Karla / Oscar |

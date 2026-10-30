@@ -652,19 +652,36 @@ def build(corte_fin, sd, uploads, o_en_a=False, vault_solo_superficie=False):
         alta = date.fromisoformat(p['alta']) if p.get('alta') else None
         if alta and alta > cur_fri:
             continue
+        # Serie completa (para el semaforo de cada semana): semanas sin cobertura del export crudo
+        # salen de la semilla (estado/), que para cortesias trae solo el total (GL).
         serie = []
-        for mon, fri in wins[-5:]:
+        for s_ in semanas:
+            mon, fri = s_['lunes'], s_['viernes']
             if alta and fri < alta:
                 continue
-            m = ev[(ev['user_id'] == u) & (ev['fecha'] >= mon) & (ev['fecha'] <= fri) & (ev['tool'] != 'OTRO')]
-            serie.append({'corte': label(mon, fri), 'total': int(len(m)),
-                          **{t: int((m['tool'] == t).sum()) for t in TOOLS}})
+            key = (u, str(fri))
+            if not s_['con_datos'] and key in SEM:
+                serie.append({'corte': s_['label'], 'total': int(SEM[key]['total']), 'semilla': True,
+                              **{t: int(SEM[key].get(t, 0) or 0) for t in TOOLS}})
+            elif s_['con_datos']:
+                m = ev[(ev['user_id'] == u) & (ev['fecha'] >= mon) & (ev['fecha'] <= fri) & (ev['tool'] != 'OTRO')]
+                serie.append({'corte': s_['label'], 'total': int(len(m)), 'semilla': False,
+                              **{t: int((m['tool'] == t).sum()) for t in TOOLS}})
+        # Semaforo de cada una de las ultimas 5 semanas contra el promedio de las 5 previas (misma regla
+        # que el equipo, 26 sep 2026); con menos de 5 semanas previas: sin historial (gris). Tony, 30 oct 2026.
+        sems = []
+        for i in range(max(0, len(serie) - 5), len(serie)):
+            prev = [x['total'] for x in serie[max(0, i - 5):i]]
+            sems.append(semaforo(serie[i]['total'], sum(prev) / 5) if len(prev) == 5 else 'sin_historial')
+        ult = serie[-5:]
         act = serie[-1] if serie else {'total': 0, **{t: 0 for t in TOOLS}}
         orden = sorted([t for t in TOOLS if act[t]], key=lambda t: (-act[t], ORDEN_DESEMPATE.index(t)))
         cortesias.append({'usuario': u, 'nombre': p['nombre'], 'area': p.get('area'),
                           'solicito': p.get('solicito'), 'alta': p.get('alta'), 'total': act['total'],
                           'firma': '>'.join(orden) if orden else 'Sin actividad',
-                          'ultimas': [x['total'] for x in serie], 'semanas_con_cuenta': len(serie)})
+                          'principal': orden[0] if orden else None,
+                          'ultimas': [x['total'] for x in ult], 'ultimas_semaforo': sems,
+                          'semanas_con_cuenta': len(ult)})
     out = {
         'sd': sd,
         'sdNombre': roster['sd_nombres'][sd],

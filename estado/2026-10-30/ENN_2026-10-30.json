@@ -206,12 +206,20 @@
    "alta": null,
    "total": 3,
    "firma": "A>W",
+   "principal": "A",
    "ultimas": [
-    37,
+    98,
     20,
     4,
     8,
     3
+   ],
+   "ultimas_semaforo": [
+    "sin_historial",
+    "rojo",
+    "rojo",
+    "rojo",
+    "rojo"
    ],
    "semanas_con_cuenta": 5
   },
@@ -223,12 +231,20 @@
    "alta": "2026-09-30",
    "total": 5,
    "firma": "A>W",
+   "principal": "A",
    "ultimas": [
     0,
     6,
     1,
     0,
     5
+   ],
+   "ultimas_semaforo": [
+    "sin_historial",
+    "sin_historial",
+    "sin_historial",
+    "sin_historial",
+    "sin_historial"
    ],
    "semanas_con_cuenta": 5
   }

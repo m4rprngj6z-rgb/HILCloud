@@ -145,14 +145,35 @@ function cajaAccion(texto) {
 }
 
 // Cortesias cuyo uso sigue la Subdireccion (Tony, 30 sep 2026). Informativo: no suma a totales.
-// Una linea por cortesia (una tabla aparte no cabe en la pagina unica del Ejecutivo).
+// Tabla compacta (Tony, 30 oct 2026: las lineas de texto no se leian de un vistazo). Ultimas 5
+// semanas con el color de su semaforo (calculado en el ETL); gris = menos de 5 semanas de historial.
+const COLOR_SEM = { verde: '375623', amarillo: '9C5700', rojo: '9C0006' };
+const HERR = { A: 'Assistant', Wo: 'Word', V: 'Vault', W: 'Workflow', O: 'Outlook' };
 function cortesias(d) {
   if (!d.cortesias || !d.cortesias.length) return [];
-  return d.cortesias.map((c) => H.para([
-    H.run('Cortesía bajo seguimiento: ', { size: 16, bold: true, color: H.C.navy }),
-    H.run(`${c.nombre} (${c.area || 'área sin confirmar'}${c.solicito ? `, licencia a cargo de ${c.solicito}` : ''}). `, { size: 16, bold: true }),
-    H.run(`${c.total} acciones esta semana${c.ultimas.length > 1 ? `; últimas semanas: ${c.ultimas.join(', ')}` : ''}; firma: ${c.firma}. No suma a los totales ni al semáforo.`, { size: 16 }),
-  ], { after: 40 }));
+  const S = 16;
+  const W = [2400, 2000, 1300, 2600, 1780];
+  const quien = [...new Set(d.cortesias.map((c) => c.solicito).filter(Boolean))];
+  const titulo = H.para([
+    H.run(`Cortesías${quien.length === 1 ? ` a cargo de ${quien[0]}` : ''}`, { size: 17, bold: true, color: H.C.navy }),
+    H.run('  (informativo: no suma a los totales ni al semáforo)', { size: 15, color: H.C.gris }),
+  ], { before: 60, after: 40 });
+  const filas = d.cortesias.map((c, i) => {
+    const fill = i % 2 === 1 ? H.C.filaAlterna : undefined;
+    const ult = c.ultimas.flatMap((v, j) => [
+      ...(j ? [H.run('  ', { size: S })] : []),
+      H.run(String(v), { size: S, bold: j === c.ultimas.length - 1, color: COLOR_SEM[(c.ultimas_semaforo || [])[j]] || '8C8C8C' }),
+    ]);
+    return new TableRow({ cantSplit: true, children: [
+      H.cell(c.nombre, { width: W[0], size: S, bold: true, fill }),
+      H.cell(c.area || 'Área sin confirmar', { width: W[1], size: S, fill }),
+      H.cell(String(c.total), { width: W[2], size: S, bold: true, fill, align: AlignmentType.CENTER }),
+      H.cell(ult, { width: W[3], fill, align: AlignmentType.CENTER }),
+      H.cell(c.principal ? HERR[c.principal] : 'Sin actividad', { width: W[4], size: S, fill, align: AlignmentType.CENTER }),
+    ] });
+  });
+  return [titulo, H.table(W, [H.headerRow(['Persona', 'Área', 'Esta semana', 'Últimas 5 semanas', 'Usa sobre todo'], W, new Set([2, 3, 4])), ...filas]),
+    H.para('', { after: 40 })];
 }
 
 function buildDocument(d, narr, fecha) {

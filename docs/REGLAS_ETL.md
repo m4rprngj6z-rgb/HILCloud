@@ -273,7 +273,7 @@ Karla Méndez). Son solo informativas. En `roster.json` la cortesía lleva `segu
 `solicito` y `alta`. El ETL la lista aparte en `cortesias`: acciones de la semana, las últimas
 semanas (solo desde su alta) y firma. No entra a totales, semáforo, urgencia ni gerencias. El
 Ejecutivo la muestra en una línea bajo la nomenclatura de Vista por Gerencia; con cortesías, Usos
-clave muestra 5 filas para que quepa en una página. En Gobierno de Licencias entra al ránking no
+clave muestra 5 filas para que quepa en una página. Desde el 30 oct 2026 (Tony: las líneas de texto no se leían de un vistazo) el Ejecutivo la muestra como tabla: Persona, Área, Esta semana, Últimas 5 semanas (color del semáforo de cada semana contra el promedio de sus 5 semanas previas, gris con menos de 5) y Usa sobre todo (nombre de la herramienta, no el código). Las semanas que el export crudo no cubre salen de la semilla (total del GL). En Gobierno de Licencias entra al ránking no
 jurídico desde su fecha de alta (antes de su alta no existe la cuenta).
 
 ## 8h. Ajustes del corte 28 sep-2 oct 2026

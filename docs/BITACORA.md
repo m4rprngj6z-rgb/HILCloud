@@ -6,6 +6,7 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 30 oct | Gustavo Bernal (PLD) y Jorge Belloc (CN) | Avisos de ausencias | Gustavo: Kelly Hernández, Néstor Rangel, Gabriela Cadena y Ana Lilia Ramírez de vacaciones el vie 30 oct (1 día; se califica normal). Jorge: Alonso Ixta fuera del 3 al 5 nov (excepción en el corte 2-6 nov). Registrado en el HIL. | |
 | 30 oct | Corte 26-30 oct | Reportes | 14 docx; primer Fibi mensual (octubre: 21 acciones por persona por semana, +27% vs sep; 8 candidatos a licencia, 1 mando). Oscar Martínez fuera de candidatos por alta reciente (nota_licencia). | Encuestas de Word y Vault |
 | 29 oct | Jorge Belloc y Javier García | Sesión Vault (13:00) | Tony abrió; Jorge coordinó con Javier. En la semana 28 personas usaron Vault (máximo del mes); el 29 oct se crearon 12 vaults, ninguno compartido al 30 oct. | Encuesta de Vault; seguir que se compartan |
 | 29 oct | Oscar Martínez | Seguimiento | Confirmó su acceso a Harvey (Tony). Se suma hoy a la sesión de Vault. Pendiente cerrado. | |

@@ -28,10 +28,10 @@ CORTE DE CAJA | corte al 30/10/2026
       PLD: Ana Karen Martínez, incapacidad por maternidad 01/09-31/01
 
 4. CAMBIOS DEL HIL
-   HIL editado por última vez: 2026-10-22
+   HIL editado por última vez: 2026-10-30
    Roster: 64 personas en las tablas maestras, 76 en total
      sin cambios
-   Excepciones: 35 filas
+   Excepciones: 39 filas
      sin cambios
 
 5. ENCUESTAS PENDIENTES DE SESIONES YA DADAS: 

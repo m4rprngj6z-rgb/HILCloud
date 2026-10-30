@@ -495,13 +495,13 @@
      "total": 2,
      "con_datos": true,
      "excepcion": false,
-     "tipo_excepcion": null
+     "tipo_excepcion": "Vacaciones"
     }
    ],
    "total": 2,
    "total_8s": 15,
    "excepcion": false,
-   "tipo_excepcion": null,
+   "tipo_excepcion": "Vacaciones",
    "apariciones_mes": 5,
    "salto_atipico": false,
    "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/kshernandez.png"
@@ -819,13 +819,13 @@
      "total": 4,
      "con_datos": true,
      "excepcion": false,
-     "tipo_excepcion": null
+     "tipo_excepcion": "Vacaciones"
     }
    ],
    "total": 4,
    "total_8s": 40,
    "excepcion": false,
-   "tipo_excepcion": null,
+   "tipo_excepcion": "Vacaciones",
    "apariciones_mes": 2,
    "salto_atipico": false,
    "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/nerangel.png"
@@ -1472,13 +1472,13 @@
      "total": 2,
      "con_datos": true,
      "excepcion": false,
-     "tipo_excepcion": null
+     "tipo_excepcion": "Vacaciones"
     }
    ],
    "total": 2,
    "total_8s": 15,
    "excepcion": false,
-   "tipo_excepcion": null,
+   "tipo_excepcion": "Vacaciones",
    "apariciones_mes": 5,
    "salto_atipico": false,
    "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/kshernandez.png"
@@ -1553,13 +1553,13 @@
      "total": 4,
      "con_datos": true,
      "excepcion": false,
-     "tipo_excepcion": null
+     "tipo_excepcion": "Vacaciones"
     }
    ],
    "total": 4,
    "total_8s": 40,
    "excepcion": false,
-   "tipo_excepcion": null,
+   "tipo_excepcion": "Vacaciones",
    "apariciones_mes": 2,
    "salto_atipico": false,
    "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/nerangel.png"
@@ -2446,13 +2446,13 @@
      "total": 2,
      "con_datos": true,
      "excepcion": false,
-     "tipo_excepcion": null
+     "tipo_excepcion": "Vacaciones"
     }
    ],
    "total": 2,
    "total_8s": 15,
    "excepcion": false,
-   "tipo_excepcion": null,
+   "tipo_excepcion": "Vacaciones",
    "apariciones_mes": 5,
    "salto_atipico": false,
    "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/kshernandez.png"
@@ -2770,13 +2770,13 @@
      "total": 4,
      "con_datos": true,
      "excepcion": false,
-     "tipo_excepcion": null
+     "tipo_excepcion": "Vacaciones"
     }
    ],
    "total": 4,
    "total_8s": 40,
    "excepcion": false,
-   "tipo_excepcion": null,
+   "tipo_excepcion": "Vacaciones",
    "apariciones_mes": 2,
    "salto_atipico": false,
    "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/nerangel.png"
@@ -3661,13 +3661,13 @@
      "total": 10,
      "con_datos": true,
      "excepcion": false,
-     "tipo_excepcion": null
+     "tipo_excepcion": "Vacaciones"
     }
    ],
    "total": 10,
    "total_8s": 70,
    "excepcion": false,
-   "tipo_excepcion": null,
+   "tipo_excepcion": "Vacaciones",
    "apariciones_mes": 1,
    "salto_atipico": false,
    "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/anlramirez.png"

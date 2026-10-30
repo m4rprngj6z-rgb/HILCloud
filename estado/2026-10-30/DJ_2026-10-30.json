@@ -8645,9 +8645,15 @@
    },
    "excepcion_actual": {
     "dias_habiles": 5,
-    "dias_ausente": 0,
-    "tipos": [],
-    "por_tipo": {},
+    "dias_ausente": 1,
+    "tipos": [
+     "Vacaciones"
+    ],
+    "por_tipo": {
+     "Vacaciones": [
+      "2026-10-30"
+     ]
+    },
     "feriados": [],
     "es_excepcion": false,
     "transicion": false,
@@ -10245,9 +10251,15 @@
    },
    "excepcion_actual": {
     "dias_habiles": 5,
-    "dias_ausente": 0,
-    "tipos": [],
-    "por_tipo": {},
+    "dias_ausente": 1,
+    "tipos": [
+     "Vacaciones"
+    ],
+    "por_tipo": {
+     "Vacaciones": [
+      "2026-10-30"
+     ]
+    },
     "feriados": [],
     "es_excepcion": false,
     "transicion": false,
@@ -12178,9 +12190,15 @@
    },
    "excepcion_actual": {
     "dias_habiles": 5,
-    "dias_ausente": 0,
-    "tipos": [],
-    "por_tipo": {},
+    "dias_ausente": 1,
+    "tipos": [
+     "Vacaciones"
+    ],
+    "por_tipo": {
+     "Vacaciones": [
+      "2026-10-30"
+     ]
+    },
     "feriados": [],
     "es_excepcion": false,
     "transicion": false,
@@ -13131,9 +13149,15 @@
    },
    "excepcion_actual": {
     "dias_habiles": 5,
-    "dias_ausente": 0,
-    "tipos": [],
-    "por_tipo": {},
+    "dias_ausente": 1,
+    "tipos": [
+     "Vacaciones"
+    ],
+    "por_tipo": {
+     "Vacaciones": [
+      "2026-10-30"
+     ]
+    },
     "feriados": [],
     "es_excepcion": false,
     "transicion": false,
@@ -13147,6 +13171,9 @@
    "firma": "W>Wo",
    "urgencia": "Alta",
    "motivo": [
+    {
+     "text": "Semana con 1 día de vacaciones (30 oct): explica parte de la baja, pero no alcanza los 3 días hábiles para excepción. "
+    },
     {
      "text": "Cambio leve y parejo entre herramientas, sin un patrón concentrado."
     }

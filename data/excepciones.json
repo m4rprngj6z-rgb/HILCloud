@@ -1,6 +1,6 @@
 {
  "_fuente": "Notion HIL, tabla 'Excepciones activas' (notion.so/37df66a17162812a9f53e15cb031792d). La mantiene unicamente Tony.",
- "_sincronizado": "2026-10-20",
+ "_sincronizado": "2026-10-30",
  "_regla": "Notion gana. Cada fila: a quien aplica (personas, sd o 'TODA_DJ'), rango de fechas inclusivo, tipo. El ETL decide que semanas quedan cubiertas con la regla documentada en docs/REGLAS_ETL.md.",
  "excepciones": [
   {
@@ -280,6 +280,38 @@
    ],
    "tipo": "Vacaciones",
    "desde": "2026-10-19",
+   "hasta": "2026-10-30"
+  },
+  {
+   "personas": [
+    "kshernandez"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-10-30",
+   "hasta": "2026-10-30"
+  },
+  {
+   "personas": [
+    "nerangel"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-10-30",
+   "hasta": "2026-10-30"
+  },
+  {
+   "personas": [
+    "gcadena"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-10-30",
+   "hasta": "2026-10-30"
+  },
+  {
+   "personas": [
+    "anlramirez"
+   ],
+   "tipo": "Vacaciones",
+   "desde": "2026-10-30",
    "hasta": "2026-10-30"
   }
  ]

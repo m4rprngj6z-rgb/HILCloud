@@ -1,0 +1,31 @@
+{
+ "_corte": "26-30 oct 2026",
+ "_redacto": "Claude, sobre out/FM_2026-10-30.json, out/DJ_2026-10-30.json y out/GL_2026-10-30.json; validado con scripts/validar_narrativa.py",
+ "fibi_mensual": {
+  "destacados": [
+   "21 acciones por persona por semana, 27% más que septiembre, con 98% de las personas activas cada semana.",
+   "Workflow promedió 161 ejecuciones por semana (123 en septiembre); CN creció 71%.",
+   "Cuatro sesiones abiertas en el mes: Outlook, Workflow, Word y Vault."
+  ],
+  "decisiones": [
+   "Decidir sobre los 8 candidatos a liberar licencia; uno es mando.",
+   "PLD concentra 5 de los 8 candidatos: revisarlo con su Subdirección antes de liberar."
+  ]
+ },
+ "licencias": {
+  "notas": [
+   {
+    "titulo": "Oscar Martínez",
+    "texto": "alta de Control Interno con la licencia que liberó Bryan Trujillo; confirmó su acceso esta semana y se evalúa desde noviembre."
+   },
+   {
+    "titulo": "César Berelleza",
+    "texto": "conserva su licencia por decisión de la Dirección; su uso subió cada semana de octubre."
+   },
+   {
+    "titulo": "Diana Gabriela Castillo Luna",
+    "texto": "licencia de cortesía solicitada por Karla Méndez; su uso se reporta en el Ejecutivo de ENN."
+   }
+  ]
+ }
+}

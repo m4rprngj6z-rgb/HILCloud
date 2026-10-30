@@ -1,0 +1,8 @@
+{
+ "_corte": "26-30 oct 2026",
+ "_redacto": "Claude, sobre out/CN_2026-10-30.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "CN registró 498 acciones, 4% más que la semana anterior (478), con 14 de 15 personas activas, 12 en verde frente a su propio ritmo y nadie en atención alta. Alejandro Maqueda quintuplicó su ritmo y Jorge Belloc regresó coordinando la sesión abierta de Vault de la DJ junto con Javier García.",
+  "accion": "Champion Jorge Belloc: dar seguimiento a los vaults que el equipo creó en la sesión para que se compartan, y enviar la medición de los KPIs 3 y 4 para la carga de reales de noviembre."
+ }
+}

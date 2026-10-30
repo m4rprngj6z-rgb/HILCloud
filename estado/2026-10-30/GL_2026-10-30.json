@@ -1,0 +1,4257 @@
+{
+ "corte": "26-30 oct 2026",
+ "corte_viernes": "2026-10-30",
+ "semanas": [
+  "7-11 sep 2026",
+  "14-18 sep 2026",
+  "21-25 sep 2026",
+  "28 sep-2 oct 2026",
+  "5-9 oct 2026",
+  "12-16 oct 2026",
+  "19-23 oct 2026",
+  "26-30 oct 2026"
+ ],
+ "cortes_del_mes": [
+  "28 sep-2 oct 2026",
+  "5-9 oct 2026",
+  "12-16 oct 2026",
+  "19-23 oct 2026",
+  "26-30 oct 2026"
+ ],
+ "primer_corte_del_sistema": false,
+ "ranking_juridico_top": [
+  {
+   "usuario": "akamartinez",
+   "nombre": "Ana Karen Martínez",
+   "sd": "PLD",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    }
+   ],
+   "total": 0,
+   "total_8s": 0,
+   "excepcion": true,
+   "tipo_excepcion": "Incapacidad por maternidad",
+   "apariciones_mes": 0,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/akamartinez.png"
+  },
+  {
+   "usuario": "crifernandez",
+   "nombre": "Cristian Fernández",
+   "sd": "JC",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 17,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 16,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    }
+   ],
+   "total": 0,
+   "total_8s": 111,
+   "excepcion": true,
+   "tipo_excepcion": "Vacaciones",
+   "apariciones_mes": 0,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/crifernandez.png"
+  },
+  {
+   "usuario": "jcenteno",
+   "nombre": "Julián Centeno",
+   "sd": "RL",
+   "nivel": "Director",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Juntas presenciales y fuera de oficina"
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 0,
+   "total_8s": 6,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 4,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/jcenteno.png"
+  },
+  {
+   "usuario": "kzetina",
+   "nombre": "Karla Zetina",
+   "sd": "RL",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    }
+   ],
+   "total": 0,
+   "total_8s": 35,
+   "excepcion": true,
+   "tipo_excepcion": "Vacaciones",
+   "apariciones_mes": 0,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/kzetina.png"
+  },
+  {
+   "usuario": "lesespinoza",
+   "nombre": "Leslie Espinoza",
+   "sd": "CN",
+   "nivel": "Líder",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 21,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 17,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 34,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 44,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 27,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 64,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 61,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    }
+   ],
+   "total": 0,
+   "total_8s": 268,
+   "excepcion": true,
+   "tipo_excepcion": "Vacaciones",
+   "apariciones_mes": 0,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/lesespinoza.png"
+  },
+  {
+   "usuario": "kshernandez",
+   "nombre": "Kelly Hernández",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 2,
+   "total_8s": 15,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 5,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/kshernandez.png"
+  },
+  {
+   "usuario": "omonteverde",
+   "nombre": "Oscar Monteverde",
+   "sd": "JC",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 2,
+   "total_8s": 25,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 3,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/omonteverde.png"
+  },
+  {
+   "usuario": "cjreyes",
+   "nombre": "Carlos Reyes",
+   "sd": "PLD",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 18,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 3,
+   "total_8s": 60,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/cjreyes.png"
+  },
+  {
+   "usuario": "imbecerra",
+   "nombre": "Israel Márquez Becerra",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 26,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 26,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 42,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 52,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 21,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 3,
+   "total_8s": 178,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/imbecerra.png"
+  },
+  {
+   "usuario": "nerangel",
+   "nombre": "Néstor Rangel",
+   "sd": "PLD",
+   "nivel": "Líder",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Fuera de oficina"
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 4,
+   "total_8s": 40,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/nerangel.png"
+  }
+ ],
+ "ranking_juridico_universo": 65,
+ "ranking_no_juridico": [
+  {
+   "usuario": "omartinez",
+   "nombre": "Oscar Martínez",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Control Interno, Gestión GRC",
+   "nota_licencia": "Alta reciente: acceso confirmado el 29 oct 2026 (Tony). No se evalúa como candidato en octubre; entra al Gobierno de Licencias desde noviembre.",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 0,
+   "total_8s": 0,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 5,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/omartinez.png"
+  },
+  {
+   "usuario": "gchirinos",
+   "nombre": "George Chirinos",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Control Interno",
+   "nota_licencia": "Cortesía otorgada por Karla Méndez; su uso aparece en el Ejecutivo de ENN",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 38,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 119,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 150,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 98,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 3,
+   "total_8s": 440,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/gchirinos.png"
+  },
+  {
+   "usuario": "digcastillo",
+   "nombre": "Diana Gabriela Castillo Luna",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Compras",
+   "nota_licencia": "Cortesía solicitada por Karla Méndez (30 sep 2026); su uso aparece en el Ejecutivo de ENN",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 5,
+   "total_8s": 12,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 3,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/digcastillo.png"
+  }
+ ],
+ "candidatos": [
+  {
+   "usuario": "ceberrelleza",
+   "nombre": "César Berelleza",
+   "sd": "CN",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 7,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 20,
+   "total_8s": 55,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/ceberrelleza.png"
+  },
+  {
+   "usuario": "omonteverde",
+   "nombre": "Oscar Monteverde",
+   "sd": "JC",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 2,
+   "total_8s": 25,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 3,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/omonteverde.png"
+  },
+  {
+   "usuario": "acasillas",
+   "nombre": "Alejandra Casillas",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 10,
+   "total_8s": 44,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 3,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/acasillas.png"
+  },
+  {
+   "usuario": "cjreyes",
+   "nombre": "Carlos Reyes",
+   "sd": "PLD",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 18,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 3,
+   "total_8s": 60,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/cjreyes.png"
+  },
+  {
+   "usuario": "kshernandez",
+   "nombre": "Kelly Hernández",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 2,
+   "total_8s": 15,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 5,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/kshernandez.png"
+  },
+  {
+   "usuario": "nerangel",
+   "nombre": "Néstor Rangel",
+   "sd": "PLD",
+   "nivel": "Líder",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Fuera de oficina"
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 4,
+   "total_8s": 40,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/nerangel.png"
+  },
+  {
+   "usuario": "rcenturion",
+   "nombre": "Ricardo Centurión",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 12,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 15,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 18,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 8,
+   "total_8s": 76,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/rcenturion.png"
+  },
+  {
+   "usuario": "jcenteno",
+   "nombre": "Julián Centeno",
+   "sd": "RL",
+   "nivel": "Director",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Juntas presenciales y fuera de oficina"
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 0,
+   "total_8s": 6,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 4,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/jcenteno.png"
+  },
+  {
+   "usuario": "gchirinos",
+   "nombre": "George Chirinos",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Control Interno",
+   "nota_licencia": "Cortesía otorgada por Karla Méndez; su uso aparece en el Ejecutivo de ENN",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 38,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 119,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 150,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 98,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 3,
+   "total_8s": 440,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/gchirinos.png"
+  },
+  {
+   "usuario": "digcastillo",
+   "nombre": "Diana Gabriela Castillo Luna",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Compras",
+   "nota_licencia": "Cortesía solicitada por Karla Méndez (30 sep 2026); su uso aparece en el Ejecutivo de ENN",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 5,
+   "total_8s": 12,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 3,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/digcastillo.png"
+  },
+  {
+   "usuario": "omartinez",
+   "nombre": "Oscar Martínez",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Control Interno, Gestión GRC",
+   "nota_licencia": "Alta reciente: acceso confirmado el 29 oct 2026 (Tony). No se evalúa como candidato en octubre; entra al Gobierno de Licencias desde noviembre.",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 0,
+   "total_8s": 0,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 5,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/omartinez.png"
+  }
+ ],
+ "radar": [
+  {
+   "usuario": "akamartinez",
+   "nombre": "Ana Karen Martínez",
+   "sd": "PLD",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Incapacidad por maternidad"
+    }
+   ],
+   "total": 0,
+   "total_8s": 0,
+   "excepcion": true,
+   "tipo_excepcion": "Incapacidad por maternidad",
+   "apariciones_mes": 0,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/akamartinez.png"
+  },
+  {
+   "usuario": "crifernandez",
+   "nombre": "Cristian Fernández",
+   "sd": "JC",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 17,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 16,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    }
+   ],
+   "total": 0,
+   "total_8s": 111,
+   "excepcion": true,
+   "tipo_excepcion": "Vacaciones",
+   "apariciones_mes": 0,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/crifernandez.png"
+  },
+  {
+   "usuario": "jcenteno",
+   "nombre": "Julián Centeno",
+   "sd": "RL",
+   "nivel": "Director",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Juntas presenciales y fuera de oficina"
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 0,
+   "total_8s": 6,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 4,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/jcenteno.png"
+  },
+  {
+   "usuario": "kzetina",
+   "nombre": "Karla Zetina",
+   "sd": "RL",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    }
+   ],
+   "total": 0,
+   "total_8s": 35,
+   "excepcion": true,
+   "tipo_excepcion": "Vacaciones",
+   "apariciones_mes": 0,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/kzetina.png"
+  },
+  {
+   "usuario": "lesespinoza",
+   "nombre": "Leslie Espinoza",
+   "sd": "CN",
+   "nivel": "Líder",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 21,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 17,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 34,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 44,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 27,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 64,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 61,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    }
+   ],
+   "total": 0,
+   "total_8s": 268,
+   "excepcion": true,
+   "tipo_excepcion": "Vacaciones",
+   "apariciones_mes": 0,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/lesespinoza.png"
+  },
+  {
+   "usuario": "kshernandez",
+   "nombre": "Kelly Hernández",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 2,
+   "total_8s": 15,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 5,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/kshernandez.png"
+  },
+  {
+   "usuario": "omonteverde",
+   "nombre": "Oscar Monteverde",
+   "sd": "JC",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 2,
+   "total_8s": 25,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 3,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/omonteverde.png"
+  },
+  {
+   "usuario": "cjreyes",
+   "nombre": "Carlos Reyes",
+   "sd": "PLD",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 18,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 3,
+   "total_8s": 60,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/cjreyes.png"
+  },
+  {
+   "usuario": "imbecerra",
+   "nombre": "Israel Márquez Becerra",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 26,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 26,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 42,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 52,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 21,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 3,
+   "total_8s": 178,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/imbecerra.png"
+  },
+  {
+   "usuario": "nerangel",
+   "nombre": "Néstor Rangel",
+   "sd": "PLD",
+   "nivel": "Líder",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Fuera de oficina"
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 4,
+   "total_8s": 40,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/nerangel.png"
+  },
+  {
+   "usuario": "omartinez",
+   "nombre": "Oscar Martínez",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Control Interno, Gestión GRC",
+   "nota_licencia": "Alta reciente: acceso confirmado el 29 oct 2026 (Tony). No se evalúa como candidato en octubre; entra al Gobierno de Licencias desde noviembre.",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": false,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 0,
+   "total_8s": 0,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 5,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/omartinez.png"
+  },
+  {
+   "usuario": "gchirinos",
+   "nombre": "George Chirinos",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Control Interno",
+   "nota_licencia": "Cortesía otorgada por Karla Méndez; su uso aparece en el Ejecutivo de ENN",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 38,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 119,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 150,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 98,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 3,
+   "total_8s": 440,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/gchirinos.png"
+  },
+  {
+   "usuario": "digcastillo",
+   "nombre": "Diana Gabriela Castillo Luna",
+   "sd": "EXTERNO",
+   "nivel": "-",
+   "area": "Compras",
+   "nota_licencia": "Cortesía solicitada por Karla Méndez (30 sep 2026); su uso aparece en el Ejecutivo de ENN",
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 5,
+   "total_8s": 12,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 3,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/digcastillo.png"
+  },
+  {
+   "usuario": "adguillen",
+   "nombre": "Armando de la Rosa",
+   "sd": "CN",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 16,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 32,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 30,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 30,
+   "total_8s": 117,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/adguillen.png"
+  },
+  {
+   "usuario": "ceberrelleza",
+   "nombre": "César Berelleza",
+   "sd": "CN",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 7,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 20,
+   "total_8s": 55,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/ceberrelleza.png"
+  },
+  {
+   "usuario": "gjuarez",
+   "nombre": "Gabriel Juárez",
+   "sd": "GC",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 21,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 26,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 20,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 12,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 21,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 21,
+   "total_8s": 131,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/gjuarez.png"
+  },
+  {
+   "usuario": "juagalvez",
+   "nombre": "Juan Miguel Gálvez",
+   "sd": "GC",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 7,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 13,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 27,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 13,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 13,
+   "total_8s": 72,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/juagalvez.png"
+  },
+  {
+   "usuario": "zulgarcia",
+   "nombre": "Zuleycka García",
+   "sd": "GC",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 51,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 25,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 18,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 16,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 16,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 10,
+   "total_8s": 148,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/zulgarcia.png"
+  },
+  {
+   "usuario": "masmora",
+   "nombre": "Marcia Mora",
+   "sd": "JC",
+   "nivel": "Subdirector",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Juntas presenciales y fuera de oficina"
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 8,
+   "total_8s": 45,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/masmora.png"
+  },
+  {
+   "usuario": "acasillas",
+   "nombre": "Alejandra Casillas",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 3,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 10,
+   "total_8s": 44,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 3,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/acasillas.png"
+  },
+  {
+   "usuario": "anlramirez",
+   "nombre": "Ana Lilia Ramírez Barranco",
+   "sd": "PLD",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 16,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 13,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 15,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 10,
+   "total_8s": 70,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/anlramirez.png"
+  },
+  {
+   "usuario": "mamanzano",
+   "nombre": "Mario Manzano",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 40,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 4,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 17,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 10,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 10,
+   "total_8s": 99,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/mamanzano.png"
+  },
+  {
+   "usuario": "radimas",
+   "nombre": "Raúl Dimas",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 17,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 21,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 27,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 44,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 9,
+   "total_8s": 135,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/radimas.png"
+  },
+  {
+   "usuario": "rcenturion",
+   "nombre": "Ricardo Centurión",
+   "sd": "PLD",
+   "nivel": "Coordinador",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 12,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 15,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Reestructuración organizacional + capacitaciones"
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 18,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 8,
+   "total_8s": 76,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 2,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/rcenturion.png"
+  },
+  {
+   "usuario": "charamirez",
+   "nombre": "Christian Ramírez",
+   "sd": "RL",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 11,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 29,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 0,
+     "con_datos": true,
+     "excepcion": true,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 7,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": "Vacaciones"
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 7,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 7,
+   "total_8s": 87,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/charamirez.png"
+  },
+  {
+   "usuario": "rvfernandezl",
+   "nombre": "Rocío Fernández",
+   "sd": "RL",
+   "nivel": "Líder",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 2,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 6,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 12,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 27,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 27,
+   "total_8s": 64,
+   "excepcion": false,
+   "tipo_excepcion": null,
+   "apariciones_mes": 1,
+   "salto_atipico": false,
+   "grafica": "/home/claude/hilcloud/out/gl_graficas_2026-10-30/rvfernandezl.png"
+  }
+ ],
+ "aparte": [
+  {
+   "usuario": "zmanzur",
+   "nombre": "Zurihe Manzur",
+   "sd": "DJ",
+   "nivel": "Director",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 5,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 7,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 12,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 21,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 8,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 8,
+   "total_8s": 78,
+   "excepcion": false,
+   "tipo_excepcion": null
+  },
+  {
+   "usuario": "jbueno",
+   "nombre": "Tony Bueno",
+   "sd": "ENN",
+   "nivel": "Gerente",
+   "area": null,
+   "nota_licencia": null,
+   "serie": [
+    {
+     "corte": "7-11 sep 2026",
+     "viernes": "2026-09-11",
+     "total": 16,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "14-18 sep 2026",
+     "viernes": "2026-09-18",
+     "total": 34,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "21-25 sep 2026",
+     "viernes": "2026-09-25",
+     "total": 1,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "28 sep-2 oct 2026",
+     "viernes": "2026-10-02",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "5-9 oct 2026",
+     "viernes": "2026-10-09",
+     "total": 7,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "12-16 oct 2026",
+     "viernes": "2026-10-16",
+     "total": 18,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "19-23 oct 2026",
+     "viernes": "2026-10-23",
+     "total": 9,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    },
+    {
+     "corte": "26-30 oct 2026",
+     "viernes": "2026-10-30",
+     "total": 19,
+     "con_datos": true,
+     "excepcion": false,
+     "tipo_excepcion": null
+    }
+   ],
+   "total": 19,
+   "total_8s": 113,
+   "excepcion": false,
+   "tipo_excepcion": null
+  }
+ ],
+ "sin_mapear": [],
+ "calidad_datos": {
+  "archivos": [
+   "harvey-usage-start_2026-10-01_end_2026-10-30.xlsx"
+  ],
+  "filas_crudas": 6132,
+  "eventos_unicos": 6132,
+  "filas_sin_id": 0,
+  "datos_desde": "2026-10-01 08:45:04",
+  "datos_hasta": "2026-10-30 16:55:48",
+  "semilla": "estado/2026-10-23",
+  "semanas_semilla": [
+   "14-18 sep 2026",
+   "21-25 sep 2026",
+   "28 sep-2 oct 2026",
+   "7-11 sep 2026"
+  ]
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "_corte": "26-30 oct 2026",
+ "_redacto": "Claude, sobre out/PLD_2026-10-30.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "PLD registró 251 acciones, 2% menos que la semana anterior (257), con 18 de 19 personas activas y 12 en verde frente a su propio ritmo. 6 personas quedan en atención alta, la cifra más alta de la DJ; Heriberto Falcón y Alejandra Casillas subieron con fuerza esta semana.",
+  "accion": "Champion Gustavo Bernal: buscar a Israel Márquez y Carlos Reyes, los que más bajaron frente a su ritmo, y confirmar que los workflows aprobados del equipo ya están en uso: esta semana corrieron 17 ejecuciones."
+ }
+}

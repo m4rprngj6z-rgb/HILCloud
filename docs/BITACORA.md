@@ -6,6 +6,8 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 30 oct | Corte 26-30 oct | Reportes | 14 docx; primer Fibi mensual (octubre: 21 acciones por persona por semana, +27% vs sep; 8 candidatos a licencia, 1 mando). Oscar Martínez fuera de candidatos por alta reciente (nota_licencia). | Encuestas de Word y Vault |
+| 29 oct | Jorge Belloc y Javier García | Sesión Vault (13:00) | Tony abrió; Jorge coordinó con Javier. En la semana 28 personas usaron Vault (máximo del mes); el 29 oct se crearon 12 vaults, ninguno compartido al 30 oct. | Encuesta de Vault; seguir que se compartan |
 | 29 oct | Oscar Martínez | Seguimiento | Confirmó su acceso a Harvey (Tony). Se suma hoy a la sesión de Vault. Pendiente cerrado. | |
 | 27 oct | Jorge Belloc | Junta con Tony | Material para la sesión de Vault del 29 oct: casos de la DJ, 4 salas con experto (Javier confirmado; Gabriel Juárez, Jean Cub Nájera y Raquel Reyes Cubillo propuestos) y ejercicio. presentaciones/material_vault.js. | Invitar expertos; tarea previa; salas en Teams |
 | 27 oct | SDCN | Semanal HAI | Avisos: corte 19-23 oct (464 acciones, 13 de 14 en verde), Caso Estrella 326/328 (77%, ~26.7 h/mes), acceso de ejecución para el equipo de Elisa en vacaciones de Leslie, Vault jue 29 con Jorge y Javier, KPIs 3 y 4 de noviembre. | Medición de KPIs 3 y 4 de Jorge para noviembre |

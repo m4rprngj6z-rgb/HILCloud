@@ -1,0 +1,8 @@
+{
+ "_corte": "26-30 oct 2026",
+ "_redacto": "Claude, sobre out/RL_2026-10-30.json; validado con scripts/validar_narrativa.py",
+ "ejecutivo": {
+  "recomendacion": "RL registró 87 acciones, 53% más que la semana anterior (57), con 6 de 8 personas activas y 4 en verde frente a su propio ritmo. Rocío Fernández quintuplicó su ritmo y Jean Cub Nájera corrió 9 veces su workflow de Extraer Datos Laborales Banca.",
+  "accion": "Champion Jean Cub Nájera: buscar a Alan García y Christian Ramírez, que quedaron en atención alta, y mostrarles el workflow de Extraer Datos de Resoluciones Laborales que ya usa Valeria Cruz."
+ }
+}

@@ -1,0 +1,419 @@
+{
+ "mes": "octubre",
+ "anio": 2026,
+ "mes_anterior": "septiembre",
+ "corte_viernes": "2026-10-30",
+ "corte": "26-30 oct 2026",
+ "cortes_mes": [
+  "28 sep-2 oct 2026",
+  "5-9 oct 2026",
+  "12-16 oct 2026",
+  "19-23 oct 2026",
+  "26-30 oct 2026"
+ ],
+ "cortes_mes_anterior": [
+  "31 ago-4 sep 2026",
+  "7-11 sep 2026",
+  "14-18 sep 2026",
+  "21-25 sep 2026"
+ ],
+ "personas": 65,
+ "dj": {
+  "mes": {
+   "persona_semanas": 302,
+   "acciones": 6329,
+   "semanas_utiles": 5,
+   "acc_ppw": 21.0,
+   "activas_pct": 98,
+   "wf_semana": 161.0
+  },
+  "anterior": {
+   "persona_semanas": 250,
+   "acciones": 4156,
+   "semanas_utiles": 4,
+   "acc_ppw": 16.6,
+   "activas_pct": 92,
+   "wf_semana": 123.2
+  },
+  "delta_pct": 27,
+  "delta_activas_pp": 6
+ },
+ "sds": [
+  {
+   "sd": "ENN",
+   "nombre": "Expansión Nuevos Negocios",
+   "personas": 9,
+   "mes": {
+    "persona_semanas": 44,
+    "acciones": 1662,
+    "semanas_utiles": 5,
+    "acc_ppw": 37.8,
+    "activas_pct": 100,
+    "wf_semana": 44.8
+   },
+   "anterior": {
+    "persona_semanas": 33,
+    "acciones": 1084,
+    "semanas_utiles": 4,
+    "acc_ppw": 32.8,
+    "activas_pct": 100,
+    "wf_semana": 14.0
+   },
+   "comparable": true,
+   "delta_pct": 15,
+   "en_excepcion_ant": false,
+   "candidatos_licencia": 0
+  },
+  {
+   "sd": "CN",
+   "nombre": "Cumplimiento Normativo",
+   "personas": 15,
+   "mes": {
+    "persona_semanas": 71,
+    "acciones": 2103,
+    "semanas_utiles": 5,
+    "acc_ppw": 29.6,
+    "activas_pct": 100,
+    "wf_semana": 52.6
+   },
+   "anterior": {
+    "persona_semanas": 60,
+    "acciones": 1038,
+    "semanas_utiles": 4,
+    "acc_ppw": 17.3,
+    "activas_pct": 87,
+    "wf_semana": 35.8
+   },
+   "comparable": true,
+   "delta_pct": 71,
+   "en_excepcion_ant": false,
+   "candidatos_licencia": 1
+  },
+  {
+   "sd": "PLD",
+   "nombre": "Prevención de Lavado de Dinero",
+   "personas": 19,
+   "mes": {
+    "persona_semanas": 88,
+    "acciones": 1277,
+    "semanas_utiles": 5,
+    "acc_ppw": 14.5,
+    "activas_pct": 98,
+    "wf_semana": 35.2
+   },
+   "anterior": {
+    "persona_semanas": 70,
+    "acciones": 1063,
+    "semanas_utiles": 4,
+    "acc_ppw": 15.2,
+    "activas_pct": 93,
+    "wf_semana": 44.0
+   },
+   "comparable": true,
+   "delta_pct": -5,
+   "en_excepcion_ant": false,
+   "candidatos_licencia": 5
+  },
+  {
+   "sd": "GC",
+   "nombre": "Gobierno Corporativo",
+   "personas": 7,
+   "mes": {
+    "persona_semanas": 34,
+    "acciones": 515,
+    "semanas_utiles": 5,
+    "acc_ppw": 15.1,
+    "activas_pct": 100,
+    "wf_semana": 9.4
+   },
+   "anterior": {
+    "persona_semanas": 28,
+    "acciones": 406,
+    "semanas_utiles": 4,
+    "acc_ppw": 14.5,
+    "activas_pct": 96,
+    "wf_semana": 14.5
+   },
+   "comparable": true,
+   "delta_pct": 4,
+   "en_excepcion_ant": false,
+   "candidatos_licencia": 0
+  },
+  {
+   "sd": "JC",
+   "nombre": "Jurídico Contencioso",
+   "personas": 7,
+   "mes": {
+    "persona_semanas": 32,
+    "acciones": 487,
+    "semanas_utiles": 5,
+    "acc_ppw": 15.2,
+    "activas_pct": 94,
+    "wf_semana": 5.6
+   },
+   "anterior": {
+    "persona_semanas": 28,
+    "acciones": 340,
+    "semanas_utiles": 4,
+    "acc_ppw": 12.1,
+    "activas_pct": 89,
+    "wf_semana": 2.2
+   },
+   "comparable": true,
+   "delta_pct": 26,
+   "en_excepcion_ant": false,
+   "candidatos_licencia": 1
+  },
+  {
+   "sd": "RL",
+   "nombre": "Relaciones Laborales",
+   "personas": 8,
+   "mes": {
+    "persona_semanas": 33,
+    "acciones": 285,
+    "semanas_utiles": 5,
+    "acc_ppw": 8.6,
+    "activas_pct": 91,
+    "wf_semana": 13.4
+   },
+   "anterior": {
+    "persona_semanas": 31,
+    "acciones": 225,
+    "semanas_utiles": 4,
+    "acc_ppw": 7.3,
+    "activas_pct": 90,
+    "wf_semana": 12.8
+   },
+   "comparable": true,
+   "delta_pct": 18,
+   "en_excepcion_ant": false,
+   "candidatos_licencia": 1
+  }
+ ],
+ "serie": [
+  {
+   "corte": "24-28 ago 2026",
+   "viernes": "2026-08-28",
+   "total": 19.5,
+   "excepcion": false,
+   "del_mes": false
+  },
+  {
+   "corte": "31 ago-4 sep 2026",
+   "viernes": "2026-09-04",
+   "total": 15.6,
+   "excepcion": false,
+   "del_mes": false
+  },
+  {
+   "corte": "7-11 sep 2026",
+   "viernes": "2026-09-11",
+   "total": 17.0,
+   "excepcion": false,
+   "del_mes": false
+  },
+  {
+   "corte": "14-18 sep 2026",
+   "viernes": "2026-09-18",
+   "total": 15.3,
+   "excepcion": false,
+   "del_mes": false
+  },
+  {
+   "corte": "21-25 sep 2026",
+   "viernes": "2026-09-25",
+   "total": 18.7,
+   "excepcion": false,
+   "del_mes": false
+  },
+  {
+   "corte": "28 sep-2 oct 2026",
+   "viernes": "2026-10-02",
+   "total": 16.4,
+   "excepcion": false,
+   "del_mes": true
+  },
+  {
+   "corte": "5-9 oct 2026",
+   "viernes": "2026-10-09",
+   "total": 19.5,
+   "excepcion": false,
+   "del_mes": true
+  },
+  {
+   "corte": "12-16 oct 2026",
+   "viernes": "2026-10-16",
+   "total": 24.7,
+   "excepcion": false,
+   "del_mes": true
+  },
+  {
+   "corte": "19-23 oct 2026",
+   "viernes": "2026-10-23",
+   "total": 22.2,
+   "excepcion": false,
+   "del_mes": true
+  },
+  {
+   "corte": "26-30 oct 2026",
+   "viernes": "2026-10-30",
+   "total": 22.0,
+   "excepcion": false,
+   "del_mes": true
+  }
+ ],
+ "grafica": "/home/claude/hilcloud/out/fm_graficas_2026-10-30/dj.png",
+ "licencias": {
+  "candidatos": 8,
+  "mandos": [
+   {
+    "nombre": "Julián Centeno",
+    "sd": "RL",
+    "nivel": "Director",
+    "puesto": "Director (Funcional) RL",
+    "apariciones": 4,
+    "cortes": 5,
+    "serie_mes": [
+     0,
+     0,
+     0,
+     2,
+     0
+    ]
+   }
+  ],
+  "resto": [
+   {
+    "nombre": "Kelly Hernández",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "puesto": "Coordinador PLD",
+    "apariciones": 5,
+    "cortes": 5,
+    "serie_mes": [
+     0,
+     0,
+     2,
+     5,
+     2
+    ]
+   },
+   {
+    "nombre": "Alejandra Casillas",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "puesto": "Coordinador PLD",
+    "apariciones": 3,
+    "cortes": 5,
+    "serie_mes": [
+     10,
+     5,
+     4,
+     3,
+     10
+    ]
+   },
+   {
+    "nombre": "Oscar Monteverde",
+    "sd": "JC",
+    "nivel": "Gerente",
+    "puesto": "Gerente Jurídico Contencioso",
+    "apariciones": 3,
+    "cortes": 5,
+    "serie_mes": [
+     4,
+     0,
+     1,
+     10,
+     2
+    ]
+   },
+   {
+    "nombre": "Carlos Reyes",
+    "sd": "PLD",
+    "nivel": "Gerente",
+    "puesto": "Gerente PLD",
+    "apariciones": 2,
+    "cortes": 5,
+    "serie_mes": [
+     2,
+     11,
+     6,
+     8,
+     3
+    ]
+   },
+   {
+    "nombre": "César Berelleza",
+    "sd": "CN",
+    "nivel": "Coordinador",
+    "puesto": "Coordinador CN",
+    "apariciones": 2,
+    "cortes": 5,
+    "serie_mes": [
+     1,
+     5,
+     7,
+     11,
+     20
+    ]
+   },
+   {
+    "nombre": "Néstor Rangel",
+    "sd": "PLD",
+    "nivel": "Líder",
+    "puesto": "Líder PLD",
+    "apariciones": 2,
+    "cortes": 5,
+    "serie_mes": [
+     9,
+     4,
+     6,
+     8,
+     4
+    ]
+   },
+   {
+    "nombre": "Ricardo Centurión",
+    "sd": "PLD",
+    "nivel": "Coordinador",
+    "puesto": "Coordinador PLD",
+    "apariciones": 2,
+    "cortes": 5,
+    "serie_mes": [
+     1,
+     18,
+     1,
+     19,
+     8
+    ]
+   }
+  ],
+  "mandos_n": 1,
+  "en_revision": 0,
+  "no_candidato": 3,
+  "cortes_contados": 5,
+  "retroactivo": false
+ },
+ "porcentajes": [
+  -5,
+  4,
+  5,
+  6,
+  15,
+  18,
+  26,
+  27,
+  71,
+  87,
+  89,
+  90,
+  91,
+  92,
+  93,
+  94,
+  96,
+  98,
+  100
+ ]
+}

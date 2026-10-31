@@ -47,7 +47,7 @@
    ],
    "encuesta": {
     "estado": "cerrada",
-    "nota": "Enviada; cerró 23 oct"
+    "nota": "Enviada mar 20 oct; cerró 23 oct; 8 respuestas (5 asistentes). Resultados en BITACORA 30 oct."
    }
   },
   {
@@ -76,8 +76,8 @@
    "hora": "13:00",
    "modalidad": "Remota",
    "encuesta": {
-    "estado": "pendiente",
-    "nota": "Tony la recordó el 27 oct; nadie la había levantado"
+    "estado": "cerrada",
+    "nota": "Enviada mar 27 oct; 15 respuestas (12 asistentes). Resultados en BITACORA 30 oct."
    }
   },
   {
@@ -100,7 +100,8 @@
    "fijo": true,
    "nota": "Coordina Jorge Belloc (55% de su uso es Vault), experto Javier García, su Gerente; Tony lo acordó con Javier (20 oct 2026). Borrador: presentaciones/sesion_vault.js.",
    "encuesta": {
-    "estado": "por enviar"
+    "estado": "por enviar",
+    "nota": "Se envía el martes siguiente a la sesión (mar 3 nov), como las anteriores (Tony, 30 oct 2026)."
    }
   },
   {
@@ -110,8 +111,8 @@
    "hora": "13:00",
    "tema": "Assistant: instrucciones que sí funcionan (3P)",
    "herramienta": "A",
-   "coordina": "Karime Sotelo (ENN)",
-   "coordina_uid": "nsotelo",
+   "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+   "coordina_uid": "jbueno",
    "expertos_uid": [
     "radimas",
     "imbecerra",
@@ -124,11 +125,12 @@
     "Subdirector",
     "Analista"
    ],
-   "estado": "Propuesta",
-   "nota": "Replaneación 20 oct (propuesta de Claude, espera a Tony). Reemplaza la que canceló Amed. Karime: fase 3 de su programa y la Champion con más Assistant según CAP; condicionado a cómo salga Word el 22. Expertos: más Assistant en los cortes del 2, 9 y 16 oct sin alerta de uso (Raúl Dimas 87, Israel Márquez 84, Lucía Arrazola 65). Fuera a propósito: Jesús Paúl Pallares (alerta de tarea repetida), Javier García (ya va en Vault), Ana Karen Salinas (ya participó).",
+   "estado": "Confirmada",
+   "nota": "La da Tony (30 oct 2026) en lugar de Karime. Expertos propuestos el 20 oct (Raúl Dimas, Israel Márquez, Lucía Arrazola), sin confirmar; Israel quedó en rojo en el corte del 30 oct.",
    "encuesta": {
     "estado": "por enviar"
-   }
+   },
+   "fijo": true
   },
   {
    "fecha": "2026-11-09",
@@ -153,6 +155,28 @@
    "encuesta": {
     "estado": "por enviar"
    }
+  },
+  {
+   "fecha": "2026-11-02",
+   "fecha_txt": "Jue 5 nov",
+   "dia": "2026-11-05",
+   "hora": "09:00",
+   "tema": "Casos de uso de Harvey para RL",
+   "herramienta": "A",
+   "coordina": "Equipo de Harvey",
+   "niveles": [
+    "Líder",
+    "Gerente",
+    "Director"
+   ],
+   "sd": "RL",
+   "estado": "Confirmada",
+   "fijo": true,
+   "nota": "Sesión exclusiva de RL que da directamente el equipo de Harvey: casos de uso alineados al trabajo de RL (Tony, 30 oct 2026).",
+   "encuesta": {
+    "estado": "por enviar"
+   },
+   "externa": true
   }
  ],
  "rotacion": []

@@ -69,7 +69,8 @@ def semanas_fijas(ref):
     lun = _lunes(ref)
     semanas = {lun, lun + timedelta(days=7)}
     ses = [s for s in _cap()['sesiones'] if _lunes(date.fromisoformat(s['fecha'])) in semanas]
-    sin = [s['tema'] for s in ses if not (s.get('fijo') and s.get('coordina_uid') and s.get('expertos_uid'))]
+    # externa: la da el equipo de Harvey (RL, 5 nov 2026); no lleva coordinador ni expertos de la DJ.
+    sin = [s['tema'] for s in ses if not s.get('externa') and not (s.get('fijo') and s.get('coordina_uid') and s.get('expertos_uid'))]
     if sin:
         return 'pendiente', 'sin coordinador o expertos fijos: ' + '; '.join(sin)
     return 'ok', f'{len(ses)} sesiones fijas entre el {lun:%d/%m} y el {lun + timedelta(days=11):%d/%m}'

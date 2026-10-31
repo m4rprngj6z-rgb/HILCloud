@@ -142,7 +142,7 @@ def revisar_fijos(cal, excs, roster, alertas=None, alertas_a=None):
         if not s.get('fijo'):
             continue
         ini, fin = dias_sesion(s)
-        if not s.get('coordina_uid'):
+        if not s.get('coordina_uid') and not s.get('externa'):
             avisos.append({'sesion': s['tema'], 'fecha_txt': s['fecha_txt'], 'uid': None, 'rol': 'coordina',
                            'motivo': 'sesión fija sin coordinador'})
         for rol, uid in roles_fijos(s):

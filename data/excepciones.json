@@ -321,6 +321,12 @@
    "tipo": "Fuera de oficina",
    "desde": "2026-11-03",
    "hasta": "2026-11-05"
+  },
+  {
+   "sd": "TODA_DJ",
+   "tipo": "Día inhábil",
+   "desde": "2026-11-02",
+   "hasta": "2026-11-02"
   }
  ]
 }

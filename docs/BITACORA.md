@@ -6,6 +6,7 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 30 oct | Tony | Decisiones | Lun 2 nov inhábil para Gentera (calendario CNBV); registrado en el HIL. Presentación de la sesión de Assistant (5 nov) lista: presentaciones/sesion_assistant.js. | Coordinar la sesión el mar 3 nov |
 | 30 oct | Encuestas Workflow y Word | Forms | Workflow (enviada mar 20 oct): 8 respuestas, 5 asistentes; de esos, 1 publicado y compartido, 1 publicado solo para su autor, 3 en borrador (los 3 dicen "en revisión con mi Champion"). Word (enviada mar 27 oct): 15 respuestas, 12 asistentes; 10 de 12 ya lo usaron (7 varias veces), sobre todo para redactar o reescribir cláusulas. Regla: la encuesta sale el martes siguiente a la sesión. | Encuesta de Vault mar 3 nov |
 | 30 oct | Tony | Decisiones | Tony da la sesión de Assistant del jue 5 nov (en lugar de Karime). Jue 5 nov 9:00: sesión de RL que da el equipo de Harvey con casos de uso de RL. Recap de Jorge cerrado (ya se le dio). Karla: el uso e incorporación de Harvey es objetivo de desarrollo de su equipo; Tony le dirá cómo evaluarlo. | Criterio de evaluación para Karla; expertos de Assistant |
 | 30 oct | Gustavo Bernal (PLD) y Jorge Belloc (CN) | Avisos de ausencias | Gustavo: Kelly Hernández, Néstor Rangel, Gabriela Cadena y Ana Lilia Ramírez de vacaciones el vie 30 oct (1 día; se califica normal). Jorge: Alonso Ixta fuera del 3 al 5 nov (excepción en el corte 2-6 nov). Registrado en el HIL. | |

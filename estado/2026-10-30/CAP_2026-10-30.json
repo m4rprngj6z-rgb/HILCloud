@@ -626,7 +626,7 @@
    ],
    "encuesta": {
     "estado": "cerrada",
-    "nota": "Enviada; cerró 23 oct"
+    "nota": "Enviada mar 20 oct; cerró 23 oct; 8 respuestas (5 asistentes). Resultados en BITACORA 30 oct."
    },
    "publico": 58,
    "publico_sin_uso": 8,
@@ -682,8 +682,8 @@
    "hora": "13:00",
    "modalidad": "Remota",
    "encuesta": {
-    "estado": "pendiente",
-    "nota": "Tony la recordó el 27 oct; nadie la había levantado"
+    "estado": "cerrada",
+    "nota": "Enviada mar 27 oct; 15 respuestas (12 asistentes). Resultados en BITACORA 30 oct."
    },
    "publico": 36,
    "publico_sin_uso": 4,
@@ -733,7 +733,8 @@
    "fijo": true,
    "nota": "Coordina Jorge Belloc (55% de su uso es Vault), experto Javier García, su Gerente; Tony lo acordó con Javier (20 oct 2026). Borrador: presentaciones/sesion_vault.js.",
    "encuesta": {
-    "estado": "por enviar"
+    "estado": "por enviar",
+    "nota": "Se envía el martes siguiente a la sesión (mar 3 nov), como las anteriores (Tony, 30 oct 2026)."
    },
    "publico": 27,
    "publico_sin_uso": 9,
@@ -768,8 +769,8 @@
    "hora": "13:00",
    "tema": "Assistant: instrucciones que sí funcionan (3P)",
    "herramienta": "A",
-   "coordina": "Karime Sotelo (ENN)",
-   "coordina_uid": "nsotelo",
+   "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+   "coordina_uid": "jbueno",
    "expertos_uid": [
     "radimas",
     "imbecerra",
@@ -782,11 +783,12 @@
     "Subdirector",
     "Analista"
    ],
-   "estado": "Propuesta",
-   "nota": "Replaneación 20 oct (propuesta de Claude, espera a Tony). Reemplaza la que canceló Amed. Karime: fase 3 de su programa y la Champion con más Assistant según CAP; condicionado a cómo salga Word el 22. Expertos: más Assistant en los cortes del 2, 9 y 16 oct sin alerta de uso (Raúl Dimas 87, Israel Márquez 84, Lucía Arrazola 65). Fuera a propósito: Jesús Paúl Pallares (alerta de tarea repetida), Javier García (ya va en Vault), Ana Karen Salinas (ya participó).",
+   "estado": "Confirmada",
+   "nota": "La da Tony (30 oct 2026) en lugar de Karime. Expertos propuestos el 20 oct (Raúl Dimas, Israel Márquez, Lucía Arrazola), sin confirmar; Israel quedó en rojo en el corte del 30 oct.",
    "encuesta": {
     "estado": "por enviar"
    },
+   "fijo": true,
    "publico": 64,
    "publico_sin_uso": 4,
    "urgentes": [
@@ -808,6 +810,11 @@
      "nivel": "Coordinador",
      "motivo": "instrucción inicial de 12 palabras en promedio (8 hilos)"
     }
+   ],
+   "expertos": [
+    "Raúl Dimas (PLD, 16.6 por semana)",
+    "Israel Márquez Becerra (PLD, 14.9 por semana)",
+    "Lucía Arrazola (CN, 21.9 por semana)"
    ]
   },
   {
@@ -855,6 +862,45 @@
      "motivo": "repite la misma tarea en Assistant en 12 de 21 hilos"
     }
    ]
+  },
+  {
+   "fecha": "2026-11-02",
+   "fecha_txt": "Jue 5 nov",
+   "dia": "2026-11-05",
+   "hora": "09:00",
+   "tema": "Casos de uso de Harvey para RL",
+   "herramienta": "A",
+   "coordina": "Equipo de Harvey",
+   "niveles": [
+    "Líder",
+    "Gerente",
+    "Director"
+   ],
+   "sd": "RL",
+   "estado": "Confirmada",
+   "fijo": true,
+   "nota": "Sesión exclusiva de RL que da directamente el equipo de Harvey: casos de uso alineados al trabajo de RL (Tony, 30 oct 2026).",
+   "encuesta": {
+    "estado": "por enviar"
+   },
+   "externa": true,
+   "publico": 37,
+   "publico_sin_uso": 2,
+   "urgentes": [
+    {
+     "nombre": "Gabriela Mejía Guerrero",
+     "sd": "PLD",
+     "nivel": "Gerente",
+     "motivo": "instrucción inicial de 12 palabras en promedio (23 hilos)"
+    },
+    {
+     "nombre": "Valeria Cruz",
+     "sd": "RL",
+     "nivel": "Líder",
+     "motivo": "instrucción inicial de 6 palabras en promedio (14 hilos)"
+    }
+   ],
+   "expertos": []
   }
  ],
  "por_sd": {
@@ -915,13 +961,22 @@
     {
      "fecha_txt": "Jue 5 nov",
      "tema": "Assistant: instrucciones que sí funcionan (3P)",
-     "coordina": "Karime Sotelo (ENN)",
-     "estado": "Propuesta",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Confirmada",
      "sin_uso": 1,
      "publico": 9,
      "prioridad": [
       "Isis Rodríguez"
      ]
+    },
+    {
+     "fecha_txt": "Jue 5 nov",
+     "tema": "Casos de uso de Harvey para RL",
+     "coordina": "Equipo de Harvey",
+     "estado": "Confirmada",
+     "sin_uso": 0,
+     "publico": 5,
+     "prioridad": []
     },
     {
      "fecha_txt": "Jue 12 nov",
@@ -985,10 +1040,19 @@
     {
      "fecha_txt": "Jue 5 nov",
      "tema": "Assistant: instrucciones que sí funcionan (3P)",
-     "coordina": "Karime Sotelo (ENN)",
-     "estado": "Propuesta",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Confirmada",
      "sin_uso": 0,
      "publico": 15,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Jue 5 nov",
+     "tema": "Casos de uso de Harvey para RL",
+     "coordina": "Equipo de Harvey",
+     "estado": "Confirmada",
+     "sin_uso": 0,
+     "publico": 11,
      "prioridad": []
     },
     {
@@ -1118,13 +1182,24 @@
     {
      "fecha_txt": "Jue 5 nov",
      "tema": "Assistant: instrucciones que sí funcionan (3P)",
-     "coordina": "Karime Sotelo (ENN)",
-     "estado": "Propuesta",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Confirmada",
      "sin_uso": 2,
      "publico": 19,
      "prioridad": [
       "Gabriela Mejía Guerrero",
       "Alejandra Casillas"
+     ]
+    },
+    {
+     "fecha_txt": "Jue 5 nov",
+     "tema": "Casos de uso de Harvey para RL",
+     "coordina": "Equipo de Harvey",
+     "estado": "Confirmada",
+     "sin_uso": 1,
+     "publico": 7,
+     "prioridad": [
+      "Gabriela Mejía Guerrero"
      ]
     },
     {
@@ -1188,10 +1263,19 @@
     {
      "fecha_txt": "Jue 5 nov",
      "tema": "Assistant: instrucciones que sí funcionan (3P)",
-     "coordina": "Karime Sotelo (ENN)",
-     "estado": "Propuesta",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Confirmada",
      "sin_uso": 0,
      "publico": 7,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Jue 5 nov",
+     "tema": "Casos de uso de Harvey para RL",
+     "coordina": "Equipo de Harvey",
+     "estado": "Confirmada",
+     "sin_uso": 0,
+     "publico": 2,
      "prioridad": []
     },
     {
@@ -1273,10 +1357,19 @@
     {
      "fecha_txt": "Jue 5 nov",
      "tema": "Assistant: instrucciones que sí funcionan (3P)",
-     "coordina": "Karime Sotelo (ENN)",
-     "estado": "Propuesta",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Confirmada",
      "sin_uso": 0,
      "publico": 7,
+     "prioridad": []
+    },
+    {
+     "fecha_txt": "Jue 5 nov",
+     "tema": "Casos de uso de Harvey para RL",
+     "coordina": "Equipo de Harvey",
+     "estado": "Confirmada",
+     "sin_uso": 0,
+     "publico": 4,
      "prioridad": []
     },
     {
@@ -1364,10 +1457,21 @@
     {
      "fecha_txt": "Jue 5 nov",
      "tema": "Assistant: instrucciones que sí funcionan (3P)",
-     "coordina": "Karime Sotelo (ENN)",
-     "estado": "Propuesta",
+     "coordina": "Tony Bueno (Gerente Contratos TI & AI)",
+     "estado": "Confirmada",
      "sin_uso": 1,
      "publico": 7,
+     "prioridad": [
+      "Valeria Cruz"
+     ]
+    },
+    {
+     "fecha_txt": "Jue 5 nov",
+     "tema": "Casos de uso de Harvey para RL",
+     "coordina": "Equipo de Harvey",
+     "estado": "Confirmada",
+     "sin_uso": 1,
+     "publico": 8,
      "prioridad": [
       "Valeria Cruz"
      ]

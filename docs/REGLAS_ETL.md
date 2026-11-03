@@ -72,6 +72,8 @@ pero no se nombran como workflow ni cuentan para Diversidad.
 
 - Corte = **lunes 00:00 a viernes 23:59** hora CDMX (Context Prompt en Notion). Actividad de fin
   de semana no cuenta (el JSON reporta cuántas acciones se excluyeron).
+  Se evaluó sumar el fin de semana a la semana siguiente (oct 2026: 2.8% de las acciones, 12 personas,
+  casi la mitad de una sola persona) y Tony lo descartó el 3 nov 2026: mucho ruido para un beneficio aislado.
 - Una semana es **de excepción** para una persona si: tiene cualquier día de incapacidad, o 3 o
   más días hábiles cubiertos por una excepción personal o de su SD. Los días inhábiles de toda la
   DJ (ej. 16 sep) reducen los días hábiles pero no cuentan como ausencia.

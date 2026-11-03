@@ -6,6 +6,7 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 3 nov | Aida e Ilham (Harvey) | Coordinación | Harvey apoyará con reportes Q3 y Q4: rentabilidad, casos de mayor y mejor uso, impacto social, económico y organizacional de la IA en Gentera. Sesión con directivos propuesta para el jue 19 nov; Tony envía save the date a cada directivo. | Confirmaciones de directivos; hora; invitación formal |
 | 3 nov | Tony | Decisiones | Fines de semana fuera del corte (descartado sumarlos). RL jue 5 nov: Tony confirma con Aida (Harvey) por correo. Alejandra Mireles fuera de oficina del 3 al 24 nov (registrado en el HIL). | Suplente de Alejandra para los reportes Champion de GC |
 | 3 nov | Asistentes de Vault (29 oct) | Encuesta | Enviada por Teams; anónima, con evaluación de quien expuso (formato estándar desde hoy). | Resultados |
 | 30 oct | Tony | Decisiones | Lun 2 nov inhábil para Gentera (calendario CNBV); registrado en el HIL. Presentación de la sesión de Assistant (5 nov) lista: presentaciones/sesion_assistant.js. | Coordinar la sesión el mar 3 nov |

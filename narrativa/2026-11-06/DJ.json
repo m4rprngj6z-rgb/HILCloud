@@ -1,0 +1,31 @@
+{
+ "_corte": "2-6 nov 2026",
+ "_redacto": "Claude, sobre out/DJ_2026-11-06.json y out/GL_2026-11-06.json; validado con scripts/validar_narrativa.py",
+ "fibi": {
+  "casos": [
+   "La DJ registró 1190 acciones, 15% menos que la semana anterior, en una semana de 4 días hábiles por el lunes inhábil, con 63 de 65 personas activas.",
+   "Vault se sostuvo en el mismo nivel que la semana anterior pese a la semana corta, tras la sesión abierta de Vault.",
+   "CN se mantiene como la Subdirección con más actividad: 462 acciones y 56 ejecuciones de Workflow."
+  ],
+  "puntos": [
+   "PLD concentra 6 de las 14 personas en atención alta de la DJ.",
+   "RL recibió esta semana una sesión del equipo de Harvey con casos de uso de su área."
+  ]
+ },
+ "licencias": {
+  "notas": [
+   {
+    "titulo": "Noviembre",
+    "texto": "primer corte del mes: la lista de candidatos se forma con los cortes de noviembre."
+   },
+   {
+    "titulo": "Oscar Martínez",
+    "texto": "alta de Control Interno; entra a la evaluación desde este mes."
+   },
+   {
+    "titulo": "Diana Gabriela Castillo Luna",
+    "texto": "licencia de cortesía solicitada por Karla Méndez; su uso se reporta en el Ejecutivo de ENN."
+   }
+  ]
+ }
+}

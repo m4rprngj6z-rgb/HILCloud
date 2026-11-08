@@ -1,0 +1,13 @@
+{
+ "_nota": "Pendientes de Tony para la infografía del corte de caja (presentaciones/infografia_corte/infografia.py).",
+ "contexto": "Semana de 4 días hábiles: el lunes 2 fue inhábil (calendario CNBV).",
+ "pendientes": [
+  {"cuando": "Lun 9", "que": "Enviar los 14 reportes del corte", "urgente": true},
+  {"cuando": "Esta semana", "que": "Definir quién recibe el Champion de GC mientras Alejandra Mireles está fuera", "urgente": true},
+  {"cuando": "Antes del jue 12", "que": "Fijar coordinador y expertos de la sesión de Workflow (propuesta: Jean Cub, Aaron Raya y Leslie Espinoza)", "urgente": true},
+  {"cuando": "Mar 10", "que": "Enviar encuestas de las sesiones del jue 5 (Assistant y RL)"},
+  {"cuando": "Jue 19", "que": "Sesiones de Harvey con directivos: confirmar horarios"},
+  {"cuando": "Sin fecha", "que": "Criterio para que Karla evalúe a su equipo en el uso de Harvey"}
+ ],
+ "fuera": ["Alejandra Mireles (GC), hasta el 24 nov", "Ana Karen Martínez (PLD), incapacidad hasta el 31 ene"]
+}

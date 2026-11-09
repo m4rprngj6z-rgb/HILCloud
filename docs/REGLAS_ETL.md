@@ -72,6 +72,9 @@ pero no se nombran como workflow ni cuentan para Diversidad.
 
 - Corte = **lunes 00:00 a viernes 23:59** hora CDMX (Context Prompt en Notion). Actividad de fin
   de semana no cuenta (el JSON reporta cuántas acciones se excluyeron).
+  Los días inhábiles cuentan como días fuera de la oficina para esta regla (Tony, 9 nov 2026): si la ausencia
+  propia más los inhábiles de la semana suman 3 o más (la persona trabajó 2 días o menos), la semana va en
+  excepción. Un inhábil solo, sin ausencia propia, no pone a nadie en excepción.
   Se evaluó sumar el fin de semana a la semana siguiente (oct 2026: 2.8% de las acciones, 12 personas,
   casi la mitad de una sola persona) y Tony lo descartó el 3 nov 2026: mucho ruido para un beneficio aislado.
 - Una semana es **de excepción** para una persona si: tiene cualquier día de incapacidad, o 3 o

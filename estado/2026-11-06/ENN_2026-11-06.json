@@ -14,8 +14,8 @@
   "personas": 9,
   "personas_activas": 9,
   "workflows": 13,
-  "atencion_alta": 1,
-  "evaluadas": 9
+  "atencion_alta": 0,
+  "evaluadas": 8
  },
  "calidad_datos": {
   "archivos": [
@@ -114,7 +114,7 @@
    "firma": "O>V>Wo>A>W",
    "semaforo": "amarillo",
    "que_pedir": [
-    "Buscar a Sofía Ochoa (26% de su ritmo)."
+    "Sin pendiente: sostener el ritmo."
    ],
    "en_transicion": false
   },
@@ -783,13 +783,13 @@
      "viernes": "2026-09-18",
      "con_datos": true,
      "total": 5,
-     "semaforo": "rojo",
+     "semaforo": "excepcion",
      "A": 1,
      "Wo": 0,
      "V": 1,
      "W": 0,
      "O": 3,
-     "excepcion": false,
+     "excepcion": true,
      "cuenta_en_base": false,
      "semilla": true
     },
@@ -828,7 +828,7 @@
      "viernes": "2026-10-09",
      "con_datos": true,
      "total": 37,
-     "semaforo": "verde",
+     "semaforo": "amarillo",
      "A": 18,
      "Wo": 11,
      "V": 0,
@@ -1113,13 +1113,13 @@
      "viernes": "2026-09-18",
      "con_datos": true,
      "total": 13,
-     "semaforo": "rojo",
+     "semaforo": "excepcion",
      "A": 0,
      "Wo": 7,
      "V": 2,
      "W": 1,
      "O": 3,
-     "excepcion": false,
+     "excepcion": true,
      "cuenta_en_base": false,
      "semilla": true
     },
@@ -1158,7 +1158,7 @@
      "viernes": "2026-10-09",
      "con_datos": true,
      "total": 36,
-     "semaforo": "verde",
+     "semaforo": "amarillo",
      "A": 0,
      "Wo": 4,
      "V": 15,
@@ -2874,8 +2874,8 @@
    "total": 18,
    "dias_activos": 2,
    "ultima_actividad": "2026-11-06 14:59:35",
-   "semaforo": "rojo",
-   "en_excepcion": false,
+   "semaforo": "excepcion",
+   "en_excepcion": true,
    "transicion": false,
    "baseline_previa": false,
    "base_detalle": {
@@ -2909,46 +2909,25 @@
     "feriados": [
      "2026-11-02"
     ],
-    "es_excepcion": false,
+    "es_excepcion": true,
     "transicion": false,
     "de_sd": false
    },
    "post_excepcion": false,
    "total_anterior": 78,
-   "racha": 0,
+   "racha": 4,
    "naCiclo": false,
-   "diversidadWf": 0.5,
+   "diversidadWf": 0.7,
    "firma": "O>Wo",
-   "urgencia": "Alta",
+   "urgencia": "Sin acción",
    "motivo": [
     {
-     "text": "Semana con 2 días de fuera de oficina (3-4 nov) y 1 día inhábil (2 nov): explica parte de la baja, pero no alcanza los 3 días hábiles para excepción. "
-    },
-    {
-     "text": "Caída pareja entre "
-    },
-    {
-     "text": "V",
-     "tool": "V"
-    },
-    {
-     "text": " y "
-    },
-    {
-     "text": "W",
-     "tool": "W"
-    },
-    {
-     "text": "."
+     "text": "Fuera de oficina (3 nov-4 nov 2026)"
     }
    ],
    "fortaleza": [
     {
-     "text": "O",
-     "tool": "O"
-    },
-    {
-     "text": " es su herramienta más consistente históricamente."
+     "text": "Sin datos esta semana (excepción)."
     }
    ],
    "fortaleza_tool": "O",
@@ -3184,13 +3163,13 @@
      "viernes": "2026-11-06",
      "con_datos": true,
      "total": 18,
-     "semaforo": "rojo",
+     "semaforo": "excepcion",
      "A": 0,
      "Wo": 5,
      "V": 0,
      "W": 0,
      "O": 13,
-     "excepcion": false,
+     "excepcion": true,
      "cuenta_en_base": false,
      "semilla": false
     }

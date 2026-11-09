@@ -7,13 +7,13 @@
   {
    "sd": "ENN",
    "personas": 9,
-   "acc_ppw": 35.5,
+   "acc_ppw": 37.5,
    "mezcla": {
     "A": 23,
-    "Wo": 21,
-    "V": 15,
-    "W": 11,
-    "O": 31
+    "Wo": 23,
+    "V": 14,
+    "W": 10,
+    "O": 29
    },
    "fortaleza": "O",
    "hueco": "W"
@@ -49,7 +49,7 @@
   {
    "sd": "GC",
    "personas": 7,
-   "acc_ppw": 14.5,
+   "acc_ppw": 14.6,
    "mezcla": {
     "A": 40,
     "Wo": 31,
@@ -77,12 +77,12 @@
   {
    "sd": "RL",
    "personas": 8,
-   "acc_ppw": 8.2,
+   "acc_ppw": 8.3,
    "mezcla": {
-    "A": 62,
+    "A": 63,
     "Wo": 5,
     "V": 3,
-    "W": 22,
+    "W": 21,
     "O": 8
    },
    "fortaleza": "A",
@@ -266,11 +266,11 @@
   {
    "nivel": "Subdirector",
    "personas": 5,
-   "acc_ppw": 21.3,
+   "acc_ppw": 21.4,
    "mezcla": {
     "A": 37,
     "Wo": 11,
-    "V": 12,
+    "V": 13,
     "W": 1,
     "O": 39
    },
@@ -288,13 +288,13 @@
   {
    "nivel": "Gerente",
    "personas": 22,
-   "acc_ppw": 19.0,
+   "acc_ppw": 19.5,
    "mezcla": {
     "A": 42,
-    "Wo": 18,
+    "Wo": 20,
     "V": 13,
     "W": 6,
-    "O": 20
+    "O": 19
    },
    "esperada": "A>W",
    "sin_uso": {
@@ -332,13 +332,13 @@
   {
    "nivel": "Coordinador",
    "personas": 22,
-   "acc_ppw": 21.9,
+   "acc_ppw": 22.2,
    "mezcla": {
     "A": 36,
     "Wo": 24,
     "V": 8,
     "W": 15,
-    "O": 17
+    "O": 16
    },
    "esperada": "W>A",
    "sin_uso": {
@@ -589,7 +589,7 @@
    "expertos": [
     "Karla Méndez (ENN, 28.1 por semana)",
     "Alfredo Duarte (ENN, 24.2 por semana)",
-    "Sofía Ochoa (ENN, 14.5 por semana)"
+    "Sofía Ochoa (ENN, 13 por semana)"
    ],
    "niveles": [
     "Coordinador",

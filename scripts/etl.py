@@ -183,7 +183,10 @@ def excepcion_semana(uid, sd, mon, excs):
     personal -= feriados
     habiles = 5 - len(feriados)
     n = len(ausente)
-    es_exc = incapacidad or n >= 3 or (habiles > 0 and n >= habiles)
+    # Dias fuera de la oficina = ausencia personal + inhabiles de la semana: con 3 o mas (solo 2 o menos dias
+    # trabajados) la semana va en excepcion, siempre que haya al menos 1 dia de ausencia propia (Tony, 9 nov 2026:
+    # Sofia Ochoa, lun 2 inhabil + mar 3 y mie 4 fuera).
+    es_exc = incapacidad or n >= 3 or (n >= 1 and n + len(feriados) >= 3) or (habiles > 0 and n >= habiles)
     transicion = bool(es_exc and cierra_sd and not incapacidad and len(personal) < 3)
     # detalle legible: {tipo: [fechas]} + feriados
     por_tipo = {}

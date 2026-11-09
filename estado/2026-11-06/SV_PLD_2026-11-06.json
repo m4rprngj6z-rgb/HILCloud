@@ -1,0 +1,269 @@
+{
+ "sd": "PLD",
+ "nombre": "Prevención de Lavado de Dinero",
+ "champion": "Gustavo Bernal",
+ "subdirector": "Gabriela Cadena",
+ "ventana": [
+  "2026-10-07",
+  "2026-11-06"
+ ],
+ "corte": "2-6 nov 2026",
+ "mes": {
+  "oct": {
+   "persona_semanas": 88,
+   "acciones": 1277,
+   "semanas_utiles": 5,
+   "acc_ppw": 14.5,
+   "activas_pct": 98,
+   "wf_semana": 35.2
+  },
+  "sep": {
+   "persona_semanas": 70,
+   "acciones": 1063,
+   "semanas_utiles": 4,
+   "acc_ppw": 15.2,
+   "activas_pct": 93,
+   "wf_semana": 44.0
+  },
+  "delta_pct": -5
+ },
+ "personas_total": 19,
+ "activas_mes": 18,
+ "workflows": [
+  {
+   "nombre": "Redactor de descripciones de operaciones",
+   "veces": 22,
+   "personas": 1
+  },
+  {
+   "nombre": "Identificación de Personas Vinculadas a Delitos en Noticias",
+   "veces": 13,
+   "personas": 1
+  },
+  {
+   "nombre": "Extractor de Denuncias",
+   "veces": 11,
+   "personas": 1
+  },
+  {
+   "nombre": "Extractor de Registros (Oficio eliminar)",
+   "veces": 10,
+   "personas": 1
+  },
+  {
+   "nombre": "Revisión de Documentos por Vinculación Delictiva",
+   "veces": 9,
+   "personas": 1
+  },
+  {
+   "nombre": "Revisión Documental - Identificación de Personas Vinculadas a Delitos",
+   "veces": 9,
+   "personas": 1
+  },
+  {
+   "nombre": "Extractor de Requerimiento",
+   "veces": 8,
+   "personas": 1
+  },
+  {
+   "nombre": "ANÁLISIS PERSONAS EN REGISTROS WEB",
+   "veces": 8,
+   "personas": 1
+  }
+ ],
+ "workflows_distintos": 20,
+ "ejecuciones_wf": 111,
+ "vaults": {
+  "proyectos": 33,
+  "consultas": 76,
+  "compartidos": 3
+ },
+ "vaults_top": [
+  {
+   "nombre": "FORMATOS",
+   "consultas": 21,
+   "compartido": 0
+  },
+  {
+   "nombre": "PLD",
+   "consultas": 11,
+   "compartido": 0
+  },
+  {
+   "nombre": "Legislación PLD_Actividad Vulnerable",
+   "consultas": 7,
+   "compartido": 0
+  }
+ ],
+ "kpis": [
+  {
+   "kpi": "KPI 7: análisis de hits en listas de control",
+   "base": "3 días hábiles",
+   "real": "0.05 días (sep 2026, 175 casos)",
+   "meta": "6 meses: 2 días | 1 año: 1 día",
+   "estado": "Supera meta de 1 año"
+  },
+  {
+   "kpi": "KPI 8: oficios de requerimiento de información",
+   "base": "8 h",
+   "real": "24 min (sep 2026, 538 oficios)",
+   "meta": "6 meses: 6 h | 1 año: 3 h",
+   "estado": "Supera meta de 1 año"
+  }
+ ],
+ "casos": [],
+ "personas": [
+  {
+   "nombre": "Jesús Paúl Pallares",
+   "nivel": "Coordinador",
+   "prom_semana": 35.0,
+   "principal": "Assistant",
+   "workflow": "Extracción de datos de INE y Constancia de Situación Fiscal",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Israel Márquez Becerra",
+   "nivel": "Coordinador",
+   "prom_semana": 25.0,
+   "principal": "Word",
+   "workflow": "Proofread for Spelling and Grammar",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Heriberto Falcón",
+   "nivel": "Gerente",
+   "prom_semana": 21.9,
+   "principal": "Outlook",
+   "workflow": "Identificacion de personas vinculadas a delitos",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Damaris Mercado",
+   "nivel": "Coordinador",
+   "prom_semana": 20.0,
+   "principal": "Outlook",
+   "workflow": "Completar campos 40 y 41 del lay out",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Martha Sotomayor",
+   "nivel": "Coordinador",
+   "prom_semana": 19.6,
+   "principal": "Word",
+   "workflow": "Revisión de Personas Vinculadas con Delitos",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Gabriela Cadena",
+   "nivel": "Subdirector",
+   "prom_semana": 17.9,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Karla Stephanie Aparicio González",
+   "nivel": "Coordinador",
+   "prom_semana": 15.3,
+   "principal": "Workflow",
+   "workflow": "Extractor de Denuncias",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Raúl Dimas",
+   "nivel": "Coordinador",
+   "prom_semana": 15.1,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Diana Laura Mendoza Osorio",
+   "nivel": "Coordinador",
+   "prom_semana": 13.7,
+   "principal": "Outlook",
+   "workflow": "Extracción de Información Corporativa",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Gabriela Mejía Guerrero",
+   "nivel": "Gerente",
+   "prom_semana": 13.5,
+   "principal": "Outlook",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Mario Manzano",
+   "nivel": "Coordinador",
+   "prom_semana": 12.6,
+   "principal": "Word",
+   "workflow": "Redactor de descripciones de operaciones",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Ana Lilia Ramírez Barranco",
+   "nivel": "Gerente",
+   "prom_semana": 11.5,
+   "principal": "Vault",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Carlos Reyes",
+   "nivel": "Gerente",
+   "prom_semana": 11.4,
+   "principal": "Workflow",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Gustavo Bernal",
+   "nivel": "Líder",
+   "prom_semana": 10.0,
+   "principal": "Vault",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Ricardo Centurión",
+   "nivel": "Coordinador",
+   "prom_semana": 9.9,
+   "principal": "Workflow",
+   "workflow": "Identificación de Personas Vinculadas a Delitos en Noticias",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Alejandra Casillas",
+   "nivel": "Coordinador",
+   "prom_semana": 9.1,
+   "principal": "Assistant",
+   "workflow": "ANÁLISIS PERSONAS EN REGISTROS WEB",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Néstor Rangel",
+   "nivel": "Líder",
+   "prom_semana": 7.0,
+   "principal": "Word",
+   "workflow": "Revisión de Documentos por Vinculación Delictiva",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Ana Karen Martínez",
+   "nivel": "Gerente",
+   "prom_semana": 4.0,
+   "principal": "Sin actividad",
+   "workflow": null,
+   "en_excepcion": true
+  },
+  {
+   "nombre": "Kelly Hernández",
+   "nivel": "Coordinador",
+   "prom_semana": 1.5,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  }
+ ]
+}

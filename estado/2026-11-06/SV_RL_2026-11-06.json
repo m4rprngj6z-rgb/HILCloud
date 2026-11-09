@@ -1,0 +1,166 @@
+{
+ "sd": "RL",
+ "nombre": "Relaciones Laborales",
+ "champion": "Jean Cub Nájera",
+ "subdirector": "Julián Centeno",
+ "ventana": [
+  "2026-10-07",
+  "2026-11-06"
+ ],
+ "corte": "2-6 nov 2026",
+ "mes": {
+  "oct": {
+   "persona_semanas": 33,
+   "acciones": 285,
+   "semanas_utiles": 5,
+   "acc_ppw": 8.6,
+   "activas_pct": 91,
+   "wf_semana": 13.4
+  },
+  "sep": {
+   "persona_semanas": 31,
+   "acciones": 225,
+   "semanas_utiles": 4,
+   "acc_ppw": 7.3,
+   "activas_pct": 90,
+   "wf_semana": 12.8
+  },
+  "delta_pct": 18
+ },
+ "personas_total": 8,
+ "activas_mes": 8,
+ "workflows": [
+  {
+   "nombre": "Extraer Datos Laborales Banca",
+   "veces": 23,
+   "personas": 1
+  },
+  {
+   "nombre": "Extraer Datos de Resoluciones Laborales",
+   "veces": 15,
+   "personas": 3
+  },
+  {
+   "nombre": "Ficha Técnica - Juicio Laboral",
+   "veces": 3,
+   "personas": 1
+  },
+  {
+   "nombre": "Extraer Datos de Resoluciones Laborales CE",
+   "veces": 1,
+   "personas": 1
+  }
+ ],
+ "workflows_distintos": 4,
+ "ejecuciones_wf": 42,
+ "vaults": {
+  "proyectos": 36,
+  "consultas": 149,
+  "compartidos": 2
+ },
+ "vaults_top": [
+  {
+   "nombre": "Resoluciones Investigaciones.",
+   "consultas": 95,
+   "compartido": 2
+  },
+  {
+   "nombre": "Resoluciones de CE",
+   "consultas": 24,
+   "compartido": 2
+  },
+  {
+   "nombre": "Morfín Díaz VF",
+   "consultas": 8,
+   "compartido": 0
+  }
+ ],
+ "kpis": [
+  {
+   "kpi": "KPI 5: reportería de bajas",
+   "base": "5 días",
+   "real": "0.76 días por persona (ago 2026)",
+   "meta": "6 meses: 2 días | 1 año: 1 día",
+   "estado": "Cumple ambas metas (85.9% menos horas-hombre)"
+  },
+  {
+   "kpi": "KPI 6: reportería contenciosa laboral",
+   "base": "3 días",
+   "real": "0.42 días, 3.4 h (ago 2026)",
+   "meta": "6 meses: 1 día | 1 año: 3 h",
+   "estado": "Cumple meta de 6 meses (84.6% menos horas-hombre)"
+  }
+ ],
+ "casos": [
+  {
+   "caso": "RL-01: bases compartidas de Resoluciones (Jean Cub Nájera)",
+   "dato": "Vaults compartidos con el equipo, 103 consultas acumuladas"
+  }
+ ],
+ "personas": [
+  {
+   "nombre": "Jean Cub Nájera",
+   "nivel": "Líder",
+   "prom_semana": 12.4,
+   "principal": "Workflow",
+   "workflow": "Extraer Datos Laborales Banca",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Christian Ramírez",
+   "nivel": "Gerente",
+   "prom_semana": 11.6,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Valeria Cruz",
+   "nivel": "Líder",
+   "prom_semana": 10.0,
+   "principal": "Assistant",
+   "workflow": "Extraer Datos de Resoluciones Laborales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Alan García",
+   "nivel": "Líder",
+   "prom_semana": 9.8,
+   "principal": "Outlook",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Rocío Fernández",
+   "nivel": "Líder",
+   "prom_semana": 8.9,
+   "principal": "Vault",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Patsy Godínez",
+   "nivel": "Líder",
+   "prom_semana": 7.2,
+   "principal": "Assistant",
+   "workflow": "Ficha Técnica - Juicio Laboral",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Karla Zetina",
+   "nivel": "Gerente",
+   "prom_semana": 5.6,
+   "principal": "Outlook",
+   "workflow": "Extraer Datos de Resoluciones Laborales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Julián Centeno",
+   "nivel": "Director",
+   "prom_semana": 1.0,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  }
+ ]
+}

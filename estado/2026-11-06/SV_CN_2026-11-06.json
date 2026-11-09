@@ -1,0 +1,242 @@
+{
+ "sd": "CN",
+ "nombre": "Cumplimiento Normativo",
+ "champion": "Jorge Belloc",
+ "subdirector": "Fehebell Arcos",
+ "ventana": [
+  "2026-10-07",
+  "2026-11-06"
+ ],
+ "corte": "2-6 nov 2026",
+ "mes": {
+  "oct": {
+   "persona_semanas": 71,
+   "acciones": 2103,
+   "semanas_utiles": 5,
+   "acc_ppw": 29.6,
+   "activas_pct": 100,
+   "wf_semana": 52.6
+  },
+  "sep": {
+   "persona_semanas": 60,
+   "acciones": 1038,
+   "semanas_utiles": 4,
+   "acc_ppw": 17.3,
+   "activas_pct": 87,
+   "wf_semana": 35.8
+  },
+  "delta_pct": 71
+ },
+ "personas_total": 15,
+ "activas_mes": 15,
+ "workflows": [
+  {
+   "nombre": "Notas Informativas Regulatorias (MX)",
+   "veces": 24,
+   "personas": 1
+  },
+  {
+   "nombre": "Resumen diario de publicaciones y correo (MX)",
+   "veces": 12,
+   "personas": 1
+  },
+  {
+   "nombre": "Tracking diario- Términos y Condiciones de Campañas",
+   "veces": 11,
+   "personas": 1
+  },
+  {
+   "nombre": "PJC-07 Contratos de adhesión – Cumplimiento Normativo (1)",
+   "veces": 10,
+   "personas": 1
+  },
+  {
+   "nombre": "Análisis de Póliza de Seguro Global Bancario",
+   "veces": 9,
+   "personas": 1
+  },
+  {
+   "nombre": "Consultas 326 Y 328",
+   "veces": 8,
+   "personas": 2
+  },
+  {
+   "nombre": "Comparativa de ajustes realizados en TyC – versión anterior vs. versión actual",
+   "veces": 7,
+   "personas": 1
+  },
+  {
+   "nombre": "Análisis de Cumplimiento Art. 318, Fracc. III, Inc. a) – Cartas de Subcontratados",
+   "veces": 6,
+   "personas": 1
+  }
+ ],
+ "workflows_distintos": 26,
+ "ejecuciones_wf": 135,
+ "vaults": {
+  "proyectos": 91,
+  "consultas": 294,
+  "compartidos": 21
+ },
+ "vaults_top": [
+  {
+   "nombre": "Base de Oficios",
+   "consultas": 56,
+   "compartido": 1
+  },
+  {
+   "nombre": "Legislación",
+   "consultas": 53,
+   "compartido": 12
+  },
+  {
+   "nombre": "Carpetas 326 y 328",
+   "consultas": 37,
+   "compartido": 2
+  }
+ ],
+ "kpis": [
+  {
+   "kpi": "KPI 3: análisis jurídico de oficios",
+   "base": "20 días hábiles",
+   "real": "7.79 días (sep 2026; oct sin cambios)",
+   "meta": "6 meses: 15 días | 1 año: 10 días",
+   "estado": "Cumple ambas metas"
+  },
+  {
+   "kpi": "KPI 4: optimización de productos",
+   "base": "60 días",
+   "real": "28 días (sep 2026, 1 caso)",
+   "meta": "6 meses: 50 días | 1 año: 45 días",
+   "estado": "Cumple ambas metas"
+  }
+ ],
+ "casos": [
+  {
+   "caso": "Carpetas de los arts. 326 y 328 de la CUB (Leslie Espinoza)",
+   "dato": "77% menos tiempo de revisión: de 34.5 a 7.8 horas al mes"
+  }
+ ],
+ "personas": [
+  {
+   "nombre": "Ana Karen Salinas",
+   "nivel": "Coordinador",
+   "prom_semana": 70.0,
+   "principal": "Word",
+   "workflow": "Tracking diario- Términos y Condiciones de Campañas",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Javier García",
+   "nivel": "Gerente",
+   "prom_semana": 54.2,
+   "principal": "Assistant",
+   "workflow": "Resumen diario de publicaciones y correo (MX)",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Lucía Arrazola",
+   "nivel": "Gerente",
+   "prom_semana": 43.4,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Leslie Espinoza",
+   "nivel": "Líder",
+   "prom_semana": 36.6,
+   "principal": "Outlook",
+   "workflow": "Consultas 326 Y 328",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Aaron Raya",
+   "nivel": "Líder",
+   "prom_semana": 28.6,
+   "principal": "Outlook",
+   "workflow": "Notas Informativas Regulatorias (MX)",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Jorge Belloc",
+   "nivel": "Líder",
+   "prom_semana": 28.0,
+   "principal": "Vault",
+   "workflow": "Generar Alegatos en Respuesta a Oficio",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Alonso Ixta",
+   "nivel": "Gerente",
+   "prom_semana": 24.2,
+   "principal": "Sin actividad",
+   "workflow": "CSG - Contratos de adhesión.",
+   "en_excepcion": true
+  },
+  {
+   "nombre": "Alejandro Maqueda",
+   "nivel": "Gerente",
+   "prom_semana": 20.8,
+   "principal": "Assistant",
+   "workflow": "Análisis Regulatorio de Adquisición de Paydux (México)",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Janis Pérez",
+   "nivel": "Líder",
+   "prom_semana": 15.6,
+   "principal": "Workflow",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Armando de la Rosa",
+   "nivel": "Gerente",
+   "prom_semana": 15.2,
+   "principal": "Assistant",
+   "workflow": "Análisis de Póliza de Seguro Global Bancario",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Fehebell Arcos",
+   "nivel": "Subdirector",
+   "prom_semana": 14.9,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Karla Guerrero",
+   "nivel": "Coordinador",
+   "prom_semana": 14.9,
+   "principal": "Outlook",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Fernando Yhibran Medina",
+   "nivel": "Líder",
+   "prom_semana": 10.0,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Elisa Álvarez",
+   "nivel": "Gerente",
+   "prom_semana": 9.8,
+   "principal": "Assistant",
+   "workflow": "Minutas ejecutivas desde transcripción de Teams",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "César Berelleza",
+   "nivel": "Coordinador",
+   "prom_semana": 6.1,
+   "principal": "Assistant",
+   "workflow": "Validador de Expedientes Legales",
+   "en_excepcion": false
+  }
+ ]
+}

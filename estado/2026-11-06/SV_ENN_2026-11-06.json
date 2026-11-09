@@ -1,0 +1,184 @@
+{
+ "sd": "ENN",
+ "nombre": "Expansión Nuevos Negocios",
+ "champion": "Karime Sotelo",
+ "subdirector": "Karla Méndez",
+ "ventana": [
+  "2026-10-07",
+  "2026-11-06"
+ ],
+ "corte": "2-6 nov 2026",
+ "mes": {
+  "oct": {
+   "persona_semanas": 44,
+   "acciones": 1662,
+   "semanas_utiles": 5,
+   "acc_ppw": 37.8,
+   "activas_pct": 100,
+   "wf_semana": 44.8
+  },
+  "sep": {
+   "persona_semanas": 33,
+   "acciones": 1084,
+   "semanas_utiles": 4,
+   "acc_ppw": 32.8,
+   "activas_pct": 100,
+   "wf_semana": 14.0
+  },
+  "delta_pct": 15
+ },
+ "personas_total": 9,
+ "activas_mes": 9,
+ "workflows": [
+  {
+   "nombre": "Validador de Expedientes Legales",
+   "veces": 126,
+   "personas": 8
+  },
+  {
+   "nombre": "Validador de Propuestas Comerciales",
+   "veces": 23,
+   "personas": 4
+  },
+  {
+   "nombre": "Minuta desde transcripción (ENN)",
+   "veces": 22,
+   "personas": 4
+  },
+  {
+   "nombre": "Contrato de Donación",
+   "veces": 20,
+   "personas": 2
+  },
+  {
+   "nombre": "Checklist de Documentos de Identificación",
+   "veces": 1,
+   "personas": 1
+  },
+  {
+   "nombre": "Convenio de Terminación - Grupo Gentera",
+   "veces": 1,
+   "personas": 1
+  }
+ ],
+ "workflows_distintos": 6,
+ "ejecuciones_wf": 193,
+ "vaults": {
+  "proyectos": 229,
+  "consultas": 607,
+  "compartidos": 22
+ },
+ "vaults_top": [
+  {
+   "nombre": "Escritura",
+   "consultas": 29,
+   "compartido": 1
+  },
+  {
+   "nombre": "FINDATA PROJECT",
+   "consultas": 17,
+   "compartido": 2
+  },
+  {
+   "nombre": "Datos empresas de CC",
+   "consultas": 17,
+   "compartido": 0
+  }
+ ],
+ "kpis": [
+  {
+   "kpi": "KPI 1: revisión de contratos (expedientes)",
+   "base": "48 min",
+   "real": "5.5 min (oct 2026)",
+   "meta": "6 meses: 10 min | 1 año: 4 min",
+   "estado": "Cumple meta de 6 meses (88.5% menos tiempo)"
+  },
+  {
+   "kpi": "KPI 2: ahorro en despachos (REPSE)",
+   "base": "7 abogados externos",
+   "real": "2 abogados (sep 2026)",
+   "meta": "1 año: 2 abogados",
+   "estado": "En meta de 1 año"
+  }
+ ],
+ "casos": [
+  {
+   "caso": "Validador de Expedientes Legales",
+   "dato": "Revisión de expedientes de 48 a 5.5 minutos (KPI 1); workflow usado por varias personas del equipo"
+  }
+ ],
+ "personas": [
+  {
+   "nombre": "Sofía Ochoa",
+   "nivel": "Coordinador",
+   "prom_semana": 53.2,
+   "principal": "Outlook",
+   "workflow": "Validador de Expedientes Legales",
+   "en_excepcion": true
+  },
+  {
+   "nombre": "Karla Méndez",
+   "nivel": "Subdirector",
+   "prom_semana": 51.9,
+   "principal": "Outlook",
+   "workflow": "Validador de Expedientes Legales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Isis Rodríguez",
+   "nivel": "Coordinador",
+   "prom_semana": 49.0,
+   "principal": "Outlook",
+   "workflow": "Validador de Expedientes Legales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Miguel Jaimes",
+   "nivel": "Coordinador",
+   "prom_semana": 40.6,
+   "principal": "Assistant",
+   "workflow": "Validador de Expedientes Legales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Alfredo Duarte",
+   "nivel": "Gerente",
+   "prom_semana": 39.6,
+   "principal": "Outlook",
+   "workflow": "Validador de Expedientes Legales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Diana Fuentes",
+   "nivel": "Gerente",
+   "prom_semana": 37.1,
+   "principal": "Vault",
+   "workflow": "Validador de Propuestas Comerciales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Karime Sotelo",
+   "nivel": "Líder",
+   "prom_semana": 31.8,
+   "principal": "Vault",
+   "workflow": "Validador de Propuestas Comerciales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Raquel Reyes Cubillo",
+   "nivel": "Gerente",
+   "prom_semana": 17.4,
+   "principal": "Vault",
+   "workflow": "Validador de Expedientes Legales",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Rodolfo Osuna",
+   "nivel": "Gerente",
+   "prom_semana": 16.5,
+   "principal": "Outlook",
+   "workflow": null,
+   "en_excepcion": false
+  }
+ ]
+}

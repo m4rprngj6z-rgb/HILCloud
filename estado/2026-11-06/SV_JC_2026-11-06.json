@@ -1,0 +1,153 @@
+{
+ "sd": "JC",
+ "nombre": "Jurídico Contencioso",
+ "champion": "Amed Hernández",
+ "subdirector": "Marcia Mora",
+ "ventana": [
+  "2026-10-07",
+  "2026-11-06"
+ ],
+ "corte": "2-6 nov 2026",
+ "mes": {
+  "oct": {
+   "persona_semanas": 32,
+   "acciones": 487,
+   "semanas_utiles": 5,
+   "acc_ppw": 15.2,
+   "activas_pct": 94,
+   "wf_semana": 5.6
+  },
+  "sep": {
+   "persona_semanas": 28,
+   "acciones": 340,
+   "semanas_utiles": 4,
+   "acc_ppw": 12.1,
+   "activas_pct": 89,
+   "wf_semana": 2.2
+  },
+  "delta_pct": 26
+ },
+ "personas_total": 7,
+ "activas_mes": 7,
+ "workflows": [
+  {
+   "nombre": "Extracción de Datos y Montos – Requerimientos SIARA/CNBV",
+   "veces": 11,
+   "personas": 1
+  },
+  {
+   "nombre": "Análisis de oficios: personas requeridas y fundamentación CPF",
+   "veces": 10,
+   "personas": 1
+  },
+  {
+   "nombre": "Registro CNBPD",
+   "veces": 7,
+   "personas": 1
+  }
+ ],
+ "workflows_distintos": 3,
+ "ejecuciones_wf": 28,
+ "vaults": {
+  "proyectos": 52,
+  "consultas": 499,
+  "compartidos": 0
+ },
+ "vaults_top": [
+  {
+   "nombre": "OFICIOS SITI AA",
+   "consultas": 280,
+   "compartido": 0
+  },
+  {
+   "nombre": "OFICIOS SITI AA",
+   "consultas": 113,
+   "compartido": 0
+  },
+  {
+   "nombre": "Registro CNBPD",
+   "consultas": 14,
+   "compartido": 0
+  }
+ ],
+ "kpis": [
+  {
+   "kpi": "KPI 11: análisis de demandas y oficios",
+   "base": "24 a 36 h",
+   "real": "20 a 24 h (sep 2026)",
+   "meta": "6 meses: 10 h | 1 año: 5 h",
+   "estado": "Primera reducción medida; aún no en meta. Costo evitado estimado por JC: de MXN 144,840-217,260 a 120,700-144,840 por semana"
+  },
+  {
+   "kpi": "KPI 12: licencias y permisos de inmuebles",
+   "base": "18 h (290 documentos al mes)",
+   "real": "Sin medición",
+   "meta": "6 meses: 5 h | 1 año: 2 h",
+   "estado": "Pendiente de medir"
+  }
+ ],
+ "casos": [
+  {
+   "caso": "JC-01: repositorio de Oficios SITI AA (Cristian Fernández)",
+   "dato": "El vault más consultado de la DJ (280 consultas)"
+  }
+ ],
+ "personas": [
+  {
+   "nombre": "Adriana Rodríguez",
+   "nivel": "Gerente",
+   "prom_semana": 24.4,
+   "principal": "Outlook",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Cristian Fernández",
+   "nivel": "Coordinador",
+   "prom_semana": 17.2,
+   "principal": "Workflow",
+   "workflow": "Análisis de oficios: personas requeridas y fundamentación CPF",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Gloria Sánchez",
+   "nivel": "Coordinador",
+   "prom_semana": 17.0,
+   "principal": "Assistant",
+   "workflow": "Extracción de Datos y Montos – Requerimientos SIARA/CNBV",
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Amed Hernández",
+   "nivel": "Gerente",
+   "prom_semana": 14.6,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Andrés Quintero",
+   "nivel": "Líder",
+   "prom_semana": 12.5,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Marcia Mora",
+   "nivel": "Subdirector",
+   "prom_semana": 6.1,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Oscar Monteverde",
+   "nivel": "Gerente",
+   "prom_semana": 3.6,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  }
+ ]
+}

@@ -1,0 +1,143 @@
+{
+ "sd": "GC",
+ "nombre": "Gobierno Corporativo",
+ "champion": "Alejandra Mireles",
+ "subdirector": "Luis Ricardo Robert",
+ "ventana": [
+  "2026-10-07",
+  "2026-11-06"
+ ],
+ "corte": "2-6 nov 2026",
+ "mes": {
+  "oct": {
+   "persona_semanas": 34,
+   "acciones": 515,
+   "semanas_utiles": 5,
+   "acc_ppw": 15.1,
+   "activas_pct": 100,
+   "wf_semana": 9.4
+  },
+  "sep": {
+   "persona_semanas": 28,
+   "acciones": 406,
+   "semanas_utiles": 4,
+   "acc_ppw": 14.5,
+   "activas_pct": 96,
+   "wf_semana": 14.5
+  },
+  "delta_pct": 4
+ },
+ "personas_total": 7,
+ "activas_mes": 7,
+ "workflows": [
+  {
+   "nombre": "Clasificación de Productos y Servicios Niza",
+   "veces": 3,
+   "personas": 1
+  }
+ ],
+ "workflows_distintos": 1,
+ "ejecuciones_wf": 3,
+ "vaults": {
+  "proyectos": 17,
+  "consultas": 205,
+  "compartidos": 2
+ },
+ "vaults_top": [
+  {
+   "nombre": "SD Gobierno Corporativo",
+   "consultas": 149,
+   "compartido": 6
+  },
+  {
+   "nombre": "Gabriel Juarez",
+   "consultas": 19,
+   "compartido": 0
+  },
+  {
+   "nombre": "Notoriedad",
+   "consultas": 11,
+   "compartido": 0
+  }
+ ],
+ "kpis": [
+  {
+   "kpi": "KPI 9: documentos corporativos",
+   "base": "2 a 6 h por documento",
+   "real": "0.9 a 2.7 h, estimado (oct 2026)",
+   "meta": "6 meses: 1.5 h | 1 año: 30 min",
+   "estado": "Cumple meta de 6 meses en el extremo bajo; falta medir tiempos exactos"
+  },
+  {
+   "kpi": "KPI 10: formatos de marcas",
+   "base": "1 h por solicitud",
+   "real": "21 min, estimado (oct 2026)",
+   "meta": "6 meses: 20 min | 1 año: 10 min",
+   "estado": "A 1 minuto de la meta de 6 meses; falta medir tiempos exactos"
+  }
+ ],
+ "casos": [
+  {
+   "caso": "GC-01: cuestionarios regulatorios (Gabriel Juárez)",
+   "dato": "3 cuestionarios de 200 preguntas (600 reactivos) con comparativos e informes ejecutivos; falta tiempo antes y después"
+  }
+ ],
+ "personas": [
+  {
+   "nombre": "María Yesenia Álvarez",
+   "nivel": "Coordinador",
+   "prom_semana": 20.8,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Alejandra Mireles",
+   "nivel": "Coordinador",
+   "prom_semana": 19.1,
+   "principal": "Workflow",
+   "workflow": "Clasificación de Productos y Servicios Niza",
+   "en_excepcion": true
+  },
+  {
+   "nombre": "Gabriel Juárez",
+   "nivel": "Gerente",
+   "prom_semana": 16.0,
+   "principal": "Word",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Luis Ricardo Robert",
+   "nivel": "Subdirector",
+   "prom_semana": 13.9,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Zuleycka García",
+   "nivel": "Coordinador",
+   "prom_semana": 13.0,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Diego Alvarado",
+   "nivel": "Analista",
+   "prom_semana": 10.6,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  },
+  {
+   "nombre": "Juan Miguel Gálvez",
+   "nivel": "Gerente",
+   "prom_semana": 8.6,
+   "principal": "Assistant",
+   "workflow": null,
+   "en_excepcion": false
+  }
+ ]
+}

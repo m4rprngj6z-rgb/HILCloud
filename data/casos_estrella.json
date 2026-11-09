@@ -1,0 +1,9 @@
+{
+ "_fuente": "Notion, Catálogo de Casos Estrella (384f66a1716281cc8c9ac1411b2be683) y docs/HANDOFF_2026-10-20.md, 9 nov 2026.",
+ "ENN": [{"caso": "Validador de Expedientes Legales", "dato": "Revisión de expedientes de 48 a 5.5 minutos (KPI 1); workflow usado por varias personas del equipo"}],
+ "CN": [{"caso": "Carpetas de los arts. 326 y 328 de la CUB (Leslie Espinoza)", "dato": "77% menos tiempo de revisión: de 34.5 a 7.8 horas al mes"}],
+ "GC": [{"caso": "GC-01: cuestionarios regulatorios (Gabriel Juárez)", "dato": "3 cuestionarios de 200 preguntas (600 reactivos) con comparativos e informes ejecutivos; falta tiempo antes y después"}],
+ "RL": [{"caso": "RL-01: bases compartidas de Resoluciones (Jean Cub Nájera)", "dato": "Vaults compartidos con el equipo, 103 consultas acumuladas"}],
+ "JC": [{"caso": "JC-01: repositorio de Oficios SITI AA (Cristian Fernández)", "dato": "El vault más consultado de la DJ (280 consultas)"}],
+ "PLD": []
+}

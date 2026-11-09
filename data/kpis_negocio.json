@@ -1,0 +1,21 @@
+{
+ "_fuente": "Notion, KPIs de Negocio por SD (384f66a1716281c4a244e5c15cb28bf2), consultado 9 nov 2026. Copia para el sustento de valor; Notion gana.",
+ "ENN": [
+  {"kpi": "KPI 1: revisión de contratos (expedientes)", "base": "48 min", "real": "5.5 min (oct 2026)", "meta": "6 meses: 10 min | 1 año: 4 min", "estado": "Cumple meta de 6 meses (88.5% menos tiempo)"},
+  {"kpi": "KPI 2: ahorro en despachos (REPSE)", "base": "7 abogados externos", "real": "2 abogados (sep 2026)", "meta": "1 año: 2 abogados", "estado": "En meta de 1 año"}],
+ "CN": [
+  {"kpi": "KPI 3: análisis jurídico de oficios", "base": "20 días hábiles", "real": "7.79 días (sep 2026; oct sin cambios)", "meta": "6 meses: 15 días | 1 año: 10 días", "estado": "Cumple ambas metas"},
+  {"kpi": "KPI 4: optimización de productos", "base": "60 días", "real": "28 días (sep 2026, 1 caso)", "meta": "6 meses: 50 días | 1 año: 45 días", "estado": "Cumple ambas metas"}],
+ "RL": [
+  {"kpi": "KPI 5: reportería de bajas", "base": "5 días", "real": "0.76 días por persona (ago 2026)", "meta": "6 meses: 2 días | 1 año: 1 día", "estado": "Cumple ambas metas (85.9% menos horas-hombre)"},
+  {"kpi": "KPI 6: reportería contenciosa laboral", "base": "3 días", "real": "0.42 días, 3.4 h (ago 2026)", "meta": "6 meses: 1 día | 1 año: 3 h", "estado": "Cumple meta de 6 meses (84.6% menos horas-hombre)"}],
+ "PLD": [
+  {"kpi": "KPI 7: análisis de hits en listas de control", "base": "3 días hábiles", "real": "0.05 días (sep 2026, 175 casos)", "meta": "6 meses: 2 días | 1 año: 1 día", "estado": "Supera meta de 1 año"},
+  {"kpi": "KPI 8: oficios de requerimiento de información", "base": "8 h", "real": "24 min (sep 2026, 538 oficios)", "meta": "6 meses: 6 h | 1 año: 3 h", "estado": "Supera meta de 1 año"}],
+ "GC": [
+  {"kpi": "KPI 9: documentos corporativos", "base": "2 a 6 h por documento", "real": "0.9 a 2.7 h, estimado (oct 2026)", "meta": "6 meses: 1.5 h | 1 año: 30 min", "estado": "Cumple meta de 6 meses en el extremo bajo; falta medir tiempos exactos"},
+  {"kpi": "KPI 10: formatos de marcas", "base": "1 h por solicitud", "real": "21 min, estimado (oct 2026)", "meta": "6 meses: 20 min | 1 año: 10 min", "estado": "A 1 minuto de la meta de 6 meses; falta medir tiempos exactos"}],
+ "JC": [
+  {"kpi": "KPI 11: análisis de demandas y oficios", "base": "24 a 36 h", "real": "20 a 24 h (sep 2026)", "meta": "6 meses: 10 h | 1 año: 5 h", "estado": "Primera reducción medida; aún no en meta. Costo evitado estimado por JC: de MXN 144,840-217,260 a 120,700-144,840 por semana"},
+  {"kpi": "KPI 12: licencias y permisos de inmuebles", "base": "18 h (290 documentos al mes)", "real": "Sin medición", "meta": "6 meses: 5 h | 1 año: 2 h", "estado": "Pendiente de medir"}]
+}

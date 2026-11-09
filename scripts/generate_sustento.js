@@ -60,7 +60,6 @@ const children = [
 
   H.h2('Casos Estrella', 100),
   tabla([3400, 6680], ['Caso', 'Dato'], [...d.casos.map((c) => [c.caso, c.dato]), ['Otro caso de tu equipo (completa)', 'Tarea, tiempo antes, tiempo con Harvey, cuántas veces al mes']], new Set(), { blank: true }),
-  sp(),
 
   new Paragraph({ pageBreakBefore: true, children: [] }),
   H.h2('Tu equipo', 100),

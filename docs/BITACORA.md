@@ -6,6 +6,7 @@ mismo día, con fecha, quién, qué se acordó y qué queda pendiente. Lo más n
 
 | Fecha | Con quién | Canal | Qué pasó / se acordó | Pendiente |
 |---|---|---|---|---|
+| 9 nov | Paola Taibo y Manuel de la Fuente (TO) | Correo | Revisión 2027: iniciativas que siguen con gasto en 2027 deben bajar a 60% del OPEX o sustentar que no tienen oportunidad de eficiencia; no mover Wave. Tony: primero defender los seats con valor, luego buscar reducción (vía precio en la renovación del 15 mar 2027). Sustento de valor por SD enviado a revisión de Champions. | Champions completan antes del 13 nov; respuesta de Aida sobre usuarios arriba de 60 seats |
 | 7 nov | Tony | Idea | "Francotiradores" (uso bajo pero certero) archivada: el export de Harvey no mide resultado (solo 51 de 6,365 consultas calificadas, sin registro de uso de la respuesta); el resultado vive en Casos Estrella, KPIs y el Champion. | |
 | 6 nov | Corte 2-6 nov | Reportes | 14 docx; semana de 4 días hábiles (lun 2 inhábil). DJ 1190 acciones (-15%), 63 de 65 activas. Sofía Ochoa fuera 3-4 nov (registrado en el HIL, informó Tony). | Coordinador y expertos de Workflow 12 nov; encuestas de Assistant y RL (mar 10) |
 | 3 nov | Aida e Ilham (Harvey) | Coordinación | Harvey apoyará con reportes Q3 y Q4: rentabilidad, casos de mayor y mejor uso, impacto social, económico y organizacional de la IA en Gentera. Sesión con directivos propuesta para el jue 19 nov; Tony envía save the date a cada directivo. | Confirmaciones de directivos; hora; invitación formal |

@@ -1,0 +1,52 @@
+{
+ "_fuente": "Redacción de Claude para el sustento de valor 2027 (Tony, 9 nov 2026), a partir de data/kpis_negocio.json (Notion, KPIs de Negocio por SD) y data/casos_estrella.json. Las horas por mes se calculan con los datos citados en cada 'calculo'. Lo marcado como inferencia lo valida el Champion.",
+ "dj_horas": "390 a 430",
+ "ENN": {
+  "frase": "ENN revisa cada expediente en 5.5 minutos en lugar de 48 (KPI 1, 88.5% menos tiempo) y pasó de 7 a 2 abogados externos REPSE (KPI 2). Sin Harvey, las 126 revisiones al mes del Validador de Expedientes regresan a trabajo manual.",
+  "horas": "~89", "calculo": "42.5 minutos menos por expediente (KPI 1: 48 a 5.5) por 126 ejecuciones del Validador en el mes. Inferencia: cada ejecución es un expediente.",
+  "h1": "~89 horas al mes en revisión de expedientes.",
+  "h2": "5 abogados externos REPSE menos (KPI 2). Falta el monto anual de ese ahorro.",
+  "h3": "Dictamen de expedientes con un mismo estándar para todo el equipo (8 personas usan el Validador).",
+  "falta": ["Monto anual de los 5 abogados externos que ya no se contratan.", "Confirmar que cada ejecución del Validador corresponde a un expediente.", "Costo por hora del equipo, para convertir las horas en pesos."]
+ },
+ "CN": {
+  "frase": "CN redujo 77% el tiempo de revisión de sus carpetas regulatorias de los arts. 326 y 328 de la CUB, con ahorro económico ya reportado, y cumple sus dos KPIs de Wave. Sin Harvey, ese proceso y las 135 ejecuciones de workflow que corre al mes regresan a trabajo manual.",
+  "horas": "~27", "calculo": "Caso Estrella de carpetas: de 34.5 a 7.8 horas al mes (tiempos de Leslie Espinoza, 22 oct 2026).",
+  "h1": "~27 horas al mes solo en carpetas regulatorias; oficios en 7.79 días contra 20 de partida (KPI 3).",
+  "h2": "Ahorro económico reportado por el caso de carpetas. Falta el monto.",
+  "h3": "Respuestas a la CNBV dentro de plazo y carpetas con trazabilidad.",
+  "falta": ["Monto del ahorro económico del caso de carpetas (Leslie Espinoza).", "Costo por hora del equipo o del despacho que se sustituye.", "Un segundo caso con tiempo antes y después."]
+ },
+ "PLD": {
+  "frase": "PLD atiende un hit en listas de control en minutos y no en días (KPI 7: 0.05 días contra 3) y un requerimiento de autoridad en 24 minutos en lugar de 8 horas (KPI 8). Sin Harvey, son unas 93 horas al mes de vuelta a revisión manual.",
+  "horas": "~93", "calculo": "KPI 7, sep 2026: 175 casos con sus minutos sin y con Harvey por figura (80 h). KPI 8, sep 2026: 19 requerimientos de 66.8 a 24.3 minutos (13 h).",
+  "h1": "~93 horas al mes en listas de control y requerimientos de autoridad.",
+  "h2": "Por cuantificar.",
+  "h3": "Hits atendidos el mismo día y requerimientos de autoridad en tiempo.",
+  "falta": ["Un Caso Estrella de PLD con antes y después (hoy no hay ninguno documentado).", "Costo por hora del equipo.", "Qué riesgo se reduce al atender los hits el mismo día."]
+ },
+ "GC": {
+  "frase": "GC prellena formatos de marcas en unos 21 minutos en lugar de una hora y genera documentos corporativos en menos de la mitad del tiempo, según sus estimaciones. Con tiempos medidos, el caso de GC queda cerrado.",
+  "horas": "Por medir", "calculo": "KPIs 9 y 10 de GC son porcentajes de avance del workflow, no tiempos medidos.",
+  "h1": "Por medir: estimado de 21 minutos por formato de marca (KPI 10) y de 0.9 a 2.7 horas por documento corporativo (KPI 9).",
+  "h2": "Por cuantificar.",
+  "h3": "Actas y documentos corporativos con formato homogéneo; poderes y facultades localizados en la base compartida de la Subdirección.",
+  "falta": ["Tiempos reales de los KPIs 9 y 10 (cuántos documentos al mes y cuánto tardan).", "Tiempo antes y después del caso GC-01 (600 reactivos).", "Costo por hora del equipo."]
+ },
+ "JC": {
+  "frase": "JC redujo el análisis de demandas y oficios de 24 a 36 horas por semana a 20 a 24 horas (KPI 11). Frente a la tarifa de despacho externo, JC estima un costo evitado de MXN 24,140 a 72,420 por semana.",
+  "horas": "17 a 52", "calculo": "KPI 11, sep 2026: de 24-36 a 20-24 horas por semana, por 4.33 semanas al mes.",
+  "h1": "17 a 52 horas al mes en análisis de demandas y oficios.",
+  "h2": "Costo evitado estimado por JC: MXN 24,140 a 72,420 por semana, a la tarifa de despacho de MXN 6,035 por hora.",
+  "h3": "Oficios atendidos en plazo con precedentes en Vault (el vault de Oficios SITI AA es el más consultado de la DJ).",
+  "falta": ["Confirmar si el costo evitado es gasto real en despacho o una referencia.", "Medir el KPI 12 (licencias y permisos de inmuebles).", "Costo por hora del equipo."]
+ },
+ "RL": {
+  "frase": "RL pasó de 195 a 28 horas-hombre al mes en su reportería de bajas y contenciosa (KPIs 5 y 6). Sin Harvey, son 167 horas al mes que el equipo vuelve a dedicar a armar reportes.",
+  "horas": "~167", "calculo": "Reporte de Jean Cub Nájera, jun y ago 2026: KPI 5 de 130 a 18.3 h al mes y KPI 6 de 65 a 10 h al mes.",
+  "h1": "~167 horas al mes en reportería.",
+  "h2": "Por cuantificar.",
+  "h3": "Reportería mensual consistente y resoluciones como base de criterio compartida.",
+  "falta": ["Costo por hora del equipo.", "Un caso de las bases de Resoluciones con antes y después.", "Confirmar que las horas de agosto siguen vigentes."]
+ }
+}

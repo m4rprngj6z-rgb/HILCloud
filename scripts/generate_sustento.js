@@ -26,14 +26,36 @@ const dm = (iso) => `${iso.slice(8)}/${iso.slice(5, 7)}`;
 const enMeta = d.kpis.filter((k) => /Cumple|Supera|En meta/.test(k.estado)).length;
 const oct = d.mes.oct, sep = d.mes.sep;
 const signo = d.mes.delta_pct > 0 ? '+' : '';
+const CASOS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'sustento_casos.json'), 'utf8'));
+const c = CASOS[d.sd];
+const AMARILLO = 'FFF9E6';
+const caja = (texto) => H.table([10080], [new TableRow({ children: [H.cell(texto, { width: 10080, size: 22, bold: true, fill: 'EBF3FB' })] })]);
 
 const children = [
   H.para(H.run('Harvey AI × Gentera', { size: 28, bold: true, color: H.C.navy }), { after: 40 }),
   H.para(H.run(`Sustento de valor 2027: ${d.nombre}`, { size: 24, bold: true }), { after: 40 }),
   H.para(H.run(`Para ${d.champion}, Champion ${d.sd}  |  Datos al ${FECHA}  |  Revisar y completar antes del ${LIMITE}`, { size: 18, color: H.C.gris }), { after: 120 }),
-  t('Estamos sustentando el valor de Harvey para 2027. Estos son los datos que ya tenemos de tu Subdirección. Revísalos, corrige lo que no cuadre y completa lo que está en amarillo: lo que más pesa es el resultado concreto y, cuando exista, el valor en pesos.', { after: 120 }),
+  t('Estamos sustentando el valor de Harvey para 2027. Esta primera página es el caso de tu Subdirección, ya armado con lo que sabemos. Valídalo, corrige lo que no cuadre y completa lo que está en amarillo: con eso el caso queda listo para defenderse. Las páginas siguientes son la evidencia.', { after: 120 }),
 
-  H.h2('De un vistazo', 100),
+  H.h2('Tu caso para 2027', 100),
+  caja(c.frase),
+  sp(),
+  H.h2('Impacto, en las tres hipótesis del MVP', 100),
+  H.table([3000, 7080], [H.headerRow(['Hipótesis', 'Lo que ya sabemos'], [3000, 7080]),
+    ...[['H1. Eficiencia operativa', c.h1], ['H2. Valor económico', c.h2], ['H3. Calidad y trazabilidad', c.h3]].map((f, i) => new TableRow({ cantSplit: true, children: [
+      H.cell(f[0], { width: 3000, size: S, bold: true }),
+      H.cell(f[1], { width: 7080, size: S, fill: /Falta|Por /.test(f[1]) ? AMARILLO : (i % 2 === 1 ? H.C.filaAlterna : undefined) })] }))]),
+  H.nota(`Horas liberadas al mes: ${c.horas}. Cálculo: ${c.calculo} En toda la DJ, la suma de las Subdirecciones da ${CASOS.dj_horas} horas al mes.`, { after: 100 }),
+  H.h2('Qué se pierde sin Harvey', 100),
+  t(`${d.workflows_distintos} workflows en uso con ${mil(d.ejecuciones_wf)} ejecuciones al mes, ${d.vaults.proyectos} vaults con ${mil(d.vaults.consultas)} consultas y ${d.activas_mes} de ${d.personas_total} personas que lo usan: todo eso regresa a trabajo manual.`),
+  H.h2('Lo que le falta a tu caso para ganar', 100),
+  H.table([600, 6380, 3100], [H.headerRow(['#', 'Dato', 'Tu respuesta'], [600, 6380, 3100], new Set([0])),
+    ...c.falta.map((f, i) => new TableRow({ cantSplit: true, children: [
+      H.cell(String(i + 1), { width: 600, size: S, bold: true, align: AlignmentType.CENTER }),
+      H.cell(f, { width: 6380, size: S }), H.cell('', { width: 3100, size: S, fill: AMARILLO })] }))]),
+
+  new Paragraph({ pageBreakBefore: true, children: [] }),
+  H.h2('La evidencia: de un vistazo', 100),
   tabla([3000, 7080], ['Tema', 'Dato'], [
     ['Uso en octubre', `${oct.acc_ppw} acciones por persona por semana (${signo}${d.mes.delta_pct}% vs septiembre, ${sep.acc_ppw}); ${oct.activas_pct}% de las personas activas cada semana`],
     ['Personas que lo usaron', `${d.activas_mes} de ${d.personas_total} entre el ${dm(d.ventana[0])} y el ${dm(d.ventana[1])}`],

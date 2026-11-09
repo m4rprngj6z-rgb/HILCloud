@@ -149,6 +149,21 @@ def tres_p_en_espanol(ref):
     return ('falla', '3P en inglés en: ' + ', '.join(malos)) if malos else ('ok', 'Propósito, Parámetros, Profundidad')
 
 
+def inhabil_cuenta_como_fuera(ref):
+    """Tony, 9 nov 2026: ausencia propia + inhabiles >= 3 dias => excepcion (caso Sofia Ochoa, corte 2-6 nov)."""
+    import sys as _s
+    _s.path.insert(0, os.path.join(R, 'scripts'))
+    import etl
+    from datetime import date as _d
+    excs = [{'sd': 'TODA_DJ', 'personas': [], 'tipo': 'Día inhábil', 'desde': '2026-11-02', 'hasta': '2026-11-02'},
+            {'sd': 'ENN', 'personas': ['x'], 'tipo': 'Fuera de oficina', 'desde': '2026-11-03', 'hasta': '2026-11-04'}]
+    a = etl.excepcion_semana('x', 'ENN', _d(2026, 11, 2), excs)['es_excepcion']
+    b = etl.excepcion_semana('y', 'ENN', _d(2026, 11, 2), excs[:1])['es_excepcion']
+    if a and not b:
+        return 'ok', '2 días fuera + inhábil = excepción; inhábil solo no'
+    return 'falla', f'2 días + inhábil -> {a}; inhábil solo -> {b}'
+
+
 DECISIONES = [
     ('Workflow 15 oct: Tony coordina, Karime apoya, 3 guías de mesa fijas', workflow_15oct),
     ('Word: Karime coordina sola, Tony de respaldo', word_playbook_karime),
@@ -161,6 +176,7 @@ DECISIONES = [
     ('Firma: Gerente Contratos TI & AI', firma),
     ('Nunca raya larga', sin_raya_larga),
     ('3P en español', tres_p_en_espanol),
+    ('Inhábil cuenta como día fuera para la excepción', inhabil_cuenta_como_fuera),
 ]
 
 
